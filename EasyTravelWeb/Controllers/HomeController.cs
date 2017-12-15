@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace EasyTravelWeb.Controllers
 {
+    [Route("api/{user}")]
     public class HomeController : Controller
     {
         public ActionResult Index()

@@ -1,5 +1,9 @@
-.vs/
-EasyTravelWeb/bin/EntityFramework.SqlServer.xml
 EasyTravelWeb/bin/
+<<<<<<< HEAD
 EasyTravelWeb/obj/
 TestLib/
+=======
+EasyTravelWeb/
+packages/
+>>>>>>> 388d67b91d37ecc1984f9df1cb28a2fbc0e6ef0c
+.vs/

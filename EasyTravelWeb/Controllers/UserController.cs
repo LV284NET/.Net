@@ -14,25 +14,26 @@ namespace EasyTravelWeb.Controllers
         {
             new User()
             {
-                UserId=1, Email="user1@gmail.com", FirstName="Jhon", LastName="Smith"
+                UserId=1, Email="user1@gmail.com", FirstName="Jhon", LastName="Smith", Password="1111"
             },
 
             new User()
             {
-                UserId=2, Email="user2@gmail.com", FirstName="Poll", LastName="Mithel"
+                UserId=2, Email="user2@gmail.com", FirstName="Poll", LastName="Mithel", Password="1111"
             },
 
             new User()
             {
-                UserId=3, Email="user3@gmail.com", FirstName="Rachel", LastName="Green"
+                UserId=3, Email="user3@gmail.com", FirstName="Rachel", LastName="Green", Password="1111"
             },
 
             new User()
             {
-                UserId=4, Email="user4@gmail.com", FirstName="Sarah", LastName="Bernar"
+                UserId=4, Email="user4@gmail.com", FirstName="Sarah", LastName="Bernar", Password="1111"
             },
         };
 
+        [HttpGet]
         public IList<User> GetAllUsers()
         {
             //Return list of all users  
@@ -51,5 +52,27 @@ namespace EasyTravelWeb.Controllers
             return users;
         }
 
+        public class MyUser
+        {
+            public string Email { get; set; }
+            public string Password { get; set; }
+
+
+        }
+
+        [HttpPost]
+        public User GetUser([FromBody] MyUser myUser)
+        {
+            try
+            {
+                return users?.FirstOrDefault(row =>
+                        (row.Email == myUser.Email && row.Password == myUser.Password));                
+            }
+
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
