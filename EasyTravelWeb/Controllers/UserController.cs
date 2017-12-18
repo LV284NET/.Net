@@ -65,10 +65,9 @@ namespace EasyTravelWeb.Controllers
         {
             try
             {
-                return users?.FirstOrDefault(row =>
+                return users?.First(row =>
                         (row.Email == myUser.Email && row.Password == myUser.Password));                
             }
-
             catch (Exception e)
             {
                 throw new Exception(e.Message);
