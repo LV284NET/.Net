@@ -63,15 +63,8 @@ namespace EasyTravelWeb.Controllers
         [HttpPost]
         public User GetUser([FromBody] MyUser myUser)
         {
-            try
-            {
-                return users?.First(row =>
-                        (row.Email == myUser.Email && row.Password == myUser.Password));                
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            return users?.First(row =>
+                    row.Email == myUser.Email && row.Password == myUser.Password);
         }
     }
 }
