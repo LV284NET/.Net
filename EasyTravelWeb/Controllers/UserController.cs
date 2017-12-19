@@ -10,19 +10,40 @@ namespace EasyTravelWeb.Controllers
 {
     public class UserController : ApiController
     {
-        EasyTravelDB db=new EasyTravelDB();
-     
+        IList<User> users = new List<User>()
+        {
+            new User()
+            {
+                UserId=1, Email="user1@gmail.com", FirstName="Jhon", LastName="Smith", Password="1111"
+            },
+
+            new User()
+            {
+                UserId=2, Email="user2@gmail.com", FirstName="Poll", LastName="Mithel", Password="1111"
+            },
+
+            new User()
+            {
+                UserId=3, Email="user3@gmail.com", FirstName="Rachel", LastName="Green", Password="1111"
+            },
+
+            new User()
+            {
+                UserId=4, Email="user4@gmail.com", FirstName="Sarah", LastName="Bernar", Password="1111"
+            },
+        };
+
         [HttpGet]
-        public List<User> GetAllUsers()
+        public IList<User> GetAllUsers()
         {
             //Return list of all users  
-            return this.db.Users.ToList();
+            return this.users;
         }
 
         public User GetUserDetails(int id)
         {
             //Return a single employee detail  
-            var users = this.db.Users.FirstOrDefault(e => e.idUser == id);
+            var users = this.users.FirstOrDefault(e => e.UserId == id);
             if (users == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -42,8 +63,8 @@ namespace EasyTravelWeb.Controllers
         [HttpPost]
         public User GetUser([FromBody] MyUser myUser)
         {
-            return db.Users.ToList()?.First(row =>
-                    row.EMail == myUser.Email && row.Password == myUser.Password);
+            return users?.First(row =>
+                    row.Email == myUser.Email && row.Password == myUser.Password);
         }
     }
 }
