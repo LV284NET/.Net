@@ -52,21 +52,19 @@ namespace EasyTravelWeb.Repositories
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    if (!reader.HasRows)
+	                if (!reader.HasRows)
                     {
                         return true;
                     }
-                    else
-                    {
-                        return false;
-                    }
+
+	                return false;
                 }
             }
         }
 
-        public bool AddUser(string eMail, string password, string firstName, string lastName)
+        public Guid AddUser(User newUser)
         {
-            if (this.isNewUser((eMail)))
+            if (this.isNewUser(newUser.Email))
             {
                 using (SqlConnection connection =
                     new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -78,18 +76,52 @@ namespace EasyTravelWeb.Repositories
 
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.Parameters.Add(new SqlParameter("@Email", eMail));
-                    command.Parameters.Add(new SqlParameter("@Password", password));
-                    command.Parameters.Add(new SqlParameter("@FirstName", firstName));
-                    command.Parameters.Add(new SqlParameter("@LastName", lastName));
-                    command.Parameters.Add(new SqlParameter("UserID", Guid.NewGuid()));
+                    do
+                    {
+                       newUser.UserId = Guid.NewGuid();                    
+                    }
+                    while (!checkGuid(newUser.UserId));
+
+                    command.Parameters.Add(new SqlParameter("@Email", newUser.Email));
+                    command.Parameters.Add(new SqlParameter("@Password", newUser.Password));
+                    command.Parameters.Add(new SqlParameter("@FirstName", newUser.FirstName));
+                    command.Parameters.Add(new SqlParameter("@LastName", newUser.LastName));
+                    command.Parameters.Add(new SqlParameter("@IsAdmin", false));
+                    command.Parameters.Add(new SqlParameter("UserID", newUser.UserId));
 
                     command.ExecuteNonQuery();
 
-                    return true;
+                    return newUser.UserId;
                 }
             }
-            return false;
+            return Guid.Empty;
+        }
+
+        private bool checkGuid(Guid userGuid)
+        {
+
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("isNewGUID", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@guid", userGuid));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (!reader.HasRows)
+                    {
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
         }
     }
 }

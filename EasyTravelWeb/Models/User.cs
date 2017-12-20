@@ -11,16 +11,17 @@ namespace EasyTravelWeb.Models
         {
         }
 
-        public User(int id, string email, string firstName, string lastName, string password)
+        public User(Guid id, string email, string firstName, string lastName, string password)
         {
             this.UserId = id;
             this.Email = email;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Password = password;
+            this.UserId = Guid.Empty;
         }
 
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         public string Email { get; set; }
 
