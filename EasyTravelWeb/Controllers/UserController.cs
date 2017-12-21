@@ -1,44 +1,48 @@
 ﻿using System;
+using System.Web.Http;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
-using System.Web.Http;
 
 namespace EasyTravelWeb.Controllers
 {
 	public class UserController : ApiController
 	{
-		private readonly UserRepository userRepository = new UserRepository();
+		private readonly UserRepository _userRepository = new UserRepository();
 
-	    [Route("api/user/GetUser")]
-        [HttpPost]
+		private Logger _loger = Logger.GetInstance();
+
+		[Route ("api/user/GetUser")]
+		[HttpPost]
 		public IHttpActionResult GetUser([FromBody] User user)
 		{
 			User requiredUser;
 
 			try
 			{
-				requiredUser = userRepository.GetUser(user.Email, user.Password);
+				requiredUser = _userRepository.GetUser(user.Email, user.Password);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				return Unauthorized();
+				_loger.Log("api/user/GetUser: " + ex.Message);
+
+				return NotFound();
 			}
 
 			return Ok(requiredUser);
 		}
 
-	    [Route("api/user/AddUser")]
-        [HttpPost]
-        public IHttpActionResult AddUser([FromBody] User newUser)
-        {
-            Guid userGuid = userRepository.AddUser(newUser);
+		[Route("api/user/AddUser")]
+		[HttpPost]
+		public IHttpActionResult AddUser([FromBody] User newUser)
+		{
+			Guid userGuid = _userRepository.AddUser(newUser);
 
-            if (userGuid != Guid.Empty)
-            {
-                return Created("New user added", userGuid);
-            }
+			if (userGuid != Guid.Empty)
+			{
+				return Created("New user added", userGuid);
+			}
 
-            return BadRequest();
-        }
-    }
+			return BadRequest();
+		}
+	}
 }

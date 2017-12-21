@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace EasyTravelWeb.Models
 {
@@ -18,7 +15,6 @@ namespace EasyTravelWeb.Models
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Password = password;
-            this.UserId = Guid.Empty;
         }
 
         public Guid UserId { get; set; }
