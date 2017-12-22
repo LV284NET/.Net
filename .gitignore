@@ -3,4 +3,5 @@
 **/bin/**
 packages/
 .vs/
+.vs
 EasyTravel.sln.rej
