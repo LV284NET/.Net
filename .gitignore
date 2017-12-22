@@ -1,0 +1,6 @@
+**/rej/**
+**/obj/**
+**/bin/**
+packages/
+.vs/
+EasyTravel.sln.rej
