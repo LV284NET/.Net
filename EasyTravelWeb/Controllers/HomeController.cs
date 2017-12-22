@@ -12,6 +12,8 @@ namespace EasyTravelWeb.Controllers
         const int countMainPlaces = 6;
 
         private readonly PlaceRepository _placeRepository = new PlaceRepository();
+        private Logger _loger = Logger.GetInstance();
+
         [Route("GetPlaces")]
         [HttpGet]
         public IList<Place> GetPlaces()
@@ -20,7 +22,14 @@ namespace EasyTravelWeb.Controllers
 
             for (int i = 0; i < countMainPlaces; i++)
             {
-                placesForMain.Add(_placeRepository.GetPlace(new Random().Next(28)));
+                try
+                {
+                    placesForMain.Add(_placeRepository.GetPlace(new Random().Next(28)));
+                }
+                catch(Exception ex)
+                {
+                    _loger.Log("GetPlaces: " + ex.Message);
+                }
             }
 
             return placesForMain;
