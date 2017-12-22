@@ -32,7 +32,7 @@ namespace EasyTravelWeb.Repositories
                         Name = reader["name"].ToString(),
                         CityName = reader["cityName"].ToString(),
                         Description = reader["description"].ToString(),
-                        PicturePlace = new System.Drawing.Bitmap(new MemoryStream((byte[])reader["picture"]))
+ //                       PicturePlace = new System.Drawing.Bitmap(new MemoryStream((byte[])reader["picture"]))
                     };
 
                 }
