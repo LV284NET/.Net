@@ -1,6 +1,9 @@
 ﻿using System;
 using  System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
 
@@ -9,13 +12,17 @@ namespace EasyTravelWeb.Controllers
     //[Route("")]
     public class HomeController : ApiController
     {
+        #region Private Fields
+
+        private readonly PlaceRepository placeRepository = new PlaceRepository();
+
+        private readonly Logger logger = Logger.GetInstance();
+
+        #endregion
         const int countMainPlaces = 6;
 
-        private readonly PlaceRepository _placeRepository = new PlaceRepository();
-        private Logger _loger = Logger.GetInstance();
-
-        [Route("GetPlaces")]
-        [HttpGet]
+        [System.Web.Http.Route("GetPlaces")]
+        [System.Web.Http.HttpGet]
         public IList<Place> GetPlaces()
         {
             IList<Place> placesForMain=new List<Place>();
@@ -24,11 +31,11 @@ namespace EasyTravelWeb.Controllers
             {
                 try
                 {
-                    placesForMain.Add(_placeRepository.GetPlace(new Random().Next(28)));
+                    placesForMain.Add(this.placeRepository.GetPlace(new Random().Next(28)));
                 }
                 catch(Exception ex)
                 {
-                    _loger.Log("GetPlaces: " + ex.Message);
+                    this.logger.LogExceptionAsync(ex);
                 }
             }
 
