@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using EasyTravelWeb.Models;
+using System.Drawing;
 
 namespace EasyTravelWeb.Repositories
 {
@@ -142,7 +143,7 @@ namespace EasyTravelWeb.Repositories
                                 Name = reader["name"].ToString(),
                                 CityName = reader["cityName"].ToString(),
                                 Description = reader["description"].ToString(),
-                                PicturePlace = new System.Drawing.Bitmap(new MemoryStream((byte[])reader["picture"]))
+                          //      PicturePlace = Image.FromStream(new MemoryStream((byte[])reader["picture"]))
                             });
 	                }
 	                return favoritePlaces;

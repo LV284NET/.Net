@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using EasyTravelWeb.Models;
 
@@ -26,14 +27,43 @@ namespace EasyTravelWeb.Repositories
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    reader.Read();
-                    return new Place
+                    if (reader.Read())
                     {
-                        Name = reader["name"].ToString(),
-                        CityName = reader["cityName"].ToString(),
-                        Description = reader["description"].ToString(),
-                    };
+                        return new Place
+                        {
+                            PlaceId = Convert.ToInt32(reader["placeID"]),
+                            Name = reader["name"].ToString(),
+                            CityName = reader["cityName"].ToString(),
+                            Description = reader["description"].ToString(),
+//                            PicturePlace = Image.FromStream(new MemoryStream((byte[])reader["picture"]))
+                        };
+                    }
+                    else
+                    {
+                        return this.GetPlace(new Random().Next(1, 28));
+                    }
+                }
+            }
+        }
 
+        public byte[] GetImageById(int placeId)
+        {   
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetPlaceImage", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    return (byte[]) reader["picture"];
                 }
             }
         }
