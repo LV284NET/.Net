@@ -12,7 +12,7 @@ namespace EasyTravelWeb
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
-                new {controller = "Home", action = "Index"} //id = UrlParameter.Optional
+                new {controller = "MainPage", action = "Index", id = UrlParameter.Optional } //id = UrlParameter.Optional
             );
         }
     }
