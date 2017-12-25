@@ -49,11 +49,11 @@ namespace EasyTravelWeb.Controllers
 
         [System.Web.Http.Route("GetImage")]
         [System.Web.Http.HttpGet]
-        public HttpResponseMessage GetImage([FromBody] int placeId)
+        public HttpResponseMessage GetImage(string placeId)
         {
             HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
 
-            Image myImage = Image.FromStream(new MemoryStream(this.placeRepository.GetImageById(placeId)));
+            Image myImage = Image.FromStream(new MemoryStream(this.placeRepository.GetImageById(Convert.ToInt32(placeId))));
 
             MemoryStream memoryStream = new MemoryStream();
 
