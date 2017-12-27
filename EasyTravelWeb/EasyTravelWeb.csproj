@@ -211,9 +211,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\IValidator.cs" />
+    <Compile Include="Infrastructure\Validators\IValidator.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
-    <Compile Include="Infrastructure\UserDataValidator.cs" />
+    <Compile Include="Infrastructure\Validators\UserDataValidator.cs" />
     <Compile Include="Models\Place.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

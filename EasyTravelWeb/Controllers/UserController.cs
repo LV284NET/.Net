@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
+using EasyTravelWeb.Infrastructure.Validators;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
 
@@ -55,7 +56,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogExceptionAsync(ex);
+                this.logger.LogException(ex);
 
                 return this.NotFound();//Status Code: 404
             }
@@ -83,7 +84,7 @@ namespace EasyTravelWeb.Controllers
                 return this.BadRequest();//Status Code: 400
             }
 
-            this.logger.LogMessageAsync("User isn't added due to invalid inputted data into the form!");
+            this.logger.LogMessage("User isn't added due to invalid inputted data into the form!");
 
             return this.Ok(this.validationInfo);//Status Code: 200 - User isn't added!
         }

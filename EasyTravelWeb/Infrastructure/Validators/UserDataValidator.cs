@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using EasyTravelWeb.Models;
 
-namespace EasyTravelWeb.Infrastructure
+namespace EasyTravelWeb.Infrastructure.Validators
 {
 	/// <summary>
 	///     UserDataValidator logic
@@ -72,10 +72,10 @@ namespace EasyTravelWeb.Infrastructure
 		/// <returns>bool</returns>
 		private bool userDataIsValid(User user)
 		{
-			if (this.EmailIsValid(user.Email) &
-			    this.PasswordIsValid(user.Password) &
-			    this.FirstNameIsValid(user.FirstName) &
-			    this.LastNameIsValid(user.LastName))
+			if (this.emailIsValid(user.Email) &
+			    this.passwordIsValid(user.Password) &
+			    this.firstNameIsValid(user.FirstName) &
+			    this.lastNameIsValid(user.LastName))
 			{
 				return true;
 			}
@@ -88,7 +88,7 @@ namespace EasyTravelWeb.Infrastructure
 		/// </summary>
 		/// <param name="userEmail">User's email</param>
 		/// <returns>bool</returns>
-		private bool EmailIsValid(string userEmail)
+		private bool emailIsValid(string userEmail)
 		{
 			if (string.IsNullOrEmpty(userEmail))
 			{
@@ -125,7 +125,7 @@ namespace EasyTravelWeb.Infrastructure
 
 			catch (RegexMatchTimeoutException ex)
 			{
-				this.logger.LogExceptionAsync(ex);
+				this.logger.LogException(ex);
 
 				return false;
 			}
@@ -138,7 +138,7 @@ namespace EasyTravelWeb.Infrastructure
 		/// </summary>
 		/// <param name="userPassword">User's password</param>
 		/// <returns>bool</returns>
-		private bool PasswordIsValid(string userPassword)
+		private bool passwordIsValid(string userPassword)
 		{
 			if (userPassword.Length >= 8)
 			{
@@ -155,7 +155,7 @@ namespace EasyTravelWeb.Infrastructure
 		/// </summary>
 		/// <param name="userFirstName">User's first name</param>
 		/// <returns>bool</returns>
-		private bool FirstNameIsValid(string userFirstName)
+		private bool firstNameIsValid(string userFirstName)
 		{
 			if (string.IsNullOrEmpty(userFirstName))
 			{
@@ -172,7 +172,7 @@ namespace EasyTravelWeb.Infrastructure
 		/// </summary>
 		/// <param name="userLastName">User's second name</param>
 		/// <returns>bool</returns>
-		private bool LastNameIsValid(string userLastName)
+		private bool lastNameIsValid(string userLastName)
 		{
 			if (string.IsNullOrEmpty(userLastName))
 			{

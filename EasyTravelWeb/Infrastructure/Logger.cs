@@ -3,82 +3,82 @@ using System.IO;
 
 namespace EasyTravelWeb.Infrastructure
 {
-    /// <summary>
-    ///     Logs applicatuon exceptions into EasyTravelLog.txt in C:\Users\Public directory
-    /// </summary>
-    public class Logger
-    {
-        #region Private Fields
+	/// <summary>
+	///     Logs applicatuon exceptions into EasyTravelLog.txt in C:\Users\Public directory
+	/// </summary>
+	public class Logger
+	{
+		#region Constructor
 
-        /// <summary>
-        ///     The only one instance of the Logger class
-        /// </summary>
-        private static Logger logger;
+		/// <summary>
+		///     Prevents a default instance of the Logger class from being created
+		/// </summary>
+		private Logger()
+		{
+		}
 
-        /// <summary>
-        ///     Instance of the Stream class
-        /// </summary>
-        private static readonly Stream FileStream = new FileStream(@"C:\Users\Public\EasyTravelLog.txt",
-            FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read);
+		#endregion
 
-        /// <summary>
-        ///      Instance of the StreamWriter class
-        /// </summary>
-        private readonly StreamWriter streamWriter = new StreamWriter(FileStream);
+		#region Finalizer
 
-        #endregion
+		/// <summary>
+		///     Finalizes an instance of the Logger class
+		/// </summary>
+		~Logger()
+		{
+			this.streamWriter.FlushAsync();
+			this.streamWriter.Dispose();
+			FileStream.FlushAsync();
+			FileStream.Dispose();
+		}
 
-        #region Constructor
+		#endregion
 
-        /// <summary>
-        ///     Prevents a default instance of the Logger class from being created
-        /// </summary>
-        private Logger()
-        {
-        }
+		#region Private Fields
 
-        #endregion
+		/// <summary>
+		///     The only one instance of the Logger class
+		/// </summary>
+		private static Logger logger;
 
-        #region Finalizer
+		/// <summary>
+		///     Instance of the Stream class
+		/// </summary>
+		private static readonly Stream FileStream = new FileStream($@"C:\Users\{Environment.UserName}\EasyTravelLog.txt",
+			FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read);
 
-        /// <summary>
-        ///     Finalizes an instance of the Logger class
-        /// </summary>
-        ~Logger()
-        {
-            this.streamWriter.FlushAsync();
-            FileStream.FlushAsync();
-            this.streamWriter.Dispose();
-            FileStream.Dispose();
-        }
+		/// <summary>
+		///     Instance of the StreamWriter class
+		/// </summary>
+		private readonly StreamWriter streamWriter = new StreamWriter(FileStream);
 
-        #endregion
+		#endregion
 
-        #region Public Methods
+		#region Public Methods
 
-        /// <summary>
-        ///     Returns a new instance of the Logger class for exceptions logging
-        /// </summary>
-        /// <returns>Instance of the Logger class</returns>
-        public static Logger GetInstance()
-        {
-            return logger ?? (logger = new Logger());
-        }
+		/// <summary>
+		///     Returns a new instance of the Logger class for exceptions logging
+		/// </summary>
+		/// <returns>Instance of the Logger class</returns>
+		public static Logger GetInstance()
+		{
+			return logger ?? (logger = new Logger());
+		}
 
-        /// <summary>
-        ///     Writes the exception details into the file
-        /// </summary>
-        /// <param name="ex">Instence of the Exception class</param>
-        public async void LogExceptionAsync(Exception ex)
-        {
-            await this.streamWriter.WriteLineAsync(DateTime.Now + "\n" + ex + "\n");
-        }
+		/// <summary>
+		///     Writes the exception details into the file
+		/// </summary>
+		/// <param name="ex">Instence of the Exception class</param>
+		public void LogException(Exception ex)
+		{
+			this.streamWriter.WriteLineAsync(DateTime.Now + "\n" + ex + "\n");
+		}
 
-        public async void LogMessageAsync(string message)
-        {
-            await this.streamWriter.WriteLineAsync(DateTime.Now + "\n" + message + "\n");
-        }
+		public void LogMessage(string message)
+		{
+			this.streamWriter.WriteLineAsync(DateTime.Now + "\n" + message + "\n");
+		}
 
-        #endregion
-    }
+		#endregion
+	}
 }

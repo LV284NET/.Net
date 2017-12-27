@@ -40,7 +40,7 @@ namespace EasyTravelWeb.Controllers
                 }
                 catch(Exception ex)
                 {
-                    this.logger.LogExceptionAsync(ex);
+                    this.logger.LogException(ex);
                 }
             }
 
