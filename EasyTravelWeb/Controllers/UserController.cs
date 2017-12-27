@@ -44,6 +44,7 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
+        [Authorize]
         [Route("api/user/GetUser")]
         [HttpPost]
         public IHttpActionResult GetUser([FromBody] User user)
