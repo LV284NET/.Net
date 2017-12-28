@@ -12,19 +12,19 @@ namespace EasyTravelWeb.Models
 
         public string Description { get; set; }
 
-//        public Image PicturePlace { get; set; }
+        public string PicturePlace { get; set; }
 
         public Place()
         {
             
         }
 
-        public Place(string name, string cityName, string description, Image picturePlace)
+        public Place(string name, string cityName, string description, string picturePlace)
         {
             this.Name = name;
             this.CityName = cityName;
             this.Description = description;
-//            this.PicturePlace = picturePlace;
+            this.PicturePlace = picturePlace;
         }
     }
 }

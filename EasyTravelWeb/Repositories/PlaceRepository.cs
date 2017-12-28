@@ -31,11 +31,11 @@ namespace EasyTravelWeb.Repositories
                     {
                         return new Place
                         {
-                            PlaceId = Convert.ToInt32(reader["placeID"]),
-                            Name = reader["name"].ToString(),
-                            CityName = reader["cityName"].ToString(),
-                            Description = reader["description"].ToString(),
-//                            PicturePlace = Image.FromStream(new MemoryStream((byte[])reader["picture"]))
+                            PlaceId = Convert.ToInt32(reader["PlaceID"]),
+                            Name = reader["PlaceName"].ToString(),
+                            CityName = reader["CityName"].ToString(),
+                            Description = reader["PlaceDescription"].ToString(),
+                            PicturePlace = reader["MainPlaceImage"].ToString()
                         };
                     }
                     else
