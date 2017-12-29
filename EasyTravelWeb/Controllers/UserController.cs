@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Infrastructure.Validators;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
+using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -65,6 +67,24 @@ namespace EasyTravelWeb.Controllers
             return this.Ok(requiredUser);//Status Code: 200
         }
 
+        //[Route("Register")]
+        //public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+
+        //    IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+        //    if (!result.Succeeded)
+        //    {
+        //        return GetErrorResult(result);
+        //    }
+
+        //    return Ok();
+        //}
         /// <summary>
         /// </summary>
         /// <param name="user"></param>

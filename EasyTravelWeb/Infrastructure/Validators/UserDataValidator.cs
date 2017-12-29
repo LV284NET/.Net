@@ -27,6 +27,7 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		/// </summary>
 		private readonly string emailPattern = @"^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
 
+	    private const int PasswordLength = 8;
 		#endregion
 		
 		#region Constructor
@@ -140,7 +141,7 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		/// <returns>bool</returns>
 		private bool passwordIsValid(string userPassword)
 		{
-			if (userPassword.Length >= 8)
+			if (userPassword.Length >= PasswordLength)
 			{
 				return true;
 			}
