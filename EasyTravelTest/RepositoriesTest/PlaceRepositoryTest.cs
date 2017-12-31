@@ -14,7 +14,7 @@ namespace EasyTravelTest.RepositoriesTest
     public class PlaceRepositoryTest
     {
         [TestCase]
-        public void GetPlace()
+        public void GetPlaceTest()
         {
             PlaceRepository placeRepository = new PlaceRepository(); 
             Assert.AreNotEqual(null, placeRepository.GetPlace(new Random().Next(1, 28)));

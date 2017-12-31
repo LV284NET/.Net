@@ -45,27 +45,5 @@ namespace EasyTravelWeb.Repositories
                 }
             }
         }
-
-        public byte[] GetImageById(int placeId)
-        {   
-            using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
-            {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand("GetPlaceImage", connection);
-
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    reader.Read();
-                    return (byte[]) reader["picture"];
-                }
-            }
-        }
     }
 }
