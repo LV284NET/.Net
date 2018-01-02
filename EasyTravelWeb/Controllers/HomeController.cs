@@ -28,9 +28,9 @@ namespace EasyTravelWeb.Controllers
 
         [System.Web.Http.Route("GetPlaces")]
         [System.Web.Http.HttpGet]
-        public IList<Place> GetPlaces()
+        public IHttpActionResult GetPlaces()
         {
-            IList<Place> placesForMain=new List<Place>();
+            IList<Place> placesForMain = new List<Place>();
 
             for (int i = 0; i < countMainPlaces; i++)
             {
@@ -41,29 +41,11 @@ namespace EasyTravelWeb.Controllers
                 catch(Exception ex)
                 {
                     this.logger.LogException(ex);
+                    return BadRequest();
                 }
             }
 
-            return placesForMain;
-        }
-
-        [System.Web.Http.Route("GetImage")]
-        [System.Web.Http.HttpGet]
-        public HttpResponseMessage GetImage(string placeId)
-        {
-            HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
-
-            Image myImage = Image.FromStream(new MemoryStream(this.placeRepository.GetImageById(Convert.ToInt32(placeId))));
-
-            MemoryStream memoryStream = new MemoryStream();
-
-            myImage.Save(memoryStream, ImageFormat.Jpeg);
-
-            httpResponseMessage.Content = new ByteArrayContent(memoryStream.ToArray());
-            httpResponseMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
-            httpResponseMessage.StatusCode = HttpStatusCode.OK;
-
-            return httpResponseMessage;
+            return Ok(placesForMain);
         }
     }
 }
