@@ -71,12 +71,19 @@ namespace EasyTravelWeb.Infrastructure
 		/// <param name="ex">Instence of the Exception class</param>
 		public void LogException(Exception ex)
 		{
-			this.streamWriter.WriteLineAsync(DateTime.Now + "\n" + ex + "\n");
+			try
+			{
+				this.streamWriter.WriteLine(DateTime.Now + "\n" + ex + "\n");
+			}
+			catch (Exception e)
+			{
+				this.streamWriter.WriteLine(DateTime.Now + "\n" + e + "\n");
+			}
 		}
 
 		public void LogMessage(string message)
 		{
-			this.streamWriter.WriteLineAsync(DateTime.Now + "\n" + message + "\n");
+			this.streamWriter.WriteLine(DateTime.Now + "\n" + message + "\n");
 		}
 
 		#endregion

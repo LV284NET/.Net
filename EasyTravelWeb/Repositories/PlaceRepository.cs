@@ -40,7 +40,7 @@ namespace EasyTravelWeb.Repositories
                     }
                     else
                     {
-                        return this.GetPlace(new Random().Next(1, 28));
+                        return this.GetPlace(new Random().Next(1, 29));
                     }
                 }
             }

@@ -36,7 +36,7 @@ namespace EasyTravelWeb.Controllers
             {
                 try
                 {
-                    placesForMain.Add(this.placeRepository.GetPlace(new Random().Next(1, 28)));
+                    placesForMain.Add(this.placeRepository.GetPlace(new Random().Next(1, 29)));
                 }
                 catch(Exception ex)
                 {
