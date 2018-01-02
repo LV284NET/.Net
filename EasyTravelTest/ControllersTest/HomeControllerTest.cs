@@ -23,8 +23,7 @@ namespace EasyTravelTest
         public void GetPlacesContentTest()
         {
             var myHomeController = new HomeController();
-            IHttpActionResult actual = myHomeController.GetPlaces();
-
+            
             var placesList = myHomeController.GetPlaces() as OkNegotiatedContentResult<IList<Place>>;
 
             Assert.IsNotEmpty(placesList.Content);

@@ -30,7 +30,7 @@ namespace EasyTravelWeb.Controllers
         [System.Web.Http.HttpGet]
         public IHttpActionResult GetPlaces()
         {
-            IList<Place> placesForMain=new List<Place>();
+            IList<Place> placesForMain = new List<Place>();
 
             for (int i = 0; i < countMainPlaces; i++)
             {
