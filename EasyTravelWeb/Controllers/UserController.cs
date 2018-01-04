@@ -27,10 +27,10 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         private readonly Logger logger = Logger.GetInstance();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private readonly IValidator<User> userDataValidator = new UserDataValidator();
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //private readonly IValidator<User> userDataValidator = new Validator();
 
         /// <summary>
         /// 
@@ -67,35 +67,17 @@ namespace EasyTravelWeb.Controllers
             return this.Ok(requiredUser);//Status Code: 200
         }
 
-        //[Route("Register")]
-        //public async Task<IHttpActionResult> Register(RegisterBindingModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-
-        //    IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-
-        //    if (!result.Succeeded)
-        //    {
-        //        return GetErrorResult(result);
-        //    }
-
-        //    return Ok();
-        //}
         /// <summary>
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="object"></param>
         /// <returns></returns>
         [Route("api/user/AddUser")]
         [HttpPost]
-        public IHttpActionResult AddUser([FromBody] User user)
+        public IHttpActionResult AddUser([FromBody] User @object)
         {
-            if (this.userDataIsValid(user))
-            {
-                Guid userGuid = this.userRepository.AddUser(user);
+            //if (this.userDataIsValid(@object))
+            //{
+                Guid userGuid = this.userRepository.AddUser(@object);
 
                 if (userGuid != Guid.Empty)
                 {
@@ -103,28 +85,28 @@ namespace EasyTravelWeb.Controllers
                 }
 
                 return this.BadRequest();//Status Code: 400
-            }
+            //}
 
-            this.logger.LogMessage("User isn't added due to invalid inputted data into the form!");
+            //this.logger.LogMessage("User isn't added due to invalid inputted data into the form!");
 
-            return this.Ok(this.validationInfo);//Status Code: 200 - User isn't added!
+            //return this.Ok(this.validationInfo);//Status Code: 200 - User isn't added!
         }
 
         #endregion
 
         #region Private Methods
 
-        private bool userDataIsValid(User user)
-        {
-            this.validationInfo = this.userDataValidator.Validate(user);
+        //private bool userDataIsValid(User @object)
+        //{
+        //    this.validationInfo = this.userDataValidator.GetValidationData(@object);
 
-            if (this.validationInfo[0] == "IsValid")
-            {
-                return true;
-            }
+        //    if (this.validationInfo[0] == "IsValid")
+        //    {
+        //        return true;
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
         #endregion
     }

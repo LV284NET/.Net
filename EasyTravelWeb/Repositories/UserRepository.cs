@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.IO;
 using EasyTravelWeb.Models;
 using System.Drawing;
+using User = EasyTravelWeb.Models.User;
 
 namespace EasyTravelWeb.Repositories
 {
@@ -39,9 +40,9 @@ namespace EasyTravelWeb.Repositories
 			}
 		}
 
-		public Guid AddUser(User newUser)
+		public Guid AddUser(User newObject)
 		{
-			if (isNewUser(newUser.Email))
+			if (isNewUser(newObject.Email))
 				using (SqlConnection connection =
 					new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
 						.ConnectionString))
@@ -54,19 +55,19 @@ namespace EasyTravelWeb.Repositories
 
 					do
 					{
-						newUser.UserId = Guid.NewGuid();
-					} while (!checkGuid(newUser.UserId));
+						newObject.UserId = Guid.NewGuid();
+					} while (!checkGuid(newObject.UserId));
 
-					command.Parameters.Add(new SqlParameter("@Email", newUser.Email));
-					command.Parameters.Add(new SqlParameter("@Password", newUser.Password));
-					command.Parameters.Add(new SqlParameter("@FirstName", newUser.FirstName));
-					command.Parameters.Add(new SqlParameter("@LastName", newUser.LastName));
+					command.Parameters.Add(new SqlParameter("@Email", newObject.Email));
+					command.Parameters.Add(new SqlParameter("@Password", newObject.Password));
+					command.Parameters.Add(new SqlParameter("@FirstName", newObject.FirstName));
+					command.Parameters.Add(new SqlParameter("@LastName", newObject.LastName));
 					command.Parameters.Add(new SqlParameter("@IsAdmin", false));
-					command.Parameters.Add(new SqlParameter("UserID", newUser.UserId));
+					command.Parameters.Add(new SqlParameter("UserID", newObject.UserId));
 
 					command.ExecuteNonQuery();
 
-					return newUser.UserId;
+					return newObject.UserId;
 				}
 
 			return Guid.Empty;
