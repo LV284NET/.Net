@@ -39,7 +39,7 @@ namespace EasyTravelWeb.Controllers
             if (name == null) { return BadRequest(); }
             try
             {
-                return Ok(_placeRepository.GetPlaceByCytiName(name));
+                return Ok(_placeRepository.GetPlacesByCityName(name));
             }
             catch
             {
