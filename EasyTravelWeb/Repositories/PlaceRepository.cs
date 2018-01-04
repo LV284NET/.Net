@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Repositories
@@ -44,6 +45,39 @@ namespace EasyTravelWeb.Repositories
                     }
                 }
             }
+        }
+
+        public IList<Place> GetPlacesFromCity(int cityId)
+        {
+            List<Place> listToReturn = new List<Place>();
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetPlacesByCityId", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                command.Parameters.Add(new SqlParameter("@CityID", cityId));
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            listToReturn.Add(new Place
+                            {
+                                PlaceId = Convert.ToInt32(reader["PlaceID"]),
+                                Name = reader["PlaceName"].ToString(),
+                                Description = reader["PlaceDescription"].ToString(),
+                                PicturePlace = reader["MainPlaceImage"].ToString()
+                            });
+                        }
+                        return listToReturn;
+                    }
+                }
+            }
+            return null;
         }
     }
 }
