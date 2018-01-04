@@ -283,7 +283,10 @@ namespace EasyTravelWeb.Controllers
 
 				IdentityResult result = await this.UserManager.CreateAsync(user, model.Password);
 
-				if (!result.Succeeded) return this.GetErrorResult(result);
+				if (!result.Succeeded)
+				{
+					return this.GetErrorResult(result);
+				}
 			}
 
 			return this.Ok();

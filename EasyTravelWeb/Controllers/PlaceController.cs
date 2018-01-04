@@ -1,51 +1,113 @@
-﻿using EasyTravelWeb.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using EasyTravelWeb.Infrastructure;
+using EasyTravelWeb.Models;
+using EasyTravelWeb.Repositories;
 
 namespace EasyTravelWeb.Controllers
 {
-    [Route("api/Place")]
-    public class PlaceController : ApiController
-    {
-        private PlaceRepository _placeRepository;
-        public PlaceController()
-        {
-            _placeRepository = new PlaceRepository();
-        }
+	//[Route("api/Place")]
+	public class PlaceController : ApiController
+	{
+		private readonly Logger loger;
+		private readonly PlaceRepository placeRepository;
 
-        [HttpGet]
-        [Route("{id}")]
-        public IHttpActionResult GetPlaceId(int? id)
-        {
-            if (!id.HasValue) { return BadRequest(); }
-            try
-            {
-                return Ok(_placeRepository.GetPlace(id.Value));
-            }
-            catch
-            {
-                return this.NotFound();
-            }
-        }
+		public PlaceController()
+		{
+			this.placeRepository = new PlaceRepository();
+			this.loger = Logger.GetInstance();
+		}
 
-        [HttpGet]
-        [Route("{name}")]
-        public IHttpActionResult GetPlaceName(string name)
-        {
-            if (name == null) { return BadRequest(); }
-            try
-            {
-                return Ok(_placeRepository.GetPlacesByCityName(name));
-            }
-            catch
-            {
-                return this.NotFound();
-            }
-        }
-    }
+
+		[HttpGet]
+		[Route("api/Place/GetPlaceById")]
+		public IHttpActionResult GetPlaceById(long placeId)
+		{
+			try
+			{
+				return this.Ok(this.placeRepository.GetPlaceById(placeId));
+			}
+			catch (Exception ex)
+			{
+				this.loger.LogException(ex);
+
+				return this.NotFound();
+			}
+		}
+
+		[HttpGet]
+		[Route("api/Place/GetTopPlacesByCityName")]
+		public IHttpActionResult GetTopPlacesByCityName(string cityName)
+		{
+			if (cityName == null)
+			{
+				return this.BadRequest();
+			}
+
+			try
+			{
+				List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityName(cityName);
+
+				if (cityPlaces != null)
+				{
+					return this.Ok(cityPlaces);
+				}
+
+				return this.NotFound();
+			}
+			catch (Exception ex)
+			{
+				this.loger.LogException(ex);
+
+				return this.NotFound();
+			}
+		}
+
+		[HttpGet]
+		[Route("api/Place/GetTopPlacesByCityId")]
+		public IHttpActionResult GetTopPlacesByCityId(long cityId)
+		{
+			try
+			{
+				List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityId(cityId);
+
+				if (cityPlaces != null)
+				{
+					return this.Ok(cityPlaces);
+				}
+
+				return this.NotFound();
+			}
+			catch (Exception ex)
+			{
+				this.loger.LogException(ex);
+
+				return this.NotFound();
+			}
+		}
+
+		[HttpGet]
+		[Route("api/Place/GetPlacesByCityId")]
+		public IHttpActionResult GetPlacesByCityId(long cityId)
+		{
+			try
+			{
+				List<Place> cityPlaces = this.placeRepository.GetPlacesByCityId(cityId);
+
+				if (cityPlaces != null)
+				{
+					return this.Ok(cityPlaces);
+				}
+
+				return this.NotFound();
+			}
+			catch (Exception ex)
+			{
+				this.loger.LogException(ex);
+
+				return this.NotFound();
+			}
+		}
+	}
 }
-
