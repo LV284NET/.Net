@@ -28,7 +28,7 @@ namespace EasyTravelWeb.Repositories
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.Read())
+	                if (reader.Read())
                     {
                         return new Place
                         {
@@ -39,10 +39,8 @@ namespace EasyTravelWeb.Repositories
                             PicturePlace = reader["MainPlaceImage"].ToString()
                         };
                     }
-                    else
-                    {
-                        return this.GetPlace(new Random().Next(1, 29));
-                    }
+
+	                return this.GetPlace(new Random().Next(1, 29));
                 }
             }
         }

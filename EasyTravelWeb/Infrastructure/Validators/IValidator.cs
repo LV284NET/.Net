@@ -2,8 +2,10 @@
 
 namespace EasyTravelWeb.Infrastructure
 {
-    interface IValidator<T>
-    {
-        List<string> Validate(T obj);
-    }
+	internal interface IValidator<T>
+	{
+		List<string> GetValidationData(T obj);
+
+		bool IsValid(T obj);
+	}
 }
