@@ -81,7 +81,7 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public Place GetPlacesByCityName(string placeName)
+        public Place GetPlacesByCityName(string cityName)
         {
             using (SqlConnection connection =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -89,11 +89,11 @@ namespace EasyTravelWeb.Repositories
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("GetTopPlaceByName", connection);
+                SqlCommand command = new SqlCommand("GetTopPlacesByCityName", connection);
 
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.Add(new SqlParameter("@Place", placeName));
+                command.Parameters.Add(new SqlParameter("@CityName", cityName));
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -110,7 +110,7 @@ namespace EasyTravelWeb.Repositories
                     }
                     else
                     {
-                        return this.GetPlacesByCityName(placeName);
+                        return this.GetPlacesByCityName(cityName);
                     }
                 }
             }
