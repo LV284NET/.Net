@@ -50,7 +50,8 @@ namespace EasyTravelWeb.Repositories
         public IList<Place> GetPlacesFromCity(int cityId)
         {
             List<Place> listToReturn = new List<Place>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
                 connection.Open();
@@ -79,5 +80,41 @@ namespace EasyTravelWeb.Repositories
             }
             return null;
         }
+
+        public Place GetPlacesByCityName(string placeName)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetTopPlaceByName", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Place", placeName));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new Place
+                        {
+                            PlaceId = Convert.ToInt32(reader["PlaceID"]),
+                            Name = reader["PlaceName"].ToString(),
+                            CityName = reader["CityName"].ToString(),
+                            Description = reader["PlaceDescription"].ToString(),
+                            PicturePlace = reader["MainPlaceImage"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        return this.GetPlacesByCityName(placeName);
+                    }
+                }
+            }
+        }
     }
 }
+  

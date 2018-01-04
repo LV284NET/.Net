@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
-//using System.Web.UI.WebControls;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
@@ -24,7 +23,7 @@ namespace EasyTravelWeb.Controllers
         private readonly Logger logger = Logger.GetInstance();
 
         #endregion
-        const int countMainPlaces = 6;
+        private const int CountMainPlaces = 6;
 
         [System.Web.Http.Route("GetPlaces")]
         [System.Web.Http.HttpGet]
@@ -32,7 +31,7 @@ namespace EasyTravelWeb.Controllers
         {
             IList<Place> placesForMain = new List<Place>();
 
-            for (int i = 0; i < countMainPlaces; i++)
+            for (int i = 0; i < CountMainPlaces; i++)
             {
                 try
                 {
