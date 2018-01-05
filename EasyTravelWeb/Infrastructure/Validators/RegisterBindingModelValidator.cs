@@ -42,7 +42,7 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		/// <summary>
 		///     Pattern that must be met by a password (i.e. Apassword1234)
 		/// </summary>
-		private string passwordPattern = @"((?=.*[A-Z]).{8})";
+		private string passwordPattern = @"((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{8,20})";
 
 		/// <summary>
 		///     Pattern that must be met by first name or last name (i.e. Apassword1234)
