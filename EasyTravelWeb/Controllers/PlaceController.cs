@@ -7,7 +7,6 @@ using EasyTravelWeb.Repositories;
 
 namespace EasyTravelWeb.Controllers
 {
-	//[Route("api/Place")]
 	public class PlaceController : ApiController
 	{
 		private readonly Logger loger;
