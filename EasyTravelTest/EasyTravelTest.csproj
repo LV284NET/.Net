@@ -68,6 +68,7 @@
     <Compile Include="ControllersTest\HomeControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesTest\PlaceRepositoryTest.cs" />
+    <Compile Include="ValidatorsTest\RegisterBindingModelValidatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -79,6 +80,7 @@
       <Name>EasyTravelWeb</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

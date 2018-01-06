@@ -40,12 +40,13 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		private readonly string emailPattern = @"^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2}$";
 
 		/// <summary>
-		///     Pattern that must be met by a password (i.e. Apassword1234)
+		///     Pattern that must be met by a password (i.e. Aa1111!@)
 		/// </summary>
-		private string passwordPattern = @"((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{8,20})";
+		private string passwordPattern = @"((?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{8,20})$"; //(?=.*\\d)
+
 
 		/// <summary>
-		///     Pattern that must be met by first name or last name (i.e. Apassword1234)
+		///     Pattern that must be met by first name or last name (i.e. Aa1111!@)
 		/// </summary>
 		private string namePattern = @"^[а-яА-ЯёЁa-zA-Zʼ'є Є]{2,20}$";
 
@@ -201,7 +202,9 @@ namespace EasyTravelWeb.Infrastructure.Validators
 				return false;
 			}
 
-			this.validationRegister.Add("Password must start from a capital letter");
+			this.validationRegister.Add("Password isn't strong enough: " +
+			                            "it must have at least one capital letter " +
+			                            "and one symbol");
 
 			return false;
 		}
