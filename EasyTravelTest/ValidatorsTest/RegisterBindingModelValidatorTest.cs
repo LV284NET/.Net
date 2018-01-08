@@ -1,14 +1,19 @@
-﻿using System;
-using EasyTravelWeb.Infrastructure.Validators;
+﻿using EasyTravelWeb.Infrastructure.Validators;
 using EasyTravelWeb.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace EasyTravelTest.ValidatorsTest
 {
-	[TestClass]
+	/// <summary>
+	/// Tests for RegisterBindingModelValidator class
+	/// </summary>
+	[TestFixture]
 	public class RegisterBindingModelValidatorTest
 	{
-		[TestMethod]
+		/// <summary>
+		/// Test for GetValidation method
+		/// </summary>
+		[TestCase]
 		public void GetValidationTest()
 		{
 			RegisterBindingModelValidator validator = new RegisterBindingModelValidator();
@@ -19,13 +24,16 @@ namespace EasyTravelTest.ValidatorsTest
 				Password = "Aa1111!@",
 				ConfirmPassword = "Aa1111!@",
 				FirstName = "Taras",
-				LastName = "Pavliuk"
+				LastName = "Taras"
 			};
 
 			Assert.AreEqual("IsValid", validator.GetValidationData(model)[0]);
 		}
 
-		[TestMethod]
+		/// <summary>
+		/// Test for IsValid method
+		/// </summary>
+		[TestCase]
 		public void IsValidTest()
 		{
 			RegisterBindingModelValidator validator = new RegisterBindingModelValidator();
