@@ -227,6 +227,7 @@
     <Compile Include="Repositories\PlaceRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

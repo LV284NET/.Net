@@ -37,7 +37,7 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		/// <summary>
 		///     Pattern that must be met by an email (i.e. some@domain.com)
 		/// </summary>
-		private readonly string emailPattern = @"^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2}$";
+		private readonly string emailPattern = @"[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+";
 
 		/// <summary>
 		///     Pattern that must be met by a password (i.e. Aa1111!@)

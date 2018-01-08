@@ -269,6 +269,7 @@ namespace EasyTravelWeb.Controllers
 
 		// POST api/Account/Register
 		[AllowAnonymous]
+		[HttpPost]
 		[Route("Register")]
 		public async Task<IHttpActionResult> Register(RegisterBindingModel model)
 		{
@@ -283,13 +284,39 @@ namespace EasyTravelWeb.Controllers
 
 				IdentityResult result = await this.UserManager.CreateAsync(user, model.Password);
 
-				if (!result.Succeeded)
+				if (result.Succeeded)
 				{
-					return this.GetErrorResult(result);
+					string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+					var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new {userId = user.Id, code = code}));
+					await UserManager.SendEmailAsync(user.Id, "Confirm your account",
+						"Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 				}
+				else return this.GetErrorResult(result);
 			}
 
 			return this.Ok();
+		}
+		
+
+		[HttpGet]
+		[AllowAnonymous]
+		[Route("ConfirmEmail", Name = "ConfirmEmailRoute")]
+		public async Task<IHttpActionResult> ConfirmEmail(string userId = "", string code = "")
+		{
+			if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(code))
+			{
+				ModelState.AddModelError("", "User Id and Code are required");
+				return BadRequest(ModelState);
+			}
+ 
+			IdentityResult result = await UserManager.ConfirmEmailAsync(userId, code);
+ 
+			if (!result.Succeeded)
+			{
+				return GetErrorResult(result);
+                
+			}
+			return Ok();
 		}
 
 		// POST api/Account/RegisterExternal
