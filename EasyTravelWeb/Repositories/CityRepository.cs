@@ -44,7 +44,7 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public City GetCity(int id)
+        public City GetCity(long id)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))

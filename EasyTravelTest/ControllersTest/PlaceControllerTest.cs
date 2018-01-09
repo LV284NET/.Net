@@ -14,8 +14,8 @@ namespace EasyTravelTest.ControllersTest
         public void GetPlacesActionTest()
         {
             PlaceController placeController = new PlaceController();
-            IHttpActionResult actual = placeController.GetTopPlacesByCityName("id");
-            Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<IList<Place>>>());
+            IHttpActionResult actual = placeController.GetTopPlacesByCityName("Lviv");
+            Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<List<Place>>>());
         }
 
         [TestCase]
@@ -23,7 +23,7 @@ namespace EasyTravelTest.ControllersTest
         {
             PlaceController placeController = new PlaceController();
 
-            var placesList = placeController.GetTopPlacesByCityName("id") as OkNegotiatedContentResult<IList<Place>>;
+            var placesList = placeController.GetTopPlacesByCityName("Lviv") as OkNegotiatedContentResult<List<Place>>;
             var actual = placesList.Content;
 
             Assert.IsNotEmpty(actual);
@@ -36,7 +36,7 @@ namespace EasyTravelTest.ControllersTest
             PlaceController placeController = new PlaceController();
 
             IHttpActionResult actual = placeController.GetTopPlacesByCityId(GetTopPlacesByCityId);
-            Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<City>>());
+            Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<List<Place>>>());
         }
 
         [TestCase]
@@ -45,7 +45,7 @@ namespace EasyTravelTest.ControllersTest
             int GetPlaceById = 1;
             PlaceController placeController = new PlaceController();
 
-            var city = placeController.GetPlaceById(GetPlaceById) as OkNegotiatedContentResult<City>;
+            var city = placeController.GetPlaceById(GetPlaceById) as OkNegotiatedContentResult<Place>;
             var actual = city.Content;
 
             Assert.IsNotNull(actual);

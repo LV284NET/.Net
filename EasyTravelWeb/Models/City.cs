@@ -7,7 +7,7 @@ namespace EasyTravelWeb.Models
 {
     public class City
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public string PicturePath { get; set; }
         public string Description { get; set; }
