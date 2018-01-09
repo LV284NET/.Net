@@ -51,11 +51,17 @@ namespace EasyTravelWeb.Repositories
                 .ConnectionString))
             {
                 connection.Open();
+	            //TODO: Do not use Stored Procedure, use queries instead.
                 SqlCommand command = new SqlCommand("GetPlacesByCityId", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                command.Parameters.Add(new SqlParameter("@CityID", cityId));
+	            
+	            command.Parameters.Add(new SqlParameter("@CityID", cityId));
+	            /*
+	            var command = new SqlCommand(@"Select * From Place Where CityID = @CityID", connection);
+	            command.Parameters.AddWithValue("@CityID", cityId);
+	            */
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)

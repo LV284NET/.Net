@@ -289,7 +289,7 @@ namespace EasyTravelWeb.Controllers
 					string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 					var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new {userId = user.Id, code = code}));
 					await UserManager.SendEmailAsync(user.Id, "Confirm your account",
-						"Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+						"Please confirm your account by clicking this <a href=\"" + callbackUrl + "\">here</a>");
 				}
 				else return this.GetErrorResult(result);
 			}
