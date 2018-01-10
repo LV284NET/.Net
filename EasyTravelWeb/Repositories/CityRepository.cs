@@ -11,7 +11,7 @@ namespace EasyTravelWeb.Repositories
 {
     public class CityRepository
     {
-        public IList<City> GetCities()
+        public virtual IList<City> GetCities()
         {
             List<City> listToReturn = new List<City>();
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -44,7 +44,7 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public City GetCity(long id)
+        public virtual City GetCity(long id)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
