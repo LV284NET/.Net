@@ -19,12 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.0", "V1.0", "{B4510B7C-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.1", "V1.1", "{1A0AB2A5-9218-46B0-B850-306A32737B3C}"
 	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetCityById.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetCityById.sql
+		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlaceById.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlaceById.sql
+		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlaceByName.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlaceByName.sql
+		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlacesByCityId.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlacesByCityId.sql
+		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetTopPlacesByCityId.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetTopPlacesByCityId.sql
+		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetTopPlacesByCityName.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetTopPlacesByCityName.sql
 		DB_Scripts\V1.1\ScriptV1.1_Procedures.sql = DB_Scripts\V1.1\ScriptV1.1_Procedures.sql
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.2", "V1.2", "{C657BCE1-1934-45AA-AA65-5D4FB70806A3}"
-	ProjectSection(SolutionItems) = preProject
-		DB_Scripts\V1.2\ScriptV1.2_AddProcedures.sql = DB_Scripts\V1.2\ScriptV1.2_AddProcedures.sql
 	EndProjectSection
 EndProject
 Global
@@ -48,7 +49,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B4510B7C-83A8-479E-871D-7D1E4EDBD4C0} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 		{1A0AB2A5-9218-46B0-B850-306A32737B3C} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
-		{C657BCE1-1934-45AA-AA65-5D4FB70806A3} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69F34F38-389E-42AF-9CDB-515325528627}
