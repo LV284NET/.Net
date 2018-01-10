@@ -6,5 +6,5 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
  
 <include file="V1.0/ScriptV1.0.sql" relativeToChangelogFile="true" /> 
 <include file="V1.1/ScriptV1.1_Procedures.sql" relativeToChangelogFile="true" /> 
-<include file="V1.2/ScriptV1.2_AddProcedures.sql" relativeToChangelogFile="true" endDelimiter="GO" /> 
+<include file="V1.2/ScriptV1.2_AddProcedures.sql" relativeToChangelogFile="true"/> 
 </databaseChangeLog> 
