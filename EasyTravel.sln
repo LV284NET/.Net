@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.1", "V1.1", "{1A0AB2A5-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.2", "V1.2", "{C657BCE1-1934-45AA-AA65-5D4FB70806A3}"
 	ProjectSection(SolutionItems) = preProject
-		ScriptV1.2_AddProcedures.sql = ScriptV1.2_AddProcedures.sql
+		DB_Scripts\V1.2\ScriptV1.2_AddProcedures.sql = DB_Scripts\V1.2\ScriptV1.2_AddProcedures.sql
 	EndProjectSection
 EndProject
 Global
