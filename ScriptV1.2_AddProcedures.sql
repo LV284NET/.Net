@@ -12,10 +12,8 @@ begin transaction
 	on [Place].CityID = [City].CityID
 	where @CityID = [Place].CityID;
 commit transaction
-GO
 
 SET QUOTED_IDENTIFIER ON
-GO
 create procedure [dbo].[GetTopPlacesByCityId] (@CityID bigint)
 as
 
@@ -27,4 +25,3 @@ begin transaction
 	where CityID = @CityID;
 
 commit transaction
-GO
