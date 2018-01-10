@@ -1,12 +1,9 @@
-﻿CREATE procedure [dbo].[GetPlacesByCityId] (@CityID bigint)
+﻿CREATE procedure GetPlacesByCityId (@CityID bigint)
 as
 
 set transaction isolation level read committed 
 
-begin transaction
-	--select * from [Place]
-	-- where CityID = @CityID;
-
+begin transaction	
 	select [City].[CityName], [Place].PlaceID, [Place].PlaceName, [Place].PlaceDescription, [Place].MainPlaceImage
 	from [Place] inner join [City]	
 	on [Place].CityID = [City].CityID
@@ -14,7 +11,8 @@ begin transaction
 commit transaction
 
 SET QUOTED_IDENTIFIER ON
-create procedure [dbo].[GetTopPlacesByCityId] (@CityID bigint)
+
+create procedure GetTopPlacesByCityId (@CityID bigint)
 as
 
 set transaction isolation level read committed 
