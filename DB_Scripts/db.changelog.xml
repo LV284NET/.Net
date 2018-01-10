@@ -3,8 +3,10 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
- 
+  
 <include file="V1.0/ScriptV1.0.sql" relativeToChangelogFile="true" /> 
 <include file="V1.1/ScriptV1.1_Procedures.sql" relativeToChangelogFile="true" /> 
-<sqlFile path="V1.2/ScriptV1.2_AddProcedures.sql" relativeToChangelogFile="true" splitStatements="false" endDelimiter="GO"/> 
+<changeSet id="6a07201a-133e-4613-b4cf-15becbf53baf" author="Pavlo">
+  <sqlFile path="V1.2/ScriptV1.2_AddProcedures.sql" relativeToChangelogFile="true" splitStatements="false" endDelimiter="GO"/>
+</changeSet>
 </databaseChangeLog> 
