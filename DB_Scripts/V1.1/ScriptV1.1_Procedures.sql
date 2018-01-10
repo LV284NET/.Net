@@ -1,4 +1,7 @@
-﻿CREATE procedure GetCities
+﻿SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure GetCities
 as
 
 set transaction isolation level read committed 
@@ -7,8 +10,6 @@ begin transaction
 	select * from [City]	
 commit transaction
 
-SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 
@@ -22,8 +23,6 @@ begin transaction
 	where @CityID = [CityID]	
 commit transaction
 
-SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 
@@ -39,8 +38,6 @@ begin transaction
 	where @PlaceID = [Place].PlaceID;
 commit transaction
 
-SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 
@@ -56,8 +53,6 @@ begin transaction
 	where @PlaceName = [Place].PlaceName;
 commit transaction
 
-SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 
@@ -76,8 +71,6 @@ begin transaction
 	where @CityID = [Place].CityID;
 commit transaction
 
-SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 
@@ -93,8 +86,6 @@ begin transaction
 
 commit transaction
 
-SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 
@@ -112,8 +103,6 @@ begin transaction
 
 commit transaction
 
-SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 
