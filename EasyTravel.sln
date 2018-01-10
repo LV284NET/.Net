@@ -14,12 +14,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB_Scripts", "DB_Scripts", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.0", "V1.0", "{B4510B7C-83A8-479E-871D-7D1E4EDBD4C0}"
 	ProjectSection(SolutionItems) = preProject
-		ScriptV1.0.sql = ScriptV1.0.sql
+		DB_Scripts\V1.0\ScriptV1.0.sql = DB_Scripts\V1.0\ScriptV1.0.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.1", "V1.1", "{1A0AB2A5-9218-46B0-B850-306A32737B3C}"
 	ProjectSection(SolutionItems) = preProject
-		ScriptV1.1_Procedures.sql = ScriptV1.1_Procedures.sql
+		DB_Scripts\V1.1\ScriptV1.1_Procedures.sql = DB_Scripts\V1.1\ScriptV1.1_Procedures.sql
 	EndProjectSection
 EndProject
 Global

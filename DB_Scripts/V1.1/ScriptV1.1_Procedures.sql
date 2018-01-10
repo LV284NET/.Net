@@ -1,4 +1,4 @@
-﻿CREATE procedure [dbo].[GetCities]
+﻿CREATE procedure GetCities
 as
 
 set transaction isolation level read committed 
@@ -7,7 +7,12 @@ begin transaction
 	select * from [City]	
 commit transaction
 
-CREATE procedure [dbo].[GetCityById](@CityID bigint)
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure GetCityById(@CityID bigint)
 as
 
 set transaction isolation level read committed 
@@ -16,6 +21,11 @@ begin transaction
 	select * from [City]
 	where @CityID = [CityID]	
 commit transaction
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE procedure [dbo].[GetPlaceById] (@PlaceID bigint)
 as
@@ -29,6 +39,11 @@ begin transaction
 	where @PlaceID = [Place].PlaceID;
 commit transaction
 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 CREATE procedure [dbo].[GetPlaceByName] (@PlaceName nvarchar(40))
 as
 
@@ -40,6 +55,11 @@ begin transaction
 	on [Place].CityID = [City].CityID
 	where @PlaceName = [Place].PlaceName;
 commit transaction
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE procedure [dbo].[GetPlacesByCityId] (@CityID bigint)
 as
@@ -56,6 +76,11 @@ begin transaction
 	where @CityID = [Place].CityID;
 commit transaction
 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 create procedure [dbo].[GetTopPlacesByCityId] (@CityID bigint)
 as
 
@@ -67,6 +92,11 @@ begin transaction
 	where CityID = @CityID;
 
 commit transaction
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE procedure [dbo].[GetTopPlacesByCityName] (@CityName nvarchar(40))
 as
@@ -82,6 +112,10 @@ begin transaction
 
 commit transaction
 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE procedure [dbo].[GetUserFavouritePlaces] (@UserID bigint)
 as
