@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -265,6 +266,21 @@ namespace EasyTravelWeb.Controllers
 			}
 
 			return logins;
+		}
+
+        // POST api/Account/Confirm
+		[AllowAnonymous]
+		[HttpPost]
+		[Route("Confirm")]
+		public IHttpActionResult ConfirmUserEmail([FromBody] User user)
+		{
+			var userConfirm= userManager.FindByEmail(user.Email);
+			
+			if (!userConfirm.EmailConfirmed)
+			{
+				return NotFound();
+			}
+			return Ok();
 		}
 
 		// POST api/Account/Register
