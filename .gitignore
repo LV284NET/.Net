@@ -6,4 +6,4 @@ packages/
 .vs
 EasyTravel.sln.rej
 .axoCover/
-EasyTravelTest\app.config
+EasyTravelTest/app.config
