@@ -15,9 +15,11 @@ using EasyTravelWeb.Results;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using Microsoft.Owin.Security.Provider;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -30,6 +32,10 @@ namespace EasyTravelWeb.Controllers
 		private readonly IValidator<RegisterBindingModel> registerBindingModelValidator = new RegisterBindingModelValidator();
 
 		private ApplicationUserManager userManager;
+
+		private OAuthGrantResourceOwnerCredentialsContext _context;
+		
+		private BaseContext _baseContext;
 
 		public AccountController()
 		{
@@ -272,10 +278,10 @@ namespace EasyTravelWeb.Controllers
 		[AllowAnonymous]
 		[HttpPost]
 		[Route("Confirm")]
-		public IHttpActionResult ConfirmUserEmail([FromBody] User user)
+		public async Task<IHttpActionResult> ConfirmUserEmail([FromBody] User user)
 		{
-			var userConfirm= userManager.FindByEmail(user.Email);
-			
+			ApplicationUser userConfirm = await UserManager.FindByEmailAsync(user.Email);
+
 			if (!userConfirm.EmailConfirmed)
 			{
 				return NotFound();
