@@ -15,6 +15,13 @@ namespace EasyTravelWeb.Controllers
         private readonly CityRepository cityRepository = new CityRepository();
         private readonly Logger logger = Logger.GetInstance();
 
+        public CityController() { }
+
+        public CityController(CityRepository cityRepository)
+        {
+            this.cityRepository = cityRepository;
+        }
+
         [Route("api/GetCities")]
         [HttpGet]
         public IHttpActionResult GetCities()

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+ 
+<include file="V1.0/ScriptV1.0.sql" relativeToChangelogFile="true" /> 
+<include file="V1.1/ScriptV1.1_Procedures.sql" relativeToChangelogFile="true" />
+<include file="V1.1/ScriptV1.1_Procedure_GetCityById.sql" relativeToChangelogFile="true" /> 
+<include file="V1.1/ScriptV1.1_Procedure_GetPlaceById.sql" relativeToChangelogFile="true" /> 
+<include file="V1.1/ScriptV1.1_Procedure_GetPlaceByName.sql" relativeToChangelogFile="true" /> 
+<include file="V1.1/ScriptV1.1_Procedure_GetPlacesByCityId.sql" relativeToChangelogFile="true" /> 
+<include file="V1.1/ScriptV1.1_Procedure_GetTopPlacesByCityId.sql" relativeToChangelogFile="true" /> 
+<include file="V1.1/ScriptV1.1_Procedure_GetTopPlacesByCityName.sql" relativeToChangelogFile="true" /> 
+<include file="V1.2/ScriptV1.2_InsertData.sql" relativeToChangelogFile="true" /> 
+</databaseChangeLog> 

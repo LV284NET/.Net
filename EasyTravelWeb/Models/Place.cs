@@ -4,7 +4,7 @@ namespace EasyTravelWeb.Models
 {
     public class Place
     {
-        public int PlaceId { get; set; }
+        public long PlaceId { get; set; }
 
         public string Name { get; set; }
 
