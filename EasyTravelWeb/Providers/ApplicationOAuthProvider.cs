@@ -1,17 +1,12 @@
 ﻿using EasyTravelWeb.Models;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
-using System.Web.Http.Results;
 
 namespace EasyTravelWeb.Providers
 {
@@ -36,20 +31,11 @@ namespace EasyTravelWeb.Providers
             //ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
             ApplicationUser user = await userManager.FindByEmailAsync(context.Scope[0]);
             
-
             if (user==null)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect");
                 return;
             }
-
-            if(user.EmailConfirmed==false)
-            {
-                context.SetError("Email is nit confirmed");
-                return;
-            }
-
-
 
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, OAuthDefaults.AuthenticationType);
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager, CookieAuthenticationDefaults.AuthenticationType);

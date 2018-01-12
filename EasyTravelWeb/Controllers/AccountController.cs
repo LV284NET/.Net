@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -14,9 +15,11 @@ using EasyTravelWeb.Results;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using Microsoft.Owin.Security.Provider;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -29,6 +32,10 @@ namespace EasyTravelWeb.Controllers
 		private readonly IValidator<RegisterBindingModel> registerBindingModelValidator = new RegisterBindingModelValidator();
 
 		private ApplicationUserManager userManager;
+
+		private OAuthGrantResourceOwnerCredentialsContext _context;
+		
+		private BaseContext _baseContext;
 
 		public AccountController()
 		{
@@ -267,6 +274,28 @@ namespace EasyTravelWeb.Controllers
 			return logins;
 		}
 
+        // POST api/Account/Confirm
+		[AllowAnonymous]
+		[HttpPost]
+		[Route("Confirm")]
+		public async Task<IHttpActionResult> ConfirmUser([FromBody] User user)
+		{
+			ApplicationUser userConfirm = await UserManager.FindByEmailAsync(user.Email);
+
+			if (userConfirm==null)
+			{
+				return Content(HttpStatusCode.NotFound, "There is no such user:(");
+			}
+	
+			if (!userConfirm.EmailConfirmed)
+			{
+                
+				return Content(HttpStatusCode.Forbidden, "Email is not confirmed! Please check your email:)");
+				
+			}
+			return Ok();
+		}
+
 		// POST api/Account/Register
 		[AllowAnonymous]
 		[HttpPost]
@@ -275,7 +304,7 @@ namespace EasyTravelWeb.Controllers
 		{
 			if (!this.ModelState.IsValid)
 			{
-				return this.BadRequest(this.ModelState);
+				return this.BadRequest();
 			}
 
 			if (this.registerBindingModelValidator.IsValid(model))
@@ -291,7 +320,7 @@ namespace EasyTravelWeb.Controllers
 					await UserManager.SendEmailAsync(user.Id, "Confirm your account",
 						"Please confirm your account by clicking this <a href=\"" + callbackUrl + "\">here</a>");
 				}
-				else return this.GetErrorResult(result);
+				else return Content(HttpStatusCode.BadRequest, "There is such user with same email!");
 			}
 
 			return this.Ok();
