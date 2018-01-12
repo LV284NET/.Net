@@ -278,13 +278,20 @@ namespace EasyTravelWeb.Controllers
 		[AllowAnonymous]
 		[HttpPost]
 		[Route("Confirm")]
-		public async Task<IHttpActionResult> ConfirmUserEmail([FromBody] User user)
+		public async Task<IHttpActionResult> ConfirmUser([FromBody] User user)
 		{
 			ApplicationUser userConfirm = await UserManager.FindByEmailAsync(user.Email);
 
+			if (userConfirm==null)
+			{
+				return Content(HttpStatusCode.NotFound, "There is no such user:(");
+			}
+	
 			if (!userConfirm.EmailConfirmed)
 			{
-				return NotFound();
+                
+				return Content(HttpStatusCode.Forbidden, "Email is not confirmed! Please check your email:)");
+				
 			}
 			return Ok();
 		}
@@ -297,7 +304,7 @@ namespace EasyTravelWeb.Controllers
 		{
 			if (!this.ModelState.IsValid)
 			{
-				return this.BadRequest(this.ModelState);
+				return this.BadRequest();
 			}
 
 			if (this.registerBindingModelValidator.IsValid(model))
@@ -313,7 +320,7 @@ namespace EasyTravelWeb.Controllers
 					await UserManager.SendEmailAsync(user.Id, "Confirm your account",
 						"Please confirm your account by clicking this <a href=\"" + callbackUrl + "\">here</a>");
 				}
-				else return this.GetErrorResult(result);
+				else return Content(HttpStatusCode.BadRequest, "There is such user with same email!");
 			}
 
 			return this.Ok();
