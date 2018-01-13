@@ -6,7 +6,10 @@ using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Providers
 {
@@ -29,14 +32,18 @@ namespace EasyTravelWeb.Providers
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
             //ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
-            ApplicationUser user = await userManager.FindByEmailAsync(context.Scope[0]);
-            
+            ApplicationUser user = await userManager.FindByEmailAsync(context.UserName);//UserName == email from frontend 
+
             if (user==null)
             {
-                context.SetError("invalid_grant", "The user name or password is incorrect");
+                context.SetError("invalid_grant", "The email is incorrect");
                 return;
             }
-
+            if (!DoesPasswordMatch(context, userManager, user))
+            {
+                context.SetError("invalid_grant", "The password is incorrect");
+                return;
+            }
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, OAuthDefaults.AuthenticationType);
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager, CookieAuthenticationDefaults.AuthenticationType);
             //ClaimsIdentity oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
@@ -93,6 +100,14 @@ namespace EasyTravelWeb.Providers
                 { "userName", userName }
             };
             return new AuthenticationProperties(data);
+        }
+
+        private bool DoesPasswordMatch(OAuthGrantResourceOwnerCredentialsContext context, ApplicationUserManager userManager, 
+            ApplicationUser userFoundByEmail)
+        {
+            ApplicationUser userFoundByUsernameAndPassword =
+                userManager.Find(userFoundByEmail.UserName, context.Password);
+            return userFoundByUsernameAndPassword != null;
         }
     }
 }

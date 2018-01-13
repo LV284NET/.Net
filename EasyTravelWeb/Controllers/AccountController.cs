@@ -284,13 +284,13 @@ namespace EasyTravelWeb.Controllers
 
 			if (userConfirm==null)
 			{
-				return Content(HttpStatusCode.NotFound, "There is no such user:(");
+				return Content(HttpStatusCode.NotFound, "There is no such user!");
 			}
 	
 			if (!userConfirm.EmailConfirmed)
 			{
                 
-				return Content(HttpStatusCode.Forbidden, "Email is not confirmed! Please check your email:)");
+				return Content(HttpStatusCode.Forbidden, "Email is not confirmed! Please check your email");
 				
 			}
 			return Ok();
