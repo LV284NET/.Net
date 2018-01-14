@@ -309,7 +309,10 @@ namespace EasyTravelWeb.Controllers
 
 			if (this.registerBindingModelValidator.IsValid(model))
 			{
-				var user = new ApplicationUser {UserName = $"{model.FirstName} {model.LastName}", Email = model.Email};
+				//var user = new ApplicationUser {UserName = $"{model.FirstName} {model.LastName}", Email = model.Email};
+
+				var user = new ApplicationUser { UserName = model.Email, Email = model.Email,
+					FirstName = model.FirstName, LastName = model.LastName};
 
 				IdentityResult result = await this.UserManager.CreateAsync(user, model.Password);
 
