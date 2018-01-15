@@ -22,7 +22,6 @@ namespace EasyTravelTest.ValidatorsTest
 			{
 				Email = "x@x.xx",
 				Password = "Aa1111!@",
-				ConfirmPassword = "Aa1111!@",
 				FirstName = "Taras",
 				LastName = "Taras"
 			};
@@ -42,7 +41,6 @@ namespace EasyTravelTest.ValidatorsTest
 			{
 				Email = "x@x.xx",
 				Password = "aa1111!@",
-				ConfirmPassword = "aa1111!",
 				FirstName = "Taras",
 				LastName = "Pavliuk"
 			};

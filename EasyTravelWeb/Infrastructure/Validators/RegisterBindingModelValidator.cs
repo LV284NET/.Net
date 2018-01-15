@@ -12,7 +12,7 @@ namespace EasyTravelWeb.Infrastructure.Validators
 	/// </summary>
 	public class RegisterBindingModelValidator : IValidator<RegisterBindingModel>
 	{
-		///must be is special class!
+		///must be in special class!
 		#region Constants
 
 		/// <summary>
@@ -42,11 +42,11 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		/// <summary>
 		///     Pattern that must be met by a password (i.e. Aa1111!@)
 		/// </summary>
-		private string passwordPattern = @"((?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{8,20})$"; //(?=.*\\d)
+		private string passwordPattern = @"((?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{8,20})$";
 
 
 		/// <summary>
-		///     Pattern that must be met by first name or last name (i.e. Aa1111!@)
+		///     Pattern that must be met by first name or last name (i.e. Pavlo)
 		/// </summary>
 		private string namePattern = @"^[а-яА-ЯёЁa-zA-Zʼ'є Є]{2,20}$";
 
@@ -166,7 +166,8 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		{
 			if (password.Length < PasswordLength)
 			{
-				this.validationRegister.Add("Password length must be equal or greater than 8 chars");
+				this.validationRegister
+					.Add("Password length must be equal or greater than 8 chars");
 
 				return false;
 			}
@@ -218,7 +219,8 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		{
 			if (string.IsNullOrEmpty(firstName))
 			{
-				this.validationRegister.Add("First name is required!");
+				this.validationRegister
+					.Add("First name is required!");
 
 				return false;
 			}
@@ -228,7 +230,8 @@ namespace EasyTravelWeb.Infrastructure.Validators
 				return true;
 			}
 
-			this.validationRegister.Add("You can not use numbers and symbols for first name");
+			this.validationRegister
+				.Add("You can not use numbers and symbols for first name");
 
 			return false;
 		}
@@ -242,7 +245,8 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		{
 			if (string.IsNullOrEmpty(lastName))
 			{
-				this.validationRegister.Add("Last name is required!");
+				this.validationRegister
+					.Add("Last name is required!");
 
 				return false;
 			}
@@ -252,7 +256,8 @@ namespace EasyTravelWeb.Infrastructure.Validators
 				return true;
 			}
 
-			this.validationRegister.Add("You can not use numbers and symbols for last name");
+			this.validationRegister
+				.Add("You can not use numbers and symbols for last name");
 
 			return false;
 		}
