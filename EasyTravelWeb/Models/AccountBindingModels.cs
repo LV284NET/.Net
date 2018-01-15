@@ -54,7 +54,7 @@ namespace EasyTravelWeb.Models
         public string FirstName { get; set; }
 
         [Required]
-        [Display(Name = "LasttName")]
+        [Display(Name = "LastName")]
         public string LastName { get; set; }
     }
 
