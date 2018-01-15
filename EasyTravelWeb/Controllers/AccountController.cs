@@ -348,7 +348,7 @@ namespace EasyTravelWeb.Controllers
 				return GetErrorResult(result);
                 
 			}
-			return Ok();
+			return Redirect("http://localhost:4200/main");
 		}
 
 		// POST api/Account/RegisterExternal
