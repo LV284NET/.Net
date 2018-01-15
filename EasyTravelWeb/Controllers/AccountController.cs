@@ -220,7 +220,7 @@ namespace EasyTravelWeb.Controllers
 				ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(this.UserManager,
 					CookieAuthenticationDefaults.AuthenticationType);
 
-				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, user.FirstName);
 				this.Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
 			}
 			else
@@ -309,7 +309,10 @@ namespace EasyTravelWeb.Controllers
 
 			if (this.registerBindingModelValidator.IsValid(model))
 			{
-				var user = new ApplicationUser {UserName = $"{model.FirstName} {model.LastName}", Email = model.Email};
+				//var user = new ApplicationUser {UserName = $"{model.FirstName} {model.LastName}", Email = model.Email};
+
+				var user = new ApplicationUser { UserName = model.Email, Email = model.Email,
+					FirstName = model.FirstName, LastName = model.LastName};
 
 				IdentityResult result = await this.UserManager.CreateAsync(user, model.Password);
 
@@ -345,7 +348,7 @@ namespace EasyTravelWeb.Controllers
 				return GetErrorResult(result);
                 
 			}
-			return Ok();
+			return Redirect("http://localhost:4200/main");
 		}
 
 		// POST api/Account/RegisterExternal
