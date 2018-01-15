@@ -220,7 +220,7 @@ namespace EasyTravelWeb.Controllers
 				ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(this.UserManager,
 					CookieAuthenticationDefaults.AuthenticationType);
 
-				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, user.FirstName);
 				this.Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
 			}
 			else

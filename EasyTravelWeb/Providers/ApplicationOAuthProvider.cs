@@ -49,7 +49,7 @@ namespace EasyTravelWeb.Providers
             //ClaimsIdentity oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
             //ClaimsIdentity cookiesIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(context.UserName);
+            AuthenticationProperties properties = CreateProperties(context.UserName, user.FirstName);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -57,6 +57,7 @@ namespace EasyTravelWeb.Providers
 
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
         {
+
             foreach (KeyValuePair<string,
             string> property in context.Properties.Dictionary)
             {
@@ -92,12 +93,13 @@ namespace EasyTravelWeb.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        public static AuthenticationProperties CreateProperties(string userName, string FirstName)
         {
             IDictionary<string, string>
             data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "userName", userName },
+                { "firstName", FirstName}
             };
             return new AuthenticationProperties(data);
         }
