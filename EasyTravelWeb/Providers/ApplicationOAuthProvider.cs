@@ -36,12 +36,12 @@ namespace EasyTravelWeb.Providers
 
             if (user==null)
             {
-                context.SetError("invalid_grant", "The email is incorrect");
+                context.SetError("invalid_grant", "The email is incorrect!");
                 return;
             }
             if (!DoesPasswordMatch(context, userManager, user))
             {
-                context.SetError("invalid_grant", "The password is incorrect");
+                context.SetError("invalid_grant", "The password is incorrect!");
                 return;
             }
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, OAuthDefaults.AuthenticationType);
