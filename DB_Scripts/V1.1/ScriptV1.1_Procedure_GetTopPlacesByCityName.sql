@@ -1,13 +1,13 @@
-﻿CREATE procedure [dbo].[GetTopPlacesByCityName] (@CityName nvarchar(40))
-as
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'GetTopPlacesByCityName')
+BEGIN 
+	DROP PROCEDURE [dbo].[GetTopPlacesByCityName]
+END
+GO
 
-set transaction isolation level read committed 
-
-begin transaction
-
+CREATE PROCEDURE [dbo].[GetTopPlacesByCityName] (@CityName nvarchar(40))
+AS
 	select top 4 * from [Place]
 	where CityID = (select [CityID] 
 					from [dbo].[City]
 					where [CityName] = @CityName)
-
-commit transaction
+GO

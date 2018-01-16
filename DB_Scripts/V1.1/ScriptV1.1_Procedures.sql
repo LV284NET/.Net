@@ -1,9 +1,11 @@
-﻿CREATE procedure GetCities
-as
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'GetCities')
+BEGIN 
+	DROP PROCEDURE [dbo].[GetCities]
+END
+GO
 
-set transaction isolation level read committed 
-
-begin transaction
-	select * from [City]	
-commit transaction
+CREATE PROCEDURE [dbo].[GetCities]
+AS
+	select * from [City]
+GO
 

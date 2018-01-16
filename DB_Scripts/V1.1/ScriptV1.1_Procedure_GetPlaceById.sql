@@ -1,11 +1,13 @@
-﻿CREATE procedure [dbo].[GetPlaceById] (@PlaceID bigint)
-as
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'GetPlaceById')
+BEGIN 
+	DROP PROCEDURE [dbo].[GetPlaceById]
+END
+GO
 
-set transaction isolation level read committed 
-
-begin transaction
+CREATE PROCEDURE [dbo].[GetPlaceById](@PlaceID  bigint)
+AS
 	select [City].[CityName], [Place].PlaceID, [Place].PlaceName, [Place].PlaceDescription, [Place].MainPlaceImage
 	from [Place] inner join [City]	
 	on [Place].CityID = [City].CityID
 	where @PlaceID = [Place].PlaceID;
-commit transaction
+GO
