@@ -160,5 +160,37 @@ namespace EasyTravelWeb.Repositories
 		    return null;
 
 		}
+
+        public List<Place> GetPlaces()
+        {
+            List<Place> placesToReturn = new List<Place>();
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetPlaces", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            placesToReturn.Add(new Place
+                            {
+                                PlaceId = Convert.ToInt32(reader["PlaceID"]),
+                                Name = reader["PlaceName"].ToString(),
+                                Description = reader["PlaceDescription"].ToString(),
+                                PicturePlace = reader["MainPlaceImage"].ToString(),
+                                CityName = reader["CityName"].ToString()
+                            });
+                        }
+                        return placesToReturn;
+                    }
+                }
+            }
+            return null;
+        }
 	}	
 }

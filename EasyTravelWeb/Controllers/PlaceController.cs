@@ -17,7 +17,7 @@ namespace EasyTravelWeb.Controllers
 			this.placeRepository = new PlaceRepository();
 			this.loger = Logger.GetInstance();
 		}
-
+            
 
 		[HttpGet]
 		[Route("api/Place/GetPlaceById")]

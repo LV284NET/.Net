@@ -31,8 +31,8 @@ namespace EasyTravelWeb.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            //ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
-            ApplicationUser user = await userManager.FindByEmailAsync(context.UserName);//UserName == email from frontend 
+
+            ApplicationUser user = await userManager.FindByEmailAsync(context.UserName);
 
             if (user==null)
             {
