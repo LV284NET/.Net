@@ -1,38 +1,50 @@
 ﻿using System;
-using  System.Collections.Generic;
+using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
+using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
+using System.Drawing;
+using System.Net.Http.Headers;
 
 namespace EasyTravelWeb.Controllers
 {
-    //[Route("")]
     public class HomeController : ApiController
     {
-        const int countMainPlaces = 6;
+        #region Private Fields
 
-        private readonly PlaceRepository _placeRepository = new PlaceRepository();
-        private Logger _loger = Logger.GetInstance();
+        private readonly PlaceRepository placeRepository = new PlaceRepository();
 
-        [Route("GetPlaces")]
-        [HttpGet]
-        public IList<Place> GetPlaces()
+        private readonly Logger logger = Logger.GetInstance();
+
+        #endregion
+        private const int CountMainPlaces = 6;
+
+        [System.Web.Http.Route("GetPlaces")]
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult GetPlaces()
         {
-            IList<Place> placesForMain=new List<Place>();
+            IList<Place> placesForMain = new List<Place>();
 
-            for (int i = 0; i < countMainPlaces; i++)
+            for (int i = 0; i < CountMainPlaces; i++)
             {
                 try
                 {
-                    placesForMain.Add(_placeRepository.GetPlace(new Random().Next(28)));
+                    placesForMain.Add(this.placeRepository.GetPlaceById(new Random().Next(1, 29)));
                 }
                 catch(Exception ex)
                 {
-                    _loger.Log("GetPlaces: " + ex.Message);
+                    this.logger.LogException(ex);
+                    return BadRequest();
                 }
             }
 
-            return placesForMain;
+            return Ok(placesForMain);
         }
     }
 }
