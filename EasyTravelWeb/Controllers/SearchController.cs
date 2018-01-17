@@ -10,6 +10,7 @@ using EasyTravelWeb.Repositories;
 
 namespace EasyTravelWeb.Controllers
 {
+    [Route("/api/search")]
     public class SearchController : ApiController
     {
         private readonly Logger logger;
@@ -17,34 +18,38 @@ namespace EasyTravelWeb.Controllers
         private readonly CityRepository cityRepository;
         private readonly PlaceRepository placeRepository;
 
+        private List<string> names = new List<string>();
+
         public SearchController()
         {
             logger = Logger.GetInstance();
             cityRepository = new CityRepository();
             placeRepository = new PlaceRepository();
+
+            names.AddRange(cityRepository.GetCitiesNames());
+            names.AddRange(placeRepository.GetPlacesNames());
         }
 
-        //public IHttpActionResult GetSuggestions(string searchWord)
-        //{
-        //    try
-        //    {
-        //        List<string> listOfSuggestions = (from city in cityRepository.GetCities()
-        //            where city.Name.StartsWith(searchWord)
-        //            select city.Name).ToList();
-        //        listOfSuggestions.AddRange(from place in placeRepository.GetPlaces()
-        //            where place.Name.StartsWith(searchWord)
-        //            select place.Name);
-
-        //        if (listOfSuggestions != null)
-        //        {
-        //            return Ok(listOfSuggestions);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        logger.LogException(ex);
-        //        return NotFound();
-        //    }
-        //}
+        [Route("se")]
+        public IHttpActionResult GetSuggestions(string searchWord)
+        {
+            try
+            {
+                List<string> listOfSuggestions = new List<string>();
+                names.ForEach(name =>
+                {
+                    if (name.StartsWith(searchWord))
+                    {
+                        listOfSuggestions.Add(name);
+                    }
+                });
+                return Ok(listOfSuggestions);
+            }
+            catch (Exception ex)
+            {
+                logger.LogException(ex);
+                return NotFound();
+            }
+        }
     }
 }

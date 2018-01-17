@@ -192,5 +192,32 @@ namespace EasyTravelWeb.Repositories
             }
             return null;
         }
+
+        public IList<string> GetPlacesNames()
+        {
+            List<string> placesNames = new List<string>();
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetPlacesNames", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            placesNames.Add(reader["PlaceName"].ToString());
+                        }
+                        return placesNames;
+                    }
+                }
+            }
+            return null;
+        }
 	}	
 }

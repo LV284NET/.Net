@@ -44,6 +44,32 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        public IList<string> GetCitiesNames()
+        {
+            List<string> cityNames = new List<string>();
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetCitiesNames", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            cityNames.Add(reader["CityName"].ToString());
+                        }
+                        return cityNames;
+                    }
+                }
+            }
+            return null;
+        }
+
         public virtual City GetCity(long id)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
