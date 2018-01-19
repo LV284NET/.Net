@@ -193,7 +193,7 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public IList<string> GetPlacesNames()
+        public virtual IList<string> GetPlacesNames()
         {
             List<string> placesNames = new List<string>();
             using(SqlConnection connection = new SqlConnection(ConfigurationManager

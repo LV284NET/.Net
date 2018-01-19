@@ -1,54 +1,96 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
-using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
+using WebGrease.Css.Extensions;
 
 namespace EasyTravelWeb.Controllers
 {
-    [Route("/api/search")]
+    [RoutePrefix("/api/Search")]
     public class SearchController : ApiController
     {
-        private readonly Logger logger;
+        private readonly Logger logger = Logger.GetInstance();
 
-        private readonly CityRepository cityRepository;
-        private readonly PlaceRepository placeRepository;
+        private CityRepository cityRepository = new CityRepository();
+        private PlaceRepository placeRepository = new PlaceRepository();
 
-        private List<string> names = new List<string>();
-
-        public SearchController()
+        public class SearchEntity
         {
-            logger = Logger.GetInstance();
-            cityRepository = new CityRepository();
-            placeRepository = new PlaceRepository();
-
-            names.AddRange(cityRepository.GetCitiesNames());
-            names.AddRange(placeRepository.GetPlacesNames());
+            public string Name { get; set; }
+            public string Type { get; set; }
         }
 
-        [Route("se")]
+        private static List<SearchEntity> citiesNames;
+        private static List<SearchEntity> placesNames;
+
+        public SearchController() { }
+
+        public SearchController(CityRepository cityRepository, PlaceRepository placeRepository)
+        {
+            this.cityRepository = cityRepository;
+            this.placeRepository = placeRepository;
+
+            if (citiesNames == null)
+            {
+                citiesNames = new List<SearchEntity>();
+                cityRepository.GetCitiesNames().ForEach(cityName => citiesNames.Add(new SearchEntity
+                {
+                    Name = cityName,
+                    Type = "City"
+                }));
+            }
+
+            if (placesNames == null)
+            {
+                placesNames = new List<SearchEntity>();
+                placeRepository.GetPlacesNames().ForEach(placeName => placesNames.Add(new SearchEntity
+                {
+                    Name = placeName,
+                    Type = "Place"
+                }));
+            }
+        }
+
+        [HttpGet]
         public IHttpActionResult GetSuggestions(string searchWord)
         {
             try
             {
-                List<string> listOfSuggestions = new List<string>();
-                names.ForEach(name =>
+                IList<SearchEntity> listOfSuggestions = new List<SearchEntity>();
+                const int numberToShow = 4;
+                int counter = 0;
+
+                foreach (SearchEntity obj in citiesNames)
                 {
-                    if (name.StartsWith(searchWord))
+                    if (obj.Name.StartsWith(searchWord))
                     {
-                        listOfSuggestions.Add(name);
+                        listOfSuggestions.Add(obj);
+                        if (++counter == numberToShow)
+                        {
+                            break;
+                        }
                     }
-                });
+                }
+
+                foreach (SearchEntity obj in placesNames)
+                {
+                    if (obj.Name.StartsWith(searchWord))
+                    {
+                        listOfSuggestions.Add(obj);
+                        if (++counter == numberToShow + 4)
+                        {
+                            break;
+                        }
+                    }
+                }
+                        
                 return Ok(listOfSuggestions);
             }
             catch (Exception ex)
             {
                 logger.LogException(ex);
-                return NotFound();
+                return InternalServerError();
             }
         }
     }
