@@ -83,13 +83,13 @@ namespace EasyTravelWeb.Controllers
 		[Route("ManageInfo")]
 		public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
 		{
-			IdentityUser user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId());
+			var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId<int>());
 
 			if (user == null) return null;
 
 			var logins = new List<UserLoginInfoViewModel>();
 
-			foreach (IdentityUserLogin linkedAccount in user.Logins)
+			foreach (CustomUserLogin linkedAccount in user.Logins)
 				logins.Add(new UserLoginInfoViewModel
 				{
 					LoginProvider = linkedAccount.LoginProvider,
@@ -118,7 +118,7 @@ namespace EasyTravelWeb.Controllers
 		{
 			if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
 
-			IdentityResult result = await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId(), model.OldPassword,
+			IdentityResult result = await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId<int>(), model.OldPassword,
 				model.NewPassword);
 
 			if (!result.Succeeded) return this.GetErrorResult(result);
@@ -132,7 +132,7 @@ namespace EasyTravelWeb.Controllers
 		{
 			if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
 
-			IdentityResult result = await this.UserManager.AddPasswordAsync(this.User.Identity.GetUserId(), model.NewPassword);
+			IdentityResult result = await this.UserManager.AddPasswordAsync(this.User.Identity.GetUserId<int>(), model.NewPassword);
 
 			if (!result.Succeeded) return this.GetErrorResult(result);
 
@@ -158,7 +158,7 @@ namespace EasyTravelWeb.Controllers
 
 			if (externalData == null) return this.BadRequest("The external login is already associated with an account.");
 
-			IdentityResult result = await this.UserManager.AddLoginAsync(this.User.Identity.GetUserId(),
+			IdentityResult result = await this.UserManager.AddLoginAsync(this.User.Identity.GetUserId<int>(),
 				new UserLoginInfo(externalData.LoginProvider, externalData.ProviderKey));
 
 			if (!result.Succeeded) return this.GetErrorResult(result);
@@ -175,9 +175,9 @@ namespace EasyTravelWeb.Controllers
 			IdentityResult result;
 
 			if (model.LoginProvider == LocalLoginProvider)
-				result = await this.UserManager.RemovePasswordAsync(this.User.Identity.GetUserId());
+				result = await this.UserManager.RemovePasswordAsync(this.User.Identity.GetUserId<int>());
 			else
-				result = await this.UserManager.RemoveLoginAsync(this.User.Identity.GetUserId(),
+				result = await this.UserManager.RemoveLoginAsync(this.User.Identity.GetUserId<int>(),
 					new UserLoginInfo(model.LoginProvider, model.ProviderKey));
 
 			if (!result.Succeeded) return this.GetErrorResult(result);
@@ -331,10 +331,10 @@ namespace EasyTravelWeb.Controllers
 		[HttpGet]
 		[AllowAnonymous]
 		[Route("ConfirmEmail", Name = "ConfirmEmailRoute")]
-		public async Task<IHttpActionResult> ConfirmEmail(string userId = "", string code = "")
+		public async Task<IHttpActionResult> ConfirmEmail(int userId = 0, string code = "")
 		{
-			if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(code))
-			{
+		    if (userId == default(int) || code == string.Empty)
+            {
 				ModelState.AddModelError("", "User Id and Code are required");
 				return BadRequest(ModelState);
 			}

@@ -73,6 +73,7 @@
     <Compile Include="ControllersTest\HomeControllerTest.cs" />
     <Compile Include="ControllersTest\CityControllerTest.cs" />
     <Compile Include="ControllersTest\PlaceControllerTest.cs" />
+    <Compile Include="ControllersTest\SearchControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesTest\PlaceRepositoryTest.cs" />
     <Compile Include="RepositoriesTest\CityRepositoryTest.cs" />
