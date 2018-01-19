@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Services
 {
-    public class EmailService: IIdentityMessageService
+    public class EmailService : IIdentityMessageService
     {
         public async Task SendAsync(IdentityMessage message)
         {
@@ -17,19 +17,17 @@ namespace EasyTravelWeb.Services
             {
                 Credentials = new NetworkCredential("easytravelsystem284@gmail.com", ".netlv-284"),
                 EnableSsl = true,
-                //DeliveryMethod = SmtpDeliveryMethod.Network,
-                //UseDefaultCredentials = false
             };
 
             var mail = new MailMessage("easytravelsystem284@gmail.com", to: message.Destination)
             {
                 Body = message.Body,
+                IsBodyHtml = true,
                 Subject = message.Subject,
                 SubjectEncoding = System.Text.Encoding.UTF8
             };
 
             await client.SendMailAsync(mail);
-            //return Task.FromResult(0);
-        } 
+        }
     }
 }
