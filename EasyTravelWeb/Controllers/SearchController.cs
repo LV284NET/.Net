@@ -7,7 +7,7 @@ using WebGrease.Css.Extensions;
 
 namespace EasyTravelWeb.Controllers
 {
-    [RoutePrefix("/api/Search")]
+    //[RoutePrefix("api/Search")]
     public class SearchController : ApiController
     {
         private readonly Logger logger = Logger.GetInstance();
@@ -28,36 +28,37 @@ namespace EasyTravelWeb.Controllers
 
         public SearchController(CityRepository cityRepository, PlaceRepository placeRepository)
         {
-            this.cityRepository = cityRepository;
-            this.placeRepository = placeRepository;
-
-            if (citiesNames == null)
-            {
-                citiesNames = new List<SearchEntity>();
-                cityRepository.GetCitiesNames().ForEach(cityName => citiesNames.Add(new SearchEntity
-                {
-                    Name = cityName,
-                    Type = "City"
-                }));
-            }
-
-            if (placesNames == null)
-            {
-                placesNames = new List<SearchEntity>();
-                placeRepository.GetPlacesNames().ForEach(placeName => placesNames.Add(new SearchEntity
-                {
-                    Name = placeName,
-                    Type = "Place"
-                }));
-            }
-        }
+	        //this.cityRepository = cityRepository;
+	        //this.placeRepository = placeRepository;
+		}
 
         [HttpGet]
-        public IHttpActionResult GetSuggestions(string searchWord)
+        //[Route("GetSuggestions")]
+		public IHttpActionResult GetSuggestions(string searchWord)
         {
             try
             {
-                IList<SearchEntity> listOfSuggestions = new List<SearchEntity>();
+	            if (citiesNames == null)
+	            {
+		            citiesNames = new List<SearchEntity>();
+		            cityRepository.GetCitiesNames().ForEach(cityName => citiesNames.Add(new SearchEntity
+		            {
+			            Name = cityName,
+			            Type = "City"
+		            }));
+	            }
+
+	            if (placesNames == null)
+	            {
+		            placesNames = new List<SearchEntity>();
+		            placeRepository.GetPlacesNames().ForEach(placeName => placesNames.Add(new SearchEntity
+		            {
+			            Name = placeName,
+			            Type = "Place"
+		            }));
+	            }
+
+				IList<SearchEntity> listOfSuggestions = new List<SearchEntity>();
                 const int numberToShow = 4;
                 int counter = 0;
 
