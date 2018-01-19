@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using EasyTravelWeb.Controllers;
 using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Repositories
@@ -193,15 +194,15 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public virtual IList<string> GetPlacesNames()
+        public virtual IList<SearchController.PlaceSearchEntity> GetPlacesIdsAndNames()
         {
-            List<string> placesNames = new List<string>();
+            List<SearchController.PlaceSearchEntity> places = new List<SearchController.PlaceSearchEntity>();
             using(SqlConnection connection = new SqlConnection(ConfigurationManager
                 .ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("GetPlacesNames", connection)
+                SqlCommand command = new SqlCommand("GetPlacesIdsAndNames", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -211,9 +212,14 @@ namespace EasyTravelWeb.Repositories
                     {
                         while (reader.Read())
                         {
-                            placesNames.Add(reader["PlaceName"].ToString());
+                            places.Add(new SearchController.PlaceSearchEntity
+                            {
+                                Id = Convert.ToInt64(reader["PlaceId"]),
+                                CityId = Convert.ToInt64(reader["CityId"]),
+                                Name = reader["PlaceName"].ToString()
+                            });
                         }
-                        return placesNames;
+                        return places;
                     }
                 }
             }
