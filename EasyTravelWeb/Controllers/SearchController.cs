@@ -15,7 +15,7 @@ namespace EasyTravelWeb.Controllers
         private readonly PlaceRepository placeRepository = new PlaceRepository();
 
         private static List<CitySearchEntity> cities;
-        private static List<PlaceSearchEntity> placesNames;
+        private static List<PlaceSearchEntity> places;
 
         public SearchController()
         {
@@ -31,7 +31,7 @@ namespace EasyTravelWeb.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetSuggestions(string searchWord)
+		public IHttpActionResult GetSuggestions(string searchWord)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace EasyTravelWeb.Controllers
                     }
                 }
 
-                foreach (ISearchEntity obj in placesNames)
+                foreach (ISearchEntity obj in places)
                 {
                     if (obj.Name.ToLower().StartsWith(searchWord))
                     {
@@ -81,10 +81,10 @@ namespace EasyTravelWeb.Controllers
                 cityRepository.GetCitiesIdAndNames().ForEach(city => cities.Add(city));
             }
 
-            if (placesNames == null)
+            if (places == null)
             {
-                placesNames = new List<PlaceSearchEntity>();
-                placeRepository.GetPlacesIdsAndNames().ForEach(place => placesNames.Add(place));
+                places = new List<PlaceSearchEntity>();
+                placeRepository.GetPlacesIdsAndNames().ForEach(place => places.Add(place));
             }
         }
 
