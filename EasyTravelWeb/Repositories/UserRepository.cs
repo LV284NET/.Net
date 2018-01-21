@@ -40,7 +40,57 @@ namespace EasyTravelWeb.Repositories
 			}
 		}
 
-		public Guid AddUser(User newObject)
+        public User GetUser(string email)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetUserByEmail", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Email", email));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    return new User
+                    {
+                        FirstName = reader["firstName"].ToString(),
+                        LastName = reader["lastName"].ToString(),
+                        Email = reader["email"].ToString()
+                    };
+                }
+            }
+        }
+
+        public void ChangeFirstLastNames(string email, string firstName, string lastName)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("ChangeFirstandLastName", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Email", email));
+                command.Parameters.Add(new SqlParameter("@FirstName", firstName));
+                command.Parameters.Add(new SqlParameter("@LastName", lastName));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                }
+            }
+        }
+
+        public Guid AddUser(User newObject)
 		{
 			if (isNewUser(newObject.Email))
 				using (SqlConnection connection =
