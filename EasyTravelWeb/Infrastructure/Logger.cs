@@ -84,7 +84,7 @@ namespace EasyTravelWeb.Infrastructure
 		/// <summary>
 		///     Writes the message into the file
 		/// </summary>
-		/// <param name="message"></param>
+		/// <param name="message">Message that should be logged</param>
 		public void LogMessage(string message)
 		{
 			this.streamWriter.WriteLine(DateTime.Now + "\n" + message + "\n");
