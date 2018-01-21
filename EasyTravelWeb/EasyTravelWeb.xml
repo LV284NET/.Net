@@ -127,7 +127,7 @@
         </member>
         <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor">
             <summary>
-                Initializes instance of the UserDataValidator class
+                Initializes instance of the RegisterBindingModelValidator class
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.GetValidationData(EasyTravelWeb.Models.RegisterBindingModel)">
@@ -159,7 +159,7 @@
             <param name="email">email</param>
             <returns>bool</returns>
         </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.passwordIsValid(System.String)">
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isPasswordValid(System.String)">
             <summary>
                 Checks if the password is valid
             </summary>

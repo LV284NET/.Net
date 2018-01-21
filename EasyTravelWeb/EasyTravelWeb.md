@@ -25,9 +25,9 @@
   - [isEmailMetPatternRequirements(email)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isEmailMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isEmailMetPatternRequirements(System.String)')
   - [isNameMetPatternRequirements(name)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isNameMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isNameMetPatternRequirements(System.String)')
   - [isPasswordMetPatternRequirements(password)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isPasswordMetPatternRequirements(System.String)')
+  - [isPasswordValid(password)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isPasswordValid(System.String)')
   - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-IsValid-EasyTravelWeb-Models-RegisterBindingModel- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.IsValid(EasyTravelWeb.Models.RegisterBindingModel)')
   - [lastNameIsValid(lastName)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-lastNameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.lastNameIsValid(System.String)')
-  - [passwordIsValid(password)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-passwordIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.passwordIsValid(System.String)')
 - [UserController](#T-EasyTravelWeb-Controllers-UserController 'EasyTravelWeb.Controllers.UserController')
   - [logger](#F-EasyTravelWeb-Controllers-UserController-logger 'EasyTravelWeb.Controllers.UserController.logger')
   - [userRepository](#F-EasyTravelWeb-Controllers-UserController-userRepository 'EasyTravelWeb.Controllers.UserController.userRepository')
@@ -160,7 +160,7 @@ RegisterBindingModelValidator logic
 
 ##### Summary
 
-Initializes instance of the UserDataValidator class
+Initializes instance of the RegisterBindingModelValidator class
 
 ##### Parameters
 
@@ -310,6 +310,23 @@ Checks if the password is met pattern requirements
 | ---- | ---- | ----------- |
 | password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Password |
 
+<a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordValid-System-String-'></a>
+### isPasswordValid(password) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if the password is valid
+
+##### Returns
+
+bool
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | password |
+
 <a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-IsValid-EasyTravelWeb-Models-RegisterBindingModel-'></a>
 ### IsValid(model) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-IsValid-EasyTravelWeb-Models-RegisterBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -343,23 +360,6 @@ bool
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Last name |
-
-<a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-passwordIsValid-System-String-'></a>
-### passwordIsValid(password) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-passwordIsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Checks if the password is valid
-
-##### Returns
-
-bool
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | password |
 
 <a name='T-EasyTravelWeb-Controllers-UserController'></a>
 ## UserController [#](#T-EasyTravelWeb-Controllers-UserController 'Go To Here') [=](#contents 'Back To Contents')
