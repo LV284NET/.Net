@@ -305,10 +305,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\PxtlCa.XmlCommentMarkDownGenerator.0.2.6270.2853\build\PxtlCa.XmlCommentMarkDownGenerator.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PxtlCa.XmlCommentMarkDownGenerator.0.2.6270.2853\build\PxtlCa.XmlCommentMarkDownGenerator.targets'))" />
     <Error Condition="!Exists('..\packages\Vsxmd.1.2.0\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.2.0\build\Vsxmd.targets'))" />
   </Target>
-  <Import Project="..\packages\PxtlCa.XmlCommentMarkDownGenerator.0.2.6270.2853\build\PxtlCa.XmlCommentMarkDownGenerator.targets" Condition="Exists('..\packages\PxtlCa.XmlCommentMarkDownGenerator.0.2.6270.2853\build\PxtlCa.XmlCommentMarkDownGenerator.targets')" />
   <Import Project="..\packages\Vsxmd.1.2.0\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.2.0\build\Vsxmd.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

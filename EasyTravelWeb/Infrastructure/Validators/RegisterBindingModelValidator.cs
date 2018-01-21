@@ -55,7 +55,7 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		#region Constructor
 
 		/// <summary>
-		///     Initializes instance of the UserDataValidator class
+		///     Initializes instance of the RegisterBindingModelValidator class
 		/// </summary>
 		public RegisterBindingModelValidator()
 		{
@@ -93,7 +93,7 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		public bool IsValid(RegisterBindingModel model)
 		{
 			if (this.emailIsValid(model.Email) &
-			    this.passwordIsValid(model.Password) &
+			    this.isPasswordValid(model.Password) &
 			    this.firstNameIsValid(model.FirstName) &
 			    this.lastNameIsValid(model.LastName))
 			{
@@ -162,7 +162,7 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		/// </summary>
 		/// <param name="password">password</param>
 		/// <returns>bool</returns>
-		private bool passwordIsValid(string password)
+		private bool isPasswordValid(string password)
 		{
 			if (password.Length < PasswordLength)
 			{
