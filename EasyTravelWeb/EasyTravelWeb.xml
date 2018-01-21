@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyTravelWeb</name>
+    </assembly>
+    <members>
+        <member name="T:EasyTravelWeb.Controllers.MainPageController">
+            <summary>
+                Controller for the default page which informs about the app running
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Controllers.UserController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.UserController.userRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.UserController.logger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.UserController.validationInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.UserController.GetUser(EasyTravelWeb.Models.User)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.UserController.AddUser(EasyTravelWeb.Models.User)">
+            <summary>
+            </summary>
+            <param name="object"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Logger">
+            <summary>
+                Logs applicatuon exceptions into EasyTravelLog.txt in C:\Users\Public directory
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.#ctor">
+            <summary>
+                Prevents a default instance of the Logger class from being created
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.Finalize">
+            <summary>
+                Finalizes an instance of the Logger class
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Logger.logger">
+            <summary>
+                The only one instance of the Logger class
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Logger.FileStream">
+            <summary>
+                Instance of the Stream class
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Logger.streamWriter">
+            <summary>
+                Instance of the StreamWriter class
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.GetInstance">
+            <summary>
+                Returns a new instance of the Logger class for exceptions logging
+            </summary>
+            <returns>Instance of the Logger class</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.LogException(System.Exception)">
+            <summary>
+                Writes the exception details into the file
+            </summary>
+            <param name="ex">Instence of the Exception class</param>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.LogMessage(System.String)">
+            <summary>
+                Writes the message into the file
+            </summary>
+            <param name="message">Message that should be logged</param>
+        </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator">
+            <summary>
+                RegisterBindingModelValidator logic
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.PasswordLength">
+            <summary>
+                Minimum amount of password characters
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.validationRegister">
+            <summary>
+                Validation register
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.logger">
+            <summary>
+                Instance of the Logger class for logging exceptions
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailPattern">
+            <summary>
+                Pattern that must be met by an email (i.e. some@domain.com)
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.passwordPattern">
+            <summary>
+                Pattern that must be met by a password (i.e. Aa1111!@)
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.namePattern">
+            <summary>
+                Pattern that must be met by first name or last name (i.e. Pavlo)
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor">
+            <summary>
+                Initializes instance of the UserDataValidator class
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.GetValidationData(EasyTravelWeb.Models.RegisterBindingModel)">
+            <summary>
+                Gets data about validation process of the instance of the RegisterBindingModel class.
+                Useful in cases of necessary to watch problems concerning the validation process.
+            </summary>
+            <param name="model">Instance of the RegisterBindingModel class</param>
+            <returns>List of information messages about validation process</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.IsValid(EasyTravelWeb.Models.RegisterBindingModel)">
+            <summary>
+                Checks if data of the instance of the RegisterBindingModel class is valid
+            </summary>
+            <param name="model">Instance of the RegisterBindingModel class</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailIsValid(System.String)">
+            <summary>
+                Checks if the email is valid
+            </summary>
+            <param name="email">email</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isEmailMetPatternRequirements(System.String)">
+            <summary>
+                Checks if the email is met pattern requirements
+            </summary>
+            <param name="email">email</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.passwordIsValid(System.String)">
+            <summary>
+                Checks if the password is valid
+            </summary>
+            <param name="password">password</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isPasswordMetPatternRequirements(System.String)">
+            <summary>
+                Checks if the password is met pattern requirements
+            </summary>
+            <param name="password">Password</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.firstNameIsValid(System.String)">
+            <summary>
+                Checks if the first name is valid
+            </summary>
+            <param name="firstName">First name</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.lastNameIsValid(System.String)">
+            <summary>
+                Checks if the last name is valid
+            </summary>
+            <param name="lastName">Last name</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isNameMetPatternRequirements(System.String)">
+            <summary>
+                Checks if the first name or the last name are met pattern requirements
+            </summary>
+            <param name="name">First name or last name</param>
+            <returns>bool</returns>
+        </member>
+    </members>
+</doc>
