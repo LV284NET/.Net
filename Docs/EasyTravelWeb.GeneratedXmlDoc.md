@@ -126,7 +126,7 @@
 
 |Name | Description |
 |-----|------|
-|message: ||
+|message: |Message that should be logged|
 
 
 ---
