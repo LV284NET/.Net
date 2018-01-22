@@ -114,6 +114,8 @@ namespace EasyTravelWeb.Controllers
         }
 
         // POST api/Account/ChangePassword
+        [AllowAnonymous]
+        [HttpPost]
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using System;
+using EasyTravelWeb.Infrastructure.Validators;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -11,6 +12,8 @@ namespace EasyTravelWeb.Controllers
     {
         private readonly UserRepository userRepository = new UserRepository();
         private readonly Logger logger = Logger.GetInstance();
+        private readonly IValidator<string> nameValidator =
+            new NameChangingValidator();
 
         public ProfileController() { }
 
@@ -21,12 +24,12 @@ namespace EasyTravelWeb.Controllers
 
         [HttpGet]
         [Route("api/Profile/GetUserInfo")]
-        public IHttpActionResult GetUser(string email)
+        public IHttpActionResult GetUser(int id)
         {
             User user;
             try
             {
-                user = this.userRepository.GetUser(email);
+                user = this.userRepository.GetUser(id);
 
             }
             catch (Exception ex)
@@ -40,17 +43,25 @@ namespace EasyTravelWeb.Controllers
 
         [HttpPost]
         [Route("api/Profile/ChangeFirstName")]
-        public IHttpActionResult ChangeFirstName(string email, string firstName, string lastName)
+        public IHttpActionResult ChangeFirstName(int id, string firstName)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                this.userRepository.ChangeFirstName(email, firstName);
-            }
-            catch (Exception ex)
-            {
-                this.logger.LogException(ex);
-
                 return this.BadRequest();
+            }
+
+            if (this.nameValidator.IsValid(firstName))
+            {
+                try
+                {
+                    this.userRepository.ChangeFirstName(id, firstName);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogException(ex);
+
+                    return this.BadRequest();
+                }
             }
 
             return this.Ok();
@@ -58,17 +69,25 @@ namespace EasyTravelWeb.Controllers
 
         [HttpPost]
         [Route("api/Profile/ChangeLastName")]
-        public IHttpActionResult ChangeLastName(string email, string lastName)
+        public IHttpActionResult ChangeLastName(int id, string lastName)
         {
-            try
+            if (!this.ModelState.IsValid)
             {
-                this.userRepository.ChangeLastName(email, lastName);
-            }
-            catch (Exception ex)
-            {
-                this.logger.LogException(ex);
-
                 return this.BadRequest();
+            }
+
+            if (this.nameValidator.IsValid(lastName))
+            {
+                try
+                {
+                    this.userRepository.ChangeLastName(id, lastName);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogException(ex);
+
+                    return this.BadRequest();
+                }
             }
 
             return this.Ok();
