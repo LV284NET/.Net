@@ -29,7 +29,6 @@ namespace EasyTravelWeb.Controllers
         public IHttpActionResult GetCities(int? page)
         {
             IList<City> listToReturn;
-            
                 int pageSize = 3;
                 int pageNumber = (page ?? 1);
             try
