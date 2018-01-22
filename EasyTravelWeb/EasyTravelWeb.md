@@ -11,6 +11,11 @@
   - [LogException(ex)](#M-EasyTravelWeb-Infrastructure-Logger-LogException-System-Exception- 'EasyTravelWeb.Infrastructure.Logger.LogException(System.Exception)')
   - [LogMessage(message)](#M-EasyTravelWeb-Infrastructure-Logger-LogMessage-System-String- 'EasyTravelWeb.Infrastructure.Logger.LogMessage(System.String)')
 - [MainPageController](#T-EasyTravelWeb-Controllers-MainPageController 'EasyTravelWeb.Controllers.MainPageController')
+- [NameChangingValidator](#T-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator')
+  - [GetValidationData(model)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-GetValidationData-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.GetValidationData(System.String)')
+  - [isNameMetPatternRequirements(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-isNameMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.isNameMetPatternRequirements(System.String)')
+  - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.IsValid(System.String)')
+  - [NameIsValid(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.NameIsValid(System.String)')
 - [RegisterBindingModelValidator](#T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor')
   - [emailPattern](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-emailPattern 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailPattern')
@@ -32,7 +37,6 @@
   - [logger](#F-EasyTravelWeb-Controllers-UserController-logger 'EasyTravelWeb.Controllers.UserController.logger')
   - [userRepository](#F-EasyTravelWeb-Controllers-UserController-userRepository 'EasyTravelWeb.Controllers.UserController.userRepository')
   - [validationInfo](#F-EasyTravelWeb-Controllers-UserController-validationInfo 'EasyTravelWeb.Controllers.UserController.validationInfo')
-  - [AddUser(object)](#M-EasyTravelWeb-Controllers-UserController-AddUser-EasyTravelWeb-Models-User- 'EasyTravelWeb.Controllers.UserController.AddUser(EasyTravelWeb.Models.User)')
   - [GetUser(user)](#M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User- 'EasyTravelWeb.Controllers.UserController.GetUser(EasyTravelWeb.Models.User)')
 
 <a name='assembly'></a>
@@ -143,6 +147,81 @@ EasyTravelWeb.Controllers
 ##### Summary
 
 Controller for the default page which informs about the app running
+
+<a name='T-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator'></a>
+## NameChangingValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Infrastructure.Validators
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-GetValidationData-System-String-'></a>
+### GetValidationData(model) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-GetValidationData-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Gets data about validation process of the instance of the string class. Useful in cases of necessary to watch problems concerning the validation process.
+
+##### Returns
+
+List of information messages about validation process
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| model | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Instance of the string class |
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-isNameMetPatternRequirements-System-String-'></a>
+### isNameMetPatternRequirements(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-isNameMetPatternRequirements-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if the first name or the last name are met pattern requirements
+
+##### Returns
+
+bool
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First name or last name |
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String-'></a>
+### IsValid(model) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if data of the instance of the RegisterBindingModel class is valid
+
+##### Returns
+
+bool
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| model | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Instance of the RegisterBindingModel class |
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String-'></a>
+### NameIsValid(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if the first name is valid
+
+##### Returns
+
+bool
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First or Last name |
 
 <a name='T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator'></a>
 ## RegisterBindingModelValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator 'Go To Here') [=](#contents 'Back To Contents')
@@ -392,23 +471,6 @@ EasyTravelWeb.Controllers
 ##### Summary
 
 
-
-<a name='M-EasyTravelWeb-Controllers-UserController-AddUser-EasyTravelWeb-Models-User-'></a>
-### AddUser(object) `method` [#](#M-EasyTravelWeb-Controllers-UserController-AddUser-EasyTravelWeb-Models-User- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-##### Returns
-
-
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| object | [EasyTravelWeb.Models.User](#T-EasyTravelWeb-Models-User 'EasyTravelWeb.Models.User') |  |
 
 <a name='M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User-'></a>
 ### GetUser(user) `method` [#](#M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User- 'Go To Here') [=](#contents 'Back To Contents')

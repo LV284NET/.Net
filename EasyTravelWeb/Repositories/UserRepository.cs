@@ -111,39 +111,6 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
-        public Guid AddUser(User newObject)
-		{
-			if (isNewUser(newObject.Email))
-				using (SqlConnection connection =
-					new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-						.ConnectionString))
-				{
-					connection.Open();
-
-					SqlCommand command = new SqlCommand("InsertNewUser", connection);
-
-					command.CommandType = CommandType.StoredProcedure;
-
-					do
-					{
-						newObject.UserId = Guid.NewGuid();
-					} while (!checkGuid(newObject.UserId));
-
-					command.Parameters.Add(new SqlParameter("@Email", newObject.Email));
-					command.Parameters.Add(new SqlParameter("@Password", newObject.Password));
-					command.Parameters.Add(new SqlParameter("@FirstName", newObject.FirstName));
-					command.Parameters.Add(new SqlParameter("@LastName", newObject.LastName));
-					command.Parameters.Add(new SqlParameter("@IsAdmin", false));
-					command.Parameters.Add(new SqlParameter("UserID", newObject.UserId));
-
-					command.ExecuteNonQuery();
-
-					return newObject.UserId;
-				}
-
-			return Guid.Empty;
-		}
-
 		private bool isNewUser(string eMail)
 		{
 			using (SqlConnection connection =

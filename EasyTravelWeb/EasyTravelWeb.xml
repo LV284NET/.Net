@@ -36,12 +36,6 @@
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.UserController.AddUser(EasyTravelWeb.Models.User)">
-            <summary>
-            </summary>
-            <param name="object"></param>
-            <returns></returns>
-        </member>
         <member name="T:EasyTravelWeb.Infrastructure.Logger">
             <summary>
                 Logs applicatuon exceptions into EasyTravelLog.txt in C:\Users\Public directory
@@ -89,6 +83,35 @@
                 Writes the message into the file
             </summary>
             <param name="message">Message that should be logged</param>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.GetValidationData(System.String)">
+            <summary>
+                Gets data about validation process of the instance of the string class.
+                Useful in cases of necessary to watch problems concerning the validation process.
+            </summary>
+            <param name="model">Instance of the string class</param>
+            <returns>List of information messages about validation process</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.IsValid(System.String)">
+            <summary>
+                Checks if data of the instance of the RegisterBindingModel class is valid
+            </summary>
+            <param name="model">Instance of the RegisterBindingModel class</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.NameIsValid(System.String)">
+            <summary>
+                Checks if the first name is valid
+            </summary>
+            <param name="name">First or Last name</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.isNameMetPatternRequirements(System.String)">
+            <summary>
+                Checks if the first name or the last name are met pattern requirements
+            </summary>
+            <param name="name">First name or last name</param>
+            <returns>bool</returns>
         </member>
         <member name="T:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator">
             <summary>

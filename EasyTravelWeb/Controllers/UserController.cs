@@ -71,27 +71,6 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         /// <param name="object"></param>
         /// <returns></returns>
-        [Route("api/user/AddUser")]
-        [HttpPost]
-        public IHttpActionResult AddUser([FromBody] User @object)
-        {
-            //if (this.userDataIsValid(@object))
-            //{
-                Guid userGuid = this.userRepository.AddUser(@object);
-
-                if (userGuid != Guid.Empty)
-                {
-                    return this.Created("New user added", userGuid);//Status Code: 201
-                }
-
-                return this.BadRequest();//Status Code: 400
-            //}
-
-            //this.logger.LogMessage("User isn't added due to invalid inputted data into the form!");
-
-            //return this.Ok(this.validationInfo);//Status Code: 200 - User isn't added!
-        }
-
         #endregion
 
         #region Private Methods
