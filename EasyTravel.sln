@@ -50,7 +50,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.5", "V1.5", "{26E22196-A
 	ProjectSection(SolutionItems) = preProject
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql
-		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserByEmail.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserByEmail.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql
 	EndProjectSection
 EndProject
 Global

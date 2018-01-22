@@ -10,10 +10,27 @@ namespace EasyTravelWeb.Controllers
 {
     public class ProfileController : ApiController
     {
+        #region Private Fields
+
+        /// <summary>
+        /// Instance of UserRepository, using methods to do actions with database
+        /// </summary>
         private readonly UserRepository userRepository = new UserRepository();
+
+        /// <summary>
+        /// Instance for stroring exceptions in file
+        /// </summary>
         private readonly Logger logger = Logger.GetInstance();
+
+        /// <summary>
+        /// Validator fro first and lastn name
+        /// </summary>
         private readonly IValidator<string> nameValidator =
             new NameChangingValidator();
+
+        #endregion
+
+        #region Constructors
 
         public ProfileController() { }
 
@@ -22,6 +39,15 @@ namespace EasyTravelWeb.Controllers
             this.userRepository = userRepository;
         }
 
+        #endregion
+
+        #region Public Controllers
+
+        /// <summary>
+        /// Method for getting User from Db
+        /// </summary>
+        /// <param name="id">id of current user</param>
+        /// <returns>First, last, email of user</returns>
         [HttpGet]
         [Route("api/Profile/GetUserInfo")]
         public IHttpActionResult GetUser(int id)
@@ -41,6 +67,12 @@ namespace EasyTravelWeb.Controllers
             return Ok(user);
         }
 
+        /// <summary>
+        /// Method for changing first name of a user
+        /// </summary>
+        /// <param name="id">Id of current user</param>
+        /// <param name="firstName">First name which will be updated in database</param>
+        /// <returns>result of chaning (Bad or Ok)</returns>
         [HttpPost]
         [Route("api/Profile/ChangeFirstName")]
         public IHttpActionResult ChangeFirstName(int id, string firstName)
@@ -67,6 +99,12 @@ namespace EasyTravelWeb.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        /// Method for changing first name of a user
+        /// </summary>
+        /// <param name="id">Id of current user</param>
+        /// <param name="lastName">Last name which will be updated in database</param>
+        /// <returns>result of chaning (Bad or Ok)</returns>
         [HttpPost]
         [Route("api/Profile/ChangeLastName")]
         public IHttpActionResult ChangeLastName(int id, string lastName)
@@ -92,5 +130,7 @@ namespace EasyTravelWeb.Controllers
 
             return this.Ok();
         }
+
+        #endregion
     }
 }
