@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-<<<<<<< HEAD
 using System.Web.Http.Results;
 using EasyTravelWeb.Infrastructure;
-=======
 using EasyTravelWeb.Controllers;
->>>>>>> 4efd3627fdfe96fec9219de9e825fef0357ec5d9
 using EasyTravelWeb.Models;
 using Microsoft.AspNet.Identity;
 
@@ -209,13 +206,9 @@ namespace EasyTravelWeb.Repositories
 
         public virtual IList<SearchController.PlaceSearchEntity> GetPlacesIdsAndNames()
         {
-<<<<<<< HEAD
-            List<string> placesNames = new List<string>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-=======
+
             List<SearchController.PlaceSearchEntity> places = new List<SearchController.PlaceSearchEntity>();
             using(SqlConnection connection = new SqlConnection(ConfigurationManager
->>>>>>> 4efd3627fdfe96fec9219de9e825fef0357ec5d9
                 .ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
@@ -237,12 +230,7 @@ namespace EasyTravelWeb.Repositories
                                 Name = reader["PlaceName"].ToString()
                             });
                         }
-<<<<<<< HEAD
-
-                        return placesNames;
-=======
                         return places;
->>>>>>> 4efd3627fdfe96fec9219de9e825fef0357ec5d9
                     }
                 }
             }
