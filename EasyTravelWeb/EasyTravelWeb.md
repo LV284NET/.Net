@@ -20,14 +20,16 @@
   - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.IsValid(System.String)')
   - [NameIsValid(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.NameIsValid(System.String)')
 - [PlaceController](#T-EasyTravelWeb-Controllers-PlaceController 'EasyTravelWeb.Controllers.PlaceController')
-  - [AddUserFavouritePlace(userId,placeId)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavouritePlace- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavouritePlace)')
+  - [AddUserFavouritePlace(favouritePlace)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavouritePlace- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavouritePlace)')
   - [DeleteUserFavouritePlace(userId,placeId)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)')
 - [ProfileController](#T-EasyTravelWeb-Controllers-ProfileController 'EasyTravelWeb.Controllers.ProfileController')
   - [logger](#F-EasyTravelWeb-Controllers-ProfileController-logger 'EasyTravelWeb.Controllers.ProfileController.logger')
   - [nameValidator](#F-EasyTravelWeb-Controllers-ProfileController-nameValidator 'EasyTravelWeb.Controllers.ProfileController.nameValidator')
+  - [placeRepository](#F-EasyTravelWeb-Controllers-ProfileController-placeRepository 'EasyTravelWeb.Controllers.ProfileController.placeRepository')
   - [userRepository](#F-EasyTravelWeb-Controllers-ProfileController-userRepository 'EasyTravelWeb.Controllers.ProfileController.userRepository')
   - [ChangeFirstName(id,firstName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)')
   - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)')
+  - [GetFavouritePlaces(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetFavouritePlaces-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetFavouritePlaces(System.Int32)')
   - [GetUser(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)')
 - [RegisterBindingModelValidator](#T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor')
@@ -289,7 +291,7 @@ bool
 EasyTravelWeb.Controllers
 
 <a name='M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavouritePlace-'></a>
-### AddUserFavouritePlace(userId,placeId) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavouritePlace- 'Go To Here') [=](#contents 'Back To Contents')
+### AddUserFavouritePlace(favouritePlace) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavouritePlace- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -303,7 +305,7 @@ EasyTravelWeb.Controllers
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| userId | [EasyTravelWeb.Models.FavouritePlace](#T-EasyTravelWeb-Models-FavouritePlace 'EasyTravelWeb.Models.FavouritePlace') |  |
+| favouritePlace | [EasyTravelWeb.Models.FavouritePlace](#T-EasyTravelWeb-Models-FavouritePlace 'EasyTravelWeb.Models.FavouritePlace') |  |
 
 <a name='M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place-'></a>
 ### DeleteUserFavouritePlace(userId,placeId) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'Go To Here') [=](#contents 'Back To Contents')
@@ -330,6 +332,10 @@ EasyTravelWeb.Controllers
 
 EasyTravelWeb.Controllers
 
+##### Summary
+
+Controller for Profile page
+
 <a name='F-EasyTravelWeb-Controllers-ProfileController-logger'></a>
 ### logger `constants` [#](#F-EasyTravelWeb-Controllers-ProfileController-logger 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -343,6 +349,13 @@ Instance for stroring exceptions in file
 ##### Summary
 
 Validator fro first and lastn name
+
+<a name='F-EasyTravelWeb-Controllers-ProfileController-placeRepository'></a>
+### placeRepository `constants` [#](#F-EasyTravelWeb-Controllers-ProfileController-placeRepository 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Instance of PlaceRepository, using method to get favourite places for user from database
 
 <a name='F-EasyTravelWeb-Controllers-ProfileController-userRepository'></a>
 ### userRepository `constants` [#](#F-EasyTravelWeb-Controllers-ProfileController-userRepository 'Go To Here') [=](#contents 'Back To Contents')
@@ -386,6 +399,23 @@ result of chaning (Bad or Ok)
 | ---- | ---- | ----------- |
 | id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Id of current user |
 | lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Last name which will be updated in database |
+
+<a name='M-EasyTravelWeb-Controllers-ProfileController-GetFavouritePlaces-System-Int32-'></a>
+### GetFavouritePlaces(id) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetFavouritePlaces-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Cotroler fo getting favourite places of specific user
+
+##### Returns
+
+List of favourite Places
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | ID of a current user |
 
 <a name='M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32-'></a>
 ### GetUser(id) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
