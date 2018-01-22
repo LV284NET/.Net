@@ -40,6 +40,11 @@ namespace EasyTravelWeb.Repositories
 			}
 		}
 
+        /// <summary>
+        /// Method for getting information of specific user from Database
+        /// </summary>
+        /// <param name="id">ID of current user</param>
+        /// <returns>infromation of User(email, First and Last names)</returns>
         public User GetUser(int id)
         {
             using (SqlConnection connection =
@@ -67,6 +72,11 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
+        /// <summary>
+        /// Method For changing First Name of user in database
+        /// </summary>
+        /// <param name="id">ID of current user</param>
+        /// <param name="firstName">New first name of user</param>
         public void ChangeFirstName(int id, string firstName)
         {
             using (SqlConnection connection =
@@ -89,6 +99,11 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
+        /// <summary>
+        /// Method For changing last Name of user in database
+        /// </summary>
+        /// <param name="id">ID of current user</param>
+        /// <param name="lastName">New last name of user</param>
         public void ChangeLastName(int id, string lastName)
         {
             using (SqlConnection connection =

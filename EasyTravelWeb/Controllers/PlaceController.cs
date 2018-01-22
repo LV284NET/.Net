@@ -9,6 +9,7 @@ using PagedList;
 
 namespace EasyTravelWeb.Controllers
 {
+
 	public class PlaceController : ApiController
 	{
 		private readonly Logger loger;
@@ -115,5 +116,52 @@ namespace EasyTravelWeb.Controllers
 			}
 
 		}
-	}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="placeId"></param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/Place/AddFavouritePlace")]
+        public IHttpActionResult AddUserFavouritePlace([FromBody] int userId, Place placeId)
+        {
+            try
+            {
+                placeRepository.AddFavouritePlace(userId, placeId.PlaceId);
+            }
+            catch (Exception ex)
+            {
+                this.loger.LogException(ex);
+                throw;
+            }
+            return Ok();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="placeId"></param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/Place/DelFavouritePlace")]
+        public IHttpActionResult DeleteUserFavouritePlace([FromBody] int userId, Place placeId)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return Ok();
+        }
+    }
 }
+ 
+ 

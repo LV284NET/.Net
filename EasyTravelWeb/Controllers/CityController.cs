@@ -26,11 +26,11 @@ namespace EasyTravelWeb.Controllers
 
         [Route("api/GetCities")]
         [HttpGet]
-        public IHttpActionResult GetCities(int? page)
+        public IHttpActionResult GetCities() //(int? page)
         {
             IList<City> listToReturn;
                 int pageSize = 3;
-                int pageNumber = (page ?? 1);
+                //int pageNumber = (page ?? 1);
             try
             {
                 listToReturn = cityRepository.GetCities();
@@ -44,7 +44,8 @@ namespace EasyTravelWeb.Controllers
                 logger.LogException(ex);
                 return InternalServerError();
             }
-            return Ok(listToReturn.ToPagedList(pageNumber, pageSize));
+            return Ok(listToReturn);
+           // return Ok(listToReturn.ToPagedList(pageNumber, pageSize));
         }
 
         [Route("api/GetCity")]

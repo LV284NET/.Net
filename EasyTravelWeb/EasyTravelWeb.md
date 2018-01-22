@@ -1,6 +1,9 @@
 <a name='contents'></a>
 # Contents [#](#contents 'Go To Here')
 
+- [AccountController](#T-EasyTravelWeb-Controllers-AccountController 'EasyTravelWeb.Controllers.AccountController')
+  - [ConfirmUser(user)](#M-EasyTravelWeb-Controllers-AccountController-ConfirmUser-EasyTravelWeb-Models-User- 'EasyTravelWeb.Controllers.AccountController.ConfirmUser(EasyTravelWeb.Models.User)')
+  - [Register(model)](#M-EasyTravelWeb-Controllers-AccountController-Register-EasyTravelWeb-Models-RegisterBindingModel- 'EasyTravelWeb.Controllers.AccountController.Register(EasyTravelWeb.Models.RegisterBindingModel)')
 - [Logger](#T-EasyTravelWeb-Infrastructure-Logger 'EasyTravelWeb.Infrastructure.Logger')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Logger-#ctor 'EasyTravelWeb.Infrastructure.Logger.#ctor')
   - [FileStream](#F-EasyTravelWeb-Infrastructure-Logger-FileStream 'EasyTravelWeb.Infrastructure.Logger.FileStream')
@@ -16,6 +19,16 @@
   - [isNameMetPatternRequirements(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-isNameMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.isNameMetPatternRequirements(System.String)')
   - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.IsValid(System.String)')
   - [NameIsValid(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.NameIsValid(System.String)')
+- [PlaceController](#T-EasyTravelWeb-Controllers-PlaceController 'EasyTravelWeb.Controllers.PlaceController')
+  - [AddUserFavouritePlace(userId,placeId)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)')
+  - [DeleteUserFavouritePlace(userId,placeId)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)')
+- [ProfileController](#T-EasyTravelWeb-Controllers-ProfileController 'EasyTravelWeb.Controllers.ProfileController')
+  - [logger](#F-EasyTravelWeb-Controllers-ProfileController-logger 'EasyTravelWeb.Controllers.ProfileController.logger')
+  - [nameValidator](#F-EasyTravelWeb-Controllers-ProfileController-nameValidator 'EasyTravelWeb.Controllers.ProfileController.nameValidator')
+  - [userRepository](#F-EasyTravelWeb-Controllers-ProfileController-userRepository 'EasyTravelWeb.Controllers.ProfileController.userRepository')
+  - [ChangeFirstName(id,firstName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)')
+  - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)')
+  - [GetUser(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)')
 - [RegisterBindingModelValidator](#T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor')
   - [emailPattern](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-emailPattern 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailPattern')
@@ -38,9 +51,54 @@
   - [userRepository](#F-EasyTravelWeb-Controllers-UserController-userRepository 'EasyTravelWeb.Controllers.UserController.userRepository')
   - [validationInfo](#F-EasyTravelWeb-Controllers-UserController-validationInfo 'EasyTravelWeb.Controllers.UserController.validationInfo')
   - [GetUser(user)](#M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User- 'EasyTravelWeb.Controllers.UserController.GetUser(EasyTravelWeb.Models.User)')
+- [UserRepository](#T-EasyTravelWeb-Repositories-UserRepository 'EasyTravelWeb.Repositories.UserRepository')
+  - [ChangeFirstName(id,firstName)](#M-EasyTravelWeb-Repositories-UserRepository-ChangeFirstName-System-Int32,System-String- 'EasyTravelWeb.Repositories.UserRepository.ChangeFirstName(System.Int32,System.String)')
+  - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Repositories-UserRepository-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Repositories.UserRepository.ChangeLastName(System.Int32,System.String)')
+  - [GetUser(id)](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-Int32- 'EasyTravelWeb.Repositories.UserRepository.GetUser(System.Int32)')
 
 <a name='assembly'></a>
 # EasyTravelWeb [#](#assembly 'Go To Here') [=](#contents 'Back To Contents')
+
+<a name='T-EasyTravelWeb-Controllers-AccountController'></a>
+## AccountController [#](#T-EasyTravelWeb-Controllers-AccountController 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-ConfirmUser-EasyTravelWeb-Models-User-'></a>
+### ConfirmUser(user) `method` [#](#M-EasyTravelWeb-Controllers-AccountController-ConfirmUser-EasyTravelWeb-Models-User- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| user | [EasyTravelWeb.Models.User](#T-EasyTravelWeb-Models-User 'EasyTravelWeb.Models.User') |  |
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-Register-EasyTravelWeb-Models-RegisterBindingModel-'></a>
+### Register(model) `method` [#](#M-EasyTravelWeb-Controllers-AccountController-Register-EasyTravelWeb-Models-RegisterBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| model | [EasyTravelWeb.Models.RegisterBindingModel](#T-EasyTravelWeb-Models-RegisterBindingModel 'EasyTravelWeb.Models.RegisterBindingModel') |  |
 
 <a name='T-EasyTravelWeb-Infrastructure-Logger'></a>
 ## Logger [#](#T-EasyTravelWeb-Infrastructure-Logger 'Go To Here') [=](#contents 'Back To Contents')
@@ -222,6 +280,130 @@ bool
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First or Last name |
+
+<a name='T-EasyTravelWeb-Controllers-PlaceController'></a>
+## PlaceController [#](#T-EasyTravelWeb-Controllers-PlaceController 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers
+
+<a name='M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place-'></a>
+### AddUserFavouritePlace(userId,placeId) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| userId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') |  |
+| placeId | [EasyTravelWeb.Models.Place](#T-EasyTravelWeb-Models-Place 'EasyTravelWeb.Models.Place') |  |
+
+<a name='M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place-'></a>
+### DeleteUserFavouritePlace(userId,placeId) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| userId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') |  |
+| placeId | [EasyTravelWeb.Models.Place](#T-EasyTravelWeb-Models-Place 'EasyTravelWeb.Models.Place') |  |
+
+<a name='T-EasyTravelWeb-Controllers-ProfileController'></a>
+## ProfileController [#](#T-EasyTravelWeb-Controllers-ProfileController 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers
+
+<a name='F-EasyTravelWeb-Controllers-ProfileController-logger'></a>
+### logger `constants` [#](#F-EasyTravelWeb-Controllers-ProfileController-logger 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Instance for stroring exceptions in file
+
+<a name='F-EasyTravelWeb-Controllers-ProfileController-nameValidator'></a>
+### nameValidator `constants` [#](#F-EasyTravelWeb-Controllers-ProfileController-nameValidator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Validator fro first and lastn name
+
+<a name='F-EasyTravelWeb-Controllers-ProfileController-userRepository'></a>
+### userRepository `constants` [#](#F-EasyTravelWeb-Controllers-ProfileController-userRepository 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Instance of UserRepository, using methods to do actions with database
+
+<a name='M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String-'></a>
+### ChangeFirstName(id,firstName) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method for changing first name of a user
+
+##### Returns
+
+result of chaning (Bad or Ok)
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Id of current user |
+| firstName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First name which will be updated in database |
+
+<a name='M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String-'></a>
+### ChangeLastName(id,lastName) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method for changing first name of a user
+
+##### Returns
+
+result of chaning (Bad or Ok)
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Id of current user |
+| lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Last name which will be updated in database |
+
+<a name='M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32-'></a>
+### GetUser(id) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method for getting User from Db
+
+##### Returns
+
+First, last, email of user
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | id of current user |
 
 <a name='T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator'></a>
 ## RegisterBindingModelValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator 'Go To Here') [=](#contents 'Back To Contents')
@@ -488,3 +670,55 @@ EasyTravelWeb.Controllers
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | user | [EasyTravelWeb.Models.User](#T-EasyTravelWeb-Models-User 'EasyTravelWeb.Models.User') |  |
+
+<a name='T-EasyTravelWeb-Repositories-UserRepository'></a>
+## UserRepository [#](#T-EasyTravelWeb-Repositories-UserRepository 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Repositories
+
+<a name='M-EasyTravelWeb-Repositories-UserRepository-ChangeFirstName-System-Int32,System-String-'></a>
+### ChangeFirstName(id,firstName) `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-ChangeFirstName-System-Int32,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method For changing First Name of user in database
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | ID of current user |
+| firstName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | New first name of user |
+
+<a name='M-EasyTravelWeb-Repositories-UserRepository-ChangeLastName-System-Int32,System-String-'></a>
+### ChangeLastName(id,lastName) `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-ChangeLastName-System-Int32,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method For changing last Name of user in database
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | ID of current user |
+| lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | New last name of user |
+
+<a name='M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-Int32-'></a>
+### GetUser(id) `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method for getting information of specific user from Database
+
+##### Returns
+
+infromation of User(email, First and Last names)
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | ID of current user |

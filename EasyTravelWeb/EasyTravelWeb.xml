@@ -9,6 +9,60 @@
                 Controller for the default page which informs about the app running
             </summary>
         </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="placeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="placeId"></param>
+            <returns></returns>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.userRepository">
+            <summary>
+            Instance of UserRepository, using methods to do actions with database
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.logger">
+            <summary>
+            Instance for stroring exceptions in file
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.nameValidator">
+            <summary>
+            Validator fro first and lastn name
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)">
+            <summary>
+            Method for getting User from Db
+            </summary>
+            <param name="id">id of current user</param>
+            <returns>First, last, email of user</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)">
+            <summary>
+            Method for changing first name of a user
+            </summary>
+            <param name="id">Id of current user</param>
+            <param name="firstName">First name which will be updated in database</param>
+            <returns>result of chaning (Bad or Ok)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)">
+            <summary>
+            Method for changing first name of a user
+            </summary>
+            <param name="id">Id of current user</param>
+            <param name="lastName">Last name which will be updated in database</param>
+            <returns>result of chaning (Bad or Ok)</returns>
+        </member>
         <member name="T:EasyTravelWeb.Controllers.UserController">
             <summary>
             
@@ -34,6 +88,20 @@
             
             </summary>
             <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.ConfirmUser(EasyTravelWeb.Models.User)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.Register(EasyTravelWeb.Models.RegisterBindingModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
             <returns></returns>
         </member>
         <member name="T:EasyTravelWeb.Infrastructure.Logger">
@@ -216,6 +284,27 @@
             </summary>
             <param name="name">First name or last name</param>
             <returns>bool</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.UserRepository.GetUser(System.Int32)">
+            <summary>
+            Method for getting information of specific user from Database
+            </summary>
+            <param name="id">ID of current user</param>
+            <returns>infromation of User(email, First and Last names)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.UserRepository.ChangeFirstName(System.Int32,System.String)">
+            <summary>
+            Method For changing First Name of user in database
+            </summary>
+            <param name="id">ID of current user</param>
+            <param name="firstName">New first name of user</param>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.UserRepository.ChangeLastName(System.Int32,System.String)">
+            <summary>
+            Method For changing last Name of user in database
+            </summary>
+            <param name="id">ID of current user</param>
+            <param name="lastName">New last name of user</param>
         </member>
     </members>
 </doc>

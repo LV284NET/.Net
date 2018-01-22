@@ -1,5 +1,5 @@
 ﻿Create procedure [dbo].[ChangeLastName] 
-			(@Email nvarchar(256), 
+			(@Id nvarchar(256), 
 			@LastName nvarchar(256))
 as
 
@@ -14,6 +14,6 @@ begin
 	begin transaction 
 	Update AspNetUsers
 	Set LastName = @LastName
-	Where [AspNetUsers].Email=@Email
+	Where [AspNetUsers].Id=@Id
 	commit transaction 
 End
