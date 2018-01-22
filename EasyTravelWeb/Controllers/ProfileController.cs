@@ -39,14 +39,30 @@ namespace EasyTravelWeb.Controllers
         }
 
         [HttpPost]
-        [Route("api/Profile/ChangeFirstAndLastName")]
-        public IHttpActionResult ChangeFirstLastNames(string email, string firstName, string lastName)
+        [Route("api/Profile/ChangeFirstName")]
+        public IHttpActionResult ChangeFirstName(string email, string firstName, string lastName)
         {
-
             try
             {
-                this.userRepository.ChangeFirstLastNames(email, firstName, lastName);
+                this.userRepository.ChangeFirstName(email, firstName);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogException(ex);
 
+                return this.BadRequest();
+            }
+
+            return this.Ok();
+        }
+
+        [HttpPost]
+        [Route("api/Profile/ChangeLastName")]
+        public IHttpActionResult ChangeLastName(string email, string lastName)
+        {
+            try
+            {
+                this.userRepository.ChangeLastName(email, lastName);
             }
             catch (Exception ex)
             {

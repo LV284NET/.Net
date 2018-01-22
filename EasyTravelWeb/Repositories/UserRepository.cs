@@ -67,7 +67,7 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
-        public void ChangeFirstLastNames(string email, string firstName, string lastName)
+        public void ChangeFirstName(string email, string firstName)
         {
             using (SqlConnection connection =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -75,12 +75,33 @@ namespace EasyTravelWeb.Repositories
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("ChangeFirstandLastName", connection);
+                SqlCommand command = new SqlCommand("ChangeFirstName", connection);
 
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.Add(new SqlParameter("@Email", email));
                 command.Parameters.Add(new SqlParameter("@FirstName", firstName));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                }
+            }
+        }
+
+        public void ChangeLastName(string email, string lastName)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("ChangeLastName", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Email", email));
                 command.Parameters.Add(new SqlParameter("@LastName", lastName));
 
                 using (SqlDataReader reader = command.ExecuteReader())
