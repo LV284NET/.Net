@@ -280,6 +280,11 @@ namespace EasyTravelWeb.Controllers
         }
 
         // POST api/Account/Confirm
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
         [Route("Confirm")]
@@ -301,6 +306,11 @@ namespace EasyTravelWeb.Controllers
         }
 
         // POST api/Account/Register
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
         [Route("Register")]

@@ -7,106 +7,152 @@ using EasyTravelWeb.Repositories;
 
 namespace EasyTravelWeb.Controllers
 {
-	public class PlaceController : ApiController
-	{
-		private readonly Logger loger;
-		private readonly PlaceRepository placeRepository;
+    public class PlaceController : ApiController
+    {
+        private readonly Logger loger;
+        private readonly PlaceRepository placeRepository;
 
-		public PlaceController()
-		{
-			this.placeRepository = new PlaceRepository();
-			this.loger = Logger.GetInstance();
-		}
-            
+        public PlaceController()
+        {
+            this.placeRepository = new PlaceRepository();
+            this.loger = Logger.GetInstance();
+        }
 
-		[HttpGet]
-		[Route("api/Place/GetPlaceById")]
-		public IHttpActionResult GetPlaceById(long placeId)
-		{
-			try
-			{
-				return this.Ok(this.placeRepository.GetPlaceById(placeId));
-			}
-			catch (Exception ex)
-			{
-				this.loger.LogException(ex);
 
-				return this.NotFound();
-			}
-		}
+        [HttpGet]
+        [Route("api/Place/GetPlaceById")]
+        public IHttpActionResult GetPlaceById(long placeId)
+        {
+            try
+            {
+                return this.Ok(this.placeRepository.GetPlaceById(placeId));
+            }
+            catch (Exception ex)
+            {
+                this.loger.LogException(ex);
 
-		[HttpGet]
-		[Route("api/Place/GetTopPlacesByCityName")]
-		public IHttpActionResult GetTopPlacesByCityName(string cityName)
-		{
-			if (cityName == null)
-			{
-				return this.BadRequest();
-			}
+                return this.NotFound();
+            }
+        }
 
-			try
-			{
-				List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityName(cityName);
+        [HttpGet]
+        [Route("api/Place/GetTopPlacesByCityName")]
+        public IHttpActionResult GetTopPlacesByCityName(string cityName)
+        {
+            if (cityName == null)
+            {
+                return this.BadRequest();
+            }
 
-				if (cityPlaces != null)
-				{
-					return this.Ok(cityPlaces);
-				}
+            try
+            {
+                List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityName(cityName);
 
-				return this.NotFound();
-			}
-			catch (Exception ex)
-			{
-				this.loger.LogException(ex);
+                if (cityPlaces != null)
+                {
+                    return this.Ok(cityPlaces);
+                }
 
-				return this.NotFound();
-			}
-		}
+                return this.NotFound();
+            }
+            catch (Exception ex)
+            {
+                this.loger.LogException(ex);
 
-		[HttpGet]
-		[Route("api/Place/GetTopPlacesByCityId")]
-		public IHttpActionResult GetTopPlacesByCityId(long cityId)
-		{
-			try
-			{
-				List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityId(cityId);
+                return this.NotFound();
+            }
+        }
 
-				if (cityPlaces != null)
-				{
-					return this.Ok(cityPlaces);
-				}
+        [HttpGet]
+        [Route("api/Place/GetTopPlacesByCityId")]
+        public IHttpActionResult GetTopPlacesByCityId(long cityId)
+        {
+            try
+            {
+                List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityId(cityId);
 
-				return this.NotFound();
-			}
-			catch (Exception ex)
-			{
-				this.loger.LogException(ex);
+                if (cityPlaces != null)
+                {
+                    return this.Ok(cityPlaces);
+                }
 
-				return this.NotFound();
-			}
-		}
+                return this.NotFound();
+            }
+            catch (Exception ex)
+            {
+                this.loger.LogException(ex);
 
-		[HttpGet]
-		[Route("api/Place/GetPlacesByCityId")]
-		public IHttpActionResult GetPlacesByCityId(long cityId)
-		{
-			try
-			{
-				List<Place> cityPlaces = this.placeRepository.GetPlacesByCityId(cityId);
+                return this.NotFound();
+            }
+        }
 
-				if (cityPlaces != null)
-				{
-					return this.Ok(cityPlaces);
-				}
+        [HttpGet]
+        [Route("api/Place/GetPlacesByCityId")]
+        public IHttpActionResult GetPlacesByCityId(long cityId)
+        {
+            try
+            {
+                List<Place> cityPlaces = this.placeRepository.GetPlacesByCityId(cityId);
 
-				return this.NotFound();
-			}
-			catch (Exception ex)
-			{
-				this.loger.LogException(ex);
+                if (cityPlaces != null)
+                {
+                    return this.Ok(cityPlaces);
+                }
 
-				return this.NotFound();
-			}
-		}
-	}
+                return this.NotFound();
+            }
+            catch (Exception ex)
+            {
+                this.loger.LogException(ex);
+
+                return this.NotFound();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="placeId"></param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/Place/AddFavouritePlace")]
+        public IHttpActionResult AddUserFavouritePlace([FromBody] int userId, Place placeId)
+        {
+            try
+            {
+                placeRepository.AddFavouritePlace(userId, placeId.PlaceId);
+            }
+            catch (Exception ex)
+            {
+                this.loger.LogException(ex);
+                throw;
+            }
+            return Ok();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="placeId"></param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/Place/DelFavouritePlace")]
+        public IHttpActionResult DeleteUserFavouritePlace([FromBody] int userId, Place placeId)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+              
+                throw;
+            }
+            return Ok();
+        }
+    }
 }
