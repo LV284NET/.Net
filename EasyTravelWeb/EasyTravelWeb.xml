@@ -9,7 +9,7 @@
                 Controller for the default page which informs about the app running
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavouritePlace)">
             <summary>
             
             </summary>

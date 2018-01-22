@@ -20,7 +20,7 @@
   - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.IsValid(System.String)')
   - [NameIsValid(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.NameIsValid(System.String)')
 - [PlaceController](#T-EasyTravelWeb-Controllers-PlaceController 'EasyTravelWeb.Controllers.PlaceController')
-  - [AddUserFavouritePlace(userId,placeId)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)')
+  - [AddUserFavouritePlace(userId,placeId)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavouritePlace- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavouritePlace)')
   - [DeleteUserFavouritePlace(userId,placeId)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)')
 - [ProfileController](#T-EasyTravelWeb-Controllers-ProfileController 'EasyTravelWeb.Controllers.ProfileController')
   - [logger](#F-EasyTravelWeb-Controllers-ProfileController-logger 'EasyTravelWeb.Controllers.ProfileController.logger')
@@ -288,8 +288,8 @@ bool
 
 EasyTravelWeb.Controllers
 
-<a name='M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place-'></a>
-### AddUserFavouritePlace(userId,placeId) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavouritePlace-'></a>
+### AddUserFavouritePlace(userId,placeId) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavouritePlace- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -303,8 +303,7 @@ EasyTravelWeb.Controllers
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| userId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') |  |
-| placeId | [EasyTravelWeb.Models.Place](#T-EasyTravelWeb-Models-Place 'EasyTravelWeb.Models.Place') |  |
+| userId | [EasyTravelWeb.Models.FavouritePlace](#T-EasyTravelWeb-Models-FavouritePlace 'EasyTravelWeb.Models.FavouritePlace') |  |
 
 <a name='M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place-'></a>
 ### DeleteUserFavouritePlace(userId,placeId) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavouritePlace-System-Int32,EasyTravelWeb-Models-Place- 'Go To Here') [=](#contents 'Back To Contents')

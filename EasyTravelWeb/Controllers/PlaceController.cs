@@ -112,23 +112,23 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="placeId"></param>
+        /// <param name="favouritePlace"></param>
         /// <returns></returns>
         [Authorize]
         [HttpPost]
-        [Route("api/Place/AddFavouritePlace")]
-        public IHttpActionResult AddUserFavouritePlace([FromBody] int userId, Place placeId)
+        [Route("api/Place/AddFavoritePlace")]
+        public IHttpActionResult AddUserFavouritePlace([FromBody] FavouritePlace favouritePlace)
         {
             try
             {
-                placeRepository.AddFavouritePlace(userId, placeId.PlaceId);
+                placeRepository.AddFavouritePlace(favouritePlace.UserId, favouritePlace.PlaceID);
             }
             catch (Exception ex)
             {
                 this.loger.LogException(ex);
                 throw;
             }
+
             return Ok();
         }
 
@@ -145,13 +145,12 @@ namespace EasyTravelWeb.Controllers
         {
             try
             {
-
             }
             catch (Exception ex)
             {
-              
                 throw;
             }
+
             return Ok();
         }
     }
