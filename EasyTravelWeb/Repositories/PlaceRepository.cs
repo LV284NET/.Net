@@ -85,6 +85,11 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        internal List<Place> GetPlacesByCityId(long? cityId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Place> GetTopPlacesByCityName(string cityName)
         {
 	        List<Place> listToReturn = new List<Place>();
