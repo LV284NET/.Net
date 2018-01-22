@@ -15,7 +15,9 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 <include file="V1.2/ScriptV1.2_InsertData.sql" relativeToChangelogFile="true" />
 <include file="V1.3/ScriptV1.3_Alter_Table_AspNetUsers_Add_FirstName_And_LastName_Columns.sql" relativeToChangelogFile="true" />
 <include file="V1.4/ScriptV1.4_TrunkateDataAstNetUsers.sql" relativeToChangelogFile="true"/>
-<include file="V1.2/ScriptV1.2_Procedure_GetPlaces.sql" relativeToChangelogFile="true"/>
-<include file="V1.4/ScriptV1.4_Procedure_GetCitiesNames.sql" relativeToChangelogFile="true"/>
-<include file="V1.4/ScriptV1.4_Procedure_GetPlacesNames.sql" relativeToChangelogFile="true"/>
+<include file="V1.4/ScriptV1.4_Procedure_GetCitiesIdAndNames.sql" relativeToChangelogFile="true"/>
+<include file="V1.4/ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql" relativeToChangelogFile="true"/>
+<include file="V1.5/ScriptV1.5_Procedure_ChangeFirstName.sql" relativeToChangelogFile="true"/>
+  <include file="V1.5/ScriptV1.5_Procedure_ChangeLastName.sql" relativeToChangelogFile="true"/>
+<include file="V1.5/ScriptV1.5_Procedure_GetUserById.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog> 

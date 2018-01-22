@@ -40,38 +40,91 @@ namespace EasyTravelWeb.Repositories
 			}
 		}
 
-		public Guid AddUser(User newObject)
-		{
-			if (isNewUser(newObject.Email))
-				using (SqlConnection connection =
-					new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-						.ConnectionString))
-				{
-					connection.Open();
+        /// <summary>
+        /// Method for getting information of specific user from Database
+        /// </summary>
+        /// <param name="id">ID of current user</param>
+        /// <returns>infromation of User(email, First and Last names)</returns>
+        public User GetUser(int id)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
 
-					SqlCommand command = new SqlCommand("InsertNewUser", connection);
+                SqlCommand command = new SqlCommand("GetUserById", connection);
 
-					command.CommandType = CommandType.StoredProcedure;
+                command.CommandType = CommandType.StoredProcedure;
 
-					do
-					{
-						newObject.UserId = Guid.NewGuid();
-					} while (!checkGuid(newObject.UserId));
+                command.Parameters.Add(new SqlParameter("@Id", id));
 
-					command.Parameters.Add(new SqlParameter("@Email", newObject.Email));
-					command.Parameters.Add(new SqlParameter("@Password", newObject.Password));
-					command.Parameters.Add(new SqlParameter("@FirstName", newObject.FirstName));
-					command.Parameters.Add(new SqlParameter("@LastName", newObject.LastName));
-					command.Parameters.Add(new SqlParameter("@IsAdmin", false));
-					command.Parameters.Add(new SqlParameter("UserID", newObject.UserId));
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    return new User
+                    {
+                        FirstName = reader["firstName"].ToString(),
+                        LastName = reader["lastName"].ToString(),
+                        Email = reader["email"].ToString()
+                    };
+                }
+            }
+        }
 
-					command.ExecuteNonQuery();
+        /// <summary>
+        /// Method For changing First Name of user in database
+        /// </summary>
+        /// <param name="id">ID of current user</param>
+        /// <param name="firstName">New first name of user</param>
+        public void ChangeFirstName(int id, string firstName)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
 
-					return newObject.UserId;
-				}
+                SqlCommand command = new SqlCommand("ChangeFirstName", connection);
 
-			return Guid.Empty;
-		}
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Id", id));
+                command.Parameters.Add(new SqlParameter("@FirstName", firstName));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method For changing last Name of user in database
+        /// </summary>
+        /// <param name="id">ID of current user</param>
+        /// <param name="lastName">New last name of user</param>
+        public void ChangeLastName(int id, string lastName)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("ChangeLastName", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Id", id));
+                command.Parameters.Add(new SqlParameter("@LastName", lastName));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                }
+            }
+        }
 
 		private bool isNewUser(string eMail)
 		{

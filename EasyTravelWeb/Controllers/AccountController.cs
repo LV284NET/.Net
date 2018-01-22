@@ -114,6 +114,8 @@ namespace EasyTravelWeb.Controllers
         }
 
         // POST api/Account/ChangePassword
+        [AllowAnonymous]
+        [HttpPost]
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
@@ -225,7 +227,7 @@ namespace EasyTravelWeb.Controllers
                     CookieAuthenticationDefaults.AuthenticationType);
 
                 AuthenticationProperties properties =
-                    ApplicationOAuthProvider.CreateProperties(user.UserName, user.FirstName);
+                    ApplicationOAuthProvider.CreateProperties(user.Id, user.UserName, user.FirstName);
                 this.Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else

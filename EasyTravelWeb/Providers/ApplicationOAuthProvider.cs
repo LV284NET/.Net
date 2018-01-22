@@ -49,7 +49,7 @@ namespace EasyTravelWeb.Providers
             //ClaimsIdentity oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
             //ClaimsIdentity cookiesIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(context.UserName, user.FirstName);
+            AuthenticationProperties properties = CreateProperties(user.Id, context.UserName, user.FirstName);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -93,13 +93,14 @@ namespace EasyTravelWeb.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName, string FirstName)
+        public static AuthenticationProperties CreateProperties(int idUser, string userName, string FirstName)
         {
             IDictionary<string, string>
             data = new Dictionary<string, string>
             {
                 { "userName", userName },
-                { "firstName", FirstName}
+                { "firstName", FirstName},
+                { "Id", idUser.ToString() }
             };
             return new AuthenticationProperties(data);
         }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTravelWeb", "EasyTravelWeb\EasyTravelWeb.csproj", "{2CEF35A1-9417-481A-AE60-7F856A103A99}"
 EndProject
@@ -41,9 +41,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1.3", "v1.3", "{255AB994-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.4", "V1.4", "{6007506F-4664-472F-9676-FA83C021ACEA}"
 	ProjectSection(SolutionItems) = preProject
-		ScriptV1.4_Procedure_GetCitiesNames.sql = ScriptV1.4_Procedure_GetCitiesNames.sql
-		ScriptV1.4_Procedure_GetPlacesNames.sql = ScriptV1.4_Procedure_GetPlacesNames.sql
+		ScriptV1.4_Procedure_GetCitiesIdAndNames.sql = ScriptV1.4_Procedure_GetCitiesIdAndNames.sql
+		ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql = ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql
 		DB_Scripts\V1.4\ScriptV1.4_TrunkateDataAstNetUsers.sql = DB_Scripts\V1.4\ScriptV1.4_TrunkateDataAstNetUsers.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.5", "V1.5", "{26E22196-ACE0-4E10-A96A-4CB6DF287BDD}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql
 	EndProjectSection
 EndProject
 Global
@@ -69,6 +76,8 @@ Global
 		{1A0AB2A5-9218-46B0-B850-306A32737B3C} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 		{86B63F85-B9AF-4895-A651-797AFBC4BFF1} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 		{255AB994-ADD2-418F-9AE0-14A8E3AEADF2} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{6007506F-4664-472F-9676-FA83C021ACEA} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{26E22196-ACE0-4E10-A96A-4CB6DF287BDD} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69F34F38-389E-42AF-9CDB-515325528627}

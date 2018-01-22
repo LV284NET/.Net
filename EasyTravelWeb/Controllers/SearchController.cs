@@ -7,64 +7,42 @@ using WebGrease.Css.Extensions;
 
 namespace EasyTravelWeb.Controllers
 {
-    //[RoutePrefix("api/Search")]
     public class SearchController : ApiController
     {
         private readonly Logger logger = Logger.GetInstance();
 
-        private CityRepository cityRepository = new CityRepository();
-        private PlaceRepository placeRepository = new PlaceRepository();
+        private readonly CityRepository cityRepository = new CityRepository();
+        private readonly PlaceRepository placeRepository = new PlaceRepository();
 
-        public class SearchEntity
+        private static List<CitySearchEntity> cities;
+        private static List<PlaceSearchEntity> places;
+
+        public SearchController()
         {
-            public string Name { get; set; }
-            public string Type { get; set; }
+            InitializeData();
         }
-
-        private static List<SearchEntity> citiesNames;
-        private static List<SearchEntity> placesNames;
-
-        public SearchController() { }
 
         public SearchController(CityRepository cityRepository, PlaceRepository placeRepository)
         {
-	        //this.cityRepository = cityRepository;
-	        //this.placeRepository = placeRepository;
-		}
+            this.cityRepository = cityRepository;
+            this.placeRepository = placeRepository;
+
+            InitializeData();
+        }
 
         [HttpGet]
-        //[Route("GetSuggestions")]
 		public IHttpActionResult GetSuggestions(string searchWord)
         {
             try
             {
-	            if (citiesNames == null)
-	            {
-		            citiesNames = new List<SearchEntity>();
-		            cityRepository.GetCitiesNames().ForEach(cityName => citiesNames.Add(new SearchEntity
-		            {
-			            Name = cityName,
-			            Type = "City"
-		            }));
-	            }
-
-	            if (placesNames == null)
-	            {
-		            placesNames = new List<SearchEntity>();
-		            placeRepository.GetPlacesNames().ForEach(placeName => placesNames.Add(new SearchEntity
-		            {
-			            Name = placeName,
-			            Type = "Place"
-		            }));
-	            }
-
-				IList<SearchEntity> listOfSuggestions = new List<SearchEntity>();
+                searchWord = searchWord.ToLower();
+                IList<ISearchEntity> listOfSuggestions = new List<ISearchEntity>();
                 const int numberToShow = 4;
                 int counter = 0;
-
-                foreach (SearchEntity obj in citiesNames)
+                
+                foreach (ISearchEntity obj in cities)
                 {
-                    if (obj.Name.StartsWith(searchWord))
+                    if (obj.Name.ToLower().StartsWith(searchWord))
                     {
                         listOfSuggestions.Add(obj);
                         if (++counter == numberToShow)
@@ -74,9 +52,9 @@ namespace EasyTravelWeb.Controllers
                     }
                 }
 
-                foreach (SearchEntity obj in placesNames)
+                foreach (ISearchEntity obj in places)
                 {
-                    if (obj.Name.StartsWith(searchWord))
+                    if (obj.Name.ToLower().StartsWith(searchWord))
                     {
                         listOfSuggestions.Add(obj);
                         if (++counter == numberToShow + 4)
@@ -93,6 +71,43 @@ namespace EasyTravelWeb.Controllers
                 logger.LogException(ex);
                 return InternalServerError();
             }
+        }
+
+        private void InitializeData()
+        {
+            if (cities == null)
+            {
+                cities = new List<CitySearchEntity>();
+                cityRepository.GetCitiesIdAndNames().ForEach(city => cities.Add(city));
+            }
+
+            if (places == null)
+            {
+                places = new List<PlaceSearchEntity>();
+                placeRepository.GetPlacesIdsAndNames().ForEach(place => places.Add(place));
+            }
+        }
+
+        public interface ISearchEntity
+        {
+            long Id { get; set; }
+            string Name { get; set; }
+            string Type { get; }
+        }
+
+        public class CitySearchEntity : ISearchEntity
+        {
+            public long Id { get; set; }
+            public string Name { get; set; }
+            public string Type { get; } = "City";
+        }
+
+        public class PlaceSearchEntity : ISearchEntity
+        {
+            public long Id { get; set; }
+            public long CityId { get; set; }
+            public string Name { get; set; }
+            public string Type { get; } = "Place";
         }
     }
 }

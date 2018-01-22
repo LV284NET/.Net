@@ -16,22 +16,38 @@ namespace EasyTravelTest.ControllersTest
     class SearchControllerTest
     {
         private MockRepository mockRepository;
-        private IList<string> citiesNames;
-        private IList<string> placesNames;
+        private IList<SearchController.CitySearchEntity> cities;
+        private IList<SearchController.PlaceSearchEntity> places;
 
         [SetUp]
         public void InitializeSearchEntities()
         {
             mockRepository = new MockRepository();
-            citiesNames = new List<string>
+            cities = new List<SearchController.CitySearchEntity>
             {
-                "1City", "2City"
+                new SearchController.CitySearchEntity
+                {
+                    Id = 1, Name = "1City"
+                },
+                new SearchController.CitySearchEntity
+                {
+                    Id = 2, Name = "2City"
+                }
             };
-            placesNames = new List<string>
+
+            places = new List<SearchController.PlaceSearchEntity>
             {
-                "1Place", "2Place"
+                new SearchController.PlaceSearchEntity
+                {
+                    Id = 1, CityId = 1, Name = "1Place"
+                },
+                new SearchController.PlaceSearchEntity
+                {
+                    Id = 2, CityId = 2, Name = "2Place"
+                }
             };
         }
+
         [TestCase]
         public void GetSuggestionsActionTest()
         {
@@ -40,8 +56,8 @@ namespace EasyTravelTest.ControllersTest
 
             using (mockRepository.Record())
             {
-                SetupResult.For(cityRepository.GetCitiesNames()).IgnoreArguments().Return(citiesNames);
-                SetupResult.For(placeRepository.GetPlacesNames()).IgnoreArguments().Return(placesNames);
+                SetupResult.For(cityRepository.GetCitiesIdAndNames()).IgnoreArguments().Return(cities);
+                SetupResult.For(placeRepository.GetPlacesIdsAndNames()).IgnoreArguments().Return(places);
             }
 
             SearchController searchController = new SearchController(cityRepository, placeRepository);
@@ -49,7 +65,7 @@ namespace EasyTravelTest.ControllersTest
             using (mockRepository.Playback())
             {
                 var suggestions = searchController.GetSuggestions("1");
-                Assert.That(suggestions, Is.TypeOf<OkNegotiatedContentResult<IList<SearchController.SearchEntity>>>());
+                Assert.That(suggestions, Is.TypeOf<OkNegotiatedContentResult<IList<SearchController.ISearchEntity>>>());
             }
         }
 
@@ -61,15 +77,15 @@ namespace EasyTravelTest.ControllersTest
 
             using (mockRepository.Record())
             {
-                SetupResult.For(cityRepository.GetCitiesNames()).IgnoreArguments().Return(citiesNames);
-                SetupResult.For(placeRepository.GetPlacesNames()).IgnoreArguments().Return(placesNames);
+                SetupResult.For(cityRepository.GetCitiesIdAndNames()).IgnoreArguments().Return(cities);
+                SetupResult.For(placeRepository.GetPlacesIdsAndNames()).IgnoreArguments().Return(places);
             }
 
             SearchController searchController = new SearchController(cityRepository, placeRepository);
 
             using (mockRepository.Playback())
             {
-                var suggestions = searchController.GetSuggestions("1") as OkNegotiatedContentResult<IList<SearchController.SearchEntity>>;
+                var suggestions = searchController.GetSuggestions("1") as OkNegotiatedContentResult<IList<SearchController.ISearchEntity>>;
                 var result = suggestions.Content;
                 Assert.That(result.Count, Is.EqualTo(2));
             }
