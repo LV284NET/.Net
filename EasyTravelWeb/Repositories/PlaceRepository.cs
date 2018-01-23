@@ -269,7 +269,7 @@ namespace EasyTravelWeb.Repositories
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("DeleteUserFavouritePlace", connection);
+                SqlCommand command = new SqlCommand("DeleteUserFavoritePlace", connection);
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@UserId", userId));
@@ -293,7 +293,7 @@ namespace EasyTravelWeb.Repositories
                 .ConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("GetUserFavoritePlaces", connection);
+                SqlCommand command = new SqlCommand("GetUserFavouritePlaces", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@UserID", id));
 

@@ -143,7 +143,7 @@ namespace EasyTravelWeb.Controllers
         /// <param name="favouritePlace"></param>
         /// <returns></returns>
         //[Authorize]
-        [HttpDelete]
+        [HttpPost]
         [Route("api/Place/DeleteFavoritePlace")]
         public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavouritePlace favouritePlace)
         {
