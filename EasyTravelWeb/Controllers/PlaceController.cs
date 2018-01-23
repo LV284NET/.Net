@@ -95,7 +95,7 @@ namespace EasyTravelWeb.Controllers
 		[Route("api/Place/GetPlacesByCityId")]
 		public IHttpActionResult GetPlacesByCityId(long cityId, int? page)
 		{
-            int pageSize = 3;
+
             int pageNumber = (page ?? 1);
             try
 			{
@@ -103,7 +103,7 @@ namespace EasyTravelWeb.Controllers
 
 				if (cityPlaces != null)
 				{	
-                    return  this.Ok(cityPlaces.ToPagedList(pageNumber, pageSize));
+                    return  this.Ok(cityPlaces);
                 }
 
 				return this.NotFound();

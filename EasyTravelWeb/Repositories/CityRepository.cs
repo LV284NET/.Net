@@ -12,6 +12,9 @@ namespace EasyTravelWeb.Repositories
 {
     public class CityRepository
     {
+        private const int pageSize = 3;
+
+
         public virtual IList<City> GetCities()
         {
             List<City> listToReturn = new List<City>();
@@ -39,6 +42,49 @@ namespace EasyTravelWeb.Repositories
                             });
                         }
                         return listToReturn;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public virtual City GetCitiesPage(int page)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetCitiesPage", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                command.Parameters.Add(new SqlParameter("@PageNumber", page));
+                command.Parameters.Add(new SqlParameter("@PageSize", pageSize));
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new City
+                        {
+                            Id = page,
+                            Name = reader["CityName"].ToString(),
+                            Description = reader["CityDescription"].ToString(),
+                            PicturePath = reader["CityPhoto"].ToString()
+                        };
+                    }
+                }
+               
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new City
+                        {
+                            Id = page,
+                            Name = reader["CityName"].ToString(),
+                            Description = reader["CityDescription"].ToString(),
+                            PicturePath = reader["CityPhoto"].ToString()
+                        };
                     }
                 }
             }

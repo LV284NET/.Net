@@ -12,7 +12,8 @@ using Microsoft.AspNet.Identity;
 namespace EasyTravelWeb.Repositories
 {
     public class PlaceRepository
-    {       
+    {
+        private const int pageSize = 3;
         public Place GetPlaceById(long placeId)
         {
             using (SqlConnection connection =
@@ -44,6 +45,48 @@ namespace EasyTravelWeb.Repositories
                     return this.GetPlaceById(new Random().Next(1, 29));
                 }
             }
+        }
+
+        public List<Place> GetPlacesPage(long cityId)
+        {
+            List<Place> listToReturn = new List<Place>();
+
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetPlacesPage", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                
+                command.Parameters.Add(new SqlParameter("@CityID", cityId));
+                command.Parameters.Add(new SqlParameter("@PageNumber", page));
+                command.Parameters.Add(new SqlParameter("@PageSize", pageSize));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            listToReturn.Add(new Place
+                            {
+                                PlaceId = Convert.ToInt32(reader["PlaceID"]),
+                                Name = reader["PlaceName"].ToString(),
+                                Description = reader["PlaceDescription"].ToString(),
+                                PicturePlace = reader["MainPlaceImage"].ToString(),
+                                CityName = reader["CityName"].ToString()
+                            });
+                        }
+
+                        return listToReturn;
+                    }
+                }
+            }
+
+            return null;
         }
 
         public List<Place> GetPlacesByCityId(long cityId)
