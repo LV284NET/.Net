@@ -47,8 +47,10 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public virtual City GetCitiesPage(int page)
+        public virtual IList<City> GetCitiesPage(int page)
         {
+            List<City> listToReturn = new List<City>();
+
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
@@ -61,15 +63,20 @@ namespace EasyTravelWeb.Repositories
                 command.Parameters.Add(new SqlParameter("@PageSize", pageSize));
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.Read())
+                    if (reader.HasRows)
                     {
-                        return new City
+                        while (reader.Read())
                         {
-                            Id = page,
-                            Name = reader["CityName"].ToString(),
-                            Description = reader["CityDescription"].ToString(),
-                            PicturePath = reader["CityPhoto"].ToString()
-                        };
+                            int currentCityId = Convert.ToInt32(reader["CityID"]);
+                            listToReturn.Add(new City
+                            {
+                                Id = currentCityId,
+                                Name = reader["CityName"].ToString(),
+                                Description = reader["CityDescription"].ToString(),
+                                PicturePath = reader["CityPhoto"].ToString(),
+                            });
+                        }
+                        return listToReturn;
                     }
                 }
             }
