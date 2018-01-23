@@ -24,6 +24,11 @@
             <param name="placeId"></param>
             <returns></returns>
         </member>
+        <member name="T:EasyTravelWeb.Controllers.ProfileController">
+            <summary>
+            Controller for Profile page
+            </summary>
+        </member>
         <member name="F:EasyTravelWeb.Controllers.ProfileController.userRepository">
             <summary>
             Instance of UserRepository, using methods to do actions with database
@@ -37,6 +42,11 @@
         <member name="F:EasyTravelWeb.Controllers.ProfileController.nameValidator">
             <summary>
             Validator fro first and lastn name
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.placeRepository">
+            <summary>
+            Instance of PlaceRepository, using method to get favourite places for user from database
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)">
@@ -61,6 +71,13 @@
             <param name="id">Id of current user</param>
             <param name="lastName">Last name which will be updated in database</param>
             <returns>result of chaning (Bad or Ok)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavouritePlaces(System.Int32)">
+            <summary>
+            Cotroler fo getting favourite places of specific user
+            </summary>
+            <param name="id">ID of a current user</param>
+            <returns>List of favourite Places</returns>
         </member>
         <member name="T:EasyTravelWeb.Controllers.UserController">
             <summary>

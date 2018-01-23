@@ -141,9 +141,7 @@ namespace EasyTravelWeb.Repositories
                 connection.Open();
 
                 SqlCommand command = new SqlCommand("GetTopPlacesByCityId", connection);
-
                 command.CommandType = CommandType.StoredProcedure;
-
                 command.Parameters.Add(new SqlParameter("@CityID", cityId));
 
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -180,6 +178,7 @@ namespace EasyTravelWeb.Repositories
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetPlaces", connection);
                 command.CommandType = CommandType.StoredProcedure;
+
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
@@ -255,6 +254,43 @@ namespace EasyTravelWeb.Repositories
                     command.ExecuteNonQuery();
             }
         }
-        
+
+        public virtual List<Place> GetFavouritePlaces(int id)
+        {
+            List<Place> favouritePlaces = new List<Place>();
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetUserFavouritePlaces", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@UserID", id));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            favouritePlaces.Add(new Place
+                            {
+                                PlaceId = Convert.ToInt32(reader["PlaceID"]),
+                                Name = reader["PlaceName"].ToString(),
+                                Description = String.Empty,
+                                PicturePlace = reader["MainPlaceImage"].ToString(),
+                                CityName = reader["CityName"].ToString()
+                            });
+                        }
+
+                        return favouritePlaces;
+                    }
+                }
+            }
+
+            return null;
+        }
+
     }
 }

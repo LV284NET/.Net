@@ -45,7 +45,7 @@ namespace EasyTravelWeb.Repositories
         /// </summary>
         /// <param name="id">ID of current user</param>
         /// <returns>infromation of User(email, First and Last names)</returns>
-        public User GetUser(int id)
+        public virtual User GetUser(int id)
         {
             using (SqlConnection connection =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -77,7 +77,7 @@ namespace EasyTravelWeb.Repositories
         /// </summary>
         /// <param name="id">ID of current user</param>
         /// <param name="firstName">New first name of user</param>
-        public void ChangeFirstName(int id, string firstName)
+        public virtual void ChangeFirstName(int id, string firstName)
         {
             using (SqlConnection connection =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -104,7 +104,7 @@ namespace EasyTravelWeb.Repositories
         /// </summary>
         /// <param name="id">ID of current user</param>
         /// <param name="lastName">New last name of user</param>
-        public void ChangeLastName(int id, string lastName)
+        public virtual void ChangeLastName(int id, string lastName)
         {
             using (SqlConnection connection =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -205,7 +205,7 @@ namespace EasyTravelWeb.Repositories
 	        }
         }
 
-	    public void AddFavouritePlace(Guid userGuid, int placeId)
+	    public virtual void AddFavouritePlace(Guid userGuid, int placeId)
 	    {
 	        using (SqlConnection connection =
 	            new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
