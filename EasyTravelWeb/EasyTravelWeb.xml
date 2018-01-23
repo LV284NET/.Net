@@ -16,12 +16,11 @@
             <param name="favouritePlace"></param>
             <returns></returns>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavouritePlace)">
             <summary>
             
             </summary>
-            <param name="userId"></param>
-            <param name="placeId"></param>
+            <param name="favouritePlace"></param>
             <returns></returns>
         </member>
         <member name="T:EasyTravelWeb.Controllers.ProfileController">

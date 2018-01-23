@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity;
 namespace EasyTravelWeb.Repositories
 {
     public class PlaceRepository
-    {       
+    {
         public Place GetPlaceById(long placeId)
         {
             using (SqlConnection connection =
@@ -205,9 +205,8 @@ namespace EasyTravelWeb.Repositories
 
         public virtual IList<SearchController.PlaceSearchEntity> GetPlacesIdsAndNames()
         {
-
             List<SearchController.PlaceSearchEntity> places = new List<SearchController.PlaceSearchEntity>();
-            using(SqlConnection connection = new SqlConnection(ConfigurationManager
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
                 .ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
@@ -229,6 +228,7 @@ namespace EasyTravelWeb.Repositories
                                 Name = reader["PlaceName"].ToString()
                             });
                         }
+
                         return places;
                     }
                 }
@@ -237,7 +237,7 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public bool  AddFavouritePlace(int userId, long placeId)
+        public bool AddFavoritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -256,10 +256,32 @@ namespace EasyTravelWeb.Repositories
                 {
                     return true;
                 }
-                else
+
+                return false;
+            }
+        }
+
+        public bool DeleteFavoritePlace(int userId, long placeId)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("DeleteUserFavouritePlace", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@UserId", userId));
+                command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
+
+
+                if (command.ExecuteNonQuery() != 0)
                 {
-                    return false;
+                    return true;
                 }
+
+                return false;
             }
         }
 
@@ -270,9 +292,8 @@ namespace EasyTravelWeb.Repositories
                 .ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
-
                 connection.Open();
-                SqlCommand command = new SqlCommand("GetUserFavouritePlaces", connection);
+                SqlCommand command = new SqlCommand("GetUserFavoritePlaces", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@UserID", id));
 
@@ -299,6 +320,5 @@ namespace EasyTravelWeb.Repositories
 
             return null;
         }
-
     }
 }

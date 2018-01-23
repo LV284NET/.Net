@@ -122,14 +122,12 @@ namespace EasyTravelWeb.Controllers
         {
             try
             {
-                if (placeRepository.AddFavouritePlace(favouritePlace.UserId, favouritePlace.PlaceId))
+                if (placeRepository.AddFavoritePlace(favouritePlace.UserId, favouritePlace.PlaceId))
                 {
                     return Ok();
                 }
-                else
-                {
-                    return Content(HttpStatusCode.BadRequest,"You already add this place to favourite");
-                }
+
+                return Content(HttpStatusCode.BadRequest, "You already add this place to favourite");
             }
             catch (Exception ex)
             {
@@ -138,26 +136,31 @@ namespace EasyTravelWeb.Controllers
             }
         }
 
+        
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="placeId"></param>
+        /// <param name="favouritePlace"></param>
         /// <returns></returns>
-        [Authorize]
-        [HttpPost]
-        [Route("api/Place/DelFavouritePlace")]
-        public IHttpActionResult DeleteUserFavouritePlace([FromBody] int userId, Place placeId)
+        //[Authorize]
+        [HttpDelete]
+        [Route("api/Place/DeleteFavoritePlace")]
+        public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavouritePlace favouritePlace)
         {
             try
             {
+                if (placeRepository.DeleteFavoritePlace(favouritePlace.UserId, favouritePlace.PlaceId))
+                {
+                    return Ok();
+                }
+
+                return BadRequest();
             }
             catch (Exception ex)
             {
-                throw;
+                this.loger.LogException(ex);
+                return InternalServerError();
             }
-
-            return Ok();
         }
     }
 }
