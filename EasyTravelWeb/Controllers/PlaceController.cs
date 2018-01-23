@@ -114,14 +114,14 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         /// <param name="favouritePlace"></param>
         /// <returns></returns>
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         [Route("api/Place/AddFavoritePlace")]
         public IHttpActionResult AddUserFavouritePlace([FromBody] FavouritePlace favouritePlace)
         {
             try
             {
-                placeRepository.AddFavouritePlace(favouritePlace.UserId, favouritePlace.PlaceID);
+                placeRepository.AddFavouritePlace(favouritePlace.UserId, favouritePlace.PlaceId);
             }
             catch (Exception ex)
             {

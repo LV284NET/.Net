@@ -4,6 +4,6 @@
     {
         public int UserId { get; set; }
         
-        public long PlaceID { get; set; }
+        public long PlaceId { get; set; }
     }
 }
