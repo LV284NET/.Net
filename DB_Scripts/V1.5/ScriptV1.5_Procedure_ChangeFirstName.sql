@@ -1,5 +1,5 @@
 ﻿Create procedure [dbo].[ChangeLastName] 
-			(@Email nvarchar(256), 
+			(@Id nvarchar(256), 
 			@LastName nvarchar(256))
 as
 

@@ -8,6 +8,9 @@ using EasyTravelWeb.Infrastructure.Validators;
 
 namespace EasyTravelWeb.Controllers
 {
+    /// <summary>
+    /// Controller for Profile page
+    /// </summary>
     public class ProfileController : ApiController
     {
         #region Private Fields
@@ -28,6 +31,11 @@ namespace EasyTravelWeb.Controllers
         private readonly IValidator<string> nameValidator =
             new NameChangingValidator();
 
+        /// <summary>
+        /// Instance of PlaceRepository, using method to get favourite places for user from database
+        /// </summary>
+        private readonly PlaceRepository placeRepository = new PlaceRepository();
+
         #endregion
 
         #region Constructors
@@ -37,6 +45,11 @@ namespace EasyTravelWeb.Controllers
         public ProfileController(UserRepository userRepository)
         {
             this.userRepository = userRepository;
+        }
+
+        public ProfileController(PlaceRepository placeRepository)
+        {
+            this.placeRepository = placeRepository;
         }
 
         #endregion
@@ -56,6 +69,11 @@ namespace EasyTravelWeb.Controllers
             try
             {
                 user = this.userRepository.GetUser(id);
+
+                if (user == null)
+                {
+                    return NotFound();
+                }
 
             }
             catch (Exception ex)
@@ -129,6 +147,35 @@ namespace EasyTravelWeb.Controllers
             }
 
             return this.Ok();
+        }
+
+        /// <summary>
+        /// Cotroler fo getting favourite places of specific user
+        /// </summary>
+        /// <param name="id">ID of a current user</param>
+        /// <returns>List of favourite Places</returns>
+        [HttpGet]
+        [Route("api/Profile/GetFavouritePlaces")]
+        public IHttpActionResult GetFavouritePlaces(int id)
+        {
+            try
+            {
+                List<Place> cityPlaces = this.placeRepository.GetFavouritePlaces(id);
+
+                if (cityPlaces != null)
+                {
+                    return this.Ok(cityPlaces);
+                }
+
+                return this.NotFound();
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogException(ex);
+
+                return this.NotFound();
+            }
+
         }
 
         #endregion
