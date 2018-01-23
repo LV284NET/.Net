@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
@@ -127,7 +128,7 @@ namespace EasyTravelWeb.Controllers
                 }
                 else
                 {
-                    return BadRequest();
+                    return Content(HttpStatusCode.BadRequest,"You already add this place to favourite");
                 }
             }
             catch (Exception ex)
