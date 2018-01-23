@@ -237,7 +237,7 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public void  AddFavouritePlace(int userId, long placeId)
+        public bool  AddFavouritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -250,8 +250,16 @@ namespace EasyTravelWeb.Repositories
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@UserId", userId));
                 command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
-                
-                    command.ExecuteNonQuery();
+
+
+                if (command.ExecuteNonQuery() != -1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
