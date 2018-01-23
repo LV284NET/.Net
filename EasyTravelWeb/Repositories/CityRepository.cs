@@ -14,7 +14,6 @@ namespace EasyTravelWeb.Repositories
     {
         private const int pageSize = 3;
 
-
         public virtual IList<City> GetCities()
         {
             List<City> listToReturn = new List<City>();
@@ -73,20 +72,6 @@ namespace EasyTravelWeb.Repositories
                         };
                     }
                 }
-               
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        return new City
-                        {
-                            Id = page,
-                            Name = reader["CityName"].ToString(),
-                            Description = reader["CityDescription"].ToString(),
-                            PicturePath = reader["CityPhoto"].ToString()
-                        };
-                    }
-                }
             }
             return null;
         }
@@ -128,6 +113,34 @@ namespace EasyTravelWeb.Repositories
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetCityById", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                command.Parameters.Add(new SqlParameter("@CityID", id));
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new City
+                        {
+                            Id = id,
+                            Name = reader["CityName"].ToString(),
+                            Description = reader["CityDescription"].ToString(),
+                            PicturePath = reader["CityPhoto"].ToString()
+                        };
+                    }
+                }
+            }
+            return null;
+        }
+
+        public virtual City GetCountCity(long id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetCountCity", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };

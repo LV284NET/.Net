@@ -7,8 +7,7 @@ using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
-using PagedList.Mvc;
-using PagedList;
+
 
 namespace EasyTravelWeb.Controllers
 {
@@ -26,11 +25,11 @@ namespace EasyTravelWeb.Controllers
 
         [Route("api/GetCities")]
         [HttpGet]
-        public IHttpActionResult GetCities() //(int? page)
+        public IHttpActionResult GetCities(int? page)
         {
             IList<City> listToReturn;
-                int pageSize = 3;
-                //int pageNumber = (page ?? 1);
+               
+                int pageNumber = (page ?? 1);
             try
             {
                 listToReturn = cityRepository.GetCities();
@@ -44,8 +43,8 @@ namespace EasyTravelWeb.Controllers
                 logger.LogException(ex);
                 return InternalServerError();
             }
+
             return Ok(listToReturn);
-           // return Ok(listToReturn.ToPagedList(pageNumber, pageSize));
         }
 
         [Route("api/GetCity")]
@@ -56,6 +55,27 @@ namespace EasyTravelWeb.Controllers
             try
             {
                 cityToReturn = cityRepository.GetCity(id);
+                if (cityToReturn == null)
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogException(ex);
+                return InternalServerError();
+            }
+            return Ok(cityToReturn);
+        }
+
+        [Route("api/GetCity")]
+        [HttpGet]
+        public IHttpActionResult GetCountCity(int id)
+        {
+            City cityToReturn;
+            try
+            {
+                cityToReturn = cityRepository.GetCountCity(id);
                 if (cityToReturn == null)
                 {
                     return NotFound();

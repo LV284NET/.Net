@@ -47,7 +47,7 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
-        public List<Place> GetPlacesPage(long cityId)
+        public List<Place> GetPlacesPage(int page, long cityId)
         {
             List<Place> listToReturn = new List<Place>();
 
@@ -98,17 +98,13 @@ namespace EasyTravelWeb.Repositories
                 .ConnectionString))
             {
                 connection.Open();
-                //TODO: Do not use Stored Procedure, use queries instead.
                 SqlCommand command = new SqlCommand("GetPlacesByCityId", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
 
                 command.Parameters.Add(new SqlParameter("@CityID", cityId));
-                /*
-                var command = new SqlCommand(@"Select * From Place Where CityID = @CityID", connection);
-                command.Parameters.AddWithValue("@CityID", cityId);
-                */
+ 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
@@ -347,6 +343,41 @@ namespace EasyTravelWeb.Repositories
 
             return null;
         }
+        public List<Place> GetCountPlace(long placeId)
+        {
+            List<Place> placesToReturn = new List<Place>();
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetCountPlace", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            placesToReturn.Add(new Place
+                            {
+                                PlaceId = Convert.ToInt32(reader["PlaceID"]),
+                                Name = reader["PlaceName"].ToString(),
+                                Description = reader["PlaceDescription"].ToString(),
+                                PicturePlace = reader["MainPlaceImage"].ToString(),
+                                CityName = reader["CityName"].ToString()
+                            });
+                        }
+
+                        return placesToReturn;
+                    }
+                }
+            }
+
+            return null;
+        }
+
 
     }
 }
