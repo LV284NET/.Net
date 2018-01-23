@@ -121,7 +121,7 @@ namespace EasyTravelWeb.Controllers
         {
             try
             {
-                if (placeRepository.AddFavouritePlace(favouritePlace.UserId, favouritePlace.PlaceID))
+                if (placeRepository.AddFavouritePlace(favouritePlace.UserId, favouritePlace.PlaceId))
                 {
                     return Ok();
                 }
