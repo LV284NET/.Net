@@ -9,14 +9,14 @@
                 Controller for the default page which informs about the app running
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavoritePlace)">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.Place)">
             <summary>
             
             </summary>
-            <param name="favoritePlace"></param>
+            <param name="favoriteUserPlace"></param>
             <returns></returns>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.Place)">
             <summary>
             
             </summary>
@@ -71,7 +71,7 @@
             <param name="lastName">Last name which will be updated in database</param>
             <returns>result of chaning (Bad or Ok)</returns>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavouritePlaces(System.Int32)">
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces">
             <summary>
             Cotroler fo getting favourite places of specific user
             </summary>

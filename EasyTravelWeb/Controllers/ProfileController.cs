@@ -5,6 +5,7 @@ using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using System;
 using EasyTravelWeb.Infrastructure.Validators;
+using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -154,13 +155,14 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         /// <param name="id">ID of a current user</param>
         /// <returns>List of favourite Places</returns>
+        [Authorize]
         [HttpGet]
         [Route("api/Profile/GetFavoritePlaces")]
-        public IHttpActionResult GetFavouritePlaces(int id)
+        public IHttpActionResult GetFavoritePlaces()
         {
             try
             {
-                List<Place> cityPlaces = this.placeRepository.GetFavoritePlaces(id);
+                List<Place> cityPlaces = this.placeRepository.GetFavoritePlaces(this.User.Identity.GetUserId<int>());
 
                 if (cityPlaces != null)
                 {

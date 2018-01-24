@@ -5,6 +5,7 @@ using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
+using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -135,16 +136,16 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="favoritePlace"></param>
+        /// <param name="favoriteUserPlace"></param>
         /// <returns></returns>
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         [Route("api/Place/AddFavoritePlace")]
-        public IHttpActionResult AddUserFavouritePlace([FromBody] FavoritePlace favoritePlace)
+        public IHttpActionResult AddUserFavouritePlace([FromBody] Place favoriteUserPlace)
         {
             try
             {
-                if (placeRepository.AddFavouritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
+                if (placeRepository.AddFavouritePlace(this.User.Identity.GetUserId<int>(), favoriteUserPlace.PlaceId))
                 {
                     return Ok();
                 }
@@ -164,14 +165,14 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         /// <param name="favoritePlace"></param>
         /// <returns></returns>
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         [Route("api/Place/DeleteFavoritePlace")]
-        public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavoritePlace favoritePlace)
+        public IHttpActionResult DeleteUserFavoritePlace([FromBody] Place favoritePlace)
         {
             try
             {
-                if (placeRepository.DeleteFavoritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
+                if (placeRepository.DeleteFavoritePlace(this.User.Identity.GetUserId<int>(), favoritePlace.PlaceId))
                 {
                     return Ok();
                 }
