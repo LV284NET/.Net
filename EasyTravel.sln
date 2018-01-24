@@ -50,7 +50,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.5", "V1.5", "{26E22196-A
 	ProjectSection(SolutionItems) = preProject
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql
+<<<<<<< HEAD
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql
+=======
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_DeleteUserFavouritePlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_DeleteUserFavouritePlace.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCitiesPage.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCitiesPage.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetPlacesPage.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetPlacesPage.sql
+>>>>>>> 0e895f66f6168d7be78ad5a969c1332e103f3347
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_InsertNewUserFavouritePlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_InsertNewUserFavouritePlace.sql
 	EndProjectSection
