@@ -24,7 +24,6 @@ namespace EasyTravelWeb.Controllers
 		[HttpGet]
 		[Route("api/Place/GetPlaceById")]
 		public IHttpActionResult GetPlaceById(long placeId)
-
 		{
 			try
 			{

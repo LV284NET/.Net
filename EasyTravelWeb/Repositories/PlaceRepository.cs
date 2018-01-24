@@ -364,8 +364,6 @@ namespace EasyTravelWeb.Repositories
                         {
                             placesCount = Convert.ToInt32(reader["Count"]);
                         }
-
-                        
                     }
                     return placesCount;
                 }

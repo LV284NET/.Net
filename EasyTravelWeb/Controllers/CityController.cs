@@ -27,12 +27,11 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetCities(int page)
         {
-            IList<City> listToReturn;
-               
+
+            int getCities = cityRepository.GetCitiesPage(page);
             try
             {
-                listToReturn = cityRepository.GetCitiesPage(page);
-                if (listToReturn == null)
+                if (getCities == null)
                 {
                     return NotFound();
                 }
@@ -43,7 +42,7 @@ namespace EasyTravelWeb.Controllers
                 return InternalServerError();
             }
 
-            return Ok(listToReturn);
+            return Ok(getCities);
         }
 
 
