@@ -45,6 +45,26 @@ namespace EasyTravelWeb.Controllers
             return Ok(getCities);
         }
 
+        [Route("api/GetCity")]
+        [HttpGet]
+        public IHttpActionResult Get(int id)
+        {
+            City cityToReturn;
+            try
+            {
+                cityToReturn = cityRepository.GetCity(id);
+                if (cityToReturn == null)
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogException(ex);
+                return InternalServerError();
+            }
+            return Ok(cityToReturn);
+        }
 
         [Route("api/GetCountCity")]
         [HttpGet]
