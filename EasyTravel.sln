@@ -1,11 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-<<<<<<< HEAD
-VisualStudioVersion = 15.0.27130.2010
-=======
-VisualStudioVersion = 15.0.27004.2009
->>>>>>> develop
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTravelWeb", "EasyTravelWeb\EasyTravelWeb.csproj", "{2CEF35A1-9417-481A-AE60-7F856A103A99}"
 EndProject
@@ -54,14 +50,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.5", "V1.5", "{26E22196-A
 	ProjectSection(SolutionItems) = preProject
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql
-<<<<<<< HEAD
-		ScriptV1.5_Procedure_GetCountCity.sql = ScriptV1.5_Procedure_GetCountCity.sql
-		ScriptV1.5_Procedure_GetCountPlace.sql = ScriptV1.5_Procedure_GetCountPlace.sql
-=======
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCitiesPage.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCitiesPage.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCountCity.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCountCity.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCountPlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCountPlace.sql
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetPlacesPage.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetPlacesPage.sql
->>>>>>> develop
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql
 	EndProjectSection
