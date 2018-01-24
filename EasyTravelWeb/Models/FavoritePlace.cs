@@ -1,6 +1,6 @@
 ﻿namespace EasyTravelWeb.Models
 {
-    public class FavouritePlace
+    public class FavoritePlace
     {
         public int UserId { get; set; }
         

@@ -117,7 +117,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Record())
             {
-                SetupResult.For(placeRepository.GetFavouritePlaces(2))
+                SetupResult.For(placeRepository.GetFavoritePlaces(2))
                             .IgnoreArguments()
                             .Return(this.favouritePlaces);
             }
@@ -138,7 +138,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Record())
             {
-                SetupResult.For(placeRepository.GetFavouritePlaces(2))
+                SetupResult.For(placeRepository.GetFavoritePlaces(2))
                             .IgnoreArguments()
                             .Return(null);
             }
@@ -150,9 +150,6 @@ namespace EasyTravelTest.ControllersTest
             }
 
         }
-
-        
-
     }
 }
 

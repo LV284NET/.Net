@@ -9,19 +9,18 @@
                 Controller for the default page which informs about the app running
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavouritePlace)">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavoritePlace)">
             <summary>
             
             </summary>
-            <param name="favouritePlace"></param>
+            <param name="favoritePlace"></param>
             <returns></returns>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavouritePlace(System.Int32,EasyTravelWeb.Models.Place)">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)">
             <summary>
             
             </summary>
-            <param name="userId"></param>
-            <param name="placeId"></param>
+            <param name="favoritePlace"></param>
             <returns></returns>
         </member>
         <member name="T:EasyTravelWeb.Controllers.ProfileController">

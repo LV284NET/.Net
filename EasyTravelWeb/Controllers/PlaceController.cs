@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
@@ -114,23 +115,21 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="favouritePlace"></param>
+        /// <param name="favoritePlace"></param>
         /// <returns></returns>
         //[Authorize]
         [HttpPost]
         [Route("api/Place/AddFavoritePlace")]
-        public IHttpActionResult AddUserFavouritePlace([FromBody] FavouritePlace favouritePlace)
+        public IHttpActionResult AddUserFavouritePlace([FromBody] FavoritePlace favoritePlace)
         {
             try
             {
-                if (placeRepository.AddFavouritePlace(favouritePlace.UserId, favouritePlace.PlaceId))
+                if (placeRepository.AddFavouritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
                 {
                     return Ok();
                 }
-                else
-                {
-                    return BadRequest();
-                }
+
+                return Content(HttpStatusCode.BadRequest, "You already add this place to favourite");
             }
             catch (Exception ex)
             {
@@ -139,26 +138,31 @@ namespace EasyTravelWeb.Controllers
             }
         }
 
+        
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="placeId"></param>
+        /// <param name="favoritePlace"></param>
         /// <returns></returns>
-        [Authorize]
+        //[Authorize]
         [HttpPost]
-        [Route("api/Place/DelFavouritePlace")]
-        public IHttpActionResult DeleteUserFavouritePlace([FromBody] int userId, Place placeId)
+        [Route("api/Place/DeleteFavoritePlace")]
+        public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavoritePlace favoritePlace)
         {
             try
             {
+                if (placeRepository.DeleteFavoritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
+                {
+                    return Ok();
+                }
+
+                return BadRequest();
             }
             catch (Exception ex)
             {
-                throw;
+                this.loger.LogException(ex);
+                return InternalServerError();
             }
-
-            return Ok();
         }
 
         //[Route("api/Place/GetPlacesPage")]
