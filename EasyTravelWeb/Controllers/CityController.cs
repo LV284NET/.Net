@@ -68,9 +68,9 @@ namespace EasyTravelWeb.Controllers
 
         [Route("api/GetCountCity")]
         [HttpGet]
-        public IHttpActionResult GetCountCity(long Cityid)
+        public IHttpActionResult GetCountCity()
         {
-            int cityCount = cityRepository.GetCountCity(Cityid);
+            int cityCount = cityRepository.GetCountCity();
             try
             {
                 if (cityCount == null)

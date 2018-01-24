@@ -143,7 +143,7 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public virtual int GetCountCity(long id)
+        public virtual int GetCountCity()
         {
             int placesCount = 0;
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
