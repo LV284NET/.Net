@@ -60,7 +60,7 @@ namespace EasyTravelWeb.Repositories
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                
+
                 command.Parameters.Add(new SqlParameter("@CityID", CityId));
                 command.Parameters.Add(new SqlParameter("@PageNumber", page));
                 command.Parameters.Add(new SqlParameter("@PageSize", pageSize));
@@ -104,7 +104,7 @@ namespace EasyTravelWeb.Repositories
                 };
 
                 command.Parameters.Add(new SqlParameter("@CityID", cityId));
- 
+
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
@@ -251,7 +251,7 @@ namespace EasyTravelWeb.Repositories
         {
 
             List<SearchController.PlaceSearchEntity> places = new List<SearchController.PlaceSearchEntity>();
-            using(SqlConnection connection = new SqlConnection(ConfigurationManager
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
                 .ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
@@ -281,7 +281,7 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public bool  AddFavouritePlace(int userId, long placeId)
+        public bool AddFavouritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -370,7 +370,5 @@ namespace EasyTravelWeb.Repositories
             }
 
         }
-
-
     }
 }

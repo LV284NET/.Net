@@ -5,7 +5,6 @@ using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
 
-
 namespace EasyTravelWeb.Controllers
 {
 
@@ -90,13 +89,12 @@ namespace EasyTravelWeb.Controllers
 		}
 
 		[HttpGet]
-		[Route("api/Place/GetPlacesByCityId")]
-		public IHttpActionResult GetPlacesByCityId(long cityId, int page)
+		[Route("api/Place/GetPlacesPageByCityId")]
+		public IHttpActionResult GetPlacesPageByCityId(long cityId, int page)
 		{
-
             try
 			{
-				List<Place> cityPlaces = this.placeRepository.GetPlacesByCityId(page);
+				List<Place> cityPlaces = this.placeRepository.GetPlacesPage(page, cityId);
 
 				if (cityPlaces != null)
 				{	
@@ -163,28 +161,28 @@ namespace EasyTravelWeb.Controllers
             return Ok();
         }
 
-        [HttpGet]
-        [Route("api/Place/GetCountPlace")]
-        public IHttpActionResult GetCountPlace(long CityId)
-        {
-            try
-            {
-                int  placesCount = this.placeRepository.GetCountPlace(CityId);
+        //[Route("api/Place/GetPlacesPage")]
+        //[HttpGet]
+        //public IHttpActionResult GetCities(int page)
+        //{
 
-                if (placesCount != null)
-                {
-                    return this.Ok(placesCount);
-                }
+        //    //int getCities = placeRepository.GetPlacesPage(page);
+        //    try
+        //    {
+        //        if (getCities == null)
+        //        {
+        //            return NotFound();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        loger.LogException(ex);
+        //        return InternalServerError();
+        //    }
 
-                return this.NotFound();
-            }
-            catch (Exception ex)
-            {
-                this.loger.LogException(ex);
+        //    return Ok(getCities);
+        //}
 
-                return this.NotFound();
-            }
-        }
     }
 }
  

@@ -28,7 +28,7 @@ namespace EasyTravelWeb.Controllers
         public IHttpActionResult GetCities(int page)
         {
 
-            int getCities = cityRepository.GetCitiesPage(page);
+            IList<City> getCities = cityRepository.GetCitiesPage(page);
             try
             {
                 if (getCities == null)
