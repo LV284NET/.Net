@@ -4,8 +4,7 @@ using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
-using PagedList.Mvc;
-using PagedList;
+
 
 namespace EasyTravelWeb.Controllers
 {
@@ -93,13 +92,12 @@ namespace EasyTravelWeb.Controllers
 
 		[HttpGet]
 		[Route("api/Place/GetPlacesByCityId")]
-		public IHttpActionResult GetPlacesByCityId(long cityId, int? page)
+		public IHttpActionResult GetPlacesByCityId(long cityId, int page)
 		{
 
-            int pageNumber = (page ?? 1);
             try
 			{
-				List<Place> cityPlaces = this.placeRepository.GetPlacesByCityId(cityId);
+				List<Place> cityPlaces = this.placeRepository.GetPlacesByCityId(page);
 
 				if (cityPlaces != null)
 				{	
@@ -168,15 +166,15 @@ namespace EasyTravelWeb.Controllers
 
         [HttpGet]
         [Route("api/Place/GetCountPlace")]
-        public IHttpActionResult GetCountPlace(long placeId)
+        public IHttpActionResult GetCountPlace(long CityId)
         {
             try
             {
-                List<Place> cityPlaces = this.placeRepository.GetCountPlace(placeId);
+                int  placesCount = this.placeRepository.GetCountPlace(CityId);
 
-                if (cityPlaces != null)
+                if (placesCount != null)
                 {
-                    return this.Ok(cityPlaces);
+                    return this.Ok(placesCount);
                 }
 
                 return this.NotFound();
