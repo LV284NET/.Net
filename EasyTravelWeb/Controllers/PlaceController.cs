@@ -113,16 +113,16 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="favouritePlace"></param>
+        /// <param name="favoritePlace"></param>
         /// <returns></returns>
         //[Authorize]
         [HttpPost]
         [Route("api/Place/AddFavoritePlace")]
-        public IHttpActionResult AddUserFavouritePlace([FromBody] FavouritePlace favouritePlace)
+        public IHttpActionResult AddUserFavouritePlace([FromBody] FavoritePlace favoritePlace)
         {
             try
             {
-                if (placeRepository.AddFavoritePlace(favouritePlace.UserId, favouritePlace.PlaceId))
+                if (placeRepository.AddFavoritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
                 {
                     return Ok();
                 }
@@ -140,16 +140,16 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="favouritePlace"></param>
+        /// <param name="favoritePlace"></param>
         /// <returns></returns>
         //[Authorize]
         [HttpPost]
         [Route("api/Place/DeleteFavoritePlace")]
-        public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavouritePlace favouritePlace)
+        public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavoritePlace favoritePlace)
         {
             try
             {
-                if (placeRepository.DeleteFavoritePlace(favouritePlace.UserId, favouritePlace.PlaceId))
+                if (placeRepository.DeleteFavoritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
                 {
                     return Ok();
                 }

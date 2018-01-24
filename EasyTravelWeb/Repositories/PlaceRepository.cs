@@ -245,7 +245,7 @@ namespace EasyTravelWeb.Repositories
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("InsertNewUserFavouritePlace", connection);
+                SqlCommand command = new SqlCommand("InsertNewUserFavoritePlace", connection);
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@UserId", userId));
@@ -285,7 +285,7 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
-        public virtual List<Place> GetFavouritePlaces(int id)
+        public virtual List<Place> GetFavoritePlaces(int id)
         {
             List<Place> favouritePlaces = new List<Place>();
             using (SqlConnection connection = new SqlConnection(ConfigurationManager
@@ -293,7 +293,7 @@ namespace EasyTravelWeb.Repositories
                 .ConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("GetUserFavouritePlaces", connection);
+                SqlCommand command = new SqlCommand("GetUserFavoritePlaces", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@UserID", id));
 

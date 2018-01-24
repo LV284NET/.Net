@@ -55,6 +55,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.5", "V1.5", "{26E22196-A
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetPlacesPage.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetPlacesPage.sql
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql
 		DB_Scripts\V1.5\ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserFavoritePlaces.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserFavoritePlaces.sql
 	EndProjectSection
 EndProject
 Global

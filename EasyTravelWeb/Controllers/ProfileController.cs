@@ -155,12 +155,12 @@ namespace EasyTravelWeb.Controllers
         /// <param name="id">ID of a current user</param>
         /// <returns>List of favourite Places</returns>
         [HttpGet]
-        [Route("api/Profile/GetFavouritePlaces")]
+        [Route("api/Profile/GetFavoritePlaces")]
         public IHttpActionResult GetFavouritePlaces(int id)
         {
             try
             {
-                List<Place> cityPlaces = this.placeRepository.GetFavouritePlaces(id);
+                List<Place> cityPlaces = this.placeRepository.GetFavoritePlaces(id);
 
                 if (cityPlaces != null)
                 {
