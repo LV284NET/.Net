@@ -141,8 +141,9 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public virtual City GetCountCity(long id)
+        public virtual int GetCountCity(long id)
         {
+            int placesCount = 0;
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
@@ -151,22 +152,16 @@ namespace EasyTravelWeb.Repositories
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                command.Parameters.Add(new SqlParameter("@CityID", id));
+
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        return new City
-                        {
-                            Id = id,
-                            Name = reader["CityName"].ToString(),
-                            Description = reader["CityDescription"].ToString(),
-                            PicturePath = reader["CityPhoto"].ToString()
-                        };
+                        placesCount = Convert.ToInt32(reader["Count"]);
                     }
                 }
             }
-            return null;
+            return placesCount;
         }
     }
 }

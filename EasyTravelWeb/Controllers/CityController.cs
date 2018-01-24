@@ -46,38 +46,17 @@ namespace EasyTravelWeb.Controllers
             return Ok(listToReturn);
         }
 
-        [Route("api/GetCity")]
-        [HttpGet]
-        public IHttpActionResult Get(int id)
-        {
-            City cityToReturn;
-            try
-            {
-                cityToReturn = cityRepository.GetCity(id);
-                if (cityToReturn == null)
-                {
-                    return NotFound();
-                }
-            }
-            catch (Exception ex)
-            {
-                logger.LogException(ex);
-                return InternalServerError();
-            }
-            return Ok(cityToReturn);
-        }
 
-        [Route("api/GetCity")]
+        [Route("api/GetCountCity")]
         [HttpGet]
-        public IHttpActionResult GetCountCity(int id)
+        public IHttpActionResult GetCountCity(long Cityid)
         {
-            City cityToReturn;
+            int cityCount = cityRepository.GetCountCity(Cityid);
             try
             {
-                cityToReturn = cityRepository.GetCountCity(id);
-                if (cityToReturn == null)
+                if (cityCount == null)
                 {
-                    return NotFound();
+                     return this.NotFound();
                 }
             }
             catch (Exception ex)
@@ -85,7 +64,7 @@ namespace EasyTravelWeb.Controllers
                 logger.LogException(ex);
                 return InternalServerError();
             }
-            return Ok(cityToReturn);
+           return this.Ok(cityCount);
         }
     }
 }
