@@ -112,6 +112,26 @@ namespace EasyTravelWeb.Controllers
 			}
 
 		}
+
+        [Route("api/Place/GetCountPlaces")]
+        [HttpGet]
+        public IHttpActionResult GetCountPlaces(long cityId)
+        {
+            int placeCount = placeRepository.GetCountPlace(cityId);
+            try
+            {
+                if (placeCount == null)
+                {
+                    return this.NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError();
+            }
+            return this.Ok(placeCount);
+        }
+
         /// <summary>
         /// 
         /// </summary>
