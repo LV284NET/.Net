@@ -151,9 +151,8 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        /// Cotroler fo getting favourite places of specific user
+        /// Cotroler fo getting favorite places of specific user
         /// </summary>
-        /// <param name="id">ID of a current user</param>
         /// <returns>List of favourite Places</returns>
         [Authorize]
         [HttpGet]
