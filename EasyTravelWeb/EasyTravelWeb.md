@@ -29,7 +29,7 @@
   - [userRepository](#F-EasyTravelWeb-Controllers-ProfileController-userRepository 'EasyTravelWeb.Controllers.ProfileController.userRepository')
   - [ChangeFirstName(id,firstName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)')
   - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)')
-  - [GetFavoritePlaces(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces 'EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces')
+  - [GetFavoritePlaces()](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces 'EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces')
   - [GetUser(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)')
 - [RegisterBindingModelValidator](#T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor')
@@ -400,11 +400,11 @@ result of chaning (Bad or Ok)
 | lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Last name which will be updated in database |
 
 <a name='M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces'></a>
-### GetFavoritePlaces(id) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces 'Go To Here') [=](#contents 'Back To Contents')
+### GetFavoritePlaces() `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
-Cotroler fo getting favourite places of specific user
+Cotroler fo getting favorite places of specific user
 
 ##### Returns
 
@@ -412,9 +412,7 @@ List of favourite Places
 
 ##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| id | [M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces](#T-M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces 'M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces') | ID of a current user |
+This method has no parameters.
 
 <a name='M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32-'></a>
 ### GetUser(id) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')

@@ -124,7 +124,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Playback())
             {
-                IHttpActionResult actual = profileController.GetFavouritePlaces(2);
+                IHttpActionResult actual = profileController.GetFavoritePlaces();
                 Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<List<Place>>>());
             }
 
@@ -145,7 +145,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Playback())
             {
-                IHttpActionResult actual = profileController.GetFavouritePlaces(2);
+                IHttpActionResult actual = profileController.GetFavoritePlaces();
                 Assert.That(actual, Is.TypeOf<NotFoundResult>());
             }
 
