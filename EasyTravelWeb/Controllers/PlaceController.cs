@@ -92,11 +92,11 @@ namespace EasyTravelWeb.Controllers
 
 		[HttpGet]
 		[Route("api/Place/GetPlacesPageByCityId")]
-		public IHttpActionResult GetPlacesPageByCityId(long cityId, int page)
+		public IHttpActionResult GetPlacesPageByCityId(long cityId, int page, int pageSize)
 		{
             try
 			{
-				List<Place> cityPlaces = this.placeRepository.GetPlacesPage(page, cityId);
+				List<Place> cityPlaces = this.placeRepository.GetPlacesPage(page, cityId, pageSize);
 
 				if (cityPlaces != null)
 				{	

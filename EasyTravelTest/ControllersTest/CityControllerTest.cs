@@ -55,12 +55,12 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Record())
             {
-                SetupResult.For(cityRepository.GetCitiesPage(2)).IgnoreArguments().Return(this.cities);
+                SetupResult.For(cityRepository.GetCitiesPage(2,1)).IgnoreArguments().Return(this.cities);
             }
 
             using (_mocks.Playback())
             {
-                IHttpActionResult actual = cityController.GetCities(2);
+                IHttpActionResult actual = cityController.GetCities(2,1);
                 Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<IList<City>>>());
             }
           
@@ -74,12 +74,12 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Record())
             {
-                SetupResult.For(cityRepository.GetCitiesPage(1)).IgnoreArguments().Return(this.cities);
+                SetupResult.For(cityRepository.GetCitiesPage(1,1)).IgnoreArguments().Return(this.cities);
             }
 
             using (_mocks.Playback())
             {
-                var citiesList = cityController.GetCities(2) as OkNegotiatedContentResult<IList<City>>;
+                var citiesList = cityController.GetCities(2,1) as OkNegotiatedContentResult<IList<City>>;
                 var actual = citiesList.Content;
 
                 Assert.IsNotEmpty(actual);
@@ -94,12 +94,12 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Record())
             {
-                SetupResult.For(cityRepository.GetCitiesPage(2)).IgnoreArguments().Return(null);
+                SetupResult.For(cityRepository.GetCitiesPage(2,1)).IgnoreArguments().Return(null);
             }
 
             using (_mocks.Playback())
             {
-                IHttpActionResult actual = cityController.GetCities(1);
+                IHttpActionResult actual = cityController.GetCities(1,1);
                 Assert.That(actual, Is.TypeOf<NotFoundResult>());
             }
         }

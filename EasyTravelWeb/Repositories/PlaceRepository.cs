@@ -14,8 +14,6 @@ namespace EasyTravelWeb.Repositories
     public class PlaceRepository
     {
 
-        private const int pageSize = 3;
-
         public Place GetPlaceById(long placeId)
         {
             using (SqlConnection connection =
@@ -49,7 +47,7 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
-        public List<Place> GetPlacesPage(int page, long CityId)
+        public List<Place> GetPlacesPage(int page, long CityId, int pageSize)
         {
             List<Place> listToReturn = new List<Place>();
 

@@ -12,7 +12,6 @@ namespace EasyTravelWeb.Repositories
 {
     public class CityRepository
     {
-        private const int pageSize = 3;
 
         public virtual IList<City> GetCities()
         {
@@ -47,7 +46,7 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        public virtual IList<City> GetCitiesPage(int page)
+        public virtual IList<City> GetCitiesPage(int page,int pageSize)
         {
              
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]

@@ -25,10 +25,10 @@ namespace EasyTravelWeb.Controllers
 
         [Route("api/GetCities")]
         [HttpGet]
-        public IHttpActionResult GetCities(int page)
+        public IHttpActionResult GetCities(int page, int pageSize)
         {
 
-            IList<City> getCities = cityRepository.GetCitiesPage(page);
+            IList<City> getCities = cityRepository.GetCitiesPage(page,pageSize);
             try
             {
                 if (getCities == null)
