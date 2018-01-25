@@ -31,7 +31,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.2", "V1.2", "{86B63F85-B9AF-4895-A651-797AFBC4BFF1}"
 	ProjectSection(SolutionItems) = preProject
 		DB_Scripts\V1.2\ScriptV1.2_InsertData.sql = DB_Scripts\V1.2\ScriptV1.2_InsertData.sql
-		ScriptV1.2_Procedure_GetPlaces.sql = ScriptV1.2_Procedure_GetPlaces.sql
+		DB_Scripts\V1.2\ScriptV1.2_Procedure_GetPlaces.sql = DB_Scripts\V1.2\ScriptV1.2_Procedure_GetPlaces.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1.3", "v1.3", "{255AB994-ADD2-418F-9AE0-14A8E3AEADF2}"
