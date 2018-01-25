@@ -55,7 +55,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Record())
             {
-                SetupResult.For(cityRepository.GetCities()).IgnoreArguments().Return(this.cities);
+                SetupResult.For(cityRepository.GetCitiesPage(2)).IgnoreArguments().Return(this.cities);
             }
 
             using (_mocks.Playback())
@@ -74,12 +74,12 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Record())
             {
-                SetupResult.For(cityRepository.GetCities()).IgnoreArguments().Return(this.cities);
+                SetupResult.For(cityRepository.GetCitiesPage(1)).IgnoreArguments().Return(this.cities);
             }
 
             using (_mocks.Playback())
             {
-                var citiesList = cityController.GetCities(3) as OkNegotiatedContentResult<IList<City>>;
+                var citiesList = cityController.GetCities(2) as OkNegotiatedContentResult<IList<City>>;
                 var actual = citiesList.Content;
 
                 Assert.IsNotEmpty(actual);
@@ -94,7 +94,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Record())
             {
-                SetupResult.For(cityRepository.GetCities()).IgnoreArguments().Return(null);
+                SetupResult.For(cityRepository.GetCitiesPage(2)).IgnoreArguments().Return(null);
             }
 
             using (_mocks.Playback())
