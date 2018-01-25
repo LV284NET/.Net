@@ -358,8 +358,9 @@ namespace EasyTravelWeb.Repositories
                             });
                         }
 
-                        return favouritePlaces;
+                       
                     }
+                    return favouritePlaces;
                 }
             }
 
