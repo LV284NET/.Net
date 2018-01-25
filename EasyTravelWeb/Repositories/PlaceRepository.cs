@@ -205,9 +205,8 @@ namespace EasyTravelWeb.Repositories
                                 CityName = ""
                             });
                         }
-
-                        return listToReturn;
                     }
+                    return listToReturn;
                 }
             }
 
