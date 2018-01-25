@@ -14,6 +14,10 @@ using System.Net.Http.Headers;
 
 namespace EasyTravelWeb.Controllers
 {
+    /// <summary>
+    ///     Controller for HomePage
+    /// </summary>
+
     public class HomeController : ApiController
     {
         #region Private Fields
@@ -25,6 +29,9 @@ namespace EasyTravelWeb.Controllers
         #endregion
         private const int CountMainPlaces = 6;
 
+        /// <summary>
+        ///    
+        /// </summary>
         [System.Web.Http.Route("GetPlaces")]
         [System.Web.Http.HttpGet]
         public IHttpActionResult GetPlaces()

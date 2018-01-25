@@ -7,6 +7,10 @@ using WebGrease.Css.Extensions;
 
 namespace EasyTravelWeb.Controllers
 {
+    /// <summary>
+    ///     Controller for seach
+    /// </summary>
+
     public class SearchController : ApiController
     {
         private readonly Logger logger = Logger.GetInstance();
@@ -17,11 +21,17 @@ namespace EasyTravelWeb.Controllers
         private static List<CitySearchEntity> cities;
         private static List<PlaceSearchEntity> places;
 
+        /// <summary>
+        ///    
+        /// </summary>
         public SearchController()
         {
             InitializeData();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public SearchController(CityRepository cityRepository, PlaceRepository placeRepository)
         {
             this.cityRepository = cityRepository;
@@ -30,6 +40,9 @@ namespace EasyTravelWeb.Controllers
             InitializeData();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         [HttpGet]
 		public IHttpActionResult GetSuggestions(string searchWord)
         {
@@ -88,25 +101,71 @@ namespace EasyTravelWeb.Controllers
             }
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public interface ISearchEntity
         {
+            /// <summary>
+            ///    
+            /// </summary>
             long Id { get; set; }
+
+            /// <summary>
+            ///    
+            /// </summary>
             string Name { get; set; }
+
+            /// <summary>
+            ///    
+            /// </summary>
             string Type { get; }
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public class CitySearchEntity : ISearchEntity
         {
+            /// <summary>
+            ///    
+            /// </summary>
             public long Id { get; set; }
+
+            /// <summary>
+            ///    
+            /// </summary>
             public string Name { get; set; }
+
+            /// <summary>
+            ///    
+            /// </summary>
             public string Type { get; } = "City";
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public class PlaceSearchEntity : ISearchEntity
         {
+            /// <summary>
+            ///    
+            /// </summary>
             public long Id { get; set; }
+
+            /// <summary>
+            ///    
+            /// </summary>
             public long CityId { get; set; }
+
+            /// <summary>
+            ///    
+            /// </summary>
             public string Name { get; set; }
+
+            /// <summary>
+            ///    
+            /// </summary>
             public string Type { get; } = "Place";
         }
     }

@@ -13,13 +13,20 @@ using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Providers
 {
+    /// <summary>
+    ///    App Configuration
+    /// </summary>
+
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
         private readonly string _publicClientId;
 
+        /// <summary>
+        ///    
+        /// </summary>
         public ApplicationOAuthProvider(string publicClientId)
         {
-            if (publicClientId == null)
+            if (publicClientId == string.Empty)
             {
                 throw new ArgumentNullException("publicClientId");
             }
@@ -27,6 +34,9 @@ namespace EasyTravelWeb.Providers
             _publicClientId = publicClientId;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public override async Task GrantResourceOwnerCredentials (OAuthGrantResourceOwnerCredentialsContext context)
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
@@ -55,6 +65,9 @@ namespace EasyTravelWeb.Providers
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
         {
 
@@ -67,6 +80,9 @@ namespace EasyTravelWeb.Providers
             return Task.FromResult<object>(null);
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public override Task ValidateClientAuthentication (OAuthValidateClientAuthenticationContext context)
         {
             // Resource owner password credentials does not provide a client ID.
@@ -78,6 +94,9 @@ namespace EasyTravelWeb.Providers
             return Task.FromResult<object>(null);
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public override Task ValidateClientRedirectUri (OAuthValidateClientRedirectUriContext context)
         {
             if (context.ClientId == _publicClientId)
@@ -93,6 +112,9 @@ namespace EasyTravelWeb.Providers
             return Task.FromResult<object>(null);
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public static AuthenticationProperties CreateProperties(int idUser, string userName, string FirstName)
         {
             IDictionary<string, string>

@@ -11,18 +11,30 @@ using EasyTravelWeb.Repositories;
 
 namespace EasyTravelWeb.Controllers
 {
+    /// <summary>
+    ///    
+    /// </summary>
     public class CityController : ApiController
     {
         private readonly CityRepository cityRepository = new CityRepository();
         private readonly Logger logger = Logger.GetInstance();
 
+        /// <summary>
+        ///    
+        /// </summary>
         public CityController() { }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public CityController(CityRepository cityRepository)
         {
             this.cityRepository = cityRepository;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         [Route("api/GetCities")]
         [HttpGet]
         public IHttpActionResult GetCities(int page, int pageSize)
@@ -45,6 +57,9 @@ namespace EasyTravelWeb.Controllers
             return Ok(getCities);
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         [Route("api/GetCity")]
         [HttpGet]
         public IHttpActionResult Get(int id)
@@ -66,6 +81,9 @@ namespace EasyTravelWeb.Controllers
             return Ok(cityToReturn);
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         [Route("api/GetCountCity")]
         [HttpGet]
         public IHttpActionResult GetCountCity()
@@ -73,7 +91,7 @@ namespace EasyTravelWeb.Controllers
             int cityCount = cityRepository.GetCountCity();
             try
             {
-                if (cityCount == null)
+                if (cityCount == 0)
                 {
                      return this.NotFound();
                 }

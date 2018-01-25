@@ -2,8 +2,106 @@
 # Contents [#](#contents 'Go To Here')
 
 - [AccountController](#T-EasyTravelWeb-Controllers-AccountController 'EasyTravelWeb.Controllers.AccountController')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-AccountController-#ctor 'EasyTravelWeb.Controllers.AccountController.#ctor')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-AccountController-#ctor-EasyTravelWeb-ApplicationUserManager,Microsoft-Owin-Security-ISecureDataFormat{Microsoft-Owin-Security-AuthenticationTicket}- 'EasyTravelWeb.Controllers.AccountController.#ctor(EasyTravelWeb.ApplicationUserManager,Microsoft.Owin.Security.ISecureDataFormat{Microsoft.Owin.Security.AuthenticationTicket})')
+  - [registerBindingModelValidator](#F-EasyTravelWeb-Controllers-AccountController-registerBindingModelValidator 'EasyTravelWeb.Controllers.AccountController.registerBindingModelValidator')
+  - [userManager](#F-EasyTravelWeb-Controllers-AccountController-userManager 'EasyTravelWeb.Controllers.AccountController.userManager')
+  - [AccessTokenFormat](#P-EasyTravelWeb-Controllers-AccountController-AccessTokenFormat 'EasyTravelWeb.Controllers.AccountController.AccessTokenFormat')
+  - [UserManager](#P-EasyTravelWeb-Controllers-AccountController-UserManager 'EasyTravelWeb.Controllers.AccountController.UserManager')
+  - [AddExternalLogin()](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-AddExternalLoginBindingModel- 'EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.AddExternalLoginBindingModel)')
+  - [ChangePassword()](#M-EasyTravelWeb-Controllers-AccountController-ChangePassword-EasyTravelWeb-Models-ChangePasswordBindingModel- 'EasyTravelWeb.Controllers.AccountController.ChangePassword(EasyTravelWeb.Models.ChangePasswordBindingModel)')
+  - [ConfirmEmail()](#M-EasyTravelWeb-Controllers-AccountController-ConfirmEmail-System-Int32,System-String- 'EasyTravelWeb.Controllers.AccountController.ConfirmEmail(System.Int32,System.String)')
   - [ConfirmUser(user)](#M-EasyTravelWeb-Controllers-AccountController-ConfirmUser-EasyTravelWeb-Models-User- 'EasyTravelWeb.Controllers.AccountController.ConfirmUser(EasyTravelWeb.Models.User)')
+  - [Dispose()](#M-EasyTravelWeb-Controllers-AccountController-Dispose-System-Boolean- 'EasyTravelWeb.Controllers.AccountController.Dispose(System.Boolean)')
+  - [GetExternalLogin()](#M-EasyTravelWeb-Controllers-AccountController-GetExternalLogin-System-String,System-String- 'EasyTravelWeb.Controllers.AccountController.GetExternalLogin(System.String,System.String)')
+  - [GetExternalLogins()](#M-EasyTravelWeb-Controllers-AccountController-GetExternalLogins-System-String,System-Boolean- 'EasyTravelWeb.Controllers.AccountController.GetExternalLogins(System.String,System.Boolean)')
+  - [GetManageInfo()](#M-EasyTravelWeb-Controllers-AccountController-GetManageInfo-System-String,System-Boolean- 'EasyTravelWeb.Controllers.AccountController.GetManageInfo(System.String,System.Boolean)')
+  - [GetUserInfo()](#M-EasyTravelWeb-Controllers-AccountController-GetUserInfo 'EasyTravelWeb.Controllers.AccountController.GetUserInfo')
+  - [Logout()](#M-EasyTravelWeb-Controllers-AccountController-Logout 'EasyTravelWeb.Controllers.AccountController.Logout')
   - [Register(model)](#M-EasyTravelWeb-Controllers-AccountController-Register-EasyTravelWeb-Models-RegisterBindingModel- 'EasyTravelWeb.Controllers.AccountController.Register(EasyTravelWeb.Models.RegisterBindingModel)')
+  - [RegisterExternal()](#M-EasyTravelWeb-Controllers-AccountController-RegisterExternal-EasyTravelWeb-Models-RegisterExternalBindingModel- 'EasyTravelWeb.Controllers.AccountController.RegisterExternal(EasyTravelWeb.Models.RegisterExternalBindingModel)')
+  - [RemoveLogin()](#M-EasyTravelWeb-Controllers-AccountController-RemoveLogin-EasyTravelWeb-Models-RemoveLoginBindingModel- 'EasyTravelWeb.Controllers.AccountController.RemoveLogin(EasyTravelWeb.Models.RemoveLoginBindingModel)')
+  - [SetPassword()](#M-EasyTravelWeb-Controllers-AccountController-SetPassword-EasyTravelWeb-Models-SetPasswordBindingModel- 'EasyTravelWeb.Controllers.AccountController.SetPassword(EasyTravelWeb.Models.SetPasswordBindingModel)')
+- [AddExternalLoginBindingModel](#T-EasyTravelWeb-Models-AddExternalLoginBindingModel 'EasyTravelWeb.Models.AddExternalLoginBindingModel')
+  - [ExternalAccessToken](#P-EasyTravelWeb-Models-AddExternalLoginBindingModel-ExternalAccessToken 'EasyTravelWeb.Models.AddExternalLoginBindingModel.ExternalAccessToken')
+- [ApplicationDbContext](#T-EasyTravelWeb-Models-ApplicationDbContext 'EasyTravelWeb.Models.ApplicationDbContext')
+  - [#ctor()](#M-EasyTravelWeb-Models-ApplicationDbContext-#ctor 'EasyTravelWeb.Models.ApplicationDbContext.#ctor')
+  - [Create()](#M-EasyTravelWeb-Models-ApplicationDbContext-Create 'EasyTravelWeb.Models.ApplicationDbContext.Create')
+- [ApplicationOAuthProvider](#T-EasyTravelWeb-Providers-ApplicationOAuthProvider 'EasyTravelWeb.Providers.ApplicationOAuthProvider')
+  - [#ctor()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-#ctor-System-String- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.#ctor(System.String)')
+  - [CreateProperties()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-CreateProperties-System-Int32,System-String,System-String- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.CreateProperties(System.Int32,System.String,System.String)')
+  - [GrantResourceOwnerCredentials()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-GrantResourceOwnerCredentials-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)')
+  - [TokenEndpoint()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-TokenEndpoint-Microsoft-Owin-Security-OAuth-OAuthTokenEndpointContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.TokenEndpoint(Microsoft.Owin.Security.OAuth.OAuthTokenEndpointContext)')
+  - [ValidateClientAuthentication()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientAuthentication-Microsoft-Owin-Security-OAuth-OAuthValidateClientAuthenticationContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)')
+  - [ValidateClientRedirectUri()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientRedirectUri-Microsoft-Owin-Security-OAuth-OAuthValidateClientRedirectUriContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.ValidateClientRedirectUri(Microsoft.Owin.Security.OAuth.OAuthValidateClientRedirectUriContext)')
+- [ApplicationUser](#T-EasyTravelWeb-Models-ApplicationUser 'EasyTravelWeb.Models.ApplicationUser')
+  - [FirstName](#P-EasyTravelWeb-Models-ApplicationUser-FirstName 'EasyTravelWeb.Models.ApplicationUser.FirstName')
+  - [LastName](#P-EasyTravelWeb-Models-ApplicationUser-LastName 'EasyTravelWeb.Models.ApplicationUser.LastName')
+  - [GenerateUserIdentityAsync()](#M-EasyTravelWeb-Models-ApplicationUser-GenerateUserIdentityAsync-Microsoft-AspNet-Identity-UserManager{EasyTravelWeb-Models-ApplicationUser,System-Int32},System-String- 'EasyTravelWeb.Models.ApplicationUser.GenerateUserIdentityAsync(Microsoft.AspNet.Identity.UserManager{EasyTravelWeb.Models.ApplicationUser,System.Int32},System.String)')
+- [ApplicationUserManager](#T-EasyTravelWeb-ApplicationUserManager 'EasyTravelWeb.ApplicationUserManager')
+  - [#ctor()](#M-EasyTravelWeb-ApplicationUserManager-#ctor-Microsoft-AspNet-Identity-IUserStore{EasyTravelWeb-Models-ApplicationUser,System-Int32}- 'EasyTravelWeb.ApplicationUserManager.#ctor(Microsoft.AspNet.Identity.IUserStore{EasyTravelWeb.Models.ApplicationUser,System.Int32})')
+  - [Create()](#M-EasyTravelWeb-ApplicationUserManager-Create-Microsoft-AspNet-Identity-Owin-IdentityFactoryOptions{EasyTravelWeb-ApplicationUserManager},Microsoft-Owin-IOwinContext- 'EasyTravelWeb.ApplicationUserManager.Create(Microsoft.AspNet.Identity.Owin.IdentityFactoryOptions{EasyTravelWeb.ApplicationUserManager},Microsoft.Owin.IOwinContext)')
+- [BundleConfig](#T-EasyTravelWeb-BundleConfig 'EasyTravelWeb.BundleConfig')
+  - [RegisterBundles()](#M-EasyTravelWeb-BundleConfig-RegisterBundles-System-Web-Optimization-BundleCollection- 'EasyTravelWeb.BundleConfig.RegisterBundles(System.Web.Optimization.BundleCollection)')
+- [ChallengeResult](#T-EasyTravelWeb-Results-ChallengeResult 'EasyTravelWeb.Results.ChallengeResult')
+  - [#ctor()](#M-EasyTravelWeb-Results-ChallengeResult-#ctor-System-String,System-Web-Http-ApiController- 'EasyTravelWeb.Results.ChallengeResult.#ctor(System.String,System.Web.Http.ApiController)')
+  - [LoginProvider](#P-EasyTravelWeb-Results-ChallengeResult-LoginProvider 'EasyTravelWeb.Results.ChallengeResult.LoginProvider')
+  - [Request](#P-EasyTravelWeb-Results-ChallengeResult-Request 'EasyTravelWeb.Results.ChallengeResult.Request')
+  - [ExecuteAsync()](#M-EasyTravelWeb-Results-ChallengeResult-ExecuteAsync-System-Threading-CancellationToken- 'EasyTravelWeb.Results.ChallengeResult.ExecuteAsync(System.Threading.CancellationToken)')
+- [ChangePasswordBindingModel](#T-EasyTravelWeb-Models-ChangePasswordBindingModel 'EasyTravelWeb.Models.ChangePasswordBindingModel')
+  - [ConfirmPassword](#P-EasyTravelWeb-Models-ChangePasswordBindingModel-ConfirmPassword 'EasyTravelWeb.Models.ChangePasswordBindingModel.ConfirmPassword')
+  - [NewPassword](#P-EasyTravelWeb-Models-ChangePasswordBindingModel-NewPassword 'EasyTravelWeb.Models.ChangePasswordBindingModel.NewPassword')
+  - [OldPassword](#P-EasyTravelWeb-Models-ChangePasswordBindingModel-OldPassword 'EasyTravelWeb.Models.ChangePasswordBindingModel.OldPassword')
+- [City](#T-EasyTravelWeb-Models-City 'EasyTravelWeb.Models.City')
+  - [Description](#P-EasyTravelWeb-Models-City-Description 'EasyTravelWeb.Models.City.Description')
+  - [Id](#P-EasyTravelWeb-Models-City-Id 'EasyTravelWeb.Models.City.Id')
+  - [Name](#P-EasyTravelWeb-Models-City-Name 'EasyTravelWeb.Models.City.Name')
+  - [PicturePath](#P-EasyTravelWeb-Models-City-PicturePath 'EasyTravelWeb.Models.City.PicturePath')
+- [CityController](#T-EasyTravelWeb-Controllers-CityController 'EasyTravelWeb.Controllers.CityController')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-CityController-#ctor 'EasyTravelWeb.Controllers.CityController.#ctor')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-CityController-#ctor-EasyTravelWeb-Repositories-CityRepository- 'EasyTravelWeb.Controllers.CityController.#ctor(EasyTravelWeb.Repositories.CityRepository)')
+  - [Get()](#M-EasyTravelWeb-Controllers-CityController-Get-System-Int32- 'EasyTravelWeb.Controllers.CityController.Get(System.Int32)')
+  - [GetCities()](#M-EasyTravelWeb-Controllers-CityController-GetCities-System-Int32,System-Int32- 'EasyTravelWeb.Controllers.CityController.GetCities(System.Int32,System.Int32)')
+  - [GetCountCity()](#M-EasyTravelWeb-Controllers-CityController-GetCountCity 'EasyTravelWeb.Controllers.CityController.GetCountCity')
+- [CityRepository](#T-EasyTravelWeb-Repositories-CityRepository 'EasyTravelWeb.Repositories.CityRepository')
+  - [GetCities()](#M-EasyTravelWeb-Repositories-CityRepository-GetCities 'EasyTravelWeb.Repositories.CityRepository.GetCities')
+  - [GetCitiesIdAndNames()](#M-EasyTravelWeb-Repositories-CityRepository-GetCitiesIdAndNames 'EasyTravelWeb.Repositories.CityRepository.GetCitiesIdAndNames')
+  - [GetCitiesPage()](#M-EasyTravelWeb-Repositories-CityRepository-GetCitiesPage-System-Int32,System-Int32- 'EasyTravelWeb.Repositories.CityRepository.GetCitiesPage(System.Int32,System.Int32)')
+  - [GetCity()](#M-EasyTravelWeb-Repositories-CityRepository-GetCity-System-Int64- 'EasyTravelWeb.Repositories.CityRepository.GetCity(System.Int64)')
+  - [GetCountCity()](#M-EasyTravelWeb-Repositories-CityRepository-GetCountCity 'EasyTravelWeb.Repositories.CityRepository.GetCountCity')
+- [CitySearchEntity](#T-EasyTravelWeb-Controllers-SearchController-CitySearchEntity 'EasyTravelWeb.Controllers.SearchController.CitySearchEntity')
+  - [Id](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Id 'EasyTravelWeb.Controllers.SearchController.CitySearchEntity.Id')
+  - [Name](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Name 'EasyTravelWeb.Controllers.SearchController.CitySearchEntity.Name')
+  - [Type](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Type 'EasyTravelWeb.Controllers.SearchController.CitySearchEntity.Type')
+- [CORSConfig](#T-EasyTravelWeb-App_Start-CORSConfig 'EasyTravelWeb.App_Start.CORSConfig')
+  - [CorsPolicy](#F-EasyTravelWeb-App_Start-CORSConfig-CorsPolicy 'EasyTravelWeb.App_Start.CORSConfig.CorsPolicy')
+- [CustomRole](#T-EasyTravelWeb-Models-CustomRole 'EasyTravelWeb.Models.CustomRole')
+  - [#ctor()](#M-EasyTravelWeb-Models-CustomRole-#ctor 'EasyTravelWeb.Models.CustomRole.#ctor')
+  - [#ctor()](#M-EasyTravelWeb-Models-CustomRole-#ctor-System-String- 'EasyTravelWeb.Models.CustomRole.#ctor(System.String)')
+- [CustomRoleStore](#T-EasyTravelWeb-Models-CustomRoleStore 'EasyTravelWeb.Models.CustomRoleStore')
+  - [#ctor()](#M-EasyTravelWeb-Models-CustomRoleStore-#ctor-EasyTravelWeb-Models-ApplicationDbContext- 'EasyTravelWeb.Models.CustomRoleStore.#ctor(EasyTravelWeb.Models.ApplicationDbContext)')
+- [CustomUserClaim](#T-EasyTravelWeb-Models-CustomUserClaim 'EasyTravelWeb.Models.CustomUserClaim')
+- [CustomUserLogin](#T-EasyTravelWeb-Models-CustomUserLogin 'EasyTravelWeb.Models.CustomUserLogin')
+- [CustomUserRole](#T-EasyTravelWeb-Models-CustomUserRole 'EasyTravelWeb.Models.CustomUserRole')
+- [CustomUserStore](#T-EasyTravelWeb-Models-CustomUserStore 'EasyTravelWeb.Models.CustomUserStore')
+  - [#ctor()](#M-EasyTravelWeb-Models-CustomUserStore-#ctor-EasyTravelWeb-Models-ApplicationDbContext- 'EasyTravelWeb.Models.CustomUserStore.#ctor(EasyTravelWeb.Models.ApplicationDbContext)')
+- [EmailService](#T-EasyTravelWeb-Services-EmailService 'EasyTravelWeb.Services.EmailService')
+  - [SendAsync()](#M-EasyTravelWeb-Services-EmailService-SendAsync-Microsoft-AspNet-Identity-IdentityMessage- 'EasyTravelWeb.Services.EmailService.SendAsync(Microsoft.AspNet.Identity.IdentityMessage)')
+- [ExternalLoginViewModel](#T-EasyTravelWeb-Models-ExternalLoginViewModel 'EasyTravelWeb.Models.ExternalLoginViewModel')
+  - [Name](#P-EasyTravelWeb-Models-ExternalLoginViewModel-Name 'EasyTravelWeb.Models.ExternalLoginViewModel.Name')
+  - [State](#P-EasyTravelWeb-Models-ExternalLoginViewModel-State 'EasyTravelWeb.Models.ExternalLoginViewModel.State')
+  - [Url](#P-EasyTravelWeb-Models-ExternalLoginViewModel-Url 'EasyTravelWeb.Models.ExternalLoginViewModel.Url')
+- [FavoritePlace](#T-EasyTravelWeb-Models-FavoritePlace 'EasyTravelWeb.Models.FavoritePlace')
+  - [PlaceId](#P-EasyTravelWeb-Models-FavoritePlace-PlaceId 'EasyTravelWeb.Models.FavoritePlace.PlaceId')
+  - [UserId](#P-EasyTravelWeb-Models-FavoritePlace-UserId 'EasyTravelWeb.Models.FavoritePlace.UserId')
+- [FilterConfig](#T-EasyTravelWeb-FilterConfig 'EasyTravelWeb.FilterConfig')
+  - [RegisterGlobalFilters()](#M-EasyTravelWeb-FilterConfig-RegisterGlobalFilters-System-Web-Mvc-GlobalFilterCollection- 'EasyTravelWeb.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)')
+- [HomeController](#T-EasyTravelWeb-Controllers-HomeController 'EasyTravelWeb.Controllers.HomeController')
+  - [GetPlaces()](#M-EasyTravelWeb-Controllers-HomeController-GetPlaces 'EasyTravelWeb.Controllers.HomeController.GetPlaces')
+- [ISearchEntity](#T-EasyTravelWeb-Controllers-SearchController-ISearchEntity 'EasyTravelWeb.Controllers.SearchController.ISearchEntity')
+  - [Id](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Id 'EasyTravelWeb.Controllers.SearchController.ISearchEntity.Id')
+  - [Name](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Name 'EasyTravelWeb.Controllers.SearchController.ISearchEntity.Name')
+  - [Type](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Type 'EasyTravelWeb.Controllers.SearchController.ISearchEntity.Type')
 - [Logger](#T-EasyTravelWeb-Infrastructure-Logger 'EasyTravelWeb.Infrastructure.Logger')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Logger-#ctor 'EasyTravelWeb.Infrastructure.Logger.#ctor')
   - [FileStream](#F-EasyTravelWeb-Infrastructure-Logger-FileStream 'EasyTravelWeb.Infrastructure.Logger.FileStream')
@@ -14,15 +112,58 @@
   - [LogException(ex)](#M-EasyTravelWeb-Infrastructure-Logger-LogException-System-Exception- 'EasyTravelWeb.Infrastructure.Logger.LogException(System.Exception)')
   - [LogMessage(message)](#M-EasyTravelWeb-Infrastructure-Logger-LogMessage-System-String- 'EasyTravelWeb.Infrastructure.Logger.LogMessage(System.String)')
 - [MainPageController](#T-EasyTravelWeb-Controllers-MainPageController 'EasyTravelWeb.Controllers.MainPageController')
+  - [Index()](#M-EasyTravelWeb-Controllers-MainPageController-Index 'EasyTravelWeb.Controllers.MainPageController.Index')
+- [ManageInfoViewModel](#T-EasyTravelWeb-Models-ManageInfoViewModel 'EasyTravelWeb.Models.ManageInfoViewModel')
+  - [Email](#P-EasyTravelWeb-Models-ManageInfoViewModel-Email 'EasyTravelWeb.Models.ManageInfoViewModel.Email')
+  - [ExternalLoginProviders](#P-EasyTravelWeb-Models-ManageInfoViewModel-ExternalLoginProviders 'EasyTravelWeb.Models.ManageInfoViewModel.ExternalLoginProviders')
+  - [LocalLoginProvider](#P-EasyTravelWeb-Models-ManageInfoViewModel-LocalLoginProvider 'EasyTravelWeb.Models.ManageInfoViewModel.LocalLoginProvider')
+  - [Logins](#P-EasyTravelWeb-Models-ManageInfoViewModel-Logins 'EasyTravelWeb.Models.ManageInfoViewModel.Logins')
+- [MvcApplication](#T-EasyTravelWeb-MvcApplication 'EasyTravelWeb.MvcApplication')
+  - [Application_Start()](#M-EasyTravelWeb-MvcApplication-Application_Start 'EasyTravelWeb.MvcApplication.Application_Start')
 - [NameChangingValidator](#T-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator')
+  - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.#ctor')
   - [GetValidationData(model)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-GetValidationData-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.GetValidationData(System.String)')
   - [isNameMetPatternRequirements(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-isNameMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.isNameMetPatternRequirements(System.String)')
   - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.IsValid(System.String)')
   - [NameIsValid(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.NameIsValid(System.String)')
+- [Place](#T-EasyTravelWeb-Models-Place 'EasyTravelWeb.Models.Place')
+  - [#ctor()](#M-EasyTravelWeb-Models-Place-#ctor 'EasyTravelWeb.Models.Place.#ctor')
+  - [#ctor()](#M-EasyTravelWeb-Models-Place-#ctor-System-String,System-String,System-String,System-String- 'EasyTravelWeb.Models.Place.#ctor(System.String,System.String,System.String,System.String)')
+  - [CityName](#P-EasyTravelWeb-Models-Place-CityName 'EasyTravelWeb.Models.Place.CityName')
+  - [Description](#P-EasyTravelWeb-Models-Place-Description 'EasyTravelWeb.Models.Place.Description')
+  - [Name](#P-EasyTravelWeb-Models-Place-Name 'EasyTravelWeb.Models.Place.Name')
+  - [PicturePlace](#P-EasyTravelWeb-Models-Place-PicturePlace 'EasyTravelWeb.Models.Place.PicturePlace')
+  - [PlaceId](#P-EasyTravelWeb-Models-Place-PlaceId 'EasyTravelWeb.Models.Place.PlaceId')
 - [PlaceController](#T-EasyTravelWeb-Controllers-PlaceController 'EasyTravelWeb.Controllers.PlaceController')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-PlaceController-#ctor 'EasyTravelWeb.Controllers.PlaceController.#ctor')
   - [AddUserFavouritePlace(favoriteUserPlace)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-Place- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.Place)')
   - [DeleteUserFavoritePlace(favoritePlace)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-Place- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.Place)')
+  - [GetCountPlaces()](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)')
+  - [GetPlaceById()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)')
+  - [GetPlacesPageByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'EasyTravelWeb.Controllers.PlaceController.GetPlacesPageByCityId(System.Int64,System.Int32,System.Int32)')
+  - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64)')
+  - [GetTopPlacesByCityName()](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityName-System-String- 'EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityName(System.String)')
+- [PlaceRepository](#T-EasyTravelWeb-Repositories-PlaceRepository 'EasyTravelWeb.Repositories.PlaceRepository')
+  - [AddFavouritePlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-AddFavouritePlace-System-Int32,System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.AddFavouritePlace(System.Int32,System.Int64)')
+  - [DeleteFavoritePlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-DeleteFavoritePlace-System-Int32,System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.DeleteFavoritePlace(System.Int32,System.Int64)')
+  - [GetCountPlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetCountPlace-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetCountPlace(System.Int64)')
+  - [GetFavoritePlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFavoritePlaces-System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetFavoritePlaces(System.Int32)')
+  - [GetPlaceById()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceById(System.Int64)')
+  - [GetPlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaces 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaces')
+  - [GetPlacesByCityId()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesByCityId-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesByCityId(System.Int64)')
+  - [GetPlacesIdsAndNames()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesIdsAndNames 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames')
+  - [GetPlacesPage()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesPage-System-Int32,System-Int64,System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesPage(System.Int32,System.Int64,System.Int32)')
+  - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64)')
+  - [GetTopPlacesByCityName()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityName-System-String- 'EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityName(System.String)')
+- [PlaceSearchEntity](#T-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity')
+  - [CityId](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-CityId 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.CityId')
+  - [Id](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Id 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.Id')
+  - [Name](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Name 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.Name')
+  - [Type](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Type 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.Type')
 - [ProfileController](#T-EasyTravelWeb-Controllers-ProfileController 'EasyTravelWeb.Controllers.ProfileController')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor 'EasyTravelWeb.Controllers.ProfileController.#ctor')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-UserRepository- 'EasyTravelWeb.Controllers.ProfileController.#ctor(EasyTravelWeb.Repositories.UserRepository)')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-PlaceRepository- 'EasyTravelWeb.Controllers.ProfileController.#ctor(EasyTravelWeb.Repositories.PlaceRepository)')
   - [logger](#F-EasyTravelWeb-Controllers-ProfileController-logger 'EasyTravelWeb.Controllers.ProfileController.logger')
   - [nameValidator](#F-EasyTravelWeb-Controllers-ProfileController-nameValidator 'EasyTravelWeb.Controllers.ProfileController.nameValidator')
   - [placeRepository](#F-EasyTravelWeb-Controllers-ProfileController-placeRepository 'EasyTravelWeb.Controllers.ProfileController.placeRepository')
@@ -31,6 +172,12 @@
   - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)')
   - [GetFavoritePlaces()](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces 'EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces')
   - [GetUser(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)')
+- [RegisterBindingModel](#T-EasyTravelWeb-Models-RegisterBindingModel 'EasyTravelWeb.Models.RegisterBindingModel')
+  - [ConfirmPassword](#P-EasyTravelWeb-Models-RegisterBindingModel-ConfirmPassword 'EasyTravelWeb.Models.RegisterBindingModel.ConfirmPassword')
+  - [Email](#P-EasyTravelWeb-Models-RegisterBindingModel-Email 'EasyTravelWeb.Models.RegisterBindingModel.Email')
+  - [FirstName](#P-EasyTravelWeb-Models-RegisterBindingModel-FirstName 'EasyTravelWeb.Models.RegisterBindingModel.FirstName')
+  - [LastName](#P-EasyTravelWeb-Models-RegisterBindingModel-LastName 'EasyTravelWeb.Models.RegisterBindingModel.LastName')
+  - [Password](#P-EasyTravelWeb-Models-RegisterBindingModel-Password 'EasyTravelWeb.Models.RegisterBindingModel.Password')
 - [RegisterBindingModelValidator](#T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor')
   - [emailPattern](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-emailPattern 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailPattern')
@@ -48,15 +195,52 @@
   - [isPasswordValid(password)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isPasswordValid(System.String)')
   - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-IsValid-EasyTravelWeb-Models-RegisterBindingModel- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.IsValid(EasyTravelWeb.Models.RegisterBindingModel)')
   - [lastNameIsValid(lastName)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-lastNameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.lastNameIsValid(System.String)')
+- [RegisterExternalBindingModel](#T-EasyTravelWeb-Models-RegisterExternalBindingModel 'EasyTravelWeb.Models.RegisterExternalBindingModel')
+  - [Email](#P-EasyTravelWeb-Models-RegisterExternalBindingModel-Email 'EasyTravelWeb.Models.RegisterExternalBindingModel.Email')
+- [RemoveLoginBindingModel](#T-EasyTravelWeb-Models-RemoveLoginBindingModel 'EasyTravelWeb.Models.RemoveLoginBindingModel')
+  - [LoginProvider](#P-EasyTravelWeb-Models-RemoveLoginBindingModel-LoginProvider 'EasyTravelWeb.Models.RemoveLoginBindingModel.LoginProvider')
+  - [ProviderKey](#P-EasyTravelWeb-Models-RemoveLoginBindingModel-ProviderKey 'EasyTravelWeb.Models.RemoveLoginBindingModel.ProviderKey')
+- [RouteConfig](#T-EasyTravelWeb-RouteConfig 'EasyTravelWeb.RouteConfig')
+  - [RegisterRoutes()](#M-EasyTravelWeb-RouteConfig-RegisterRoutes-System-Web-Routing-RouteCollection- 'EasyTravelWeb.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)')
+- [SearchController](#T-EasyTravelWeb-Controllers-SearchController 'EasyTravelWeb.Controllers.SearchController')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-SearchController-#ctor 'EasyTravelWeb.Controllers.SearchController.#ctor')
+  - [#ctor()](#M-EasyTravelWeb-Controllers-SearchController-#ctor-EasyTravelWeb-Repositories-CityRepository,EasyTravelWeb-Repositories-PlaceRepository- 'EasyTravelWeb.Controllers.SearchController.#ctor(EasyTravelWeb.Repositories.CityRepository,EasyTravelWeb.Repositories.PlaceRepository)')
+  - [GetSuggestions()](#M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String- 'EasyTravelWeb.Controllers.SearchController.GetSuggestions(System.String)')
+- [SetPasswordBindingModel](#T-EasyTravelWeb-Models-SetPasswordBindingModel 'EasyTravelWeb.Models.SetPasswordBindingModel')
+  - [ConfirmPassword](#P-EasyTravelWeb-Models-SetPasswordBindingModel-ConfirmPassword 'EasyTravelWeb.Models.SetPasswordBindingModel.ConfirmPassword')
+  - [NewPassword](#P-EasyTravelWeb-Models-SetPasswordBindingModel-NewPassword 'EasyTravelWeb.Models.SetPasswordBindingModel.NewPassword')
+- [Startup](#T-EasyTravelWeb-Startup 'EasyTravelWeb.Startup')
+  - [OAuthOptions](#P-EasyTravelWeb-Startup-OAuthOptions 'EasyTravelWeb.Startup.OAuthOptions')
+  - [PublicClientId](#P-EasyTravelWeb-Startup-PublicClientId 'EasyTravelWeb.Startup.PublicClientId')
+  - [Configuration()](#M-EasyTravelWeb-Startup-Configuration-Owin-IAppBuilder- 'EasyTravelWeb.Startup.Configuration(Owin.IAppBuilder)')
+  - [ConfigureAuth()](#M-EasyTravelWeb-Startup-ConfigureAuth-Owin-IAppBuilder- 'EasyTravelWeb.Startup.ConfigureAuth(Owin.IAppBuilder)')
+- [User](#T-EasyTravelWeb-Models-User 'EasyTravelWeb.Models.User')
+  - [#ctor()](#M-EasyTravelWeb-Models-User-#ctor 'EasyTravelWeb.Models.User.#ctor')
+  - [#ctor()](#M-EasyTravelWeb-Models-User-#ctor-System-Int32,System-String,System-String,System-String,System-String- 'EasyTravelWeb.Models.User.#ctor(System.Int32,System.String,System.String,System.String,System.String)')
+  - [Email](#P-EasyTravelWeb-Models-User-Email 'EasyTravelWeb.Models.User.Email')
+  - [FirstName](#P-EasyTravelWeb-Models-User-FirstName 'EasyTravelWeb.Models.User.FirstName')
+  - [LastName](#P-EasyTravelWeb-Models-User-LastName 'EasyTravelWeb.Models.User.LastName')
+  - [Password](#P-EasyTravelWeb-Models-User-Password 'EasyTravelWeb.Models.User.Password')
+  - [UserId](#P-EasyTravelWeb-Models-User-UserId 'EasyTravelWeb.Models.User.UserId')
 - [UserController](#T-EasyTravelWeb-Controllers-UserController 'EasyTravelWeb.Controllers.UserController')
   - [logger](#F-EasyTravelWeb-Controllers-UserController-logger 'EasyTravelWeb.Controllers.UserController.logger')
   - [userRepository](#F-EasyTravelWeb-Controllers-UserController-userRepository 'EasyTravelWeb.Controllers.UserController.userRepository')
-  - [validationInfo](#F-EasyTravelWeb-Controllers-UserController-validationInfo 'EasyTravelWeb.Controllers.UserController.validationInfo')
   - [GetUser(user)](#M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User- 'EasyTravelWeb.Controllers.UserController.GetUser(EasyTravelWeb.Models.User)')
+- [UserInfoViewModel](#T-EasyTravelWeb-Models-UserInfoViewModel 'EasyTravelWeb.Models.UserInfoViewModel')
+  - [Email](#P-EasyTravelWeb-Models-UserInfoViewModel-Email 'EasyTravelWeb.Models.UserInfoViewModel.Email')
+  - [HasRegistered](#P-EasyTravelWeb-Models-UserInfoViewModel-HasRegistered 'EasyTravelWeb.Models.UserInfoViewModel.HasRegistered')
+  - [LoginProvider](#P-EasyTravelWeb-Models-UserInfoViewModel-LoginProvider 'EasyTravelWeb.Models.UserInfoViewModel.LoginProvider')
+- [UserLoginInfoViewModel](#T-EasyTravelWeb-Models-UserLoginInfoViewModel 'EasyTravelWeb.Models.UserLoginInfoViewModel')
+  - [LoginProvider](#P-EasyTravelWeb-Models-UserLoginInfoViewModel-LoginProvider 'EasyTravelWeb.Models.UserLoginInfoViewModel.LoginProvider')
+  - [ProviderKey](#P-EasyTravelWeb-Models-UserLoginInfoViewModel-ProviderKey 'EasyTravelWeb.Models.UserLoginInfoViewModel.ProviderKey')
 - [UserRepository](#T-EasyTravelWeb-Repositories-UserRepository 'EasyTravelWeb.Repositories.UserRepository')
   - [ChangeFirstName(id,firstName)](#M-EasyTravelWeb-Repositories-UserRepository-ChangeFirstName-System-Int32,System-String- 'EasyTravelWeb.Repositories.UserRepository.ChangeFirstName(System.Int32,System.String)')
   - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Repositories-UserRepository-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Repositories.UserRepository.ChangeLastName(System.Int32,System.String)')
+  - [GetPlaces()](#M-EasyTravelWeb-Repositories-UserRepository-GetPlaces-System-Guid- 'EasyTravelWeb.Repositories.UserRepository.GetPlaces(System.Guid)')
+  - [GetUser()](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-String,System-String- 'EasyTravelWeb.Repositories.UserRepository.GetUser(System.String,System.String)')
   - [GetUser(id)](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-Int32- 'EasyTravelWeb.Repositories.UserRepository.GetUser(System.Int32)')
+- [WebApiConfig](#T-EasyTravelWeb-WebApiConfig 'EasyTravelWeb.WebApiConfig')
+  - [Register()](#M-EasyTravelWeb-WebApiConfig-Register-System-Web-Http-HttpConfiguration- 'EasyTravelWeb.WebApiConfig.Register(System.Web.Http.HttpConfiguration)')
 
 <a name='assembly'></a>
 # EasyTravelWeb [#](#assembly 'Go To Here') [=](#contents 'Back To Contents')
@@ -67,6 +251,93 @@
 ##### Namespace
 
 EasyTravelWeb.Controllers
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-AccountController-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-#ctor-EasyTravelWeb-ApplicationUserManager,Microsoft-Owin-Security-ISecureDataFormat{Microsoft-Owin-Security-AuthenticationTicket}-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-AccountController-#ctor-EasyTravelWeb-ApplicationUserManager,Microsoft-Owin-Security-ISecureDataFormat{Microsoft-Owin-Security-AuthenticationTicket}- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='F-EasyTravelWeb-Controllers-AccountController-registerBindingModelValidator'></a>
+### registerBindingModelValidator `constants` [#](#F-EasyTravelWeb-Controllers-AccountController-registerBindingModelValidator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='F-EasyTravelWeb-Controllers-AccountController-userManager'></a>
+### userManager `constants` [#](#F-EasyTravelWeb-Controllers-AccountController-userManager 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-AccountController-AccessTokenFormat'></a>
+### AccessTokenFormat `property` [#](#P-EasyTravelWeb-Controllers-AccountController-AccessTokenFormat 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-AccountController-UserManager'></a>
+### UserManager `property` [#](#P-EasyTravelWeb-Controllers-AccountController-UserManager 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-AddExternalLoginBindingModel-'></a>
+### AddExternalLogin() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-AddExternalLoginBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-ChangePassword-EasyTravelWeb-Models-ChangePasswordBindingModel-'></a>
+### ChangePassword() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-ChangePassword-EasyTravelWeb-Models-ChangePasswordBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-ConfirmEmail-System-Int32,System-String-'></a>
+### ConfirmEmail() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-ConfirmEmail-System-Int32,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-EasyTravelWeb-Controllers-AccountController-ConfirmUser-EasyTravelWeb-Models-User-'></a>
 ### ConfirmUser(user) `method` [#](#M-EasyTravelWeb-Controllers-AccountController-ConfirmUser-EasyTravelWeb-Models-User- 'Go To Here') [=](#contents 'Back To Contents')
@@ -85,6 +356,72 @@ EasyTravelWeb.Controllers
 | ---- | ---- | ----------- |
 | user | [EasyTravelWeb.Models.User](#T-EasyTravelWeb-Models-User 'EasyTravelWeb.Models.User') |  |
 
+<a name='M-EasyTravelWeb-Controllers-AccountController-Dispose-System-Boolean-'></a>
+### Dispose() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-Dispose-System-Boolean- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-GetExternalLogin-System-String,System-String-'></a>
+### GetExternalLogin() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-GetExternalLogin-System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-GetExternalLogins-System-String,System-Boolean-'></a>
+### GetExternalLogins() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-GetExternalLogins-System-String,System-Boolean- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-GetManageInfo-System-String,System-Boolean-'></a>
+### GetManageInfo() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-GetManageInfo-System-String,System-Boolean- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-GetUserInfo'></a>
+### GetUserInfo() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-GetUserInfo 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-Logout'></a>
+### Logout() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-Logout 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-EasyTravelWeb-Controllers-AccountController-Register-EasyTravelWeb-Models-RegisterBindingModel-'></a>
 ### Register(model) `method` [#](#M-EasyTravelWeb-Controllers-AccountController-Register-EasyTravelWeb-Models-RegisterBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -101,6 +438,823 @@ EasyTravelWeb.Controllers
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | model | [EasyTravelWeb.Models.RegisterBindingModel](#T-EasyTravelWeb-Models-RegisterBindingModel 'EasyTravelWeb.Models.RegisterBindingModel') |  |
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-RegisterExternal-EasyTravelWeb-Models-RegisterExternalBindingModel-'></a>
+### RegisterExternal() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-RegisterExternal-EasyTravelWeb-Models-RegisterExternalBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-RemoveLogin-EasyTravelWeb-Models-RemoveLoginBindingModel-'></a>
+### RemoveLogin() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-RemoveLogin-EasyTravelWeb-Models-RemoveLoginBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-SetPassword-EasyTravelWeb-Models-SetPasswordBindingModel-'></a>
+### SetPassword() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-SetPassword-EasyTravelWeb-Models-SetPasswordBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Models-AddExternalLoginBindingModel'></a>
+## AddExternalLoginBindingModel [#](#T-EasyTravelWeb-Models-AddExternalLoginBindingModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+Identity AddExternalLoginBindingModel
+
+<a name='P-EasyTravelWeb-Models-AddExternalLoginBindingModel-ExternalAccessToken'></a>
+### ExternalAccessToken `property` [#](#P-EasyTravelWeb-Models-AddExternalLoginBindingModel-ExternalAccessToken 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-ApplicationDbContext'></a>
+## ApplicationDbContext [#](#T-EasyTravelWeb-Models-ApplicationDbContext 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Models-ApplicationDbContext-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Models-ApplicationDbContext-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Models-ApplicationDbContext-Create'></a>
+### Create() `method` [#](#M-EasyTravelWeb-Models-ApplicationDbContext-Create 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Providers-ApplicationOAuthProvider'></a>
+## ApplicationOAuthProvider [#](#T-EasyTravelWeb-Providers-ApplicationOAuthProvider 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Providers
+
+##### Summary
+
+App Configuration
+
+<a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-#ctor-System-String-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-#ctor-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-CreateProperties-System-Int32,System-String,System-String-'></a>
+### CreateProperties() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-CreateProperties-System-Int32,System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-GrantResourceOwnerCredentials-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext-'></a>
+### GrantResourceOwnerCredentials() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-GrantResourceOwnerCredentials-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-TokenEndpoint-Microsoft-Owin-Security-OAuth-OAuthTokenEndpointContext-'></a>
+### TokenEndpoint() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-TokenEndpoint-Microsoft-Owin-Security-OAuth-OAuthTokenEndpointContext- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientAuthentication-Microsoft-Owin-Security-OAuth-OAuthValidateClientAuthenticationContext-'></a>
+### ValidateClientAuthentication() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientAuthentication-Microsoft-Owin-Security-OAuth-OAuthValidateClientAuthenticationContext- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientRedirectUri-Microsoft-Owin-Security-OAuth-OAuthValidateClientRedirectUriContext-'></a>
+### ValidateClientRedirectUri() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientRedirectUri-Microsoft-Owin-Security-OAuth-OAuthValidateClientRedirectUriContext- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Models-ApplicationUser'></a>
+## ApplicationUser [#](#T-EasyTravelWeb-Models-ApplicationUser 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+IdentityUser
+
+<a name='P-EasyTravelWeb-Models-ApplicationUser-FirstName'></a>
+### FirstName `property` [#](#P-EasyTravelWeb-Models-ApplicationUser-FirstName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ApplicationUser-LastName'></a>
+### LastName `property` [#](#P-EasyTravelWeb-Models-ApplicationUser-LastName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Models-ApplicationUser-GenerateUserIdentityAsync-Microsoft-AspNet-Identity-UserManager{EasyTravelWeb-Models-ApplicationUser,System-Int32},System-String-'></a>
+### GenerateUserIdentityAsync() `method` [#](#M-EasyTravelWeb-Models-ApplicationUser-GenerateUserIdentityAsync-Microsoft-AspNet-Identity-UserManager{EasyTravelWeb-Models-ApplicationUser,System-Int32},System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-ApplicationUserManager'></a>
+## ApplicationUserManager [#](#T-EasyTravelWeb-ApplicationUserManager 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb
+
+##### Summary
+
+Model of User in Identity
+
+<a name='M-EasyTravelWeb-ApplicationUserManager-#ctor-Microsoft-AspNet-Identity-IUserStore{EasyTravelWeb-Models-ApplicationUser,System-Int32}-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-ApplicationUserManager-#ctor-Microsoft-AspNet-Identity-IUserStore{EasyTravelWeb-Models-ApplicationUser,System-Int32}- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-ApplicationUserManager-Create-Microsoft-AspNet-Identity-Owin-IdentityFactoryOptions{EasyTravelWeb-ApplicationUserManager},Microsoft-Owin-IOwinContext-'></a>
+### Create() `method` [#](#M-EasyTravelWeb-ApplicationUserManager-Create-Microsoft-AspNet-Identity-Owin-IdentityFactoryOptions{EasyTravelWeb-ApplicationUserManager},Microsoft-Owin-IOwinContext- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-BundleConfig'></a>
+## BundleConfig [#](#T-EasyTravelWeb-BundleConfig 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb
+
+##### Summary
+
+Bundle logic
+
+<a name='M-EasyTravelWeb-BundleConfig-RegisterBundles-System-Web-Optimization-BundleCollection-'></a>
+### RegisterBundles() `method` [#](#M-EasyTravelWeb-BundleConfig-RegisterBundles-System-Web-Optimization-BundleCollection- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Results-ChallengeResult'></a>
+## ChallengeResult [#](#T-EasyTravelWeb-Results-ChallengeResult 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Results
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Results-ChallengeResult-#ctor-System-String,System-Web-Http-ApiController-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Results-ChallengeResult-#ctor-System-String,System-Web-Http-ApiController- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-EasyTravelWeb-Results-ChallengeResult-LoginProvider'></a>
+### LoginProvider `property` [#](#P-EasyTravelWeb-Results-ChallengeResult-LoginProvider 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Results-ChallengeResult-Request'></a>
+### Request `property` [#](#P-EasyTravelWeb-Results-ChallengeResult-Request 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Results-ChallengeResult-ExecuteAsync-System-Threading-CancellationToken-'></a>
+### ExecuteAsync() `method` [#](#M-EasyTravelWeb-Results-ChallengeResult-ExecuteAsync-System-Threading-CancellationToken- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Models-ChangePasswordBindingModel'></a>
+## ChangePasswordBindingModel [#](#T-EasyTravelWeb-Models-ChangePasswordBindingModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ChangePasswordBindingModel-ConfirmPassword'></a>
+### ConfirmPassword `property` [#](#P-EasyTravelWeb-Models-ChangePasswordBindingModel-ConfirmPassword 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ChangePasswordBindingModel-NewPassword'></a>
+### NewPassword `property` [#](#P-EasyTravelWeb-Models-ChangePasswordBindingModel-NewPassword 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ChangePasswordBindingModel-OldPassword'></a>
+### OldPassword `property` [#](#P-EasyTravelWeb-Models-ChangePasswordBindingModel-OldPassword 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-City'></a>
+## City [#](#T-EasyTravelWeb-Models-City 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-City-Description'></a>
+### Description `property` [#](#P-EasyTravelWeb-Models-City-Description 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-City-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Models-City-Id 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-City-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Models-City-Name 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-City-PicturePath'></a>
+### PicturePath `property` [#](#P-EasyTravelWeb-Models-City-PicturePath 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Controllers-CityController'></a>
+## CityController [#](#T-EasyTravelWeb-Controllers-CityController 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Controllers-CityController-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-CityController-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-CityController-#ctor-EasyTravelWeb-Repositories-CityRepository-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-CityController-#ctor-EasyTravelWeb-Repositories-CityRepository- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-CityController-Get-System-Int32-'></a>
+### Get() `method` [#](#M-EasyTravelWeb-Controllers-CityController-Get-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-CityController-GetCities-System-Int32,System-Int32-'></a>
+### GetCities() `method` [#](#M-EasyTravelWeb-Controllers-CityController-GetCities-System-Int32,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-CityController-GetCountCity'></a>
+### GetCountCity() `method` [#](#M-EasyTravelWeb-Controllers-CityController-GetCountCity 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Repositories-CityRepository'></a>
+## CityRepository [#](#T-EasyTravelWeb-Repositories-CityRepository 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Repositories
+
+##### Summary
+
+Repository for get data about City
+
+<a name='M-EasyTravelWeb-Repositories-CityRepository-GetCities'></a>
+### GetCities() `method` [#](#M-EasyTravelWeb-Repositories-CityRepository-GetCities 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-CityRepository-GetCitiesIdAndNames'></a>
+### GetCitiesIdAndNames() `method` [#](#M-EasyTravelWeb-Repositories-CityRepository-GetCitiesIdAndNames 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-CityRepository-GetCitiesPage-System-Int32,System-Int32-'></a>
+### GetCitiesPage() `method` [#](#M-EasyTravelWeb-Repositories-CityRepository-GetCitiesPage-System-Int32,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-CityRepository-GetCity-System-Int64-'></a>
+### GetCity() `method` [#](#M-EasyTravelWeb-Repositories-CityRepository-GetCity-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-CityRepository-GetCountCity'></a>
+### GetCountCity() `method` [#](#M-EasyTravelWeb-Repositories-CityRepository-GetCountCity 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Controllers-SearchController-CitySearchEntity'></a>
+## CitySearchEntity [#](#T-EasyTravelWeb-Controllers-SearchController-CitySearchEntity 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers.SearchController
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Type'></a>
+### Type `property` [#](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-App_Start-CORSConfig'></a>
+## CORSConfig [#](#T-EasyTravelWeb-App_Start-CORSConfig 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.App_Start
+
+##### Summary
+
+Cors Configuration
+
+<a name='F-EasyTravelWeb-App_Start-CORSConfig-CorsPolicy'></a>
+### CorsPolicy `constants` [#](#F-EasyTravelWeb-App_Start-CORSConfig-CorsPolicy 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-CustomRole'></a>
+## CustomRole [#](#T-EasyTravelWeb-Models-CustomRole 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Models-CustomRole-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Models-CustomRole-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Models-CustomRole-#ctor-System-String-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Models-CustomRole-#ctor-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-EasyTravelWeb-Models-CustomRoleStore'></a>
+## CustomRoleStore [#](#T-EasyTravelWeb-Models-CustomRoleStore 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Models-CustomRoleStore-#ctor-EasyTravelWeb-Models-ApplicationDbContext-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Models-CustomRoleStore-#ctor-EasyTravelWeb-Models-ApplicationDbContext- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-EasyTravelWeb-Models-CustomUserClaim'></a>
+## CustomUserClaim [#](#T-EasyTravelWeb-Models-CustomUserClaim 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-CustomUserLogin'></a>
+## CustomUserLogin [#](#T-EasyTravelWeb-Models-CustomUserLogin 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-CustomUserRole'></a>
+## CustomUserRole [#](#T-EasyTravelWeb-Models-CustomUserRole 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-CustomUserStore'></a>
+## CustomUserStore [#](#T-EasyTravelWeb-Models-CustomUserStore 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Models-CustomUserStore-#ctor-EasyTravelWeb-Models-ApplicationDbContext-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Models-CustomUserStore-#ctor-EasyTravelWeb-Models-ApplicationDbContext- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-EasyTravelWeb-Services-EmailService'></a>
+## EmailService [#](#T-EasyTravelWeb-Services-EmailService 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Services
+
+##### Summary
+
+Service for send mail
+
+<a name='M-EasyTravelWeb-Services-EmailService-SendAsync-Microsoft-AspNet-Identity-IdentityMessage-'></a>
+### SendAsync() `method` [#](#M-EasyTravelWeb-Services-EmailService-SendAsync-Microsoft-AspNet-Identity-IdentityMessage- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Models-ExternalLoginViewModel'></a>
+## ExternalLoginViewModel [#](#T-EasyTravelWeb-Models-ExternalLoginViewModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+Models returned by AccountController actions.
+
+<a name='P-EasyTravelWeb-Models-ExternalLoginViewModel-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Models-ExternalLoginViewModel-Name 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ExternalLoginViewModel-State'></a>
+### State `property` [#](#P-EasyTravelWeb-Models-ExternalLoginViewModel-State 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ExternalLoginViewModel-Url'></a>
+### Url `property` [#](#P-EasyTravelWeb-Models-ExternalLoginViewModel-Url 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-FavoritePlace'></a>
+## FavoritePlace [#](#T-EasyTravelWeb-Models-FavoritePlace 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-FavoritePlace-PlaceId'></a>
+### PlaceId `property` [#](#P-EasyTravelWeb-Models-FavoritePlace-PlaceId 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-FavoritePlace-UserId'></a>
+### UserId `property` [#](#P-EasyTravelWeb-Models-FavoritePlace-UserId 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-FilterConfig'></a>
+## FilterConfig [#](#T-EasyTravelWeb-FilterConfig 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb
+
+##### Summary
+
+Filter config
+
+<a name='M-EasyTravelWeb-FilterConfig-RegisterGlobalFilters-System-Web-Mvc-GlobalFilterCollection-'></a>
+### RegisterGlobalFilters() `method` [#](#M-EasyTravelWeb-FilterConfig-RegisterGlobalFilters-System-Web-Mvc-GlobalFilterCollection- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Controllers-HomeController'></a>
+## HomeController [#](#T-EasyTravelWeb-Controllers-HomeController 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers
+
+##### Summary
+
+Controller for HomePage
+
+<a name='M-EasyTravelWeb-Controllers-HomeController-GetPlaces'></a>
+### GetPlaces() `method` [#](#M-EasyTravelWeb-Controllers-HomeController-GetPlaces 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Controllers-SearchController-ISearchEntity'></a>
+## ISearchEntity [#](#T-EasyTravelWeb-Controllers-SearchController-ISearchEntity 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers.SearchController
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Type'></a>
+### Type `property` [#](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
 
 <a name='T-EasyTravelWeb-Infrastructure-Logger'></a>
 ## Logger [#](#T-EasyTravelWeb-Infrastructure-Logger 'Go To Here') [=](#contents 'Back To Contents')
@@ -208,12 +1362,99 @@ EasyTravelWeb.Controllers
 
 Controller for the default page which informs about the app running
 
+<a name='M-EasyTravelWeb-Controllers-MainPageController-Index'></a>
+### Index() `method` [#](#M-EasyTravelWeb-Controllers-MainPageController-Index 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Models-ManageInfoViewModel'></a>
+## ManageInfoViewModel [#](#T-EasyTravelWeb-Models-ManageInfoViewModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ManageInfoViewModel-Email'></a>
+### Email `property` [#](#P-EasyTravelWeb-Models-ManageInfoViewModel-Email 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ManageInfoViewModel-ExternalLoginProviders'></a>
+### ExternalLoginProviders `property` [#](#P-EasyTravelWeb-Models-ManageInfoViewModel-ExternalLoginProviders 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ManageInfoViewModel-LocalLoginProvider'></a>
+### LocalLoginProvider `property` [#](#P-EasyTravelWeb-Models-ManageInfoViewModel-LocalLoginProvider 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ManageInfoViewModel-Logins'></a>
+### Logins `property` [#](#P-EasyTravelWeb-Models-ManageInfoViewModel-Logins 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-MvcApplication'></a>
+## MvcApplication [#](#T-EasyTravelWeb-MvcApplication 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb
+
+##### Summary
+
+Start App
+
+<a name='M-EasyTravelWeb-MvcApplication-Application_Start'></a>
+### Application_Start() `method` [#](#M-EasyTravelWeb-MvcApplication-Application_Start 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator'></a>
 ## NameChangingValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
 EasyTravelWeb.Infrastructure.Validators
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
 
 <a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-GetValidationData-System-String-'></a>
 ### GetValidationData(model) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-GetValidationData-System-String- 'Go To Here') [=](#contents 'Back To Contents')
@@ -283,12 +1524,95 @@ bool
 | ---- | ---- | ----------- |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First or Last name |
 
+<a name='T-EasyTravelWeb-Models-Place'></a>
+## Place [#](#T-EasyTravelWeb-Models-Place 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+Place Model
+
+<a name='M-EasyTravelWeb-Models-Place-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Models-Place-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Models-Place-#ctor-System-String,System-String,System-String,System-String-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Models-Place-#ctor-System-String,System-String,System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-EasyTravelWeb-Models-Place-CityName'></a>
+### CityName `property` [#](#P-EasyTravelWeb-Models-Place-CityName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-Place-Description'></a>
+### Description `property` [#](#P-EasyTravelWeb-Models-Place-Description 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-Place-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Models-Place-Name 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-Place-PicturePlace'></a>
+### PicturePlace `property` [#](#P-EasyTravelWeb-Models-Place-PicturePlace 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-Place-PlaceId'></a>
+### PlaceId `property` [#](#P-EasyTravelWeb-Models-Place-PlaceId 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
 <a name='T-EasyTravelWeb-Controllers-PlaceController'></a>
 ## PlaceController [#](#T-EasyTravelWeb-Controllers-PlaceController 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
 EasyTravelWeb.Controllers
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Controllers-PlaceController-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-PlaceController-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
 
 <a name='M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-Place-'></a>
 ### AddUserFavouritePlace(favoriteUserPlace) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-Place- 'Go To Here') [=](#contents 'Back To Contents')
@@ -324,6 +1648,232 @@ EasyTravelWeb.Controllers
 | ---- | ---- | ----------- |
 | favoritePlace | [EasyTravelWeb.Models.Place](#T-EasyTravelWeb-Models-Place 'EasyTravelWeb.Models.Place') |  |
 
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64-'></a>
+### GetCountPlaces() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64-'></a>
+### GetPlaceById() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32-'></a>
+### GetPlacesPageByCityId() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityId-System-Int64-'></a>
+### GetTopPlacesByCityId() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityId-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityName-System-String-'></a>
+### GetTopPlacesByCityName() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityName-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Repositories-PlaceRepository'></a>
+## PlaceRepository [#](#T-EasyTravelWeb-Repositories-PlaceRepository 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Repositories
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-AddFavouritePlace-System-Int32,System-Int64-'></a>
+### AddFavouritePlace() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-AddFavouritePlace-System-Int32,System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-DeleteFavoritePlace-System-Int32,System-Int64-'></a>
+### DeleteFavoritePlace() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-DeleteFavoritePlace-System-Int32,System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetCountPlace-System-Int64-'></a>
+### GetCountPlace() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetCountPlace-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetFavoritePlaces-System-Int32-'></a>
+### GetFavoritePlaces() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFavoritePlaces-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64-'></a>
+### GetPlaceById() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaces'></a>
+### GetPlaces() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaces 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesByCityId-System-Int64-'></a>
+### GetPlacesByCityId() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesByCityId-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesIdsAndNames'></a>
+### GetPlacesIdsAndNames() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesIdsAndNames 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesPage-System-Int32,System-Int64,System-Int32-'></a>
+### GetPlacesPage() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesPage-System-Int32,System-Int64,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64-'></a>
+### GetTopPlacesByCityId() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityName-System-String-'></a>
+### GetTopPlacesByCityName() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityName-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity'></a>
+## PlaceSearchEntity [#](#T-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers.SearchController
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-CityId'></a>
+### CityId `property` [#](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-CityId 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Type'></a>
+### Type `property` [#](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
 <a name='T-EasyTravelWeb-Controllers-ProfileController'></a>
 ## ProfileController [#](#T-EasyTravelWeb-Controllers-ProfileController 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -334,6 +1884,39 @@ EasyTravelWeb.Controllers
 ##### Summary
 
 Controller for Profile page
+
+<a name='M-EasyTravelWeb-Controllers-ProfileController-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-ProfileController-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Default constructor
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-UserRepository-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-UserRepository- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-PlaceRepository-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-PlaceRepository- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
 
 <a name='F-EasyTravelWeb-Controllers-ProfileController-logger'></a>
 ### logger `constants` [#](#F-EasyTravelWeb-Controllers-ProfileController-logger 'Go To Here') [=](#contents 'Back To Contents')
@@ -430,6 +2013,52 @@ First, last, email of user
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | id of current user |
+
+<a name='T-EasyTravelWeb-Models-RegisterBindingModel'></a>
+## RegisterBindingModel [#](#T-EasyTravelWeb-Models-RegisterBindingModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-RegisterBindingModel-ConfirmPassword'></a>
+### ConfirmPassword `property` [#](#P-EasyTravelWeb-Models-RegisterBindingModel-ConfirmPassword 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-RegisterBindingModel-Email'></a>
+### Email `property` [#](#P-EasyTravelWeb-Models-RegisterBindingModel-Email 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-RegisterBindingModel-FirstName'></a>
+### FirstName `property` [#](#P-EasyTravelWeb-Models-RegisterBindingModel-FirstName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-RegisterBindingModel-LastName'></a>
+### LastName `property` [#](#P-EasyTravelWeb-Models-RegisterBindingModel-LastName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-RegisterBindingModel-Password'></a>
+### Password `property` [#](#P-EasyTravelWeb-Models-RegisterBindingModel-Password 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
 
 <a name='T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator'></a>
 ## RegisterBindingModelValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator 'Go To Here') [=](#contents 'Back To Contents')
@@ -648,6 +2277,255 @@ bool
 | ---- | ---- | ----------- |
 | lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Last name |
 
+<a name='T-EasyTravelWeb-Models-RegisterExternalBindingModel'></a>
+## RegisterExternalBindingModel [#](#T-EasyTravelWeb-Models-RegisterExternalBindingModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-RegisterExternalBindingModel-Email'></a>
+### Email `property` [#](#P-EasyTravelWeb-Models-RegisterExternalBindingModel-Email 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-RemoveLoginBindingModel'></a>
+## RemoveLoginBindingModel [#](#T-EasyTravelWeb-Models-RemoveLoginBindingModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-RemoveLoginBindingModel-LoginProvider'></a>
+### LoginProvider `property` [#](#P-EasyTravelWeb-Models-RemoveLoginBindingModel-LoginProvider 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-RemoveLoginBindingModel-ProviderKey'></a>
+### ProviderKey `property` [#](#P-EasyTravelWeb-Models-RemoveLoginBindingModel-ProviderKey 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-RouteConfig'></a>
+## RouteConfig [#](#T-EasyTravelWeb-RouteConfig 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb
+
+##### Summary
+
+RouteConfig
+
+<a name='M-EasyTravelWeb-RouteConfig-RegisterRoutes-System-Web-Routing-RouteCollection-'></a>
+### RegisterRoutes() `method` [#](#M-EasyTravelWeb-RouteConfig-RegisterRoutes-System-Web-Routing-RouteCollection- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Controllers-SearchController'></a>
+## SearchController [#](#T-EasyTravelWeb-Controllers-SearchController 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers
+
+##### Summary
+
+Controller for seach
+
+<a name='M-EasyTravelWeb-Controllers-SearchController-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-SearchController-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-SearchController-#ctor-EasyTravelWeb-Repositories-CityRepository,EasyTravelWeb-Repositories-PlaceRepository-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-SearchController-#ctor-EasyTravelWeb-Repositories-CityRepository,EasyTravelWeb-Repositories-PlaceRepository- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String-'></a>
+### GetSuggestions() `method` [#](#M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Models-SetPasswordBindingModel'></a>
+## SetPasswordBindingModel [#](#T-EasyTravelWeb-Models-SetPasswordBindingModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-SetPasswordBindingModel-ConfirmPassword'></a>
+### ConfirmPassword `property` [#](#P-EasyTravelWeb-Models-SetPasswordBindingModel-ConfirmPassword 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-SetPasswordBindingModel-NewPassword'></a>
+### NewPassword `property` [#](#P-EasyTravelWeb-Models-SetPasswordBindingModel-NewPassword 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Startup'></a>
+## Startup [#](#T-EasyTravelWeb-Startup 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Startup-OAuthOptions'></a>
+### OAuthOptions `property` [#](#P-EasyTravelWeb-Startup-OAuthOptions 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Startup-PublicClientId'></a>
+### PublicClientId `property` [#](#P-EasyTravelWeb-Startup-PublicClientId 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-Startup-Configuration-Owin-IAppBuilder-'></a>
+### Configuration() `method` [#](#M-EasyTravelWeb-Startup-Configuration-Owin-IAppBuilder- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Startup-ConfigureAuth-Owin-IAppBuilder-'></a>
+### ConfigureAuth() `method` [#](#M-EasyTravelWeb-Startup-ConfigureAuth-Owin-IAppBuilder- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-EasyTravelWeb-Models-User'></a>
+## User [#](#T-EasyTravelWeb-Models-User 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+User Model
+
+<a name='M-EasyTravelWeb-Models-User-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Models-User-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Models-User-#ctor-System-Int32,System-String,System-String,System-String,System-String-'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Models-User-#ctor-System-Int32,System-String,System-String,System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-EasyTravelWeb-Models-User-Email'></a>
+### Email `property` [#](#P-EasyTravelWeb-Models-User-Email 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-User-FirstName'></a>
+### FirstName `property` [#](#P-EasyTravelWeb-Models-User-FirstName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-User-LastName'></a>
+### LastName `property` [#](#P-EasyTravelWeb-Models-User-LastName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-User-Password'></a>
+### Password `property` [#](#P-EasyTravelWeb-Models-User-Password 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-User-UserId'></a>
+### UserId `property` [#](#P-EasyTravelWeb-Models-User-UserId 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
 <a name='T-EasyTravelWeb-Controllers-UserController'></a>
 ## UserController [#](#T-EasyTravelWeb-Controllers-UserController 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -673,13 +2551,6 @@ EasyTravelWeb.Controllers
 
 
 
-<a name='F-EasyTravelWeb-Controllers-UserController-validationInfo'></a>
-### validationInfo `constants` [#](#F-EasyTravelWeb-Controllers-UserController-validationInfo 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
 <a name='M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User-'></a>
 ### GetUser(user) `method` [#](#M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -697,12 +2568,73 @@ EasyTravelWeb.Controllers
 | ---- | ---- | ----------- |
 | user | [EasyTravelWeb.Models.User](#T-EasyTravelWeb-Models-User 'EasyTravelWeb.Models.User') |  |
 
+<a name='T-EasyTravelWeb-Models-UserInfoViewModel'></a>
+## UserInfoViewModel [#](#T-EasyTravelWeb-Models-UserInfoViewModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-UserInfoViewModel-Email'></a>
+### Email `property` [#](#P-EasyTravelWeb-Models-UserInfoViewModel-Email 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-UserInfoViewModel-HasRegistered'></a>
+### HasRegistered `property` [#](#P-EasyTravelWeb-Models-UserInfoViewModel-HasRegistered 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-UserInfoViewModel-LoginProvider'></a>
+### LoginProvider `property` [#](#P-EasyTravelWeb-Models-UserInfoViewModel-LoginProvider 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-UserLoginInfoViewModel'></a>
+## UserLoginInfoViewModel [#](#T-EasyTravelWeb-Models-UserLoginInfoViewModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-UserLoginInfoViewModel-LoginProvider'></a>
+### LoginProvider `property` [#](#P-EasyTravelWeb-Models-UserLoginInfoViewModel-LoginProvider 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-UserLoginInfoViewModel-ProviderKey'></a>
+### ProviderKey `property` [#](#P-EasyTravelWeb-Models-UserLoginInfoViewModel-ProviderKey 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
 <a name='T-EasyTravelWeb-Repositories-UserRepository'></a>
 ## UserRepository [#](#T-EasyTravelWeb-Repositories-UserRepository 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
 EasyTravelWeb.Repositories
+
+##### Summary
+
+Repository for get info about User
 
 <a name='M-EasyTravelWeb-Repositories-UserRepository-ChangeFirstName-System-Int32,System-String-'></a>
 ### ChangeFirstName(id,firstName) `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-ChangeFirstName-System-Int32,System-String- 'Go To Here') [=](#contents 'Back To Contents')
@@ -732,6 +2664,28 @@ Method For changing last Name of user in database
 | id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | ID of current user |
 | lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | New last name of user |
 
+<a name='M-EasyTravelWeb-Repositories-UserRepository-GetPlaces-System-Guid-'></a>
+### GetPlaces() `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-GetPlaces-System-Guid- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-String,System-String-'></a>
+### GetUser() `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-Int32-'></a>
 ### GetUser(id) `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -748,3 +2702,25 @@ infromation of User(email, First and Last names)
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | ID of current user |
+
+<a name='T-EasyTravelWeb-WebApiConfig'></a>
+## WebApiConfig [#](#T-EasyTravelWeb-WebApiConfig 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb
+
+##### Summary
+
+
+
+<a name='M-EasyTravelWeb-WebApiConfig-Register-System-Web-Http-HttpConfiguration-'></a>
+### Register() `method` [#](#M-EasyTravelWeb-WebApiConfig-Register-System-Web-Http-HttpConfiguration- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.

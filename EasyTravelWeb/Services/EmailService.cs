@@ -6,8 +6,15 @@ using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Services
 {
+    /// <summary>
+    ///    Service for send mail
+    /// </summary>
+
     public class EmailService : IIdentityMessageService
     {
+        /// <summary>
+        ///    
+        /// </summary>
         public async Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.

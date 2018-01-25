@@ -12,7 +12,6 @@ namespace EasyTravelWeb.Infrastructure.Validators
 	/// </summary>
 	public class RegisterBindingModelValidator : IValidator<RegisterBindingModel>
 	{
-		///must be in special class!
 		#region Constants
 
 		/// <summary>

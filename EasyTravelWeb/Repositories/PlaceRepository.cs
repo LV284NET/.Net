@@ -11,9 +11,15 @@ using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Repositories
 {
+    /// <summary>
+    ///    
+    /// </summary>
     public class PlaceRepository
     {
 
+        /// <summary>
+        ///    
+        /// </summary>
         public Place GetPlaceById(long placeId)
         {
             using (SqlConnection connection =
@@ -47,7 +53,10 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
-        public List<Place> GetPlacesPage(int page, long CityId, int pageSize)
+        /// <summary>
+        ///    
+        /// </summary>
+        public List<Place> GetPlacesPage(int page, long cityId, int pageSize)
         {
             List<Place> listToReturn = new List<Place>();
 
@@ -61,7 +70,7 @@ namespace EasyTravelWeb.Repositories
                     CommandType = CommandType.StoredProcedure
                 };
 
-                command.Parameters.Add(new SqlParameter("@CityID", CityId));
+                command.Parameters.Add(new SqlParameter("@CityID", cityId));
                 command.Parameters.Add(new SqlParameter("@PageNumber", page));
                 command.Parameters.Add(new SqlParameter("@PageSize", pageSize));
 
@@ -89,6 +98,9 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public List<Place> GetPlacesByCityId(long cityId)
         {
             List<Place> listToReturn = new List<Place>();
@@ -134,6 +146,9 @@ namespace EasyTravelWeb.Repositories
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public List<Place> GetTopPlacesByCityName(string cityName)
         {
             List<Place> listToReturn = new List<Place>();
@@ -174,6 +189,9 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public List<Place> GetTopPlacesByCityId(long cityId)
         {
             List<Place> listToReturn = new List<Place>();
@@ -208,9 +226,12 @@ namespace EasyTravelWeb.Repositories
                 }
             }
 
-            return null;
+            //return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public List<Place> GetPlaces()
         {
             List<Place> placesToReturn = new List<Place>();
@@ -246,6 +267,9 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public virtual IList<SearchController.PlaceSearchEntity> GetPlacesIdsAndNames()
         {
             List<SearchController.PlaceSearchEntity> places = new List<SearchController.PlaceSearchEntity>();
@@ -280,6 +304,9 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public bool AddFavouritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
@@ -304,6 +331,9 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public bool DeleteFavoritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
@@ -328,6 +358,9 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public virtual List<Place> GetFavoritePlaces(int id)
         {
             List<Place> favouritePlaces = new List<Place>();
@@ -362,9 +395,12 @@ namespace EasyTravelWeb.Repositories
                 }
             }
 
-            return null;
+            //return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public int GetCountPlace(long CityId)
         {
             int placesCount = 0;
@@ -392,6 +428,5 @@ namespace EasyTravelWeb.Repositories
             }
 
         }
-
     }
 }

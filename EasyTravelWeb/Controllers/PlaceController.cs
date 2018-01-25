@@ -9,19 +9,27 @@ using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Controllers
 {
-
-	public class PlaceController : ApiController
+    /// <summary>
+    ///    
+    /// </summary>
+    public class PlaceController : ApiController
 	{
 		private readonly Logger loger;
 		private readonly PlaceRepository placeRepository;
 
-		public PlaceController()
+	    /// <summary>
+	    ///    
+	    /// </summary>
+        public PlaceController()
 		{
 			this.placeRepository = new PlaceRepository();
 			this.loger = Logger.GetInstance();
 		}
-            
 
+
+        /// <summary>
+        ///    
+        /// </summary>
 		[HttpGet]
 		[Route("api/Place/GetPlaceById")]
 		public IHttpActionResult GetPlaceById(long placeId)
@@ -38,6 +46,9 @@ namespace EasyTravelWeb.Controllers
 			}
 		}
 
+	    /// <summary>
+	    ///    
+	    /// </summary>
 		[HttpGet]
 		[Route("api/Place/GetTopPlacesByCityName")]
 		public IHttpActionResult GetTopPlacesByCityName(string cityName)
@@ -67,6 +78,9 @@ namespace EasyTravelWeb.Controllers
 			}
 		}
 
+	    /// <summary>
+	    ///    
+	    /// </summary>
 		[HttpGet]
 		[Route("api/Place/GetTopPlacesByCityId")]
 		public IHttpActionResult GetTopPlacesByCityId(long cityId)
@@ -90,6 +104,9 @@ namespace EasyTravelWeb.Controllers
 			}
 		}
 
+	    /// <summary>
+	    ///    
+	    /// </summary>
 		[HttpGet]
 		[Route("api/Place/GetPlacesPageByCityId")]
 		public IHttpActionResult GetPlacesPageByCityId(long cityId, int page, int pageSize)
@@ -114,6 +131,9 @@ namespace EasyTravelWeb.Controllers
 
 		}
 
+	    /// <summary>
+	    ///    
+	    /// </summary>
         [Route("api/Place/GetCountPlaces")]
         [HttpGet]
         public IHttpActionResult GetCountPlaces(long cityId)
@@ -121,13 +141,14 @@ namespace EasyTravelWeb.Controllers
             int placeCount = placeRepository.GetCountPlace(cityId);
             try
             {
-                if (placeCount == null)
+                if (placeCount == 0)
                 {
                     return this.NotFound();
                 }
             }
             catch (Exception ex)
             {
+                this.loger.LogException(ex);
                 return InternalServerError();
             }
             return this.Ok(placeCount);
@@ -185,29 +206,6 @@ namespace EasyTravelWeb.Controllers
                 return InternalServerError();
             }
         }
-
-        //[Route("api/Place/GetPlacesPage")]
-        //[HttpGet]
-        //public IHttpActionResult GetCities(int page)
-        //{
-
-        //    //int getCities = placeRepository.GetPlacesPage(page);
-        //    try
-        //    {
-        //        if (getCities == null)
-        //        {
-        //            return NotFound();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        loger.LogException(ex);
-        //        return InternalServerError();
-        //    }
-
-        //    return Ok(getCities);
-        //}
-
     }
 }
  

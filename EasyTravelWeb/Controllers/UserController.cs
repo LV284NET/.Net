@@ -32,11 +32,7 @@ namespace EasyTravelWeb.Controllers
         ///// </summary>
         //private readonly IValidator<User> userDataValidator = new Validator();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private List<string> validationInfo;
-
+        
         #endregion
 
         #region API Methods
@@ -67,10 +63,6 @@ namespace EasyTravelWeb.Controllers
             return this.Ok(requiredUser);//Status Code: 200
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="object"></param>
-        /// <returns></returns>
         #endregion
 
         #region Private Methods

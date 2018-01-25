@@ -7,8 +7,15 @@ using System.Web.Http.Cors;
 
 namespace EasyTravelWeb
 {
+    /// <summary>
+    ///    
+    /// </summary>
+
     public static class WebApiConfig
     {
+        /// <summary>
+        ///    
+        /// </summary>
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services

@@ -10,8 +10,15 @@ using User = EasyTravelWeb.Models.User;
 
 namespace EasyTravelWeb.Repositories
 {
-	public class UserRepository
+    /// <summary>
+    ///    Repository for get info about User
+    /// </summary>
+
+    public class UserRepository
 	{
+	    /// <summary>
+	    ///    
+	    /// </summary>
 		public User GetUser(string eMail, string password)
 		{
 			using (SqlConnection connection =
@@ -171,6 +178,9 @@ namespace EasyTravelWeb.Repositories
 			}
 		}
 
+	    /// <summary>
+	    ///    
+	    /// </summary>
 	    public List<Place> GetPlaces(Guid userGuid)
 	    {
 	        using (SqlConnection connection =
@@ -202,25 +212,6 @@ namespace EasyTravelWeb.Repositories
 	                }
 	                return favoritePlaces;
 	            }
-	        }
-        }
-
-	    public virtual void AddFavouritePlace(Guid userGuid, int placeId)
-	    {
-	        using (SqlConnection connection =
-	            new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-	                .ConnectionString))
-	        {
-	            connection.Open();
-
-	            SqlCommand command = new SqlCommand("InsertNewFavourite", connection);
-
-	            command.CommandType = CommandType.StoredProcedure;
-
-	            command.Parameters.Add(new SqlParameter("@userGUID", userGuid));
-	            command.Parameters.Add(new SqlParameter("@placeID", placeId));
-
-	            command.ExecuteNonQuery();
 	        }
         }
     }

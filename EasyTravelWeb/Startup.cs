@@ -5,8 +5,15 @@ using Owin;
 [assembly: OwinStartupAttribute(typeof(EasyTravelWeb.Startup))]
 namespace EasyTravelWeb
 {
+    /// <summary>
+    ///    
+    /// </summary>
+
     public partial class Startup
     {
+        /// <summary>
+        ///    
+        /// </summary>
         public void Configuration(IAppBuilder app)
         {
             app.CreatePerOwinContext(ApplicationDbContext.Create);

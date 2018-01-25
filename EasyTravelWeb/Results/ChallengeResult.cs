@@ -9,17 +9,33 @@ using System.Web.Http;
 
 namespace EasyTravelWeb.Results
 {
+    /// <summary>
+    ///   
+    /// </summary>
+
     public class ChallengeResult : IHttpActionResult
     {
+        /// <summary>
+        ///    
+        /// </summary>
         public ChallengeResult(string loginProvider, ApiController controller)
         {
             LoginProvider = loginProvider;
             Request = controller.Request;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public string LoginProvider { get; set; }
+        /// <summary>
+        ///    
+        /// </summary>
         public HttpRequestMessage Request { get; set; }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
             Request.GetOwinContext().Authentication.Challenge(LoginProvider);

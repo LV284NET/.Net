@@ -23,24 +23,41 @@ using Microsoft.Owin.Security.Provider;
 
 namespace EasyTravelWeb.Controllers
 {
+    /// <summary>
+    ///    
+    /// </summary>
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
 
+        /// <summary>
+        ///    
+        /// </summary>
         private readonly IValidator<RegisterBindingModel> registerBindingModelValidator =
             new RegisterBindingModelValidator();
 
+        /// <summary>
+        ///    
+        /// </summary>
         private ApplicationUserManager userManager;
 
-        private OAuthGrantResourceOwnerCredentialsContext _context;
+        //        private OAuthGrantResourceOwnerCredentialsContext _context;
 
-        private BaseContext _baseContext;
+        //        private BaseContext _baseContext;
+
+        /// <summary>
+        ///    
+        /// </summary>
 
         public AccountController()
         {
         }
+
+        /// <summary>
+        ///    
+        /// </summary>
 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
@@ -49,14 +66,24 @@ namespace EasyTravelWeb.Controllers
             this.AccessTokenFormat = accessTokenFormat;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
+
         public ApplicationUserManager UserManager
         {
             get => this.userManager ?? this.Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             private set => this.userManager = value;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("UserInfo")]
@@ -72,6 +99,9 @@ namespace EasyTravelWeb.Controllers
             };
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // POST api/Account/Logout
         [Route("Logout")]
         public IHttpActionResult Logout()
@@ -80,6 +110,9 @@ namespace EasyTravelWeb.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
         [Route("ManageInfo")]
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
@@ -113,6 +146,9 @@ namespace EasyTravelWeb.Controllers
             };
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // POST api/Account/ChangePassword
         [HttpPost]
         [Route("ChangePassword")]
@@ -129,6 +165,9 @@ namespace EasyTravelWeb.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // POST api/Account/SetPassword
         [Route("SetPassword")]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
@@ -143,6 +182,9 @@ namespace EasyTravelWeb.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // POST api/Account/AddExternalLogin
         [Route("AddExternalLogin")]
         public async Task<IHttpActionResult> AddExternalLogin(AddExternalLoginBindingModel model)
@@ -171,6 +213,9 @@ namespace EasyTravelWeb.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // POST api/Account/RemoveLogin
         [Route("RemoveLogin")]
         public async Task<IHttpActionResult> RemoveLogin(RemoveLoginBindingModel model)
@@ -190,6 +235,9 @@ namespace EasyTravelWeb.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // GET api/Account/ExternalLogin
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
@@ -239,6 +287,9 @@ namespace EasyTravelWeb.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
         [AllowAnonymous]
         [Route("ExternalLogins")]
@@ -348,6 +399,9 @@ namespace EasyTravelWeb.Controllers
         }
 
 
+        /// <summary>
+        ///    
+        /// </summary>
         [HttpGet]
         [AllowAnonymous]
         [Route("ConfirmEmail", Name = "ConfirmEmailRoute")]
@@ -369,6 +423,9 @@ namespace EasyTravelWeb.Controllers
             return Redirect("http://localhost:4200/main");
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -390,6 +447,9 @@ namespace EasyTravelWeb.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         protected override void Dispose(bool disposing)
         {
             if (disposing && this.userManager != null)

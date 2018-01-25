@@ -5,8 +5,15 @@ using System.Web.Routing;
 
 namespace EasyTravelWeb
 {
+    /// <summary>
+    ///     Start App
+    /// </summary>
+
     public class MvcApplication : HttpApplication
     {
+        /// <summary>
+        ///    
+        /// </summary>
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

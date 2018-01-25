@@ -3,8 +3,16 @@ using System.Web.Routing;
 
 namespace EasyTravelWeb
 {
+    /// <summary>
+    ///     RouteConfig
+    /// </summary>
+
     public class RouteConfig
     {
+        /// <summary>
+        ///    
+        /// </summary>
+
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

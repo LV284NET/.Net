@@ -10,12 +10,24 @@ namespace EasyTravelWeb
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
 
+    /// <summary>
+    ///     Model of User in Identity
+    /// </summary>
+
     public class ApplicationUserManager : UserManager<ApplicationUser, int>
     {
+        /// <summary>
+        ///    
+        /// </summary>
+
         public ApplicationUserManager(IUserStore<ApplicationUser, int> store)
             : base(store)
         {
         }
+
+        /// <summary>
+        ///    
+        /// </summary>
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {

@@ -41,13 +41,23 @@ namespace EasyTravelWeb.Controllers
 
         #region Constructors
 
+        /// <summary>
+        ///     Default constructor
+        /// </summary>
+
         public ProfileController() { }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public ProfileController(UserRepository userRepository)
         {
             this.userRepository = userRepository;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public ProfileController(PlaceRepository placeRepository)
         {
             this.placeRepository = placeRepository;

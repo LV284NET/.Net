@@ -10,9 +10,16 @@ using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Repositories
 {
+    /// <summary>
+    ///    Repository for get data about City
+    /// </summary>
+
     public class CityRepository
     {
 
+        /// <summary>
+        ///    
+        /// </summary>
         public virtual IList<City> GetCities()
         {
             List<City> listToReturn = new List<City>();
@@ -46,6 +53,9 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public virtual IList<City> GetCitiesPage(int page,int pageSize)
         {
              
@@ -84,6 +94,9 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public virtual IList<SearchController.CitySearchEntity> GetCitiesIdAndNames()
         {
             List<SearchController.CitySearchEntity> cities = new List<SearchController.CitySearchEntity>();
@@ -114,6 +127,9 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public virtual City GetCity(long id)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -142,6 +158,9 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public virtual int GetCountCity()
         {
             int placesCount = 0;

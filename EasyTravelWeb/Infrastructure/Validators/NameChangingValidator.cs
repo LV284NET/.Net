@@ -7,6 +7,10 @@ using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Infrastructure.Validators
 {
+
+    /// <summary>
+    ///    
+    /// </summary>
     public class NameChangingValidator : IValidator<String>
     {
 
@@ -20,6 +24,9 @@ namespace EasyTravelWeb.Infrastructure.Validators
 
         #region Constructor
 
+        /// <summary>
+        ///    
+        /// </summary>
         public NameChangingValidator()
         {
             this.name = new List<string>();
