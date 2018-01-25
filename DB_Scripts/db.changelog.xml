@@ -5,6 +5,7 @@
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <include file="V1.0/ScriptV1.0.sql" relativeToChangelogFile="true"/>
+  
     <include file="V1.1/ScriptV1.1_Procedures.sql" relativeToChangelogFile="true"/>
     <include file="V1.1/ScriptV1.1_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
     <include file="V1.1/ScriptV1.1_Procedure_GetPlaceById.sql" relativeToChangelogFile="true"/>
@@ -12,19 +13,34 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="V1.1/ScriptV1.1_Procedure_GetPlacesByCityId.sql" relativeToChangelogFile="true"/>
     <include file="V1.1/ScriptV1.1_Procedure_GetTopPlacesByCityId.sql" relativeToChangelogFile="true"/>
     <include file="V1.1/ScriptV1.1_Procedure_GetTopPlacesByCityName.sql" relativeToChangelogFile="true"/>
+  
     <include file="V1.2/ScriptV1.2_InsertData.sql" relativeToChangelogFile="true"/>
+    <include file="V1.2/ScriptV1.2_Procedure_GetPlaces.sql" relativeToChangelogFile="true"/>
+  
     <include file="V1.3/ScriptV1.3_Alter_Table_AspNetUsers_Add_FirstName_And_LastName_Columns.sql"
              relativeToChangelogFile="true"/>
+  
     <include file="V1.4/ScriptV1.4_TrunkateDataAstNetUsers.sql" relativeToChangelogFile="true"/>
     <include file="V1.4/ScriptV1.4_Procedure_GetCitiesIdAndNames.sql" relativeToChangelogFile="true"/>
     <include file="V1.4/ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql" relativeToChangelogFile="true"/>
+  
     <include file="V1.5/ScriptV1.5_Procedure_ChangeFirstName.sql" relativeToChangelogFile="true"/>
     <include file="V1.5/ScriptV1.5_Procedure_ChangeLastName.sql" relativeToChangelogFile="true"/>
     <include file="V1.5/ScriptV1.5_Procedure_GetUserById.sql" relativeToChangelogFile="true"/>
     <include file="V1.5/ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql" relativeToChangelogFile="true"/>
     <include file="V1.5/ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql" relativeToChangelogFile="true"/>
-    <include file="V1.5/ScriptV1.5_Procedure_GetCitiesPageю.sql" relativeToChangelogFile="true"/>
+    <include file="V1.5/ScriptV1.5_Procedure_GetCitiesPage.sql" relativeToChangelogFile="true"/>
     <include file="V1.5/ScriptV1.5_Procedure_GetPlacesPage.sql" relativeToChangelogFile="true"/>
     <include file="V1.5/ScriptV1.5_Procedure_GetCountCity.sql" relativeToChangelogFile="true"/>
     <include file="V1.5/ScriptV1.5_Procedure_GetCountPlace.sql" relativeToChangelogFile="true"/>
+  
+    <include file="V1.6/ScriptV1.6_Procedure_GetTopPlacesByCityId.sql" relativeToChangelogFile="true"/>
+    <include file="V1.6/ScriptV1.6_Procedure_GetTopPlacesByCityName.sql" relativeToChangelogFile="true"/>
+    <include file="V1.6/ScriptV1.6_Procedure_GetPlaces.sql" relativeToChangelogFile="true"/>
+    <include file="V1.6/ScriptV1.6_Procedure_GetCountCity.sql" relativeToChangelogFile="true"/>
+    <include file="V1.6/ScriptV1.6_Procedure_GetCountPlace.sql" relativeToChangelogFile="true"/>
+    <include file="V1.6/ScriptV1.6_Procedure_GetCities.sql" relativeToChangelogFile="true"/>
+    <include file="V1.6/ScriptV1.6_Procedure_GetCitiesPage.sql" relativeToChangelogFile="true"/>
+    <include file="V1.6/ScriptV1.6_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
+  
 </databaseChangeLog> 
