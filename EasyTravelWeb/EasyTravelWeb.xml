@@ -179,14 +179,14 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.Place)">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavoritePlace)">
             <summary>
             
             </summary>
             <param name="favoriteUserPlace"></param>
             <returns></returns>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.Place)">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)">
             <summary>
             
             </summary>
@@ -256,7 +256,7 @@
             <param name="lastName">Last name which will be updated in database</param>
             <returns>result of chaning (Bad or Ok)</returns>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces">
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)">
             <summary>
             Cotroler fo getting favorite places of specific user
             </summary>
@@ -346,28 +346,6 @@
             <summary>
                
             </summary>
-        </member>
-        <member name="T:EasyTravelWeb.Controllers.UserController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:EasyTravelWeb.Controllers.UserController.userRepository">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:EasyTravelWeb.Controllers.UserController.logger">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:EasyTravelWeb.Controllers.UserController.GetUser(EasyTravelWeb.Models.User)">
-            <summary>
-            
-            </summary>
-            <param name="user"></param>
-            <returns></returns>
         </member>
         <member name="T:EasyTravelWeb.Controllers.AccountController">
             <summary>
@@ -1014,6 +992,11 @@
                
             </summary>
         </member>
+        <member name="P:EasyTravelWeb.Models.Place.CityId">
+            <summary>
+               
+            </summary>
+        </member>
         <member name="M:EasyTravelWeb.Models.Place.#ctor">
             <summary>
                
@@ -1194,11 +1177,6 @@
                Repository for get info about User
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Repositories.UserRepository.GetUser(System.String,System.String)">
-            <summary>
-               
-            </summary>
-        </member>
         <member name="M:EasyTravelWeb.Repositories.UserRepository.GetUser(System.Int32)">
             <summary>
             Method for getting information of specific user from Database
@@ -1219,11 +1197,6 @@
             </summary>
             <param name="id">ID of current user</param>
             <param name="lastName">New last name of user</param>
-        </member>
-        <member name="M:EasyTravelWeb.Repositories.UserRepository.GetPlaces(System.Guid)">
-            <summary>
-               
-            </summary>
         </member>
         <member name="T:EasyTravelWeb.Results.ChallengeResult">
             <summary>

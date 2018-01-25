@@ -16,37 +16,6 @@ namespace EasyTravelWeb.Repositories
 
     public class UserRepository
 	{
-	    /// <summary>
-	    ///    
-	    /// </summary>
-		public User GetUser(string eMail, string password)
-		{
-			using (SqlConnection connection =
-				new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-					.ConnectionString))
-			{
-				connection.Open();
-
-				SqlCommand command = new SqlCommand("GetUser", connection);
-
-				command.CommandType = CommandType.StoredProcedure;
-
-				command.Parameters.Add(new SqlParameter("@Email", eMail));
-				command.Parameters.Add(new SqlParameter("@Password", password));
-
-				using (SqlDataReader reader = command.ExecuteReader())
-				{
-					reader.Read();
-					return new User
-					{
-						FirstName = reader["firstName"].ToString(),
-						LastName = reader["lastName"].ToString(),
-						Email = reader["email"].ToString()
-					};
-				}
-			}
-		}
-
         /// <summary>
         /// Method for getting information of specific user from Database
         /// </summary>
@@ -131,88 +100,6 @@ namespace EasyTravelWeb.Repositories
                     reader.Read();
                 }
             }
-        }
-
-		private bool isNewUser(string eMail)
-		{
-			using (SqlConnection connection =
-				new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-					.ConnectionString))
-			{
-				connection.Open();
-
-				SqlCommand command = new SqlCommand("isNewUser", connection);
-
-				command.CommandType = CommandType.StoredProcedure;
-				command.Parameters.Add(new SqlParameter("@Email", eMail));
-
-				using (SqlDataReader reader = command.ExecuteReader())
-				{
-					if (!reader.HasRows) return true;
-
-					return false;
-				}
-			}
-		}
-
-		private bool checkGuid(Guid userGuid)
-		{
-			using (SqlConnection connection =
-				new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-					.ConnectionString))
-			{
-				connection.Open();
-
-				SqlCommand command = new SqlCommand("isNewGUID", connection);
-
-				command.CommandType = CommandType.StoredProcedure;
-
-				command.Parameters.Add(new SqlParameter("@guid", userGuid));
-
-				using (SqlDataReader reader = command.ExecuteReader())
-				{
-					if (!reader.HasRows) return true;
-
-					return false;
-				}
-			}
-		}
-
-	    /// <summary>
-	    ///    
-	    /// </summary>
-	    public List<Place> GetPlaces(Guid userGuid)
-	    {
-	        using (SqlConnection connection =
-	            new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-	                .ConnectionString))
-	        {
-	            connection.Open();
-
-	            SqlCommand command = new SqlCommand("GetUserFavouritePlaces", connection);
-
-	            command.CommandType = CommandType.StoredProcedure;
-
-	            command.Parameters.Add(new SqlParameter("@userGUID", userGuid));
-
-	            using (SqlDataReader reader = command.ExecuteReader())
-	            {
-                    List<Place> favoritePlaces=new List<Place>();
-	                while (reader.Read())
-	                {
-                       
-	                    favoritePlaces.Add(
-                            new Place
-                            {
-                                Name = reader["name"].ToString(),
-                                CityName = reader["cityName"].ToString(),
-                                Description = reader["description"].ToString(),
-                          //      PicturePlace = Image.FromStream(new MemoryStream((byte[])reader["picture"]))
-                            });
-	                }
-	                return favoritePlaces;
-	            }
-	        }
         }
     }
 }

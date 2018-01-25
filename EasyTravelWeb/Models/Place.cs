@@ -36,6 +36,11 @@ namespace EasyTravelWeb.Models
         /// <summary>
         ///    
         /// </summary>
+        public long CityId { get; set; }
+
+        /// <summary>
+        ///    
+        /// </summary>
         public Place()
         {
             

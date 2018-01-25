@@ -72,6 +72,7 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         /// <param name="id">id of current user</param>
         /// <returns>First, last, email of user</returns>
+        [Authorize]
         [HttpGet]
         [Route("api/Profile/GetUserInfo")]
         public IHttpActionResult GetUser(int id)
@@ -102,6 +103,7 @@ namespace EasyTravelWeb.Controllers
         /// <param name="id">Id of current user</param>
         /// <param name="firstName">First name which will be updated in database</param>
         /// <returns>result of chaning (Bad or Ok)</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/Profile/ChangeFirstName")]
         public IHttpActionResult ChangeFirstName(int id, string firstName)
@@ -134,6 +136,7 @@ namespace EasyTravelWeb.Controllers
         /// <param name="id">Id of current user</param>
         /// <param name="lastName">Last name which will be updated in database</param>
         /// <returns>result of chaning (Bad or Ok)</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/Profile/ChangeLastName")]
         public IHttpActionResult ChangeLastName(int id, string lastName)
@@ -167,11 +170,11 @@ namespace EasyTravelWeb.Controllers
         [Authorize]
         [HttpGet]
         [Route("api/Profile/GetFavoritePlaces")]
-        public IHttpActionResult GetFavoritePlaces()
+        public IHttpActionResult GetFavoritePlaces(int id)
         {
             try
             {
-                List<Place> cityPlaces = this.placeRepository.GetFavoritePlaces(this.User.Identity.GetUserId<int>());
+                List<Place> cityPlaces = this.placeRepository.GetFavoritePlaces(id);
 
                 if (cityPlaces != null)
                 {

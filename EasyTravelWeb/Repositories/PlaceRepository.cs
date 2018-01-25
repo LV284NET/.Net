@@ -385,7 +385,8 @@ namespace EasyTravelWeb.Repositories
                                 Name = reader["PlaceName"].ToString(),
                                 Description = String.Empty,
                                 PicturePlace = reader["MainPlaceImage"].ToString(),
-                                CityName = reader["CityName"].ToString()
+                                CityName = reader["CityName"].ToString(),
+                                CityId = Convert.ToInt64(reader["CityID"])
                             });
                         }
 
@@ -394,8 +395,6 @@ namespace EasyTravelWeb.Repositories
                     return favouritePlaces;
                 }
             }
-
-            //return null;
         }
 
         /// <summary>

@@ -129,6 +129,7 @@
 - [Place](#T-EasyTravelWeb-Models-Place 'EasyTravelWeb.Models.Place')
   - [#ctor()](#M-EasyTravelWeb-Models-Place-#ctor 'EasyTravelWeb.Models.Place.#ctor')
   - [#ctor()](#M-EasyTravelWeb-Models-Place-#ctor-System-String,System-String,System-String,System-String- 'EasyTravelWeb.Models.Place.#ctor(System.String,System.String,System.String,System.String)')
+  - [CityId](#P-EasyTravelWeb-Models-Place-CityId 'EasyTravelWeb.Models.Place.CityId')
   - [CityName](#P-EasyTravelWeb-Models-Place-CityName 'EasyTravelWeb.Models.Place.CityName')
   - [Description](#P-EasyTravelWeb-Models-Place-Description 'EasyTravelWeb.Models.Place.Description')
   - [Name](#P-EasyTravelWeb-Models-Place-Name 'EasyTravelWeb.Models.Place.Name')
@@ -136,8 +137,8 @@
   - [PlaceId](#P-EasyTravelWeb-Models-Place-PlaceId 'EasyTravelWeb.Models.Place.PlaceId')
 - [PlaceController](#T-EasyTravelWeb-Controllers-PlaceController 'EasyTravelWeb.Controllers.PlaceController')
   - [#ctor()](#M-EasyTravelWeb-Controllers-PlaceController-#ctor 'EasyTravelWeb.Controllers.PlaceController.#ctor')
-  - [AddUserFavouritePlace(favoriteUserPlace)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-Place- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.Place)')
-  - [DeleteUserFavoritePlace(favoritePlace)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-Place- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.Place)')
+  - [AddUserFavouritePlace(favoriteUserPlace)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavoritePlace)')
+  - [DeleteUserFavoritePlace(favoritePlace)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)')
   - [GetCountPlaces()](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)')
   - [GetPlaceById()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)')
   - [GetPlacesPageByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'EasyTravelWeb.Controllers.PlaceController.GetPlacesPageByCityId(System.Int64,System.Int32,System.Int32)')
@@ -170,7 +171,7 @@
   - [userRepository](#F-EasyTravelWeb-Controllers-ProfileController-userRepository 'EasyTravelWeb.Controllers.ProfileController.userRepository')
   - [ChangeFirstName(id,firstName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)')
   - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)')
-  - [GetFavoritePlaces()](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces 'EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces')
+  - [GetFavoritePlaces()](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)')
   - [GetUser(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)')
 - [RegisterBindingModel](#T-EasyTravelWeb-Models-RegisterBindingModel 'EasyTravelWeb.Models.RegisterBindingModel')
   - [ConfirmPassword](#P-EasyTravelWeb-Models-RegisterBindingModel-ConfirmPassword 'EasyTravelWeb.Models.RegisterBindingModel.ConfirmPassword')
@@ -222,10 +223,6 @@
   - [LastName](#P-EasyTravelWeb-Models-User-LastName 'EasyTravelWeb.Models.User.LastName')
   - [Password](#P-EasyTravelWeb-Models-User-Password 'EasyTravelWeb.Models.User.Password')
   - [UserId](#P-EasyTravelWeb-Models-User-UserId 'EasyTravelWeb.Models.User.UserId')
-- [UserController](#T-EasyTravelWeb-Controllers-UserController 'EasyTravelWeb.Controllers.UserController')
-  - [logger](#F-EasyTravelWeb-Controllers-UserController-logger 'EasyTravelWeb.Controllers.UserController.logger')
-  - [userRepository](#F-EasyTravelWeb-Controllers-UserController-userRepository 'EasyTravelWeb.Controllers.UserController.userRepository')
-  - [GetUser(user)](#M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User- 'EasyTravelWeb.Controllers.UserController.GetUser(EasyTravelWeb.Models.User)')
 - [UserInfoViewModel](#T-EasyTravelWeb-Models-UserInfoViewModel 'EasyTravelWeb.Models.UserInfoViewModel')
   - [Email](#P-EasyTravelWeb-Models-UserInfoViewModel-Email 'EasyTravelWeb.Models.UserInfoViewModel.Email')
   - [HasRegistered](#P-EasyTravelWeb-Models-UserInfoViewModel-HasRegistered 'EasyTravelWeb.Models.UserInfoViewModel.HasRegistered')
@@ -236,8 +233,6 @@
 - [UserRepository](#T-EasyTravelWeb-Repositories-UserRepository 'EasyTravelWeb.Repositories.UserRepository')
   - [ChangeFirstName(id,firstName)](#M-EasyTravelWeb-Repositories-UserRepository-ChangeFirstName-System-Int32,System-String- 'EasyTravelWeb.Repositories.UserRepository.ChangeFirstName(System.Int32,System.String)')
   - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Repositories-UserRepository-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Repositories.UserRepository.ChangeLastName(System.Int32,System.String)')
-  - [GetPlaces()](#M-EasyTravelWeb-Repositories-UserRepository-GetPlaces-System-Guid- 'EasyTravelWeb.Repositories.UserRepository.GetPlaces(System.Guid)')
-  - [GetUser()](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-String,System-String- 'EasyTravelWeb.Repositories.UserRepository.GetUser(System.String,System.String)')
   - [GetUser(id)](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-Int32- 'EasyTravelWeb.Repositories.UserRepository.GetUser(System.Int32)')
 - [WebApiConfig](#T-EasyTravelWeb-WebApiConfig 'EasyTravelWeb.WebApiConfig')
   - [Register()](#M-EasyTravelWeb-WebApiConfig-Register-System-Web-Http-HttpConfiguration- 'EasyTravelWeb.WebApiConfig.Register(System.Web.Http.HttpConfiguration)')
@@ -1557,6 +1552,13 @@ This constructor has no parameters.
 
 This constructor has no parameters.
 
+<a name='P-EasyTravelWeb-Models-Place-CityId'></a>
+### CityId `property` [#](#P-EasyTravelWeb-Models-Place-CityId 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
 <a name='P-EasyTravelWeb-Models-Place-CityName'></a>
 ### CityName `property` [#](#P-EasyTravelWeb-Models-Place-CityName 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -1614,8 +1616,8 @@ EasyTravelWeb.Controllers
 
 This constructor has no parameters.
 
-<a name='M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-Place-'></a>
-### AddUserFavouritePlace(favoriteUserPlace) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-Place- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavoritePlace-'></a>
+### AddUserFavouritePlace(favoriteUserPlace) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavoritePlace- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -1629,10 +1631,10 @@ This constructor has no parameters.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| favoriteUserPlace | [EasyTravelWeb.Models.Place](#T-EasyTravelWeb-Models-Place 'EasyTravelWeb.Models.Place') |  |
+| favoriteUserPlace | [EasyTravelWeb.Models.FavoritePlace](#T-EasyTravelWeb-Models-FavoritePlace 'EasyTravelWeb.Models.FavoritePlace') |  |
 
-<a name='M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-Place-'></a>
-### DeleteUserFavoritePlace(favoritePlace) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-Place- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace-'></a>
+### DeleteUserFavoritePlace(favoritePlace) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -1646,7 +1648,7 @@ This constructor has no parameters.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| favoritePlace | [EasyTravelWeb.Models.Place](#T-EasyTravelWeb-Models-Place 'EasyTravelWeb.Models.Place') |  |
+| favoritePlace | [EasyTravelWeb.Models.FavoritePlace](#T-EasyTravelWeb-Models-FavoritePlace 'EasyTravelWeb.Models.FavoritePlace') |  |
 
 <a name='M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64-'></a>
 ### GetCountPlaces() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
@@ -1982,8 +1984,8 @@ result of chaning (Bad or Ok)
 | id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Id of current user |
 | lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Last name which will be updated in database |
 
-<a name='M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces'></a>
-### GetFavoritePlaces() `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces-System-Int32-'></a>
+### GetFavoritePlaces() `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -2526,48 +2528,6 @@ This constructor has no parameters.
 
 
 
-<a name='T-EasyTravelWeb-Controllers-UserController'></a>
-## UserController [#](#T-EasyTravelWeb-Controllers-UserController 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Namespace
-
-EasyTravelWeb.Controllers
-
-##### Summary
-
-
-
-<a name='F-EasyTravelWeb-Controllers-UserController-logger'></a>
-### logger `constants` [#](#F-EasyTravelWeb-Controllers-UserController-logger 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-<a name='F-EasyTravelWeb-Controllers-UserController-userRepository'></a>
-### userRepository `constants` [#](#F-EasyTravelWeb-Controllers-UserController-userRepository 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-<a name='M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User-'></a>
-### GetUser(user) `method` [#](#M-EasyTravelWeb-Controllers-UserController-GetUser-EasyTravelWeb-Models-User- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-##### Returns
-
-
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| user | [EasyTravelWeb.Models.User](#T-EasyTravelWeb-Models-User 'EasyTravelWeb.Models.User') |  |
-
 <a name='T-EasyTravelWeb-Models-UserInfoViewModel'></a>
 ## UserInfoViewModel [#](#T-EasyTravelWeb-Models-UserInfoViewModel 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -2663,28 +2623,6 @@ Method For changing last Name of user in database
 | ---- | ---- | ----------- |
 | id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | ID of current user |
 | lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | New last name of user |
-
-<a name='M-EasyTravelWeb-Repositories-UserRepository-GetPlaces-System-Guid-'></a>
-### GetPlaces() `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-GetPlaces-System-Guid- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-String,System-String-'></a>
-### GetUser() `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-Int32-'></a>
 ### GetUser(id) `method` [#](#M-EasyTravelWeb-Repositories-UserRepository-GetUser-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')

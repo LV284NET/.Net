@@ -162,11 +162,11 @@ namespace EasyTravelWeb.Controllers
         [Authorize]
         [HttpPost]
         [Route("api/Place/AddFavoritePlace")]
-        public IHttpActionResult AddUserFavouritePlace([FromBody] Place favoriteUserPlace)
+        public IHttpActionResult AddUserFavouritePlace([FromBody] FavoritePlace favoriteUserPlace)
         {
             try
             {
-                if (placeRepository.AddFavouritePlace(this.User.Identity.GetUserId<int>(), favoriteUserPlace.PlaceId))
+                if (placeRepository.AddFavouritePlace(favoriteUserPlace.UserId, favoriteUserPlace.PlaceId))
                 {
                     return Ok();
                 }
@@ -187,13 +187,13 @@ namespace EasyTravelWeb.Controllers
         /// <param name="favoritePlace"></param>
         /// <returns></returns>
         [Authorize]
-        [HttpPost]
+        [HttpDelete]
         [Route("api/Place/DeleteFavoritePlace")]
-        public IHttpActionResult DeleteUserFavoritePlace([FromBody] Place favoritePlace)
+        public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavoritePlace favoritePlace)
         {
             try
             {
-                if (placeRepository.DeleteFavoritePlace(this.User.Identity.GetUserId<int>(), favoritePlace.PlaceId))
+                if (placeRepository.DeleteFavoritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
                 {
                     return Ok();
                 }
