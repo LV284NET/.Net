@@ -76,7 +76,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1.7", "v1.7", "{C357FBBD-3
 		DB_Scripts\V1.7\ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql = DB_Scripts\V1.7\ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql
 		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql
 		DB_Scripts\V1.7\ScriptV1.7_Create_Table_UsersPlaceRatings.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Table_UsersPlaceRatings.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert.sql
 		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_InsertOrUpdateUsersPlaceRating_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_InsertOrUpdateUsersPlaceRating_If_Exists.sql
+		DB_Scripts\V1.7\ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Insert_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Insert_If_Exists.sql
 	EndProjectSection
 EndProject
 Global
