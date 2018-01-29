@@ -52,6 +52,22 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Delete" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Update_If_Exists.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Update" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Update_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Update.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Insert_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Insert.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Delete_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Delete.sql" relativeToChangelogFile="true"/>
+
+
+  
+
+
+
+
+
+
 
 
 
