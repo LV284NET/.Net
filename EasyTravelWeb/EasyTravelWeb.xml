@@ -109,6 +109,11 @@
                
             </summary>
         </member>
+        <member name="M:EasyTravelWeb.Controllers.CityController.GetTopCities">
+            <summary>
+               
+            </summary>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.GetCities(System.Int32,System.Int32)">
             <summary>
                
@@ -120,16 +125,6 @@
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.GetCountCity">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="T:EasyTravelWeb.Controllers.HomeController">
-            <summary>
-                Controller for HomePage
-            </summary>
-        </member>
-        <member name="M:EasyTravelWeb.Controllers.HomeController.GetPlaces">
             <summary>
                
             </summary>
@@ -155,11 +150,6 @@
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityName(System.String)">
             <summary>
                
             </summary>
@@ -201,6 +191,11 @@
         <member name="F:EasyTravelWeb.Controllers.ProfileController.userRepository">
             <summary>
             Instance of UserRepository, using methods to do actions with database
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.ratingRepository">
+            <summary>
+            Instance of RatingRepository, using methods to do actions with database
             </summary>
         </member>
         <member name="F:EasyTravelWeb.Controllers.ProfileController.logger">
@@ -259,6 +254,18 @@
         <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)">
             <summary>
             Cotroler fo getting favorite places of specific user
+            </summary>
+            <returns>List of favourite Places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.SetUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)">
+            <summary>
+            Cotroller fo setting rating place of specific user
+            </summary>
+            <returns>List of favourite Places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetUserRatingOfPlace(System.Int32,System.Int64)">
+            <summary>
+            Cotroller fo setting rating place of specific user
             </summary>
             <returns>List of favourite Places</returns>
         </member>
@@ -862,6 +869,11 @@
                
             </summary>
         </member>
+        <member name="P:EasyTravelWeb.Models.City.CityRating">
+            <summary>
+               
+            </summary>
+        </member>
         <member name="T:EasyTravelWeb.Models.FavoritePlace">
             <summary>
                
@@ -997,6 +1009,11 @@
                
             </summary>
         </member>
+        <member name="P:EasyTravelWeb.Models.Place.PlaceRating">
+            <summary>
+               
+            </summary>
+        </member>
         <member name="M:EasyTravelWeb.Models.Place.#ctor">
             <summary>
                
@@ -1047,6 +1064,21 @@
                
             </summary>
         </member>
+        <member name="P:EasyTravelWeb.Models.UserPlaceRating.UserId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserPlaceRating.PlaceId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserPlaceRating.Rating">
+            <summary>
+               
+            </summary>
+        </member>
         <member name="T:EasyTravelWeb.Providers.ApplicationOAuthProvider">
             <summary>
                App Configuration
@@ -1087,7 +1119,7 @@
                Repository for get data about City
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCities">
+        <member name="M:EasyTravelWeb.Repositories.CityRepository.GetTopCities">
             <summary>
                
             </summary>
@@ -1127,22 +1159,7 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlacesByCityId(System.Int64)">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityName(System.String)">
-            <summary>
-               
-            </summary>
-        </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64)">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaces">
             <summary>
                
             </summary>
@@ -1168,6 +1185,16 @@
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetCountPlace(System.Int64)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Repositories.RatingRepository">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.RatingRepository.GetUserRatingOfPlace(System.Int32,System.Int64)">
             <summary>
                
             </summary>

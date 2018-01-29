@@ -50,38 +50,6 @@ namespace EasyTravelWeb.Controllers
 	    ///    
 	    /// </summary>
 		[HttpGet]
-		[Route("api/Place/GetTopPlacesByCityName")]
-		public IHttpActionResult GetTopPlacesByCityName(string cityName)
-
-		{
-			if (cityName == null)
-			{
-				return this.BadRequest();
-			}
-
-			try
-			{
-				List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityName(cityName);
-
-				if (cityPlaces != null)
-				{
-					return this.Ok(cityPlaces);
-				}
-
-				return this.NotFound();
-			}
-			catch (Exception ex)
-			{
-				this.loger.LogException(ex);
-
-				return this.NotFound();
-			}
-		}
-
-	    /// <summary>
-	    ///    
-	    /// </summary>
-		[HttpGet]
 		[Route("api/Place/GetTopPlacesByCityId")]
 		public IHttpActionResult GetTopPlacesByCityId(long cityId)
 		{

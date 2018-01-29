@@ -35,6 +35,29 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///    
         /// </summary>
+        [HttpGet]
+        public IHttpActionResult GetTopCities()
+        {
+            IList<City> getCities = cityRepository.GetTopCities();
+            try
+            {
+                if (getCities == null)
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogException(ex);
+                return InternalServerError();
+            }
+
+            return Ok(getCities);
+        }
+
+        /// <summary>
+        ///    
+        /// </summary>
         [Route("api/GetCities")]
         [HttpGet]
         public IHttpActionResult GetCities(int page, int pageSize)

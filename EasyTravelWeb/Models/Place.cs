@@ -41,6 +41,11 @@ namespace EasyTravelWeb.Models
         /// <summary>
         ///    
         /// </summary>
+        public double PlaceRating { get; set; }
+
+        /// <summary>
+        ///    
+        /// </summary>
         public Place()
         {
             

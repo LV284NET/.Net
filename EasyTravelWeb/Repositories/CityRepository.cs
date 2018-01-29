@@ -20,14 +20,14 @@ namespace EasyTravelWeb.Repositories
         /// <summary>
         ///    
         /// </summary>
-        public virtual IList<City> GetCities()
+        public virtual IList<City> GetTopCities()
         {
             List<City> listToReturn = new List<City>();
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("GetCities", connection)
+                SqlCommand command = new SqlCommand("GetTopCities", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -37,13 +37,12 @@ namespace EasyTravelWeb.Repositories
                     {
                         while (reader.Read())
                         {
-                            int currentCityId = Convert.ToInt32(reader["CityID"]);
                             listToReturn.Add(new City
                             {
-                                Id = currentCityId,
+                                Id = Convert.ToInt64(reader["CityID"]),
                                 Name = reader["CityName"].ToString(),
                                 Description = reader["CityDescription"].ToString(),
-                                PicturePath = reader["CityPhoto"].ToString(),
+                                PicturePath = reader["CityPhoto"].ToString()
                             });
                         }
                         return listToReturn;
@@ -82,7 +81,8 @@ namespace EasyTravelWeb.Repositories
                                 Id = Convert.ToInt64(reader["CityID"]),
                                 Name = reader["CityName"].ToString(),
                                 Description = reader["CityDescription"].ToString(),
-                                PicturePath = reader["CityPhoto"].ToString()
+                                PicturePath = reader["CityPhoto"].ToString(),
+                                CityRating =  Convert.ToDouble(reader["CityRating"])
                             }
                             );
                                                    
@@ -150,7 +150,8 @@ namespace EasyTravelWeb.Repositories
                             Id = id,
                             Name = reader["CityName"].ToString(),
                             Description = reader["CityDescription"].ToString(),
-                            PicturePath = reader["CityPhoto"].ToString()
+                            PicturePath = reader["CityPhoto"].ToString(),
+                            CityRating = Convert.ToDouble(reader["CityRating"])
                         };
                     }
                 }

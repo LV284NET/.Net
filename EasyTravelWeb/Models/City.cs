@@ -30,5 +30,10 @@ namespace EasyTravelWeb.Models
         ///    
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        ///    
+        /// </summary>
+        public double CityRating { get; set; }
     }
 }
