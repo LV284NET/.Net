@@ -94,6 +94,7 @@
 - [FavoritePlace](#T-EasyTravelWeb-Models-FavoritePlace 'EasyTravelWeb.Models.FavoritePlace')
   - [PlaceId](#P-EasyTravelWeb-Models-FavoritePlace-PlaceId 'EasyTravelWeb.Models.FavoritePlace.PlaceId')
   - [UserId](#P-EasyTravelWeb-Models-FavoritePlace-UserId 'EasyTravelWeb.Models.FavoritePlace.UserId')
+- [Filter](#T-EasyTravelWeb-Models-Filter 'EasyTravelWeb.Models.Filter')
 - [FilterConfig](#T-EasyTravelWeb-FilterConfig 'EasyTravelWeb.FilterConfig')
   - [RegisterGlobalFilters()](#M-EasyTravelWeb-FilterConfig-RegisterGlobalFilters-System-Web-Mvc-GlobalFilterCollection- 'EasyTravelWeb.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)')
 - [HomeController](#T-EasyTravelWeb-Controllers-HomeController 'EasyTravelWeb.Controllers.HomeController')
@@ -140,6 +141,7 @@
   - [AddUserFavouritePlace(favoriteUserPlace)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavoritePlace)')
   - [DeleteUserFavoritePlace(favoritePlace)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)')
   - [GetCountPlaces()](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)')
+  - [GetFilteredPlaces(filters)](#M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlaces-System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Controllers.PlaceController.GetFilteredPlaces(System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetPlaceById()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)')
   - [GetPlacesPageByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'EasyTravelWeb.Controllers.PlaceController.GetPlacesPageByCityId(System.Int64,System.Int32,System.Int32)')
   - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64)')
@@ -149,6 +151,7 @@
   - [DeleteFavoritePlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-DeleteFavoritePlace-System-Int32,System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.DeleteFavoritePlace(System.Int32,System.Int64)')
   - [GetCountPlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetCountPlace-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetCountPlace(System.Int64)')
   - [GetFavoritePlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFavoritePlaces-System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetFavoritePlaces(System.Int32)')
+  - [GetFilteredPlaces(filters)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredPlaces-System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlaces(System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetPlaceById()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceById(System.Int64)')
   - [GetPlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaces 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaces')
   - [GetPlacesByCityId()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesByCityId-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesByCityId(System.Int64)')
@@ -1175,6 +1178,17 @@ EasyTravelWeb.Models
 
 
 
+<a name='T-EasyTravelWeb-Models-Filter'></a>
+## Filter [#](#T-EasyTravelWeb-Models-Filter 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+##### Summary
+
+Available filters in app
+
 <a name='T-EasyTravelWeb-FilterConfig'></a>
 ## FilterConfig [#](#T-EasyTravelWeb-FilterConfig 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -1661,6 +1675,23 @@ This constructor has no parameters.
 
 This method has no parameters.
 
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlaces-System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}-'></a>
+### GetFilteredPlaces(filters) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlaces-System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Controller method for getting filtered places
+
+##### Returns
+
+Collection of filtered places
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| filters | [System.Collections.Generic.IList{EasyTravelWeb.Models.Filter}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{EasyTravelWeb.Models.Filter}') | Collection of filters, which you want to apply for search |
+
 <a name='M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64-'></a>
 ### GetPlaceById() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -1759,6 +1790,23 @@ This method has no parameters.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredPlaces-System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}-'></a>
+### GetFilteredPlaces(filters) `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredPlaces-System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Gets list of places accodring to setected filters
+
+##### Returns
+
+List of places according to list of filters
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| filters | [System.Collections.Generic.IList{EasyTravelWeb.Models.Filter}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{EasyTravelWeb.Models.Filter}') | List of filters |
 
 <a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64-'></a>
 ### GetPlaceById() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')

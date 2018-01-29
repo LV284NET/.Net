@@ -5,7 +5,6 @@ using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
-using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -14,7 +13,7 @@ namespace EasyTravelWeb.Controllers
     /// </summary>
     public class PlaceController : ApiController
 	{
-		private readonly Logger loger;
+		private readonly Logger logger;
 		private readonly PlaceRepository placeRepository;
 
 	    /// <summary>
@@ -23,7 +22,7 @@ namespace EasyTravelWeb.Controllers
         public PlaceController()
 		{
 			this.placeRepository = new PlaceRepository();
-			this.loger = Logger.GetInstance();
+			this.logger = Logger.GetInstance();
 		}
 
 
@@ -40,7 +39,7 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.loger.LogException(ex);
+				this.logger.LogException(ex);
 
 				return this.NotFound();
 			}
@@ -72,7 +71,7 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.loger.LogException(ex);
+				this.logger.LogException(ex);
 
 				return this.NotFound();
 			}
@@ -98,7 +97,7 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.loger.LogException(ex);
+				this.logger.LogException(ex);
 
 				return this.NotFound();
 			}
@@ -124,7 +123,7 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.loger.LogException(ex);
+				this.logger.LogException(ex);
 
 				return this.NotFound();
 			}
@@ -148,11 +147,13 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.loger.LogException(ex);
+                this.logger.LogException(ex);
                 return InternalServerError();
             }
             return this.Ok(placeCount);
         }
+
+
 
         /// <summary>
         /// 
@@ -175,12 +176,34 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.loger.LogException(ex);
+                this.logger.LogException(ex);
                 return InternalServerError();
             }
         }
 
-        
+        /// <summary>
+        /// Controller method for getting filtered places
+        /// </summary>
+        /// <param name="filters">Collection of filters, which you want to apply for search</param>
+        /// <returns>Collection of filtered places</returns>
+	    [HttpGet]
+	    public IHttpActionResult GetFilteredPlaces([FromUri]IList<Filter> filters)
+	    {
+	        try
+	        {
+	            IList<Place> filteredPlaces = placeRepository.GetFilteredPlaces(filters);
+                if (filteredPlaces == null)
+                {
+                    return NotFound();
+                }
+                return Ok(filteredPlaces);
+	        }
+	        catch (Exception ex)
+	        {
+	            logger.LogException(ex);
+	            return InternalServerError();
+	        }
+	    }
         /// <summary>
         /// 
         /// </summary>
@@ -202,7 +225,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.loger.LogException(ex);
+                this.logger.LogException(ex);
                 return InternalServerError();
             }
         }
