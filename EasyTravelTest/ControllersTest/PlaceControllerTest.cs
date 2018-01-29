@@ -11,25 +11,6 @@ namespace EasyTravelTest.ControllersTest
     public class PlaceControllerTest
     {
         [TestCase]
-        public void GetPlacesActionTest()
-        {
-            PlaceController placeController = new PlaceController();
-            IHttpActionResult actual = placeController.GetTopPlacesByCityName("Lviv");
-            Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<List<Place>>>());
-        }
-
-        [TestCase]
-        public void GetPlacesContentTest()
-        {
-            PlaceController placeController = new PlaceController();
-
-            var placesList = placeController.GetTopPlacesByCityName("Lviv") as OkNegotiatedContentResult<List<Place>>;
-            var actual = placesList.Content;
-
-            Assert.IsNotEmpty(actual);
-        }
-
-        [TestCase]
         public void GetPlaceActionTest()
         {
             int GetTopPlacesByCityId = 1;

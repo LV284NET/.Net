@@ -14,13 +14,6 @@ namespace EasyTravelTest.RepositoriesTest
     public class CityRepositoryTest
     {
         [TestCase]
-        public void GetCitiesTest()
-        {
-            CityRepository cityRepository = new CityRepository();
-            Assert.AreNotEqual(null, cityRepository.GetCities());
-        }
-
-        [TestCase]
         public void GetCityTest()
         {
             CityRepository cityRepository = new CityRepository();
