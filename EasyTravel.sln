@@ -71,6 +71,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.6", "V1.6", "{0B046B2E-A
 		DB_Scripts\V1.6\ScriptV1.6_Procedure_GetTopPlacesByCityName.sql = DB_Scripts\V1.6\ScriptV1.6_Procedure_GetTopPlacesByCityName.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.7", "V1.7", "{1F4C4A49-3B50-44DA-9261-4F87E84D581B}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V1.7\ScriptV1.7_Function_IntListToTable.sql = DB_Scripts\V1.7\ScriptV1.7_Function_IntListToTable.sql
+		DB_Scripts\V1.7\ScriptV1.7_Procedure_GetFilteredPlaces.sql = DB_Scripts\V1.7\ScriptV1.7_Procedure_GetFilteredPlaces.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +103,7 @@ Global
 		{6007506F-4664-472F-9676-FA83C021ACEA} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 		{26E22196-ACE0-4E10-A96A-4CB6DF287BDD} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 		{0B046B2E-AA01-4F6E-B7AD-87C8F2BD2C0A} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{1F4C4A49-3B50-44DA-9261-4F87E84D581B} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69F34F38-389E-42AF-9CDB-515325528627}
