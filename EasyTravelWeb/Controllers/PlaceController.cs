@@ -154,6 +154,32 @@ namespace EasyTravelWeb.Controllers
 	        }
 	    }
 
+
+        /// <summary>
+        /// Controller method for getting count of filtered places
+        /// </summary>
+        /// <param name="filters">Collection of filters, which you want to apply for search</param>
+        /// <returns>Count of filtered places</returns>
+        [HttpGet]
+        public IHttpActionResult GetCountFromFilteredPlaces(long cityId, [FromUri]IList<Filter> filters)
+        {
+            int placeCount = placeRepository.GetCountPlace(cityId);
+            try
+            {
+                if (placeCount == 0)
+                {
+                    return this.NotFound();
+                }
+                return this.Ok(placeCount);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogException(ex);
+                return InternalServerError();
+            }
+            
+        }
+
         /// <summary>
         ///    
         /// </summary>

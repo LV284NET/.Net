@@ -174,7 +174,7 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetFilteredPlaces(System.Int64,System.Int32,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetFilteredPlacesByCityId(System.Int64,System.Int32,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
             <summary>
             Controller method for getting filtered places
             </summary>
@@ -1139,7 +1139,7 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlaces(System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlacesPage(System.Int32,System.Int64,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
             <summary>
             Gets list of places accodring to setected filters
             </summary>

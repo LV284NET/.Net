@@ -469,5 +469,39 @@ namespace EasyTravelWeb.Repositories
             }
 
         }
+
+        /// <summary>
+        /// Method which takes count fo filtered places from databse
+        /// </summary>
+        /// <param name="filters">Collection of filters, which you want to apply for search</param>
+        /// <returns>Count of places</returns>
+        public int GetFilteredCountPlace(long cityId, IList<Filter> filters)
+        {
+            int placesCount = 0;
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetCountFromFilteredPlaces", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@CityID", cityId));
+                command.Parameters.Add(new SqlParameter("@Filters", string.Join(",", filters)));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            placesCount = Convert.ToInt32(reader["Count"]);
+                        }
+                    }
+                    return placesCount;
+                }
+            }
+
+        }
+     
     }
 }
