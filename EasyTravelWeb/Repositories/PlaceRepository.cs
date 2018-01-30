@@ -57,6 +57,35 @@ namespace EasyTravelWeb.Repositories
         /// <summary>
         ///    
         /// </summary>
+        public double GetPlaceRating(long placeId)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetPlaceRating", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return Convert.ToDouble(reader["PlaceRating"]);
+                    }
+
+                    return 0;
+                }
+            }
+        }
+
+        /// <summary>
+        ///    
+        /// </summary>
         public List<Place> GetPlacesPage(int page, long cityId, int pageSize)
         {
             List<Place> listToReturn = new List<Place>();

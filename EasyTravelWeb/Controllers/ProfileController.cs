@@ -216,7 +216,7 @@ namespace EasyTravelWeb.Controllers
                     return Ok();
                 }
 
-                return Content(HttpStatusCode.BadRequest, "You already add this place to favourite");
+                return Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
             }
             catch (Exception ex)
             {
@@ -226,7 +226,32 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        /// Cotroller fo setting rating place of specific user
+        /// Cotroller fo delete rating place of specific user
+        /// </summary>
+        /// <returns>List of favourite Places</returns>
+        [Authorize]
+        [HttpDelete]
+        //[Route("api/Profile/GetFavoritePlaces")]
+        public IHttpActionResult DeleteUserRatingForPlace([FromBody] UserPlaceRating userRating)
+        {
+            try
+            {
+                if (ratingRepository.DeleteUserRatingForPlace(userRating.UserId, userRating.PlaceId))
+                {
+                    return Ok();
+                }
+
+                return Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogException(ex);
+                return InternalServerError();
+            }
+        }
+
+        /// <summary>
+        /// Cotroller fo getting rating place of specific user
         /// </summary>
         /// <returns>List of favourite Places</returns>
         [Authorize]

@@ -154,6 +154,11 @@
                
             </summary>
         </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlaceRating(System.Int64)">
+            <summary>
+               
+            </summary>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64)">
             <summary>
                
@@ -263,9 +268,15 @@
             </summary>
             <returns>List of favourite Places</returns>
         </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.DeleteUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)">
+            <summary>
+            Cotroller fo delete rating place of specific user
+            </summary>
+            <returns>List of favourite Places</returns>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.ProfileController.GetUserRatingOfPlace(System.Int32,System.Int64)">
             <summary>
-            Cotroller fo setting rating place of specific user
+            Cotroller fo getting rating place of specific user
             </summary>
             <returns>List of favourite Places</returns>
         </member>
@@ -1150,6 +1161,11 @@
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaceById(System.Int64)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaceRating(System.Int64)">
             <summary>
                
             </summary>

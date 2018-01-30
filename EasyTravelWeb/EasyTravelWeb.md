@@ -142,6 +142,7 @@
   - [DeleteUserFavoritePlace(favoritePlace)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)')
   - [GetCountPlaces()](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)')
   - [GetPlaceById()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)')
+  - [GetPlaceRating()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceRating-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetPlaceRating(System.Int64)')
   - [GetPlacesPageByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'EasyTravelWeb.Controllers.PlaceController.GetPlacesPageByCityId(System.Int64,System.Int32,System.Int32)')
   - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64)')
 - [PlaceRepository](#T-EasyTravelWeb-Repositories-PlaceRepository 'EasyTravelWeb.Repositories.PlaceRepository')
@@ -150,6 +151,7 @@
   - [GetCountPlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetCountPlace-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetCountPlace(System.Int64)')
   - [GetFavoritePlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFavoritePlaces-System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetFavoritePlaces(System.Int32)')
   - [GetPlaceById()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceById(System.Int64)')
+  - [GetPlaceRating()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceRating-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceRating(System.Int64)')
   - [GetPlacesIdsAndNames()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesIdsAndNames 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames')
   - [GetPlacesPage()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesPage-System-Int32,System-Int64,System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesPage(System.Int32,System.Int64,System.Int32)')
   - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64)')
@@ -169,6 +171,7 @@
   - [userRepository](#F-EasyTravelWeb-Controllers-ProfileController-userRepository 'EasyTravelWeb.Controllers.ProfileController.userRepository')
   - [ChangeFirstName(id,firstName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)')
   - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)')
+  - [DeleteUserRatingForPlace()](#M-EasyTravelWeb-Controllers-ProfileController-DeleteUserRatingForPlace-EasyTravelWeb-Models-UserPlaceRating- 'EasyTravelWeb.Controllers.ProfileController.DeleteUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)')
   - [GetFavoritePlaces()](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)')
   - [GetUser(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)')
   - [GetUserRatingOfPlace()](#M-EasyTravelWeb-Controllers-ProfileController-GetUserRatingOfPlace-System-Int32,System-Int64- 'EasyTravelWeb.Controllers.ProfileController.GetUserRatingOfPlace(System.Int32,System.Int64)')
@@ -1681,6 +1684,17 @@ This method has no parameters.
 
 This method has no parameters.
 
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetPlaceRating-System-Int64-'></a>
+### GetPlaceRating() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceRating-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32-'></a>
 ### GetPlacesPageByCityId() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -1760,6 +1774,17 @@ This method has no parameters.
 
 <a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64-'></a>
 ### GetPlaceById() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceRating-System-Int64-'></a>
+### GetPlaceRating() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceRating-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -1956,6 +1981,21 @@ result of chaning (Bad or Ok)
 | id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Id of current user |
 | lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Last name which will be updated in database |
 
+<a name='M-EasyTravelWeb-Controllers-ProfileController-DeleteUserRatingForPlace-EasyTravelWeb-Models-UserPlaceRating-'></a>
+### DeleteUserRatingForPlace() `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-DeleteUserRatingForPlace-EasyTravelWeb-Models-UserPlaceRating- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Cotroller fo delete rating place of specific user
+
+##### Returns
+
+List of favourite Places
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces-System-Int32-'></a>
 ### GetFavoritePlaces() `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -1993,7 +2033,7 @@ First, last, email of user
 
 ##### Summary
 
-Cotroller fo setting rating place of specific user
+Cotroller fo getting rating place of specific user
 
 ##### Returns
 

@@ -41,6 +41,31 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
+        public bool DeleteUserRatingForPlace(int userId, long placeId)
+        {
+            using (SqlConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
+                    .ConnectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("DeleteUsersPlaceRating", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@UserID", userId));
+                command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
+
+                if (command.ExecuteNonQuery() != -1)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+
+
         /// <summary>
         ///    
         /// </summary>

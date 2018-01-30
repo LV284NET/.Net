@@ -49,7 +49,25 @@ namespace EasyTravelWeb.Controllers
 	    /// <summary>
 	    ///    
 	    /// </summary>
-		[HttpGet]
+	    [HttpGet]
+	    public IHttpActionResult GetPlaceRating(long placeId)
+	    {
+	        try
+	        {
+	            return this.Ok(this.placeRepository.GetPlaceRating(placeId));
+	        }
+	        catch (Exception ex)
+	        {
+	            this.loger.LogException(ex);
+
+	            return this.NotFound();
+	        }
+	    }
+
+        /// <summary>
+        ///    
+        /// </summary>
+        [HttpGet]
 		[Route("api/Place/GetTopPlacesByCityId")]
 		public IHttpActionResult GetTopPlacesByCityId(long cityId)
 		{
