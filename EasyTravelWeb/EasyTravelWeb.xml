@@ -181,6 +181,13 @@
             <param name="filters">Collection of filters, which you want to apply for search</param>
             <returns>Collection of filtered places</returns>
         </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetCountFromFilteredPlaces(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+            <summary>
+            Controller method for getting count of filtered places
+            </summary>
+            <param name="filters">Collection of filters, which you want to apply for search</param>
+            <returns>Count of filtered places</returns>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)">
             <summary>
                
@@ -1190,6 +1197,13 @@
             <summary>
                
             </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredCountPlace(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+            <summary>
+            Method which takes count fo filtered places from databse
+            </summary>
+            <param name="filters">Collection of filters, which you want to apply for search</param>
+            <returns>Count of places</returns>
         </member>
         <member name="T:EasyTravelWeb.Repositories.UserRepository">
             <summary>

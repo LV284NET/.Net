@@ -140,6 +140,7 @@
   - [#ctor()](#M-EasyTravelWeb-Controllers-PlaceController-#ctor 'EasyTravelWeb.Controllers.PlaceController.#ctor')
   - [AddUserFavouritePlace(favoriteUserPlace)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavoritePlace)')
   - [DeleteUserFavoritePlace(favoritePlace)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)')
+  - [GetCountFromFilteredPlaces(filters)](#M-EasyTravelWeb-Controllers-PlaceController-GetCountFromFilteredPlaces-System-Int64,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Controllers.PlaceController.GetCountFromFilteredPlaces(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetCountPlaces()](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)')
   - [GetFilteredPlacesByCityId(filters)](#M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlacesByCityId-System-Int64,System-Int32,System-Int32,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Controllers.PlaceController.GetFilteredPlacesByCityId(System.Int64,System.Int32,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetPlaceById()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)')
@@ -151,6 +152,7 @@
   - [DeleteFavoritePlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-DeleteFavoritePlace-System-Int32,System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.DeleteFavoritePlace(System.Int32,System.Int64)')
   - [GetCountPlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetCountPlace-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetCountPlace(System.Int64)')
   - [GetFavoritePlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFavoritePlaces-System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetFavoritePlaces(System.Int32)')
+  - [GetFilteredCountPlace(filters)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredCountPlace-System-Int64,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Repositories.PlaceRepository.GetFilteredCountPlace(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetFilteredPlacesPage(filters)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredPlacesPage-System-Int32,System-Int64,System-Int32,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlacesPage(System.Int32,System.Int64,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetPlaceById()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceById(System.Int64)')
   - [GetPlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaces 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaces')
@@ -1664,6 +1666,23 @@ This constructor has no parameters.
 | ---- | ---- | ----------- |
 | favoritePlace | [EasyTravelWeb.Models.FavoritePlace](#T-EasyTravelWeb-Models-FavoritePlace 'EasyTravelWeb.Models.FavoritePlace') |  |
 
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetCountFromFilteredPlaces-System-Int64,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}-'></a>
+### GetCountFromFilteredPlaces(filters) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetCountFromFilteredPlaces-System-Int64,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Controller method for getting count of filtered places
+
+##### Returns
+
+Count of filtered places
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| filters | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | Collection of filters, which you want to apply for search |
+
 <a name='M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64-'></a>
 ### GetCountPlaces() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -1790,6 +1809,23 @@ This method has no parameters.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredCountPlace-System-Int64,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}-'></a>
+### GetFilteredCountPlace(filters) `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredCountPlace-System-Int64,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method which takes count fo filtered places from databse
+
+##### Returns
+
+Count of places
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| filters | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | Collection of filters, which you want to apply for search |
 
 <a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredPlacesPage-System-Int32,System-Int64,System-Int32,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}-'></a>
 ### GetFilteredPlacesPage(filters) `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredPlacesPage-System-Int32,System-Int64,System-Int32,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'Go To Here') [=](#contents 'Back To Contents')

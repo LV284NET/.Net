@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Web.Http.Results;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Controllers;
 using EasyTravelWeb.Models;
 using Microsoft.AspNet.Identity;
+using WebGrease.Css.Extensions;
 
 namespace EasyTravelWeb.Repositories
 {
@@ -119,7 +121,9 @@ namespace EasyTravelWeb.Repositories
                 command.Parameters.Add(new SqlParameter("@CityID", cityId));
                 command.Parameters.Add(new SqlParameter("@PageNumber", page));
                 command.Parameters.Add(new SqlParameter("@PageSize", pageSize));
-                command.Parameters.Add(new SqlParameter("@Filters", string.Join(",", filters)));
+
+                IEnumerable<int> enumsToIntList = filters.Cast<int>();
+                command.Parameters.Add(new SqlParameter("@Filters", string.Join(",", enumsToIntList)));
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
