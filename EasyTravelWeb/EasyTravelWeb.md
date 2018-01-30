@@ -141,7 +141,7 @@
   - [AddUserFavouritePlace(favoriteUserPlace)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavoritePlace)')
   - [DeleteUserFavoritePlace(favoritePlace)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)')
   - [GetCountPlaces()](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)')
-  - [GetFilteredPlaces(filters)](#M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlaces-System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Controllers.PlaceController.GetFilteredPlaces(System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
+  - [GetFilteredPlaces(filters)](#M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlaces-System-Int64,System-Int32,System-Int32,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Controllers.PlaceController.GetFilteredPlaces(System.Int64,System.Int32,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetPlaceById()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)')
   - [GetPlacesPageByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'EasyTravelWeb.Controllers.PlaceController.GetPlacesPageByCityId(System.Int64,System.Int32,System.Int32)')
   - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64)')
@@ -1675,8 +1675,8 @@ This constructor has no parameters.
 
 This method has no parameters.
 
-<a name='M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlaces-System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}-'></a>
-### GetFilteredPlaces(filters) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlaces-System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlaces-System-Int64,System-Int32,System-Int32,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}-'></a>
+### GetFilteredPlaces(filters) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlaces-System-Int64,System-Int32,System-Int32,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -1690,7 +1690,7 @@ Collection of filtered places
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| filters | [System.Collections.Generic.IList{EasyTravelWeb.Models.Filter}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{EasyTravelWeb.Models.Filter}') | Collection of filters, which you want to apply for search |
+| filters | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | Collection of filters, which you want to apply for search |
 
 <a name='M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64-'></a>
 ### GetPlaceById() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')

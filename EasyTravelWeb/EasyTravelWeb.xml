@@ -174,6 +174,13 @@
                
             </summary>
         </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetFilteredPlaces(System.Int64,System.Int32,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+            <summary>
+            Controller method for getting filtered places
+            </summary>
+            <param name="filters">Collection of filters, which you want to apply for search</param>
+            <returns>Collection of filtered places</returns>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)">
             <summary>
                
@@ -185,13 +192,6 @@
             </summary>
             <param name="favoriteUserPlace"></param>
             <returns></returns>
-        </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetFilteredPlaces(System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
-            <summary>
-            Controller method for getting filtered places
-            </summary>
-            <param name="filters">Collection of filters, which you want to apply for search</param>
-            <returns>Collection of filtered places</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)">
             <summary>
@@ -1139,6 +1139,13 @@
                
             </summary>
         </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlaces(System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+            <summary>
+            Gets list of places accodring to setected filters
+            </summary>
+            <param name="filters">List of filters</param>
+            <returns>List of places according to list of filters</returns>
+        </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlacesByCityId(System.Int64)">
             <summary>
                
@@ -1178,13 +1185,6 @@
             <summary>
                
             </summary>
-        </member>
-        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlaces(System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
-            <summary>
-            Gets list of places accodring to setected filters
-            </summary>
-            <param name="filters">List of filters</param>
-            <returns>List of places according to list of filters</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetCountPlace(System.Int64)">
             <summary>

@@ -131,8 +131,32 @@ namespace EasyTravelWeb.Controllers
 		}
 
 	    /// <summary>
-	    ///    
+	    /// Controller method for getting filtered places
 	    /// </summary>
+	    /// <param name="filters">Collection of filters, which you want to apply for search</param>
+	    /// <returns>Collection of filtered places</returns>
+	    [HttpGet]
+	    public IHttpActionResult GetFilteredPlacesByCityId(long cityId, int page, int pageSize, [FromUri]IList<Filter> filters)
+	    {
+	        try
+	        {
+	            IList<Place> filteredPlaces = placeRepository.GetFilteredPlacesPage(page, cityId, pageSize, filters);
+	            if (filteredPlaces == null)
+	            {
+	                return NotFound();
+	            }
+	            return Ok(filteredPlaces);
+	        }
+	        catch (Exception ex)
+	        {
+	            logger.LogException(ex);
+	            return InternalServerError();
+	        }
+	    }
+
+        /// <summary>
+        ///    
+        /// </summary>
         [Route("api/Place/GetCountPlaces")]
         [HttpGet]
         public IHttpActionResult GetCountPlaces(long cityId)
@@ -181,29 +205,6 @@ namespace EasyTravelWeb.Controllers
             }
         }
 
-        /// <summary>
-        /// Controller method for getting filtered places
-        /// </summary>
-        /// <param name="filters">Collection of filters, which you want to apply for search</param>
-        /// <returns>Collection of filtered places</returns>
-	    [HttpGet]
-	    public IHttpActionResult GetFilteredPlaces([FromUri]IList<Filter> filters)
-	    {
-	        try
-	        {
-	            IList<Place> filteredPlaces = placeRepository.GetFilteredPlaces(filters);
-                if (filteredPlaces == null)
-                {
-                    return NotFound();
-                }
-                return Ok(filteredPlaces);
-	        }
-	        catch (Exception ex)
-	        {
-	            logger.LogException(ex);
-	            return InternalServerError();
-	        }
-	    }
         /// <summary>
         /// 
         /// </summary>

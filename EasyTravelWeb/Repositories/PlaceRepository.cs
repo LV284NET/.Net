@@ -99,6 +99,50 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
+        /// Gets list of places accodring to setected filters
+        /// </summary>
+        /// <param name="filters">List of filters</param>
+        /// <returns>List of places according to list of filters</returns>
+        public virtual IList<Place> GetFilteredPlacesPage(int page, long cityId, int pageSize, IList<Filter> filters)
+        {
+            IList<Place> filteredPlaces = new List<Place>();
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetFilteredPlaces", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                command.Parameters.Add(new SqlParameter("@CityID", cityId));
+                command.Parameters.Add(new SqlParameter("@PageNumber", page));
+                command.Parameters.Add(new SqlParameter("@PageSize", pageSize));
+                command.Parameters.Add(new SqlParameter("@Filters", string.Join(",", filters)));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            filteredPlaces.Add(new Place
+                            {
+                                PlaceId = Convert.ToInt64(reader["PlaceID"]),
+                                Name = reader["PlaceName"].ToString(),
+                                Description = reader["PlaceDescription"].ToString(),
+                                PicturePlace = reader["MainPlaceImage"].ToString(),
+                                CityName = reader["CityName"].ToString(),
+                            });
+                        }
+                    }
+                    return filteredPlaces;
+                }
+            }
+        }
+
+        /// <summary>
         ///    
         /// </summary>
         public List<Place> GetPlacesByCityId(long cityId)
@@ -391,47 +435,6 @@ namespace EasyTravelWeb.Repositories
                         }
                     }
                     return favouritePlaces;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets list of places accodring to setected filters
-        /// </summary>
-        /// <param name="filters">List of filters</param>
-        /// <returns>List of places according to list of filters</returns>
-        public virtual IList<Place> GetFilteredPlaces(IList<Filter> filters)
-        {
-            IList<Place> filteredPlaces = new List<Place>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("GetFilteredPlaces", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                command.Parameters.Add(new SqlParameter("@Filters", string.Join(",", filters)));
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            filteredPlaces.Add(new Place
-                            {
-                                PlaceId = Convert.ToInt64(reader["PlaceID"]),
-                                Name = reader["PlaceName"].ToString(),
-                                Description = reader["PlaceDescription"].ToString(),
-                                PicturePlace = reader["MainPlaceImage"].ToString(),
-                                CityName = reader["CityName"].ToString(),
-                                CityId = Convert.ToInt64(reader["CityID"])
-                            });
-                        }
-                    }
-                    return filteredPlaces;
                 }
             }
         }
