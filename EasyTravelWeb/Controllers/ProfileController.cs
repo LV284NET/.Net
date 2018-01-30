@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using System;
+using System.Net;
 using EasyTravelWeb.Infrastructure.Validators;
 using Microsoft.AspNet.Identity;
 
@@ -20,6 +21,12 @@ namespace EasyTravelWeb.Controllers
         /// Instance of UserRepository, using methods to do actions with database
         /// </summary>
         private readonly UserRepository userRepository = new UserRepository();
+
+
+        /// <summary>
+        /// Instance of RatingRepository, using methods to do actions with database
+        /// </summary>
+        private readonly RatingRepository ratingRepository = new RatingRepository();
 
         /// <summary>
         /// Instance for stroring exceptions in file
@@ -190,6 +197,51 @@ namespace EasyTravelWeb.Controllers
                 return this.NotFound();
             }
 
+        }
+
+
+        /// <summary>
+        /// Cotroller fo setting rating place of specific user
+        /// </summary>
+        /// <returns>List of favourite Places</returns>
+        [Authorize]
+        [HttpPost]
+        //[Route("api/Profile/GetFavoritePlaces")]
+        public IHttpActionResult SetUserRatingForPlace([FromBody] UserPlaceRating userRating)
+        {
+            try
+            {
+                if (ratingRepository.SetUserRatingForPlace(userRating))
+                {
+                    return Ok();
+                }
+
+                return Content(HttpStatusCode.BadRequest, "You already add this place to favourite");
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogException(ex);
+                return InternalServerError();
+            }
+        }
+
+        /// <summary>
+        /// Cotroller fo setting rating place of specific user
+        /// </summary>
+        /// <returns>List of favourite Places</returns>
+        [Authorize]
+        [HttpGet]
+        public IHttpActionResult GetUserRatingOfPlace(int userId, long placeId)
+        {
+            try
+            {
+                return Ok(ratingRepository.GetUserRatingOfPlace(userId, placeId));                
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogException(ex);
+                return InternalServerError();
+            }
         }
 
         #endregion

@@ -44,7 +44,8 @@ namespace EasyTravelWeb.Repositories
                             Name = reader["PlaceName"].ToString(),
                             CityName = reader["CityName"].ToString(),
                             Description = reader["PlaceDescription"].ToString(),
-                            PicturePlace = reader["MainPlaceImage"].ToString()
+                            PicturePlace = reader["MainPlaceImage"].ToString(),
+                            PlaceRating = Convert.ToDouble(reader["PlaceRating"])
                         };
                     }
 
@@ -86,7 +87,8 @@ namespace EasyTravelWeb.Repositories
                                 Name = reader["PlaceName"].ToString(),
                                 Description = reader["PlaceDescription"].ToString(),
                                 PicturePlace = reader["MainPlaceImage"].ToString(),
-                                CityName = reader["CityName"].ToString()
+                                CityName = reader["CityName"].ToString(),
+                                PlaceRating = Convert.ToDouble(reader["PlaceRating"])
                             });
                         }
 
@@ -98,96 +100,12 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        /// <summary>
-        ///    
-        /// </summary>
-        public List<Place> GetPlacesByCityId(long cityId)
-        {
-            List<Place> listToReturn = new List<Place>();
-
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("GetPlacesByCityId", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-
-                command.Parameters.Add(new SqlParameter("@CityID", cityId));
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            listToReturn.Add(new Place
-                            {
-                                PlaceId = Convert.ToInt32(reader["PlaceID"]),
-                                Name = reader["PlaceName"].ToString(),
-                                Description = reader["PlaceDescription"].ToString(),
-                                PicturePlace = reader["MainPlaceImage"].ToString(),
-                                CityName = reader["CityName"].ToString()
-                            });
-                        }
-
-                        return listToReturn;
-                    }
-                }
-            }
-
-            return null;
-        }
 
         internal List<Place> GetPlacesByCityId(long? cityId)
         {
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        ///    
-        /// </summary>
-        public List<Place> GetTopPlacesByCityName(string cityName)
-        {
-            List<Place> listToReturn = new List<Place>();
-
-            using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
-            {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand("GetTopPlacesByCityName", connection);
-
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.Add(new SqlParameter("@CityName", cityName));
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            listToReturn.Add(new Place
-                            {
-                                PlaceId = Convert.ToInt32(reader["PlaceID"]),
-                                Name = reader["PlaceName"].ToString(),
-                                Description = reader["PlaceDescription"].ToString(),
-                                PicturePlace = reader["MainPlaceImage"].ToString(),
-                                CityName = ""
-                            });
-                        }
-
-                        return listToReturn;
-                    }
-                }
-            }
-
-            return null;
-        }
 
         /// <summary>
         ///    
@@ -227,44 +145,6 @@ namespace EasyTravelWeb.Repositories
             }
 
             //return null;
-        }
-
-        /// <summary>
-        ///    
-        /// </summary>
-        public List<Place> GetPlaces()
-        {
-            List<Place> placesToReturn = new List<Place>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("GetPlaces", connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            placesToReturn.Add(new Place
-                            {
-                                PlaceId = Convert.ToInt32(reader["PlaceID"]),
-                                Name = reader["PlaceName"].ToString(),
-                                Description = reader["PlaceDescription"].ToString(),
-                                PicturePlace = reader["MainPlaceImage"].ToString(),
-                                CityName = reader["CityName"].ToString()
-                            });
-                        }
-
-                        return placesToReturn;
-                    }
-                }
-            }
-
-            return null;
         }
 
         /// <summary>

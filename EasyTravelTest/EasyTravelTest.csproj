@@ -72,7 +72,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControllersTest\HomeControllerTest.cs" />
     <Compile Include="ControllersTest\CityControllerTest.cs" />
     <Compile Include="ControllersTest\PlaceControllerTest.cs" />
     <Compile Include="ControllersTest\SearchControllerTest.cs" />

@@ -17,8 +17,7 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="V1.2/ScriptV1.2_InsertData.sql" relativeToChangelogFile="true"/>
     <include file="V1.2/ScriptV1.2_Procedure_GetPlaces.sql" relativeToChangelogFile="true"/>
   
-    <include file="V1.3/ScriptV1.3_Alter_Table_AspNetUsers_Add_FirstName_And_LastName_Columns.sql"
-             relativeToChangelogFile="true"/>
+    <include file="V1.3/ScriptV1.3_Alter_Table_AspNetUsers_Add_FirstName_And_LastName_Columns.sql" relativeToChangelogFile="true"/>
   
     <include file="V1.4/ScriptV1.4_TrunkateDataAstNetUsers.sql" relativeToChangelogFile="true"/>
     <include file="V1.4/ScriptV1.4_Procedure_GetCitiesIdAndNames.sql" relativeToChangelogFile="true"/>
@@ -42,5 +41,40 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="V1.6/ScriptV1.6_Procedure_GetCities.sql" relativeToChangelogFile="true"/>
     <include file="V1.6/ScriptV1.6_Procedure_GetCitiesPage.sql" relativeToChangelogFile="true"/>
     <include file="V1.6/ScriptV1.6_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
-  
+
+    <include file="V1.7/ScriptV1.7_Create_Table_UsersPlaceRatings.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_InsertOrUpdateUsersPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Insert_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Delete_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Delete" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Update_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Update" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Update_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Update.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Insert_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Insert.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Delete_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Delete.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlaceById_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetPlaceById.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetCitiesPage_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetCitiesPage.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetCityById_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlacesPage_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetPlacesPage.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetTopPlacesByCityId_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetTopPlacesByCityId.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetUserPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetUserPlaceRating.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetTopCities_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetTopCities.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetCities_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlaceByName_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlacesByCityId_If_Exists.sql" relativeToChangelogFile="true"/>
+
 </databaseChangeLog> 
