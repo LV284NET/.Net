@@ -46,6 +46,12 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Drop_Procedure_InsertOrUpdateUsersPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_DeleteUsersPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_DeleteUsersPlaceRating.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_UpdatePlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_UpdatePlaceRating.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_UpdateCityRating_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_UpdateCityRating.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Insert_If_Exists.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Delete_If_Exists.sql" relativeToChangelogFile="true"/>

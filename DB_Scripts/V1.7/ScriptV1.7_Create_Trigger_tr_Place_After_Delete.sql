@@ -3,20 +3,9 @@ ON [dbo].[Place]
 AFTER DELETE
 AS
 BEGIN
-	DECLARE @CityRating decimal(18,2)
-	SELECT @CityRating = (SELECT AVG([PlaceRating])
-							FROM [dbo].[Place]
-							WHERE [CityID] = (SELECT [CityID] from deleted)
-							AND [PlaceRating] > 0)
+	DECLARE @CityID bigint
 
-	BEGIN TRY
-		BEGIN TRANSACTION
-			UPDATE [dbo].[City]
-			SET [CityRating] = @CityRating
-			WHERE [CityID] = (SELECT [CityID] from deleted)
-		COMMIT TRANSACTION
-	END TRY
-	BEGIN CATCH
-		ROLLBACK TRANSACTION
-	END CATCH
+	SELECT @CityID = (SELECT [CityID] from deleted)
+
+	EXEC [dbo].[UpdateCityRating] @CityID
 END

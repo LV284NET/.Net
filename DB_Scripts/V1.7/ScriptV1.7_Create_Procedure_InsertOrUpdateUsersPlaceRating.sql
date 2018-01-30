@@ -1,6 +1,6 @@
 CREATE PROCEDURE [dbo].[InsertOrUpdateUsersPlaceRating] 
 (
-	@UserID int, --int -> bigint in the future!
+	@UserID int,
 	@PlaceID bigint, 
 	@Rating decimal(18,2)
 ) 
