@@ -3,20 +3,9 @@ ON [dbo].[Place]
 AFTER INSERT
 AS
 BEGIN
-	DECLARE @CityRating decimal(18,2)
-	SELECT @CityRating = (SELECT AVG([PlaceRating])
-							FROM [dbo].[Place]
-							WHERE [CityID] = (SELECT [CityID] from inserted)
-							AND [PlaceRating] > 0)
+	DECLARE @CityID bigint
 
-	BEGIN TRY
-		BEGIN TRANSACTION
-			UPDATE [dbo].[City]
-			SET [CityRating] = @CityRating
-			WHERE [CityID] = (SELECT [CityID] from inserted)
-		COMMIT TRANSACTION
-	END TRY
-	BEGIN CATCH
-		ROLLBACK TRANSACTION
-	END CATCH
+	SELECT @CityID = (SELECT [CityID] from inserted)
+
+	EXEC [dbo].[UpdateCityRating] @CityID
 END
