@@ -1,13 +1,10 @@
-﻿Create procedure [dbo].[GetUserById] (@Id nvarchar(256))
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'GetUserById')
+BEGIN
+	DROP PROCEDURE [dbo].[GetUserById]
+END
+GO
+Create procedure [dbo].[GetUserById] (@Id nvarchar(256))
 as
-
-IF EXISTS (
-  SELECT * 
-  FROM   sys.objects 
-  WHERE  object_id = OBJECT_ID(N'[dbo].[GetUserById]') 
-         AND type IN (N'P', N'PC')
-)
-
 begin 
 	select [AspNetUsers].Email, [AspNetUsers].FirstName, [AspNetUsers].LastName 
 	From AspNetUsers

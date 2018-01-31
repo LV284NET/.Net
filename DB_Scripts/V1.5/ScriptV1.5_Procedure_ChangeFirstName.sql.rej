@@ -1,8 +1,0 @@
-diff a/DB_Scripts/V1.5/ScriptV1.5_Procedure_ChangeFirstName.sql b/DB_Scripts/V1.5/ScriptV1.5_Procedure_ChangeFirstName.sql	(rejected hunks)
-@@ -1,5 +1,5 @@
- ﻿Create procedure [dbo].[ChangeLastName] 
--			(@Id nvarchar(256), 
-+			(@Email nvarchar(256), 
- 			@LastName nvarchar(256))
- as
- 

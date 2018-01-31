@@ -1,3 +1,8 @@
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'InsertOrUpdateUsersPlaceRating')
+BEGIN
+	DROP PROCEDURE [dbo].[InsertOrUpdateUsersPlaceRating]
+END
+GO
 CREATE PROCEDURE [dbo].[InsertOrUpdateUsersPlaceRating] 
 (
 	@UserID int,

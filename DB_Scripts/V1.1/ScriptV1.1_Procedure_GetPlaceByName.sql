@@ -1,4 +1,9 @@
-﻿CREATE procedure [dbo].[GetPlaceByName] (@PlaceName nvarchar(40))
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'GetPlaceByName')
+BEGIN
+	DROP PROCEDURE [dbo].[GetPlaceByName]
+END
+GO
+CREATE procedure [dbo].[GetPlaceByName] (@PlaceName nvarchar(40))
 as
 
 set transaction isolation level read committed

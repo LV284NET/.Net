@@ -1,14 +1,10 @@
-﻿Create procedure [dbo].[GetPlacesPage] (@PageNumber int, @PageSize int, @CityID bigint)
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'GetPlacesPage')
+BEGIN
+	DROP PROCEDURE [dbo].[GetPlacesPage]
+END
+GO
+Create procedure [dbo].[GetPlacesPage] (@PageNumber int, @PageSize int, @CityID bigint)
 as
-
-IF EXISTS (
-  SELECT * 
-  FROM   sys.objects 
-  WHERE  object_id = OBJECT_ID(N'[dbo].[GetPlacesPage]') 
-         AND type IN (N'P', N'PC')
-)
-
-
 begin 
 	select [City].[CityName], [Place].PlaceID, [Place].PlaceName, [Place].PlaceDescription, [Place].MainPlaceImage
 	from [Place] inner join [City]	

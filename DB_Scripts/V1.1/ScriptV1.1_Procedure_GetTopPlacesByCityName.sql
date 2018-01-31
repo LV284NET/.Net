@@ -1,4 +1,9 @@
-﻿CREATE procedure [dbo].[GetTopPlacesByCityName] (@CityName nvarchar(40))
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'GetTopPlacesByCityName')
+BEGIN
+	DROP PROCEDURE [dbo].[GetTopPlacesByCityName]
+END
+GO
+CREATE procedure [dbo].[GetTopPlacesByCityName] (@CityName nvarchar(40))
 as
 
 set transaction isolation level read committed 

@@ -1,3 +1,8 @@
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'UpdateCityRating')
+BEGIN
+	DROP PROCEDURE [dbo].[UpdateCityRating]
+END
+GO
 CREATE PROCEDURE [dbo].[UpdateCityRating](@CityID bigint)
 AS
 BEGIN

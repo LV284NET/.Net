@@ -4,90 +4,91 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <include file="V1.0/ScriptV1.0.sql" relativeToChangelogFile="true"/>
-  
-    <include file="V1.1/ScriptV1.1_Procedures.sql" relativeToChangelogFile="true"/>
-    <include file="V1.1/ScriptV1.1_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
-    <include file="V1.1/ScriptV1.1_Procedure_GetPlaceById.sql" relativeToChangelogFile="true"/>
-    <include file="V1.1/ScriptV1.1_Procedure_GetPlaceByName.sql" relativeToChangelogFile="true"/>
-    <include file="V1.1/ScriptV1.1_Procedure_GetPlacesByCityId.sql" relativeToChangelogFile="true"/>
-    <include file="V1.1/ScriptV1.1_Procedure_GetTopPlacesByCityId.sql" relativeToChangelogFile="true"/>
-    <include file="V1.1/ScriptV1.1_Procedure_GetTopPlacesByCityName.sql" relativeToChangelogFile="true"/>
-  
-    <include file="V1.2/ScriptV1.2_InsertData.sql" relativeToChangelogFile="true"/>
-    <include file="V1.2/ScriptV1.2_Procedure_GetPlaces.sql" relativeToChangelogFile="true"/>
-  
-    <include file="V1.3/ScriptV1.3_Alter_Table_AspNetUsers_Add_FirstName_And_LastName_Columns.sql" relativeToChangelogFile="true"/>
-  
-    <include file="V1.4/ScriptV1.4_TrunkateDataAstNetUsers.sql" relativeToChangelogFile="true"/>
-    <include file="V1.4/ScriptV1.4_Procedure_GetCitiesIdAndNames.sql" relativeToChangelogFile="true"/>
-    <include file="V1.4/ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql" relativeToChangelogFile="true"/>
-  
-    <include file="V1.5/ScriptV1.5_Procedure_ChangeFirstName.sql" relativeToChangelogFile="true"/>
-    <include file="V1.5/ScriptV1.5_Procedure_ChangeLastName.sql" relativeToChangelogFile="true"/>
-    <include file="V1.5/ScriptV1.5_Procedure_GetUserById.sql" relativeToChangelogFile="true"/>
-    <include file="V1.5/ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql" relativeToChangelogFile="true"/>
-    <include file="V1.5/ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql" relativeToChangelogFile="true"/>
-    <include file="V1.5/ScriptV1.5_Procedure_GetCitiesPage.sql" relativeToChangelogFile="true"/>
-    <include file="V1.5/ScriptV1.5_Procedure_GetPlacesPage.sql" relativeToChangelogFile="true"/>
-    <include file="V1.5/ScriptV1.5_Procedure_GetCountCity.sql" relativeToChangelogFile="true"/>
-    <include file="V1.5/ScriptV1.5_Procedure_GetCountPlace.sql" relativeToChangelogFile="true"/>
-  
-    <include file="V1.6/ScriptV1.6_Procedure_GetTopPlacesByCityId.sql" relativeToChangelogFile="true"/>
-    <include file="V1.6/ScriptV1.6_Procedure_GetTopPlacesByCityName.sql" relativeToChangelogFile="true"/>
-    <include file="V1.6/ScriptV1.6_Procedure_GetPlaces.sql" relativeToChangelogFile="true"/>
-    <include file="V1.6/ScriptV1.6_Procedure_GetCountCity.sql" relativeToChangelogFile="true"/>
-    <include file="V1.6/ScriptV1.6_Procedure_GetCountPlace.sql" relativeToChangelogFile="true"/>
-    <include file="V1.6/ScriptV1.6_Procedure_GetCities.sql" relativeToChangelogFile="true"/>
-    <include file="V1.6/ScriptV1.6_Procedure_GetCitiesPage.sql" relativeToChangelogFile="true"/>
-    <include file="V1.6/ScriptV1.6_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
+  <changeSet author="Pavlo Shostak" id="V1.0">
+    <sqlFile path="V1.0/ScriptV1.0.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>
 
-    <include file="V1.7/ScriptV1.7_Create_Table_UsersPlaceRatings.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_InsertOrUpdateUsersPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_DeleteUsersPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_DeleteUsersPlaceRating.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_UpdatePlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_UpdatePlaceRating.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_UpdateCityRating_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_UpdateCityRating.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Insert_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Delete_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Delete" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Update_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Update" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Update_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Update.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Insert_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Insert.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Delete_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Delete.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlaceById_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_GetPlaceById.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetCitiesPage_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_GetCitiesPage.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetCityById_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlacesPage_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_GetPlacesPage.sql" relativeToChangelogFile="true"/>
+  <changeSet author="Pavlo Shostak" id="V1.1">
+    <sqlFile path="V1.1/ScriptV1.1_Procedure_GetCities.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.1/ScriptV1.1_Procedure_GetCityById.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.1/ScriptV1.1_Procedure_GetPlaceById.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.1/ScriptV1.1_Procedure_GetPlaceByName.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.1/ScriptV1.1_Procedure_GetPlacesByCityId.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.1/ScriptV1.1_Procedure_GetTopPlacesByCityId.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.1/ScriptV1.1_Procedure_GetTopPlacesByCityName.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>
 
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetTopPlacesByCityId_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_GetTopPlacesByCityId.sql" relativeToChangelogFile="true"/>
-
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetUserPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_GetUserPlaceRating.sql" relativeToChangelogFile="true"/>
-
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetTopCities_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Create_Procedure_GetTopCities.sql" relativeToChangelogFile="true"/>
-
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetCities_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlaceByName_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlacesByCityId_If_Exists.sql" relativeToChangelogFile="true"/>
-    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetTopPlacesByCityName_If_Exists.sql" relativeToChangelogFile="true"/>
-
+  <changeSet author="Pavlo Shostak" id="V1.2">
+    <sqlFile path="V1.2/ScriptV1.2_InsertData.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.2/ScriptV1.2_Procedure_GetPlaces.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>
   
+  <changeSet author="Dmytro Ratynchuk" id="V1.3">
+    <sqlFile path="V1.3/ScriptV1.3_Alter_Table_AspNetUsers_Add_FirstName_And_LastName_Columns.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>
 
+  <changeSet author="Bohdan Shchur" id="V1.4">
+    <sqlFile path="V1.4/ScriptV1.4_TrunkateDataAstNetUsers.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.4/ScriptV1.4_Procedure_GetCitiesIdAndNames.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.4/ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>
+
+  <changeSet author="Rostyslav Tsenov" id="V1.5">
+    <sqlFile path="V1.5/ScriptV1.5_Procedure_ChangeFirstName.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.5/ScriptV1.5_Procedure_ChangeLastName.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.5/ScriptV1.5_Procedure_GetUserById.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.5/ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.5/ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.5/ScriptV1.5_Procedure_GetCitiesPage.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.5/ScriptV1.5_Procedure_GetPlacesPage.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.5/ScriptV1.5_Procedure_GetCountCity.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.5/ScriptV1.5_Procedure_GetCountPlace.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>
+  <changeSet author="Rostyslav Tsenov" id="V1.6">
+    <sqlFile path="V1.6/ScriptV1.6_Procedure_GetCitiesPage.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.6/ScriptV1.6_Procedure_GetTopPlacesByCityId.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.6/ScriptV1.6_Procedure_GetTopPlacesByCityName.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.6/ScriptV1.6_Procedure_GetPlaces.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.6/ScriptV1.6_Procedure_GetCountCity.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.6/ScriptV1.6_Procedure_GetCountPlace.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.6/ScriptV1.6_Procedure_GetCityById.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>
+  
+  <changeSet author="Dmytro Ratynchuk" id="V1.7">
+    <sqlFile path="V1.7/ScriptV1.7_IdentityChangeColumnId.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Table_UsersPlaceRatings.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Alter_Table_City-Add_CityRating_Column.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_DeleteUsersPlaceRating.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_UpdatePlaceRating.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_UpdateCityRating.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Delete.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Update.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Update.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Insert.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Delete.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_GetPlaceById.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_GetCitiesPage.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_GetCityById.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_GetPlacesPage.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_GetTopPlacesByCityId.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_GetPlaceRating.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_GetUserPlaceRating.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+
+    <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_GetTopCities.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+
+    <sqlFile path="V1.7/ScriptV1.7_Drop_Procedure_GetCities_If_Exists.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Drop_Procedure_GetPlaceByName_If_Exists.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Drop_Procedure_GetPlacesByCityId_If_Exists.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_Drop_Procedure_GetTopPlacesByCityName_If_Exists.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>  
+
+  <changeSet author="Pavlo Shostak" id="V1.8">
+    <sqlFile path="V1.8/ScriptV1.8_Fix_Data_ColumnCityRatingNull.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>
 </databaseChangeLog> 
