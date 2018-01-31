@@ -58,6 +58,7 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <sqlFile path="V1.7/ScriptV1.7_IdentityChangeColumnId.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V1.7/ScriptV1.7_Create_Table_UsersPlaceRatings.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.7/ScriptV1.7_SetData_ColumnPlaceRating.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V1.7/ScriptV1.7_Alter_Table_City-Add_CityRating_Column.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V1.7/ScriptV1.7_Create_Procedure_DeleteUsersPlaceRating.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
