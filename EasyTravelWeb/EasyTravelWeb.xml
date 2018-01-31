@@ -154,11 +154,6 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlaceRating(System.Int64)">
-            <summary>
-               
-            </summary>
-        </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64)">
             <summary>
                
@@ -1202,13 +1197,17 @@
             <param name="filters">List of filters</param>
             <returns>List of places according to list of filters</returns>
         </member>
-        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlacesByCityId(System.Int64)">
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlacesPage(System.Int32,System.Int64,System.Int32)">
             <summary>
                
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaces">
             <summary>
                
             </summary>
@@ -1238,16 +1237,6 @@
                
             </summary>
         </member>
-        <member name="T:EasyTravelWeb.Repositories.RatingRepository">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="M:EasyTravelWeb.Repositories.RatingRepository.GetUserRatingOfPlace(System.Int32,System.Int64)">
-            <summary>
-               
-            </summary>
-        </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredCountPlace(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
             <summary>
             Method which takes count fo filtered places from databse
@@ -1260,6 +1249,16 @@
             Method which takes filter of specific place
             </summary>
             <returns>list of place filters</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Repositories.RatingRepository">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.RatingRepository.GetUserRatingOfPlace(System.Int32,System.Int64)">
+            <summary>
+               
+            </summary>
         </member>
         <member name="T:EasyTravelWeb.Repositories.UserRepository">
             <summary>
