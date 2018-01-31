@@ -81,17 +81,6 @@ namespace EasyTravelWeb.Repositories
                     {
                         return Convert.ToDouble(reader["PlaceRating"]);
                     }
-                        while (reader.Read())
-                        {
-                            listToReturn.Add(new Place
-                            {
-                                PlaceId = Convert.ToInt64(reader["PlaceID"]),
-                                Name = reader["PlaceName"].ToString(),
-                                Description = reader["PlaceDescription"].ToString(),
-                                PicturePlace = reader["MainPlaceImage"].ToString(),
-                                CityName = reader["CityName"].ToString()
-                            });
-                        }
 
                     return 0;
                 }
@@ -136,6 +125,7 @@ namespace EasyTravelWeb.Repositories
                                 Description = reader["PlaceDescription"].ToString(),
                                 PicturePlace = reader["MainPlaceImage"].ToString(),
                                 CityName = reader["CityName"].ToString(),
+                                PlaceRating = Convert.ToDouble(reader["PlaceRating"])
                             });
                         }
                     }
