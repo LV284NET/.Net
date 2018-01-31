@@ -163,7 +163,7 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetCountFromFilteredPlaces(long cityId, [FromUri]IList<Filter> filters)
         {
-            int placeCount = placeRepository.GetCountPlace(cityId);
+            int placeCount = placeRepository.GetFilteredCountPlace(cityId,filters);
             try
             {
                 if (placeCount == 0)

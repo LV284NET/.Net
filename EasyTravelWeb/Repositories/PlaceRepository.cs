@@ -490,7 +490,8 @@ namespace EasyTravelWeb.Repositories
                 SqlCommand command = new SqlCommand("GetCountFromFilteredPlaces", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@CityID", cityId));
-                command.Parameters.Add(new SqlParameter("@Filters", string.Join(",", filters)));
+                IEnumerable<int> enumsToIntList = filters.Cast<int>();
+                command.Parameters.Add(new SqlParameter("@Filters", string.Join(",", enumsToIntList)));
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
