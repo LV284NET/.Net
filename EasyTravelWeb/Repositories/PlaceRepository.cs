@@ -507,6 +507,37 @@ namespace EasyTravelWeb.Repositories
             }
 
         }
-     
+
+        /// <summary>
+        /// Method which takes filter of specific place
+        /// </summary>
+        /// <returns>list of place filters</returns>
+        public IList<int> GetPlaceFilters(long placeId)
+        {
+            List<int> placeFiltersId = new List<int>();
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager
+                .ConnectionStrings["EasyTravelConnectionString"]
+                .ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("GetPlaceFilters", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@PlaceId", placeId));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            placeFiltersId.Add(Convert.ToInt32(reader["FilterId"]));
+                        }
+                    }
+                    return placeFiltersId;
+                }
+            }
+
+        }
+
     }
 }
