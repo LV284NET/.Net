@@ -73,14 +73,21 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="V1.7/ScriptV1.7_Create_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlacesPage_If_Exists.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Create_Procedure_GetPlacesPage.sql" relativeToChangelogFile="true"/>
+
     <include file="V1.7/ScriptV1.7_Drop_Procedure_GetTopPlacesByCityId_If_Exists.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Create_Procedure_GetTopPlacesByCityId.sql" relativeToChangelogFile="true"/>
+
     <include file="V1.7/ScriptV1.7_Drop_Procedure_GetUserPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Create_Procedure_GetUserPlaceRating.sql" relativeToChangelogFile="true"/>
+
     <include file="V1.7/ScriptV1.7_Drop_Procedure_GetTopCities_If_Exists.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Create_Procedure_GetTopCities.sql" relativeToChangelogFile="true"/>
+
     <include file="V1.7/ScriptV1.7_Drop_Procedure_GetCities_If_Exists.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlaceByName_If_Exists.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlacesByCityId_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetTopPlacesByCityName_If_Exists.sql" relativeToChangelogFile="true"/>
+
+  
 
 </databaseChangeLog> 

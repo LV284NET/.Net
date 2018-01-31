@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTravelWeb", "EasyTravelWeb\EasyTravelWeb.csproj", "{2CEF35A1-9417-481A-AE60-7F856A103A99}"
 EndProject
@@ -103,6 +103,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1.7", "v1.7", "{C357FBBD-3
 		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetPlacesPage_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetPlacesPage_If_Exists.sql
 		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetTopCities_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetTopCities_If_Exists.sql
 		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetTopPlacesByCityId_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetTopPlacesByCityId_If_Exists.sql
+		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetTopPlacesByCityName_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetTopPlacesByCityName_If_Exists.sql
 		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetUserPlaceRating_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetUserPlaceRating_If_Exists.sql
 		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_InsertOrUpdateUsersPlaceRating_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_InsertOrUpdateUsersPlaceRating_If_Exists.sql
 		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_UpdateCityRating_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_UpdateCityRating_If_Exists.sql
