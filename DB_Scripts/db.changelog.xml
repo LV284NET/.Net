@@ -42,6 +42,15 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <include file="V1.6/ScriptV1.6_Procedure_GetCitiesPage.sql" relativeToChangelogFile="true"/>
     <include file="V1.6/ScriptV1.6_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
 
+    <include file="V1.7/ScriptV1.7_Procedure_GetFilteredPlaces.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Function_IntListToTable.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Insert_Filters.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Insert_FiltersPlacesJT.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Table_Filters.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Table_FiltersPlacesJT.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Function_GetFilteredPlacesFunction.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Procedure_GetCountFromFilteredPlaces.sql" relativeToChangelogFile="true"/>
+
     <include file="V1.7/ScriptV1.7_Create_Table_UsersPlaceRatings.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" relativeToChangelogFile="true"/>
     <include file="V1.7/ScriptV1.7_Drop_Procedure_InsertOrUpdateUsersPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
