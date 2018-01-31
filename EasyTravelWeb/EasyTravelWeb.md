@@ -144,6 +144,7 @@
   - [GetCountPlaces()](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)')
   - [GetFilteredPlacesByCityId(filters)](#M-EasyTravelWeb-Controllers-PlaceController-GetFilteredPlacesByCityId-System-Int64,System-Int32,System-Int32,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Controllers.PlaceController.GetFilteredPlacesByCityId(System.Int64,System.Int32,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetPlaceById()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceById-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)')
+  - [GetPlaceFilters()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceFilters-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetPlaceFilters(System.Int64)')
   - [GetPlacesPageByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'EasyTravelWeb.Controllers.PlaceController.GetPlacesPageByCityId(System.Int64,System.Int32,System.Int32)')
   - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64)')
   - [GetTopPlacesByCityName()](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityName-System-String- 'EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityName(System.String)')
@@ -155,6 +156,7 @@
   - [GetFilteredCountPlace(filters)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredCountPlace-System-Int64,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Repositories.PlaceRepository.GetFilteredCountPlace(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetFilteredPlacesPage(filters)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFilteredPlacesPage-System-Int32,System-Int64,System-Int32,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlacesPage(System.Int32,System.Int64,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetPlaceById()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceById(System.Int64)')
+  - [GetPlaceFilters()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceFilters-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceFilters(System.Int64)')
   - [GetPlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaces 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaces')
   - [GetPlacesByCityId()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesByCityId-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesByCityId(System.Int64)')
   - [GetPlacesIdsAndNames()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesIdsAndNames 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames')
@@ -1722,6 +1724,21 @@ Collection of filtered places
 
 This method has no parameters.
 
+<a name='M-EasyTravelWeb-Controllers-PlaceController-GetPlaceFilters-System-Int64-'></a>
+### GetPlaceFilters() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetPlaceFilters-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Controller method for filters of specific city
+
+##### Returns
+
+List of filters for specific place
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32-'></a>
 ### GetPlacesPageByCityId() `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -1850,6 +1867,21 @@ List of places according to list of filters
 ##### Summary
 
 
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceFilters-System-Int64-'></a>
+### GetPlaceFilters() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceFilters-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method which takes filter of specific place
+
+##### Returns
+
+list of place filters
 
 ##### Parameters
 

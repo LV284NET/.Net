@@ -79,6 +79,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.7", "V1.7", "{1F4C4A49-3
 		DB_Scripts\V1.7\ScriptV1.7_Insert_FiltersPlacesJT.sql = DB_Scripts\V1.7\ScriptV1.7_Insert_FiltersPlacesJT.sql
 		DB_Scripts\V1.7\ScriptV1.7_Procedure_GetCountFromFilteredPlaces.sql = DB_Scripts\V1.7\ScriptV1.7_Procedure_GetCountFromFilteredPlaces.sql
 		DB_Scripts\V1.7\ScriptV1.7_Procedure_GetFilteredPlaces.sql = DB_Scripts\V1.7\ScriptV1.7_Procedure_GetFilteredPlaces.sql
+		DB_Scripts\V1.7\ScriptV1.7_Procedure_GetPlaceFilters.sql = DB_Scripts\V1.7\ScriptV1.7_Procedure_GetPlaceFilters.sql
 		DB_Scripts\V1.7\ScriptV1.7_Table_Filters.sql = DB_Scripts\V1.7\ScriptV1.7_Table_Filters.sql
 		DB_Scripts\V1.7\ScriptV1.7_Table_FiltersPlacesJT.sql = DB_Scripts\V1.7\ScriptV1.7_Table_FiltersPlacesJT.sql
 	EndProjectSection

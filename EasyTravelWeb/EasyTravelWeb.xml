@@ -188,6 +188,12 @@
             <param name="filters">Collection of filters, which you want to apply for search</param>
             <returns>Count of filtered places</returns>
         </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlaceFilters(System.Int64)">
+            <summary>
+            Controller method for filters of specific city
+            </summary>
+            <returns>List of filters for specific place</returns>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)">
             <summary>
                
@@ -1204,6 +1210,12 @@
             </summary>
             <param name="filters">Collection of filters, which you want to apply for search</param>
             <returns>Count of places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaceFilters(System.Int64)">
+            <summary>
+            Method which takes filter of specific place
+            </summary>
+            <returns>list of place filters</returns>
         </member>
         <member name="T:EasyTravelWeb.Repositories.UserRepository">
             <summary>
