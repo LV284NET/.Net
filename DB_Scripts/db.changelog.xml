@@ -27,11 +27,54 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <sqlFile path="V1.3/ScriptV1.3_Alter_Table_AspNetUsers_Add_FirstName_And_LastName_Columns.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
   </changeSet>
 
+<<<<<<< HEAD
   <changeSet author="Bohdan Shchur" id="V1.4">
     <sqlFile path="V1.4/ScriptV1.4_TrunkateDataAstNetUsers.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V1.4/ScriptV1.4_Procedure_GetCitiesIdAndNames.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V1.4/ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
   </changeSet>
+=======
+    <include file="V1.7/ScriptV1.7_Procedure_GetFilteredPlaces.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Function_IntListToTable.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Insert_Filters.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Insert_FiltersPlacesJT.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Table_Filters.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Table_FiltersPlacesJT.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Function_GetFilteredPlacesFunction.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Procedure_GetCountFromFilteredPlaces.sql" relativeToChangelogFile="true"/>
+
+    <include file="V1.7/ScriptV1.7_Create_Table_UsersPlaceRatings.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_InsertOrUpdateUsersPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_DeleteUsersPlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_DeleteUsersPlaceRating.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_UpdatePlaceRating_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_UpdatePlaceRating.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_UpdateCityRating_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_UpdateCityRating.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Insert_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Delete_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Delete" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_UsersPlaceRatings_After_Update_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Update" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Update_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Update.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Insert_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Insert.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Trigger_tr_Place_After_Delete_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Trigger_tr_Place_After_Delete.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlaceById_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetPlaceById.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetCitiesPage_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetCitiesPage.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetCityById_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetCityById.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Drop_Procedure_GetPlacesPage_If_Exists.sql" relativeToChangelogFile="true"/>
+    <include file="V1.7/ScriptV1.7_Create_Procedure_GetPlacesPage.sql" relativeToChangelogFile="true"/>
+>>>>>>> 2a4cd43c04c63bc2e961dd80603e68e659c99928
 
   <changeSet author="Rostyslav Tsenov" id="V1.5">
     <sqlFile path="V1.5/ScriptV1.5_Procedure_ChangeFirstName.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
