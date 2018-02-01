@@ -5,7 +5,6 @@ using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
-using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -14,7 +13,7 @@ namespace EasyTravelWeb.Controllers
     /// </summary>
     public class PlaceController : ApiController
 	{
-		private readonly Logger loger;
+		private readonly Logger logger;
 		private readonly PlaceRepository placeRepository;
 
 	    /// <summary>
@@ -23,7 +22,7 @@ namespace EasyTravelWeb.Controllers
         public PlaceController()
 		{
 			this.placeRepository = new PlaceRepository();
-			this.loger = Logger.GetInstance();
+			this.logger = Logger.GetInstance();
 		}
 
 
@@ -40,15 +39,14 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.loger.LogException(ex);
+				this.logger.LogException(ex);
 
 				return this.NotFound();
 			}
 		}
 
-	    /// <summary>
-	    ///    
-	    /// </summary>
+            
+
 	    [HttpGet]
 	    public IHttpActionResult GetPlaceRating(long placeId)
 	    {
@@ -58,7 +56,7 @@ namespace EasyTravelWeb.Controllers
 	        }
 	        catch (Exception ex)
 	        {
-	            this.loger.LogException(ex);
+	            this.logger.LogException(ex);
 
 	            return this.NotFound();
 	        }
@@ -84,7 +82,7 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.loger.LogException(ex);
+				this.logger.LogException(ex);
 
 				return this.NotFound();
 			}
@@ -110,7 +108,7 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.loger.LogException(ex);
+				this.logger.LogException(ex);
 
 				return this.NotFound();
 			}
@@ -118,8 +116,82 @@ namespace EasyTravelWeb.Controllers
 		}
 
 	    /// <summary>
-	    ///    
+	    /// Controller method for getting filtered places
 	    /// </summary>
+	    /// <param name="filters">Collection of filters, which you want to apply for search</param>
+	    /// <returns>Collection of filtered places</returns>
+	    [HttpGet]
+	    public IHttpActionResult GetFilteredPlacesByCityId(long cityId, int page, int pageSize, [FromUri]IList<Filter> filters)
+	    {
+	        try
+	        {
+	            IList<Place> filteredPlaces = placeRepository.GetFilteredPlacesPage(page, cityId, pageSize, filters);
+	            if (filteredPlaces == null)
+	            {
+	                return NotFound();
+	            }
+	            return Ok(filteredPlaces);
+	        }
+	        catch (Exception ex)
+	        {
+	            logger.LogException(ex);
+	            return InternalServerError();
+	        }
+	    }
+
+
+        /// <summary>
+        /// Controller method for getting count of filtered places
+        /// </summary>
+        /// <param name="filters">Collection of filters, which you want to apply for search</param>
+        /// <returns>Count of filtered places</returns>
+        [HttpGet]
+        public IHttpActionResult GetCountFromFilteredPlaces(long cityId, [FromUri]IList<Filter> filters)
+        {
+            int placeCount = placeRepository.GetFilteredCountPlace(cityId,filters);
+            try
+            {
+                if (placeCount == 0)
+                {
+                    return this.NotFound();
+                }
+                return this.Ok(placeCount);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogException(ex);
+                return InternalServerError();
+            }
+            
+        }
+
+        /// <summary>
+        /// Controller method for filters of specific city
+        /// </summary>
+        /// <returns>List of filters for specific place</returns>
+        [HttpGet]
+        public IHttpActionResult GetPlaceFilters(long placeId)
+        {
+            IList<int> placeFiltersId = placeRepository.GetPlaceFilters(placeId);
+            try
+            {
+                if (placeFiltersId == null)
+                {
+                    return this.NotFound();
+                }
+                return this.Ok(placeFiltersId);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogException(ex);
+                return InternalServerError();
+            }
+
+        }
+
+        /// <summary>
+        ///    
+        /// </summary>
         [Route("api/Place/GetCountPlaces")]
         [HttpGet]
         public IHttpActionResult GetCountPlaces(long cityId)
@@ -134,11 +206,13 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.loger.LogException(ex);
+                this.logger.LogException(ex);
                 return InternalServerError();
             }
             return this.Ok(placeCount);
         }
+
+
 
         /// <summary>
         /// 
@@ -161,12 +235,11 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.loger.LogException(ex);
+                this.logger.LogException(ex);
                 return InternalServerError();
             }
         }
 
-        
         /// <summary>
         /// 
         /// </summary>
@@ -188,7 +261,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.loger.LogException(ex);
+                this.logger.LogException(ex);
                 return InternalServerError();
             }
         }

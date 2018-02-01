@@ -1,4 +1,9 @@
-﻿CREATE procedure [dbo].[GetPlaces]
+﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'GetPlaces')
+BEGIN
+	DROP PROCEDURE [dbo].[GetPlaces]
+END
+GO
+CREATE procedure [dbo].[GetPlaces]
 as
 
 set transaction isolation level read committed 
