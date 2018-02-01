@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -47,8 +46,7 @@ namespace EasyTravelWeb.Models
         ///    
         /// </summary>
         public ApplicationDbContext()
-            : base(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString)
+            : base("EasyTravelConnectionString")
         {
         }
 
