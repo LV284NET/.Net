@@ -92,4 +92,9 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
   <changeSet author="Pavlo Shostak" id="V1.8">
     <sqlFile path="V1.8/ScriptV1.8_Fix_Data_ColumnCityRatingNull.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
   </changeSet>
+
+  <changeSet author="Dmytro Ratynchuk" id="V1.9">
+    <sqlFile path="ScriptV1.9_Create_Procedure_GetTopCities.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="ScriptV1.9_Create_Procedure_GetTopPlacesByCityId.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+  </changeSet>
 </databaseChangeLog> 
