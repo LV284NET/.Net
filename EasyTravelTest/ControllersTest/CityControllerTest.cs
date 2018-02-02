@@ -117,7 +117,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Playback())
             {
-                IHttpActionResult actual = cityController.Get(0);
+                IHttpActionResult actual = cityController.GetCity(0);
                 Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<City>>());
             }
 
@@ -136,7 +136,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Playback())
             {
-                IHttpActionResult actual = cityController.Get(0);
+                IHttpActionResult actual = cityController.GetCity(0);
                 Assert.IsNotNull(actual);
             }
         }
@@ -154,7 +154,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Playback())
             {
-                IHttpActionResult actual = cityController.Get(0);
+                IHttpActionResult actual = cityController.GetCity(0);
                 Assert.That(actual,Is.TypeOf<NotFoundResult>());
             }
         }
