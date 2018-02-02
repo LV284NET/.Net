@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using EasyTravelWeb.Controllers;
 using EasyTravelWeb.Models;
 
@@ -97,9 +95,9 @@ namespace EasyTravelWeb.Repositories
         /// <summary>
         ///    
         /// </summary>
-        public virtual IList<SearchController.CitySearchEntity> GetCitiesIdAndNames()
+        public virtual IList<CitySearchEntity> GetCitiesIdAndNames()
         {
-            List<SearchController.CitySearchEntity> cities = new List<SearchController.CitySearchEntity>();
+            List<CitySearchEntity> cities = new List<CitySearchEntity>();
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
             {
@@ -114,7 +112,7 @@ namespace EasyTravelWeb.Repositories
                     {
                         while (reader.Read())
                         {
-                            cities.Add(new SearchController.CitySearchEntity
+                            cities.Add(new CitySearchEntity
                             {
                                 Id = Convert.ToInt64(reader["CityId"]),
                                 Name = reader["CityName"].ToString()

@@ -1,12 +1,10 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace EasyTravelWeb
 {
     /// <summary>
     ///     Filter config
     /// </summary>
-
     public class FilterConfig
     {
         /// <summary>

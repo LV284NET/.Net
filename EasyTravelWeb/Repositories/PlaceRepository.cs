@@ -298,9 +298,9 @@ namespace EasyTravelWeb.Repositories
         /// <summary>
         ///    
         /// </summary>
-        public virtual IList<SearchController.PlaceSearchEntity> GetPlacesIdsAndNames()
+        public virtual IList<PlaceSearchEntity> GetPlacesIdsAndNames()
         {
-            List<SearchController.PlaceSearchEntity> places = new List<SearchController.PlaceSearchEntity>();
+            List<PlaceSearchEntity> places = new List<PlaceSearchEntity>();
             using (SqlConnection connection = new SqlConnection(ConfigurationManager
                 .ConnectionStrings["EasyTravelConnectionString"]
                 .ConnectionString))
@@ -316,7 +316,7 @@ namespace EasyTravelWeb.Repositories
                     {
                         while (reader.Read())
                         {
-                            places.Add(new SearchController.PlaceSearchEntity
+                            places.Add(new PlaceSearchEntity
                             {
                                 Id = Convert.ToInt64(reader["PlaceId"]),
                                 CityId = Convert.ToInt64(reader["CityId"]),
@@ -335,7 +335,7 @@ namespace EasyTravelWeb.Repositories
         /// <summary>
         ///    
         /// </summary>
-        public bool AddFavouritePlace(int userId, long placeId)
+        public bool AddFavoritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]

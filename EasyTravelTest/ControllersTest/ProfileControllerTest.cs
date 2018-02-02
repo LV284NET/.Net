@@ -82,7 +82,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Playback())
             {
-                IHttpActionResult actual = profileController.GetUser(2);
+                IHttpActionResult actual = profileController.GetUserInfo(2);
                 Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<User>>());
             }
 
@@ -103,7 +103,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (_mocks.Playback())
             {
-                IHttpActionResult actual = profileController.GetUser(2);
+                IHttpActionResult actual = profileController.GetUserInfo(2);
                 Assert.That(actual, Is.TypeOf<NotFoundResult>());
             }
        

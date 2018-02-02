@@ -13,13 +13,10 @@ using EasyTravelWeb.Models;
 using EasyTravelWeb.Providers;
 using EasyTravelWeb.Results;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using Microsoft.Owin.Security.Provider;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -27,7 +24,6 @@ namespace EasyTravelWeb.Controllers
     ///    
     /// </summary>
     [Authorize]
-    [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -50,7 +46,6 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///    
         /// </summary>
-
         public AccountController()
         {
         }
@@ -58,7 +53,6 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///    
         /// </summary>
-
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
@@ -86,7 +80,7 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
-        [Route("UserInfo")]
+        [HttpGet]
         public UserInfoViewModel GetUserInfo()
         {
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(this.User.Identity as ClaimsIdentity);
@@ -103,7 +97,7 @@ namespace EasyTravelWeb.Controllers
         ///    
         /// </summary>
         // POST api/Account/Logout
-        [Route("Logout")]
+        [HttpPost]
         public IHttpActionResult Logout()
         {
             this.Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
@@ -114,7 +108,7 @@ namespace EasyTravelWeb.Controllers
         ///    
         /// </summary>
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
-        [Route("ManageInfo")]
+        [HttpGet]
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
         {
             var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId<int>());
@@ -151,7 +145,6 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         // POST api/Account/ChangePassword
         [HttpPost]
-        [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
             if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
@@ -169,7 +162,7 @@ namespace EasyTravelWeb.Controllers
         ///    
         /// </summary>
         // POST api/Account/SetPassword
-        [Route("SetPassword")]
+        [HttpPost]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
         {
             if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
@@ -186,7 +179,7 @@ namespace EasyTravelWeb.Controllers
         ///    
         /// </summary>
         // POST api/Account/AddExternalLogin
-        [Route("AddExternalLogin")]
+        [HttpPost]
         public async Task<IHttpActionResult> AddExternalLogin(AddExternalLoginBindingModel model)
         {
             if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
@@ -217,7 +210,7 @@ namespace EasyTravelWeb.Controllers
         ///    
         /// </summary>
         // POST api/Account/RemoveLogin
-        [Route("RemoveLogin")]
+        [HttpPost]
         public async Task<IHttpActionResult> RemoveLogin(RemoveLoginBindingModel model)
         {
             if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
@@ -242,7 +235,7 @@ namespace EasyTravelWeb.Controllers
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
         [AllowAnonymous]
-        [Route("ExternalLogin", Name = "ExternalLogin")]
+        [HttpGet]
         public async Task<IHttpActionResult> GetExternalLogin(string provider, string error = null)
         {
             if (error != null) return this.Redirect(this.Url.Content("~/") + "#error=" + Uri.EscapeDataString(error));
@@ -292,7 +285,7 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
         [AllowAnonymous]
-        [Route("ExternalLogins")]
+        [HttpGet]
         public IEnumerable<ExternalLoginViewModel> GetExternalLogins(string returnUrl, bool generateState = false)
         {
             IEnumerable<AuthenticationDescription> descriptions = this.Authentication.GetExternalAuthenticationTypes();
@@ -339,7 +332,6 @@ namespace EasyTravelWeb.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        [Route("Confirm")]
         public async Task<IHttpActionResult> ConfirmUser([FromBody] User user)
         {
             ApplicationUser userConfirm = await UserManager.FindByEmailAsync(user.Email);
@@ -365,7 +357,6 @@ namespace EasyTravelWeb.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
             if (!this.ModelState.IsValid)
@@ -402,9 +393,8 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///    
         /// </summary>
-        [HttpGet]
         [AllowAnonymous]
-        [Route("ConfirmEmail", Name = "ConfirmEmailRoute")]
+        [HttpGet]
         public async Task<IHttpActionResult> ConfirmEmail(int userId = 0, string code = "")
         {
             if (userId == default(int) || code == string.Empty)
@@ -429,7 +419,6 @@ namespace EasyTravelWeb.Controllers
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
-        [Route("RegisterExternal")]
         public async Task<IHttpActionResult> RegisterExternal(RegisterExternalBindingModel model)
         {
             if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);

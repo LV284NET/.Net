@@ -1,10 +1,6 @@
-﻿    using System;
-using System.Collections.Generic;
-using System.Linq;
-    using System.Threading.Tasks;
-    using EasyTravelWeb.App_Start;
-    using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
@@ -60,7 +56,7 @@ namespace EasyTravelWeb
                 TokenEndpointPath = new PathString("/Token"),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
                 AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(30),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(10),
                 // In production mode set AllowInsecureHttp = false
                 AllowInsecureHttp = true
             };

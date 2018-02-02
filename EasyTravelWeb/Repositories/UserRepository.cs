@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using EasyTravelWeb.Models;
-using System.Drawing;
 using User = EasyTravelWeb.Models.User;
 
 namespace EasyTravelWeb.Repositories

@@ -1,11 +1,8 @@
 namespace EasyTravelWeb.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<EasyTravelWeb.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.ApplicationDbContext>
     {
         public Configuration()
         {
@@ -13,7 +10,7 @@ namespace EasyTravelWeb.Migrations
             ContextKey = "EasyTravelWeb.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(EasyTravelWeb.Models.ApplicationDbContext context)
+        protected override void Seed(Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
 using EasyTravelWeb.Controllers;
+using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -16,32 +17,32 @@ namespace EasyTravelTest.ControllersTest
     class SearchControllerTest
     {
         private MockRepository mockRepository;
-        private IList<SearchController.CitySearchEntity> cities;
-        private IList<SearchController.PlaceSearchEntity> places;
+        private IList<CitySearchEntity> cities;
+        private IList<PlaceSearchEntity> places;
 
         [SetUp]
         public void InitializeSearchEntities()
         {
             mockRepository = new MockRepository();
-            cities = new List<SearchController.CitySearchEntity>
+            cities = new List<CitySearchEntity>
             {
-                new SearchController.CitySearchEntity
+                new CitySearchEntity
                 {
                     Id = 1, Name = "1City"
                 },
-                new SearchController.CitySearchEntity
+                new CitySearchEntity
                 {
                     Id = 2, Name = "2City"
                 }
             };
 
-            places = new List<SearchController.PlaceSearchEntity>
+            places = new List<PlaceSearchEntity>
             {
-                new SearchController.PlaceSearchEntity
+                new PlaceSearchEntity
                 {
                     Id = 1, CityId = 1, Name = "1Place"
                 },
-                new SearchController.PlaceSearchEntity
+                new PlaceSearchEntity
                 {
                     Id = 2, CityId = 2, Name = "2Place"
                 }
@@ -65,7 +66,7 @@ namespace EasyTravelTest.ControllersTest
             using (mockRepository.Playback())
             {
                 var suggestions = searchController.GetSuggestions("1");
-                Assert.That(suggestions, Is.TypeOf<OkNegotiatedContentResult<IList<SearchController.ISearchEntity>>>());
+                Assert.That(suggestions, Is.TypeOf<OkNegotiatedContentResult<IList<ISearchEntity>>>());
             }
         }
 
@@ -85,7 +86,7 @@ namespace EasyTravelTest.ControllersTest
 
             using (mockRepository.Playback())
             {
-                var suggestions = searchController.GetSuggestions("1") as OkNegotiatedContentResult<IList<SearchController.ISearchEntity>>;
+                var suggestions = searchController.GetSuggestions("1") as OkNegotiatedContentResult<IList<ISearchEntity>>;
                 var result = suggestions.Content;
                 Assert.That(result.Count, Is.EqualTo(2));
             }

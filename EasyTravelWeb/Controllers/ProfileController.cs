@@ -6,7 +6,6 @@ using EasyTravelWeb.Models;
 using System;
 using System.Net;
 using EasyTravelWeb.Infrastructure.Validators;
-using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -81,8 +80,7 @@ namespace EasyTravelWeb.Controllers
         /// <returns>First, last, email of user</returns>
         [Authorize]
         [HttpGet]
-        [Route("api/Profile/GetUserInfo")]
-        public IHttpActionResult GetUser(int id)
+        public IHttpActionResult GetUserInfo(int id)
         {
             User user;
             try
@@ -112,7 +110,6 @@ namespace EasyTravelWeb.Controllers
         /// <returns>result of chaning (Bad or Ok)</returns>
         [Authorize]
         [HttpPost]
-        [Route("api/Profile/ChangeFirstName")]
         public IHttpActionResult ChangeFirstName(int id, string firstName)
         {
             if (!this.ModelState.IsValid)
@@ -145,7 +142,6 @@ namespace EasyTravelWeb.Controllers
         /// <returns>result of chaning (Bad or Ok)</returns>
         [Authorize]
         [HttpPost]
-        [Route("api/Profile/ChangeLastName")]
         public IHttpActionResult ChangeLastName(int id, string lastName)
         {
             if (!this.ModelState.IsValid)
@@ -176,7 +172,6 @@ namespace EasyTravelWeb.Controllers
         /// <returns>List of favourite Places</returns>
         [Authorize]
         [HttpGet]
-        [Route("api/Profile/GetFavoritePlaces")]
         public IHttpActionResult GetFavoritePlaces(int id)
         {
             try
@@ -206,7 +201,6 @@ namespace EasyTravelWeb.Controllers
         /// <returns>List of favourite Places</returns>
         [Authorize]
         [HttpPost]
-        //[Route("api/Profile/GetFavoritePlaces")]
         public IHttpActionResult SetUserRatingForPlace([FromBody] UserPlaceRating userRating)
         {
             try
@@ -231,7 +225,6 @@ namespace EasyTravelWeb.Controllers
         /// <returns>List of favourite Places</returns>
         [Authorize]
         [HttpDelete]
-        //[Route("api/Profile/GetFavoritePlaces")]
         public IHttpActionResult DeleteUserRatingForPlace([FromBody] UserPlaceRating userRating)
         {
             try
