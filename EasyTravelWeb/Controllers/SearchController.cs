@@ -4,11 +4,12 @@ using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Repositories;
 using WebGrease.Css.Extensions;
+using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Controllers
 {
     /// <summary>
-    ///     Controller for seach
+    ///     Controller for search
     /// </summary>
 
     public class SearchController : ApiController
@@ -38,6 +39,21 @@ namespace EasyTravelWeb.Controllers
             this.placeRepository = placeRepository;
 
             InitializeData();
+        }
+
+        private void InitializeData()
+        {
+            if (cities == null)
+            {
+                cities = new List<CitySearchEntity>();
+                cityRepository.GetCitiesIdAndNames().ForEach(city => cities.Add(city));
+            }
+
+            if (places == null)
+            {
+                places = new List<PlaceSearchEntity>();
+                placeRepository.GetPlacesIdsAndNames().ForEach(place => places.Add(place));
+            }
         }
 
         /// <summary>
@@ -84,89 +100,6 @@ namespace EasyTravelWeb.Controllers
                 logger.LogException(ex);
                 return InternalServerError();
             }
-        }
-
-        private void InitializeData()
-        {
-            if (cities == null)
-            {
-                cities = new List<CitySearchEntity>();
-                cityRepository.GetCitiesIdAndNames().ForEach(city => cities.Add(city));
-            }
-
-            if (places == null)
-            {
-                places = new List<PlaceSearchEntity>();
-                placeRepository.GetPlacesIdsAndNames().ForEach(place => places.Add(place));
-            }
-        }
-
-        /// <summary>
-        ///    
-        /// </summary>
-        public interface ISearchEntity
-        {
-            /// <summary>
-            ///    
-            /// </summary>
-            long Id { get; set; }
-
-            /// <summary>
-            ///    
-            /// </summary>
-            string Name { get; set; }
-
-            /// <summary>
-            ///    
-            /// </summary>
-            string Type { get; }
-        }
-
-        /// <summary>
-        ///    
-        /// </summary>
-        public class CitySearchEntity : ISearchEntity
-        {
-            /// <summary>
-            ///    
-            /// </summary>
-            public long Id { get; set; }
-
-            /// <summary>
-            ///    
-            /// </summary>
-            public string Name { get; set; }
-
-            /// <summary>
-            ///    
-            /// </summary>
-            public string Type { get; } = "City";
-        }
-
-        /// <summary>
-        ///    
-        /// </summary>
-        public class PlaceSearchEntity : ISearchEntity
-        {
-            /// <summary>
-            ///    
-            /// </summary>
-            public long Id { get; set; }
-
-            /// <summary>
-            ///    
-            /// </summary>
-            public long CityId { get; set; }
-
-            /// <summary>
-            ///    
-            /// </summary>
-            public string Name { get; set; }
-
-            /// <summary>
-            ///    
-            /// </summary>
-            public string Type { get; } = "Place";
         }
     }
 }

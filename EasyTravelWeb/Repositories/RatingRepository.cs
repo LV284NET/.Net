@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.Http.Results;
-using EasyTravelWeb.Infrastructure;
-using EasyTravelWeb.Controllers;
-using EasyTravelWeb.Models;
-using Microsoft.AspNet.Identity;
 using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Repositories

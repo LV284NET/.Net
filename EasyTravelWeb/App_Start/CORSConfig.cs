@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Cors;
+﻿using System.Web.Cors;
 
-namespace EasyTravelWeb.App_Start
+namespace EasyTravelWeb
 {
     /// <summary>
     ///    Cors Configuration
     /// </summary>
-
     public static class CORSConfig
     {
         /// <summary>
         ///    
         /// </summary>
-
         public static CorsPolicy CorsPolicy = new CorsPolicy
         {
             AllowAnyHeader = true,

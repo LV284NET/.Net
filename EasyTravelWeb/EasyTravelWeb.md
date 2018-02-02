@@ -61,8 +61,8 @@
 - [CityController](#T-EasyTravelWeb-Controllers-CityController 'EasyTravelWeb.Controllers.CityController')
   - [#ctor()](#M-EasyTravelWeb-Controllers-CityController-#ctor 'EasyTravelWeb.Controllers.CityController.#ctor')
   - [#ctor()](#M-EasyTravelWeb-Controllers-CityController-#ctor-EasyTravelWeb-Repositories-CityRepository- 'EasyTravelWeb.Controllers.CityController.#ctor(EasyTravelWeb.Repositories.CityRepository)')
-  - [Get()](#M-EasyTravelWeb-Controllers-CityController-Get-System-Int32- 'EasyTravelWeb.Controllers.CityController.Get(System.Int32)')
   - [GetCities()](#M-EasyTravelWeb-Controllers-CityController-GetCities-System-Int32,System-Int32- 'EasyTravelWeb.Controllers.CityController.GetCities(System.Int32,System.Int32)')
+  - [GetCity()](#M-EasyTravelWeb-Controllers-CityController-GetCity-System-Int32- 'EasyTravelWeb.Controllers.CityController.GetCity(System.Int32)')
   - [GetCountCity()](#M-EasyTravelWeb-Controllers-CityController-GetCountCity 'EasyTravelWeb.Controllers.CityController.GetCountCity')
   - [GetTopCities()](#M-EasyTravelWeb-Controllers-CityController-GetTopCities 'EasyTravelWeb.Controllers.CityController.GetTopCities')
 - [CityRepository](#T-EasyTravelWeb-Repositories-CityRepository 'EasyTravelWeb.Repositories.CityRepository')
@@ -71,12 +71,12 @@
   - [GetCity()](#M-EasyTravelWeb-Repositories-CityRepository-GetCity-System-Int64- 'EasyTravelWeb.Repositories.CityRepository.GetCity(System.Int64)')
   - [GetCountCity()](#M-EasyTravelWeb-Repositories-CityRepository-GetCountCity 'EasyTravelWeb.Repositories.CityRepository.GetCountCity')
   - [GetTopCities()](#M-EasyTravelWeb-Repositories-CityRepository-GetTopCities 'EasyTravelWeb.Repositories.CityRepository.GetTopCities')
-- [CitySearchEntity](#T-EasyTravelWeb-Controllers-SearchController-CitySearchEntity 'EasyTravelWeb.Controllers.SearchController.CitySearchEntity')
-  - [Id](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Id 'EasyTravelWeb.Controllers.SearchController.CitySearchEntity.Id')
-  - [Name](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Name 'EasyTravelWeb.Controllers.SearchController.CitySearchEntity.Name')
-  - [Type](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Type 'EasyTravelWeb.Controllers.SearchController.CitySearchEntity.Type')
-- [CORSConfig](#T-EasyTravelWeb-App_Start-CORSConfig 'EasyTravelWeb.App_Start.CORSConfig')
-  - [CorsPolicy](#F-EasyTravelWeb-App_Start-CORSConfig-CorsPolicy 'EasyTravelWeb.App_Start.CORSConfig.CorsPolicy')
+- [CitySearchEntity](#T-EasyTravelWeb-Models-CitySearchEntity 'EasyTravelWeb.Models.CitySearchEntity')
+  - [Id](#P-EasyTravelWeb-Models-CitySearchEntity-Id 'EasyTravelWeb.Models.CitySearchEntity.Id')
+  - [Name](#P-EasyTravelWeb-Models-CitySearchEntity-Name 'EasyTravelWeb.Models.CitySearchEntity.Name')
+  - [Type](#P-EasyTravelWeb-Models-CitySearchEntity-Type 'EasyTravelWeb.Models.CitySearchEntity.Type')
+- [CORSConfig](#T-EasyTravelWeb-CORSConfig 'EasyTravelWeb.CORSConfig')
+  - [CorsPolicy](#F-EasyTravelWeb-CORSConfig-CorsPolicy 'EasyTravelWeb.CORSConfig.CorsPolicy')
 - [CustomRole](#T-EasyTravelWeb-Models-CustomRole 'EasyTravelWeb.Models.CustomRole')
   - [#ctor()](#M-EasyTravelWeb-Models-CustomRole-#ctor 'EasyTravelWeb.Models.CustomRole.#ctor')
   - [#ctor()](#M-EasyTravelWeb-Models-CustomRole-#ctor-System-String- 'EasyTravelWeb.Models.CustomRole.#ctor(System.String)')
@@ -99,10 +99,10 @@
 - [Filter](#T-EasyTravelWeb-Models-Filter 'EasyTravelWeb.Models.Filter')
 - [FilterConfig](#T-EasyTravelWeb-FilterConfig 'EasyTravelWeb.FilterConfig')
   - [RegisterGlobalFilters()](#M-EasyTravelWeb-FilterConfig-RegisterGlobalFilters-System-Web-Mvc-GlobalFilterCollection- 'EasyTravelWeb.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)')
-- [ISearchEntity](#T-EasyTravelWeb-Controllers-SearchController-ISearchEntity 'EasyTravelWeb.Controllers.SearchController.ISearchEntity')
-  - [Id](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Id 'EasyTravelWeb.Controllers.SearchController.ISearchEntity.Id')
-  - [Name](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Name 'EasyTravelWeb.Controllers.SearchController.ISearchEntity.Name')
-  - [Type](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Type 'EasyTravelWeb.Controllers.SearchController.ISearchEntity.Type')
+- [ISearchEntity](#T-EasyTravelWeb-Models-ISearchEntity 'EasyTravelWeb.Models.ISearchEntity')
+  - [Id](#P-EasyTravelWeb-Models-ISearchEntity-Id 'EasyTravelWeb.Models.ISearchEntity.Id')
+  - [Name](#P-EasyTravelWeb-Models-ISearchEntity-Name 'EasyTravelWeb.Models.ISearchEntity.Name')
+  - [Type](#P-EasyTravelWeb-Models-ISearchEntity-Type 'EasyTravelWeb.Models.ISearchEntity.Type')
 - [Logger](#T-EasyTravelWeb-Infrastructure-Logger 'EasyTravelWeb.Infrastructure.Logger')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Logger-#ctor 'EasyTravelWeb.Infrastructure.Logger.#ctor')
   - [FileStream](#F-EasyTravelWeb-Infrastructure-Logger-FileStream 'EasyTravelWeb.Infrastructure.Logger.FileStream')
@@ -139,7 +139,7 @@
   - [PlaceRating](#P-EasyTravelWeb-Models-Place-PlaceRating 'EasyTravelWeb.Models.Place.PlaceRating')
 - [PlaceController](#T-EasyTravelWeb-Controllers-PlaceController 'EasyTravelWeb.Controllers.PlaceController')
   - [#ctor()](#M-EasyTravelWeb-Controllers-PlaceController-#ctor 'EasyTravelWeb.Controllers.PlaceController.#ctor')
-  - [AddUserFavouritePlace(favoriteUserPlace)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavoritePlace)')
+  - [AddUserFavoritePlace(favoriteUserPlace)](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.AddUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)')
   - [DeleteUserFavoritePlace(favoritePlace)](#M-EasyTravelWeb-Controllers-PlaceController-DeleteUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace- 'EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)')
   - [GetCountFromFilteredPlaces(filters)](#M-EasyTravelWeb-Controllers-PlaceController-GetCountFromFilteredPlaces-System-Int64,System-Collections-Generic-IList{EasyTravelWeb-Models-Filter}- 'EasyTravelWeb.Controllers.PlaceController.GetCountFromFilteredPlaces(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})')
   - [GetCountPlaces()](#M-EasyTravelWeb-Controllers-PlaceController-GetCountPlaces-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)')
@@ -149,7 +149,7 @@
   - [GetPlacesPageByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetPlacesPageByCityId-System-Int64,System-Int32,System-Int32- 'EasyTravelWeb.Controllers.PlaceController.GetPlacesPageByCityId(System.Int64,System.Int32,System.Int32)')
   - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Controllers-PlaceController-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64)')
 - [PlaceRepository](#T-EasyTravelWeb-Repositories-PlaceRepository 'EasyTravelWeb.Repositories.PlaceRepository')
-  - [AddFavouritePlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-AddFavouritePlace-System-Int32,System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.AddFavouritePlace(System.Int32,System.Int64)')
+  - [AddFavoritePlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-AddFavoritePlace-System-Int32,System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.AddFavoritePlace(System.Int32,System.Int64)')
   - [DeleteFavoritePlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-DeleteFavoritePlace-System-Int32,System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.DeleteFavoritePlace(System.Int32,System.Int64)')
   - [GetCountPlace()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetCountPlace-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetCountPlace(System.Int64)')
   - [GetFavoritePlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetFavoritePlaces-System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetFavoritePlaces(System.Int32)')
@@ -162,11 +162,11 @@
   - [GetPlacesIdsAndNames()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesIdsAndNames 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames')
   - [GetPlacesPage()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesPage-System-Int32,System-Int64,System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesPage(System.Int32,System.Int64,System.Int32)')
   - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64)')
-- [PlaceSearchEntity](#T-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity')
-  - [CityId](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-CityId 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.CityId')
-  - [Id](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Id 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.Id')
-  - [Name](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Name 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.Name')
-  - [Type](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Type 'EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.Type')
+- [PlaceSearchEntity](#T-EasyTravelWeb-Models-PlaceSearchEntity 'EasyTravelWeb.Models.PlaceSearchEntity')
+  - [CityId](#P-EasyTravelWeb-Models-PlaceSearchEntity-CityId 'EasyTravelWeb.Models.PlaceSearchEntity.CityId')
+  - [Id](#P-EasyTravelWeb-Models-PlaceSearchEntity-Id 'EasyTravelWeb.Models.PlaceSearchEntity.Id')
+  - [Name](#P-EasyTravelWeb-Models-PlaceSearchEntity-Name 'EasyTravelWeb.Models.PlaceSearchEntity.Name')
+  - [Type](#P-EasyTravelWeb-Models-PlaceSearchEntity-Type 'EasyTravelWeb.Models.PlaceSearchEntity.Type')
 - [ProfileController](#T-EasyTravelWeb-Controllers-ProfileController 'EasyTravelWeb.Controllers.ProfileController')
   - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor 'EasyTravelWeb.Controllers.ProfileController.#ctor')
   - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-UserRepository- 'EasyTravelWeb.Controllers.ProfileController.#ctor(EasyTravelWeb.Repositories.UserRepository)')
@@ -180,7 +180,7 @@
   - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)')
   - [DeleteUserRatingForPlace()](#M-EasyTravelWeb-Controllers-ProfileController-DeleteUserRatingForPlace-EasyTravelWeb-Models-UserPlaceRating- 'EasyTravelWeb.Controllers.ProfileController.DeleteUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)')
   - [GetFavoritePlaces()](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)')
-  - [GetUser(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)')
+  - [GetUserInfo(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUserInfo-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUserInfo(System.Int32)')
   - [GetUserRatingOfPlace()](#M-EasyTravelWeb-Controllers-ProfileController-GetUserRatingOfPlace-System-Int32,System-Int64- 'EasyTravelWeb.Controllers.ProfileController.GetUserRatingOfPlace(System.Int32,System.Int64)')
   - [SetUserRatingForPlace()](#M-EasyTravelWeb-Controllers-ProfileController-SetUserRatingForPlace-EasyTravelWeb-Models-UserPlaceRating- 'EasyTravelWeb.Controllers.ProfileController.SetUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)')
 - [RatingRepository](#T-EasyTravelWeb-Repositories-RatingRepository 'EasyTravelWeb.Repositories.RatingRepository')
@@ -860,8 +860,8 @@ This constructor has no parameters.
 
 This constructor has no parameters.
 
-<a name='M-EasyTravelWeb-Controllers-CityController-Get-System-Int32-'></a>
-### Get() `method` [#](#M-EasyTravelWeb-Controllers-CityController-Get-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-CityController-GetCities-System-Int32,System-Int32-'></a>
+### GetCities() `method` [#](#M-EasyTravelWeb-Controllers-CityController-GetCities-System-Int32,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -871,8 +871,8 @@ This constructor has no parameters.
 
 This method has no parameters.
 
-<a name='M-EasyTravelWeb-Controllers-CityController-GetCities-System-Int32,System-Int32-'></a>
-### GetCities() `method` [#](#M-EasyTravelWeb-Controllers-CityController-GetCities-System-Int32,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-CityController-GetCity-System-Int32-'></a>
+### GetCity() `method` [#](#M-EasyTravelWeb-Controllers-CityController-GetCity-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -970,51 +970,51 @@ This method has no parameters.
 
 This method has no parameters.
 
-<a name='T-EasyTravelWeb-Controllers-SearchController-CitySearchEntity'></a>
-## CitySearchEntity [#](#T-EasyTravelWeb-Controllers-SearchController-CitySearchEntity 'Go To Here') [=](#contents 'Back To Contents')
+<a name='T-EasyTravelWeb-Models-CitySearchEntity'></a>
+## CitySearchEntity [#](#T-EasyTravelWeb-Models-CitySearchEntity 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
-EasyTravelWeb.Controllers.SearchController
+EasyTravelWeb.Models
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Id'></a>
-### Id `property` [#](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-CitySearchEntity-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Models-CitySearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Name'></a>
-### Name `property` [#](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-CitySearchEntity-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Models-CitySearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Type'></a>
-### Type `property` [#](#P-EasyTravelWeb-Controllers-SearchController-CitySearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-CitySearchEntity-Type'></a>
+### Type `property` [#](#P-EasyTravelWeb-Models-CitySearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 
 
-<a name='T-EasyTravelWeb-App_Start-CORSConfig'></a>
-## CORSConfig [#](#T-EasyTravelWeb-App_Start-CORSConfig 'Go To Here') [=](#contents 'Back To Contents')
+<a name='T-EasyTravelWeb-CORSConfig'></a>
+## CORSConfig [#](#T-EasyTravelWeb-CORSConfig 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
-EasyTravelWeb.App_Start
+EasyTravelWeb
 
 ##### Summary
 
 Cors Configuration
 
-<a name='F-EasyTravelWeb-App_Start-CORSConfig-CorsPolicy'></a>
-### CorsPolicy `constants` [#](#F-EasyTravelWeb-App_Start-CORSConfig-CorsPolicy 'Go To Here') [=](#contents 'Back To Contents')
+<a name='F-EasyTravelWeb-CORSConfig-CorsPolicy'></a>
+### CorsPolicy `constants` [#](#F-EasyTravelWeb-CORSConfig-CorsPolicy 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -1242,33 +1242,33 @@ Filter config
 
 This method has no parameters.
 
-<a name='T-EasyTravelWeb-Controllers-SearchController-ISearchEntity'></a>
-## ISearchEntity [#](#T-EasyTravelWeb-Controllers-SearchController-ISearchEntity 'Go To Here') [=](#contents 'Back To Contents')
+<a name='T-EasyTravelWeb-Models-ISearchEntity'></a>
+## ISearchEntity [#](#T-EasyTravelWeb-Models-ISearchEntity 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
-EasyTravelWeb.Controllers.SearchController
+EasyTravelWeb.Models
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Id'></a>
-### Id `property` [#](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-ISearchEntity-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Models-ISearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Name'></a>
-### Name `property` [#](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-ISearchEntity-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Models-ISearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Type'></a>
-### Type `property` [#](#P-EasyTravelWeb-Controllers-SearchController-ISearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-ISearchEntity-Type'></a>
+### Type `property` [#](#P-EasyTravelWeb-Models-ISearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -1646,8 +1646,8 @@ EasyTravelWeb.Controllers
 
 This constructor has no parameters.
 
-<a name='M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavoritePlace-'></a>
-### AddUserFavouritePlace(favoriteUserPlace) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavouritePlace-EasyTravelWeb-Models-FavoritePlace- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-PlaceController-AddUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace-'></a>
+### AddUserFavoritePlace(favoriteUserPlace) `method` [#](#M-EasyTravelWeb-Controllers-PlaceController-AddUserFavoritePlace-EasyTravelWeb-Models-FavoritePlace- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -1784,8 +1784,8 @@ EasyTravelWeb.Repositories
 
 
 
-<a name='M-EasyTravelWeb-Repositories-PlaceRepository-AddFavouritePlace-System-Int32,System-Int64-'></a>
-### AddFavouritePlace() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-AddFavouritePlace-System-Int32,System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Repositories-PlaceRepository-AddFavoritePlace-System-Int32,System-Int64-'></a>
+### AddFavoritePlace() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-AddFavoritePlace-System-Int32,System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -1943,40 +1943,40 @@ This method has no parameters.
 
 This method has no parameters.
 
-<a name='T-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity'></a>
-## PlaceSearchEntity [#](#T-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity 'Go To Here') [=](#contents 'Back To Contents')
+<a name='T-EasyTravelWeb-Models-PlaceSearchEntity'></a>
+## PlaceSearchEntity [#](#T-EasyTravelWeb-Models-PlaceSearchEntity 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
-EasyTravelWeb.Controllers.SearchController
+EasyTravelWeb.Models
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-CityId'></a>
-### CityId `property` [#](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-CityId 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-PlaceSearchEntity-CityId'></a>
+### CityId `property` [#](#P-EasyTravelWeb-Models-PlaceSearchEntity-CityId 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Id'></a>
-### Id `property` [#](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-PlaceSearchEntity-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Models-PlaceSearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Name'></a>
-### Name `property` [#](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-PlaceSearchEntity-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Models-PlaceSearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 
 
-<a name='P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Type'></a>
-### Type `property` [#](#P-EasyTravelWeb-Controllers-SearchController-PlaceSearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-PlaceSearchEntity-Type'></a>
+### Type `property` [#](#P-EasyTravelWeb-Models-PlaceSearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -2127,8 +2127,8 @@ List of favourite Places
 
 This method has no parameters.
 
-<a name='M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32-'></a>
-### GetUser(id) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetUser-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-ProfileController-GetUserInfo-System-Int32-'></a>
+### GetUserInfo(id) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-GetUserInfo-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -2533,7 +2533,7 @@ EasyTravelWeb.Controllers
 
 ##### Summary
 
-Controller for seach
+Controller for search
 
 <a name='M-EasyTravelWeb-Controllers-SearchController-#ctor'></a>
 ### #ctor() `constructor` [#](#M-EasyTravelWeb-Controllers-SearchController-#ctor 'Go To Here') [=](#contents 'Back To Contents')

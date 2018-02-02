@@ -30,7 +30,6 @@ namespace EasyTravelWeb.Controllers
         ///    
         /// </summary>
 		[HttpGet]
-		[Route("api/Place/GetPlaceById")]
 		public IHttpActionResult GetPlaceById(long placeId)
 		{
 			try
@@ -44,9 +43,7 @@ namespace EasyTravelWeb.Controllers
 				return this.NotFound();
 			}
 		}
-
             
-
 	    [HttpGet]
 	    public IHttpActionResult GetPlaceRating(long placeId)
 	    {
@@ -66,7 +63,6 @@ namespace EasyTravelWeb.Controllers
         ///    
         /// </summary>
         [HttpGet]
-		[Route("api/Place/GetTopPlacesByCityId")]
 		public IHttpActionResult GetTopPlacesByCityId(long cityId)
 		{
 			try
@@ -92,7 +88,6 @@ namespace EasyTravelWeb.Controllers
 	    ///    
 	    /// </summary>
 		[HttpGet]
-		[Route("api/Place/GetPlacesPageByCityId")]
 		public IHttpActionResult GetPlacesPageByCityId(long cityId, int page, int pageSize)
 		{
             try
@@ -192,7 +187,6 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///    
         /// </summary>
-        [Route("api/Place/GetCountPlaces")]
         [HttpGet]
         public IHttpActionResult GetCountPlaces(long cityId)
         {
@@ -221,12 +215,11 @@ namespace EasyTravelWeb.Controllers
         /// <returns></returns>
         [Authorize]
         [HttpPost]
-        [Route("api/Place/AddFavoritePlace")]
-        public IHttpActionResult AddUserFavouritePlace([FromBody] FavoritePlace favoriteUserPlace)
+        public IHttpActionResult AddUserFavoritePlace([FromBody] FavoritePlace favoriteUserPlace)
         {
             try
             {
-                if (placeRepository.AddFavouritePlace(favoriteUserPlace.UserId, favoriteUserPlace.PlaceId))
+                if (placeRepository.AddFavoritePlace(favoriteUserPlace.UserId, favoriteUserPlace.PlaceId))
                 {
                     return Ok();
                 }
@@ -247,7 +240,6 @@ namespace EasyTravelWeb.Controllers
         /// <returns></returns>
         [Authorize]
         [HttpDelete]
-        [Route("api/Place/DeleteFavoritePlace")]
         public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavoritePlace favoritePlace)
         {
             try

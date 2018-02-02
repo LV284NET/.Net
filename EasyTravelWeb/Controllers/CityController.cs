@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
-
 
 namespace EasyTravelWeb.Controllers
 {
@@ -58,7 +54,6 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///    
         /// </summary>
-        [Route("api/GetCities")]
         [HttpGet]
         public IHttpActionResult GetCities(int page, int pageSize)
         {
@@ -83,9 +78,8 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///    
         /// </summary>
-        [Route("api/GetCity")]
         [HttpGet]
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult GetCity(int id)
         {
             City cityToReturn;
             try
@@ -107,7 +101,6 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///    
         /// </summary>
-        [Route("api/GetCountCity")]
         [HttpGet]
         public IHttpActionResult GetCountCity()
         {

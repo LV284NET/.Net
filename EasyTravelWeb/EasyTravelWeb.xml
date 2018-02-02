@@ -14,12 +14,12 @@
                
             </summary>
         </member>
-        <member name="T:EasyTravelWeb.App_Start.CORSConfig">
+        <member name="T:EasyTravelWeb.CORSConfig">
             <summary>
                Cors Configuration
             </summary>
         </member>
-        <member name="F:EasyTravelWeb.App_Start.CORSConfig.CorsPolicy">
+        <member name="F:EasyTravelWeb.CORSConfig.CorsPolicy">
             <summary>
                
             </summary>
@@ -119,7 +119,7 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.CityController.Get(System.Int32)">
+        <member name="M:EasyTravelWeb.Controllers.CityController.GetCity(System.Int32)">
             <summary>
                
             </summary>
@@ -189,7 +189,7 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavouritePlace(EasyTravelWeb.Models.FavoritePlace)">
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)">
             <summary>
             
             </summary>
@@ -248,7 +248,7 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetUser(System.Int32)">
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetUserInfo(System.Int32)">
             <summary>
             Method for getting User from Db
             </summary>
@@ -297,7 +297,7 @@
         </member>
         <member name="T:EasyTravelWeb.Controllers.SearchController">
             <summary>
-                Controller for seach
+                Controller for search
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.SearchController.#ctor">
@@ -311,71 +311,6 @@
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.SearchController.GetSuggestions(System.String)">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="T:EasyTravelWeb.Controllers.SearchController.ISearchEntity">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.ISearchEntity.Id">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.ISearchEntity.Name">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.ISearchEntity.Type">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="T:EasyTravelWeb.Controllers.SearchController.CitySearchEntity">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.CitySearchEntity.Id">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.CitySearchEntity.Name">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.CitySearchEntity.Type">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="T:EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.Id">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.CityId">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.Name">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Controllers.SearchController.PlaceSearchEntity.Type">
             <summary>
                
             </summary>
@@ -1055,6 +990,71 @@
                
             </summary>
         </member>
+        <member name="T:EasyTravelWeb.Models.ISearchEntity">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ISearchEntity.Id">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ISearchEntity.Name">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ISearchEntity.Type">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.CitySearchEntity">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.CitySearchEntity.Id">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.CitySearchEntity.Name">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.CitySearchEntity.Type">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.PlaceSearchEntity">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.PlaceSearchEntity.Id">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.PlaceSearchEntity.CityId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.PlaceSearchEntity.Name">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.PlaceSearchEntity.Type">
+            <summary>
+               
+            </summary>
+        </member>
         <member name="T:EasyTravelWeb.Models.User">
             <summary>
                User Model
@@ -1217,7 +1217,7 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.AddFavouritePlace(System.Int32,System.Int64)">
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.AddFavoritePlace(System.Int32,System.Int64)">
             <summary>
                
             </summary>
