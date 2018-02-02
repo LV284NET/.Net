@@ -1152,8 +1152,9 @@
         </member>
         <member name="M:EasyTravelWeb.Repositories.CityRepository.GetTopCities">
             <summary>
-               
+            	Returns list of top 4 cities according to their rating
             </summary>
+            <returns>List of top 4 cities</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCitiesPage(System.Int32,System.Int32)">
             <summary>
@@ -1192,7 +1193,7 @@
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlacesPage(System.Int32,System.Int64,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
             <summary>
-            Gets list of places accodring to setected filters
+            	Gets list of places accodring to setected filters
             </summary>
             <param name="filters">List of filters</param>
             <returns>List of places according to list of filters</returns>
@@ -1203,11 +1204,6 @@
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64)">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaces">
             <summary>
                
             </summary>
@@ -1239,14 +1235,14 @@
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredCountPlace(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
             <summary>
-            Method which takes count fo filtered places from databse
+            	Method which takes count fo filtered places from databse
             </summary>
             <param name="filters">Collection of filters, which you want to apply for search</param>
             <returns>Count of places</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaceFilters(System.Int64)">
             <summary>
-            Method which takes filter of specific place
+            	Method which takes filter of specific place
             </summary>
             <returns>list of place filters</returns>
         </member>

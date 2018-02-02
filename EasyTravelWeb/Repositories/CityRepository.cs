@@ -15,10 +15,11 @@ namespace EasyTravelWeb.Repositories
     public class CityRepository
     {
 
-        /// <summary>
-        ///    
-        /// </summary>
-        public virtual IList<City> GetTopCities()
+		/// <summary>
+		///		Returns list of top 4 cities according to their rating
+		/// </summary>
+		/// <returns>List of top 4 cities</returns>
+		public virtual IList<City> GetTopCities()
         {
             List<City> listToReturn = new List<City>();
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -29,6 +30,9 @@ namespace EasyTravelWeb.Repositories
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+
+	            command.Parameters.Add("@TopCitiesNumber", 4);
+
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)

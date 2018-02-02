@@ -88,7 +88,7 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        /// Gets list of places accodring to setected filters
+        ///		Gets list of places accodring to setected filters
         /// </summary>
         /// <param name="filters">List of filters</param>
         /// <returns>List of places according to list of filters</returns>
@@ -181,47 +181,11 @@ namespace EasyTravelWeb.Repositories
         }
 
 
-        internal List<Place> GetPlacesByCityId(long? cityId)
-        {
-            List<Place> listToReturn = new List<Place>();
-
-            using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("GetPlacesByCityId", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@CityID", cityId));
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            listToReturn.Add(new Place
-                            {
-                                PlaceId = Convert.ToInt64(reader["PlaceID"]),
-                                Name = reader["PlaceName"].ToString(),
-                                Description = reader["PlaceDescription"].ToString(),
-                                PicturePlace = reader["MainPlaceImage"].ToString(),
-                                CityName = ""
-                            });
-                        }
-                    }
-                    return listToReturn;
-                }
-            }
-        }
-
-
-
             /// <summary>
             ///    
             /// </summary>
             public List<Place> GetTopPlacesByCityId(long cityId)
-        {
+			{
             List<Place> listToReturn = new List<Place>();
 
             using (SqlConnection connection =
@@ -231,8 +195,10 @@ namespace EasyTravelWeb.Repositories
                 connection.Open();
 
                 SqlCommand command = new SqlCommand("GetTopPlacesByCityId", connection);
+
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@CityID", cityId));
+	            command.Parameters.Add("@TopPlacesNumber", 4);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -255,44 +221,6 @@ namespace EasyTravelWeb.Repositories
             }
 
             //return null;
-        }
-
-        /// <summary>
-        ///    
-        /// </summary>
-        public List<Place> GetPlaces()
-        {
-            List<Place> placesToReturn = new List<Place>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("GetPlaces", connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            placesToReturn.Add(new Place
-                            {
-                                PlaceId = Convert.ToInt64(reader["PlaceID"]),
-                                Name = reader["PlaceName"].ToString(),
-                                Description = reader["PlaceDescription"].ToString(),
-                                PicturePlace = reader["MainPlaceImage"].ToString(),
-                                CityName = reader["CityName"].ToString()
-                            });
-                        }
-
-                        return placesToReturn;
-                    }
-                }
-            }
-
-            return null;
         }
 
         /// <summary>
@@ -455,7 +383,7 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        /// Method which takes count fo filtered places from databse
+        ///		Method which takes count fo filtered places from databse
         /// </summary>
         /// <param name="filters">Collection of filters, which you want to apply for search</param>
         /// <returns>Count of places</returns>
@@ -489,7 +417,7 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        /// Method which takes filter of specific place
+        ///		Method which takes filter of specific place
         /// </summary>
         /// <returns>list of place filters</returns>
         public IList<int> GetPlaceFilters(long placeId)

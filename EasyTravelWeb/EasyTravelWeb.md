@@ -158,7 +158,6 @@
   - [GetPlaceById()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceById-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceById(System.Int64)')
   - [GetPlaceFilters()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceFilters-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceFilters(System.Int64)')
   - [GetPlaceRating()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceRating-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceRating(System.Int64)')
-  - [GetPlaces()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaces 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaces')
   - [GetPlacesIdsAndNames()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesIdsAndNames 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames')
   - [GetPlacesPage()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesPage-System-Int32,System-Int64,System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesPage(System.Int32,System.Int64,System.Int32)')
   - [GetTopPlacesByCityId()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64)')
@@ -964,7 +963,11 @@ This method has no parameters.
 
 ##### Summary
 
+Returns list of top 4 cities according to their rating
 
+##### Returns
+
+List of top 4 cities
 
 ##### Parameters
 
@@ -1890,17 +1893,6 @@ This method has no parameters.
 
 <a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceRating-System-Int64-'></a>
 ### GetPlaceRating() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceRating-System-Int64- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaces'></a>
-### GetPlaces() `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaces 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
