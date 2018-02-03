@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web.Http.Results;
-using EasyTravelWeb.Infrastructure;
-using EasyTravelWeb.Controllers;
 using EasyTravelWeb.Models;
-using Microsoft.AspNet.Identity;
-using WebGrease.Css.Extensions;
 
 namespace EasyTravelWeb.Repositories
 {
@@ -18,23 +12,24 @@ namespace EasyTravelWeb.Repositories
     /// </summary>
     public class PlaceRepository
     {
+	    private int noRowsAffected = -1;
 
-        /// <summary>
-        ///    
-        /// </summary>
-        public Place GetPlaceById(long placeId)
+		/// <summary>
+		///    
+		/// </summary>
+		public Place GetPlaceById(long placeId)
         {
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("GetPlaceById", connection);
+	            SqlCommand command = new SqlCommand("GetPlaceById", connection)
+		        {
+					CommandType = CommandType.StoredProcedure
+		        };
 
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
+	            command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -51,7 +46,7 @@ namespace EasyTravelWeb.Repositories
                         };
                     }
 
-                    return this.GetPlaceById(new Random().Next(1, 29));
+                    return null;
                 }
             }
         }
@@ -64,8 +59,7 @@ namespace EasyTravelWeb.Repositories
             List<Place> listToReturn = new List<Place>();
 
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
@@ -95,9 +89,8 @@ namespace EasyTravelWeb.Repositories
         public virtual IList<Place> GetFilteredPlacesPage(int page, long cityId, int pageSize, IList<Filter> filters)
         {
             IList<Place> filteredPlaces = new List<Place>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetFilteredPlaces", connection)
@@ -141,9 +134,8 @@ namespace EasyTravelWeb.Repositories
         {
             List<Place> listToReturn = new List<Place>();
 
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetPlacesPage", connection)
@@ -184,21 +176,22 @@ namespace EasyTravelWeb.Repositories
             /// <summary>
             ///    
             /// </summary>
-            public List<Place> GetTopPlacesByCityId(long cityId)
+            public List<Place> GetTopPlacesByCityId(long cityId, int numberOfTopPlaces)
 			{
             List<Place> listToReturn = new List<Place>();
 
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("GetTopPlacesByCityId", connection);
+	            SqlCommand command = new SqlCommand("GetTopPlacesByCityId", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
 
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@CityID", cityId));
-	            command.Parameters.Add("@TopPlacesNumber", 4);
+	            command.Parameters.Add(new SqlParameter("@CityID", cityId));
+	            command.Parameters.Add("@TopPlacesNumber", numberOfTopPlaces);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -229,9 +222,8 @@ namespace EasyTravelWeb.Repositories
         public virtual IList<PlaceSearchEntity> GetPlacesIdsAndNames()
         {
             List<PlaceSearchEntity> places = new List<PlaceSearchEntity>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetPlacesIdsAndNames", connection)
@@ -266,19 +258,20 @@ namespace EasyTravelWeb.Repositories
         public bool AddFavoritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("InsertNewUserFavoritePlace", connection);
+	            SqlCommand command = new SqlCommand("InsertNewUserFavoritePlace", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
 
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@UserId", userId));
+	            command.Parameters.Add(new SqlParameter("@UserId", userId));
                 command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
 
 
-                if (command.ExecuteNonQuery() != -1)
+                if (command.ExecuteNonQuery() != this.noRowsAffected)
                 {
                     return true;
                 }
@@ -293,15 +286,16 @@ namespace EasyTravelWeb.Repositories
         public bool DeleteFavoritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("DeleteUserFavoritePlace", connection);
+	            SqlCommand command = new SqlCommand("DeleteUserFavoritePlace", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
 
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@UserId", userId));
+	            command.Parameters.Add(new SqlParameter("@UserId", userId));
                 command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
 
 
@@ -320,14 +314,15 @@ namespace EasyTravelWeb.Repositories
         public virtual List<Place> GetFavoritePlaces(int id)
         {
             List<Place> favouritePlaces = new List<Place>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("GetUserFavoritePlaces", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@UserID", id));
+	            SqlCommand command = new SqlCommand("GetUserFavoritePlaces", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
+	            command.Parameters.Add(new SqlParameter("@UserID", id));
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -357,9 +352,9 @@ namespace EasyTravelWeb.Repositories
         public int GetCountPlace(long cityId)
         {
             int placesCount = 0;
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetCountPlace", connection);
@@ -390,14 +385,15 @@ namespace EasyTravelWeb.Repositories
         public int GetFilteredCountPlace(long cityId, IList<Filter> filters)
         {
             int placesCount = 0;
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("GetCountFromFilteredPlaces", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@CityID", cityId));
+	            SqlCommand command = new SqlCommand("GetCountFromFilteredPlaces", connection)
+		        {
+					CommandType = CommandType.StoredProcedure
+		        };
+	            command.Parameters.Add(new SqlParameter("@CityID", cityId));
                 IEnumerable<int> enumsToIntList = filters.Cast<int>();
                 command.Parameters.Add(new SqlParameter("@Filters", string.Join(",", enumsToIntList)));
 
@@ -423,14 +419,15 @@ namespace EasyTravelWeb.Repositories
         public IList<int> GetPlaceFilters(long placeId)
         {
             List<int> placeFiltersId = new List<int>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager
-                .ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("GetPlaceFilters", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@PlaceId", placeId));
+	            SqlCommand command = new SqlCommand("GetPlaceFilters", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
+	            command.Parameters.Add(new SqlParameter("@PlaceId", placeId));
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {

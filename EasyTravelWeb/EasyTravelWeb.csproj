@@ -218,6 +218,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Constants\Constants.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\PlaceController.cs" />
@@ -276,9 +277,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\MainPage\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

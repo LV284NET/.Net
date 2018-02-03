@@ -6,8 +6,8 @@ namespace EasyTravelWeb.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "EasyTravelWeb.Models.ApplicationDbContext";
+	        this.AutomaticMigrationsEnabled = true;
+	        this.ContextKey = Constants.Constants.ConfigurationConstants.ContextKey;
         }
 
         protected override void Seed(Models.ApplicationDbContext context)

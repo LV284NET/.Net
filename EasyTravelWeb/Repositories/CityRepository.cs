@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using EasyTravelWeb.Controllers;
 using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Repositories
@@ -19,11 +17,11 @@ namespace EasyTravelWeb.Repositories
 		///		Returns list of top 4 cities according to their rating
 		/// </summary>
 		/// <returns>List of top 4 cities</returns>
-		public virtual IList<City> GetTopCities()
+		public virtual IList<City> GetTopCities(int numberOfTopCities)
         {
             List<City> listToReturn = new List<City>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetTopCities", connection)
@@ -31,7 +29,7 @@ namespace EasyTravelWeb.Repositories
                     CommandType = CommandType.StoredProcedure
                 };
 
-	            command.Parameters.Add("@TopCitiesNumber", 4);
+	            command.Parameters.Add("@TopCitiesNumber", numberOfTopCities);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -60,8 +58,8 @@ namespace EasyTravelWeb.Repositories
         public virtual IList<City> GetCitiesPage(int page,int pageSize)
         {
              
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetCitiesPage", connection)
@@ -102,8 +100,8 @@ namespace EasyTravelWeb.Repositories
         public virtual IList<CitySearchEntity> GetCitiesIdAndNames()
         {
             List<CitySearchEntity> cities = new List<CitySearchEntity>();
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetCitiesIdAndNames", connection)
@@ -134,8 +132,8 @@ namespace EasyTravelWeb.Repositories
         /// </summary>
         public virtual City GetCity(long id)
         {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetCityById", connection)
@@ -167,8 +165,9 @@ namespace EasyTravelWeb.Repositories
         public virtual int GetCountCity()
         {
             int placesCount = 0;
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                .ConnectionString))
+
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("GetCountCity", connection)

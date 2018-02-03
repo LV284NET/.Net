@@ -34,7 +34,15 @@ namespace EasyTravelWeb.Controllers
 		{
 			try
 			{
-				return this.Ok(this.placeRepository.GetPlaceById(placeId));
+				Place place = this.placeRepository.GetPlaceById(placeId);
+
+				if (place != null)
+				{
+					return this.Ok((place));
+				}
+
+				return this.NotFound();
+
 			}
 			catch (Exception ex)
 			{
@@ -63,11 +71,11 @@ namespace EasyTravelWeb.Controllers
         ///    
         /// </summary>
         [HttpGet]
-		public IHttpActionResult GetTopPlacesByCityId(long cityId)
+		public IHttpActionResult GetTopPlacesByCityId(long cityId, int numberOfTopPlaces)
 		{
 			try
 			{
-				List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityId(cityId);
+				List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityId(cityId, numberOfTopPlaces);
 
 				if (cityPlaces != null)
 				{
@@ -120,17 +128,17 @@ namespace EasyTravelWeb.Controllers
 	    {
 	        try
 	        {
-	            IList<Place> filteredPlaces = placeRepository.GetFilteredPlacesPage(page, cityId, pageSize, filters);
+	            IList<Place> filteredPlaces = this.placeRepository.GetFilteredPlacesPage(page, cityId, pageSize, filters);
 	            if (filteredPlaces == null)
 	            {
-	                return NotFound();
+	                return this.NotFound();
 	            }
-	            return Ok(filteredPlaces);
+	            return this.Ok(filteredPlaces);
 	        }
 	        catch (Exception ex)
 	        {
-	            logger.LogException(ex);
-	            return InternalServerError();
+	            this.logger.LogException(ex);
+	            return this.InternalServerError();
 	        }
 	    }
 
@@ -143,7 +151,7 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetCountFromFilteredPlaces(long cityId, [FromUri]IList<Filter> filters)
         {
-            int placeCount = placeRepository.GetFilteredCountPlace(cityId,filters);
+            int placeCount = this.placeRepository.GetFilteredCountPlace(cityId,filters);
             try
             {
                 if (placeCount == 0)
@@ -155,9 +163,8 @@ namespace EasyTravelWeb.Controllers
             catch (Exception ex)
             {
                 this.logger.LogException(ex);
-                return InternalServerError();
+                return this.InternalServerError();
             }
-            
         }
 
         /// <summary>
@@ -167,7 +174,7 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetPlaceFilters(long placeId)
         {
-            IList<int> placeFiltersId = placeRepository.GetPlaceFilters(placeId);
+            IList<int> placeFiltersId = this.placeRepository.GetPlaceFilters(placeId);
             try
             {
                 if (placeFiltersId == null)
@@ -179,9 +186,8 @@ namespace EasyTravelWeb.Controllers
             catch (Exception ex)
             {
                 this.logger.LogException(ex);
-                return InternalServerError();
+                return this.InternalServerError();
             }
-
         }
 
         /// <summary>
@@ -190,7 +196,7 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetCountPlaces(long cityId)
         {
-            int placeCount = placeRepository.GetCountPlace(cityId);
+            int placeCount = this.placeRepository.GetCountPlace(cityId);
             try
             {
                 if (placeCount == 0)
@@ -201,7 +207,7 @@ namespace EasyTravelWeb.Controllers
             catch (Exception ex)
             {
                 this.logger.LogException(ex);
-                return InternalServerError();
+                return this.InternalServerError();
             }
             return this.Ok(placeCount);
         }
@@ -219,17 +225,17 @@ namespace EasyTravelWeb.Controllers
         {
             try
             {
-                if (placeRepository.AddFavoritePlace(favoriteUserPlace.UserId, favoriteUserPlace.PlaceId))
+                if (this.placeRepository.AddFavoritePlace(favoriteUserPlace.UserId, favoriteUserPlace.PlaceId))
                 {
-                    return Ok();
+                    return this.Ok();
                 }
 
-                return Content(HttpStatusCode.BadRequest, "You already add this place to favourite");
+                return this.Content(HttpStatusCode.BadRequest, "You already add this place to favourite");
             }
             catch (Exception ex)
             {
                 this.logger.LogException(ex);
-                return InternalServerError();
+                return this.InternalServerError();
             }
         }
 
@@ -244,17 +250,17 @@ namespace EasyTravelWeb.Controllers
         {
             try
             {
-                if (placeRepository.DeleteFavoritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
+                if (this.placeRepository.DeleteFavoritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
                 {
-                    return Ok();
+                    return this.Ok();
                 }
 
-                return BadRequest();
+                return this.BadRequest();
             }
             catch (Exception ex)
             {
                 this.logger.LogException(ex);
-                return InternalServerError();
+                return this.InternalServerError();
             }
         }
     }

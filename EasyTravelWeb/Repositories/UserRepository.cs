@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using User = EasyTravelWeb.Models.User;
+using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Repositories
 {
@@ -19,16 +19,16 @@ namespace EasyTravelWeb.Repositories
         public virtual User GetUser(int id)
         {
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("GetUserById", connection);
+	            SqlCommand command = new SqlCommand("GetUserById", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
 
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.Add(new SqlParameter("@Id", id));
+	            command.Parameters.Add(new SqlParameter("@Id", id));
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -51,16 +51,16 @@ namespace EasyTravelWeb.Repositories
         public virtual void ChangeFirstName(int id, string firstName)
         {
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("ChangeFirstName", connection);
+	            SqlCommand command = new SqlCommand("ChangeFirstName", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
 
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.Add(new SqlParameter("@Id", id));
+	            command.Parameters.Add(new SqlParameter("@Id", id));
                 command.Parameters.Add(new SqlParameter("@FirstName", firstName));
 
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -78,16 +78,17 @@ namespace EasyTravelWeb.Repositories
         public virtual void ChangeLastName(int id, string lastName)
         {
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("ChangeLastName", connection);
+	            SqlCommand command = new SqlCommand("ChangeLastName", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
 
-                command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.Add(new SqlParameter("@Id", id));
+	            command.Parameters.Add(new SqlParameter("@Id", id));
                 command.Parameters.Add(new SqlParameter("@LastName", lastName));
 
                 using (SqlDataReader reader = command.ExecuteReader())

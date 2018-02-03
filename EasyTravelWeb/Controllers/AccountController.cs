@@ -7,7 +7,6 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Infrastructure.Validators;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Providers;
@@ -26,8 +25,6 @@ namespace EasyTravelWeb.Controllers
     [Authorize]
     public class AccountController : ApiController
     {
-        private const string LocalLoginProvider = "Local";
-
         /// <summary>
         ///    
         /// </summary>
@@ -127,13 +124,13 @@ namespace EasyTravelWeb.Controllers
             if (user.PasswordHash != null)
                 logins.Add(new UserLoginInfoViewModel
                 {
-                    LoginProvider = LocalLoginProvider,
+                    LoginProvider = Constants.Constants.AccountControllerConstants.LocalLoginProvider,
                     ProviderKey = user.UserName
                 });
 
             return new ManageInfoViewModel
             {
-                LocalLoginProvider = LocalLoginProvider,
+                LocalLoginProvider = Constants.Constants.AccountControllerConstants.LocalLoginProvider,
                 Email = user.UserName,
                 Logins = logins,
                 ExternalLoginProviders = this.GetExternalLogins(returnUrl, generateState)
@@ -217,7 +214,7 @@ namespace EasyTravelWeb.Controllers
 
             IdentityResult result;
 
-            if (model.LoginProvider == LocalLoginProvider)
+            if (model.LoginProvider == Constants.Constants.AccountControllerConstants.LocalLoginProvider)
                 result = await this.UserManager.RemovePasswordAsync(this.User.Identity.GetUserId<int>());
             else
                 result = await this.UserManager.RemoveLoginAsync(this.User.Identity.GetUserId<int>(),
@@ -334,19 +331,19 @@ namespace EasyTravelWeb.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> ConfirmUser([FromBody] User user)
         {
-            ApplicationUser userConfirm = await UserManager.FindByEmailAsync(user.Email);
+            ApplicationUser userConfirm = await this.UserManager.FindByEmailAsync(user.Email);
 
             if (userConfirm == null)
             {
-                return Content(HttpStatusCode.NotFound, "There is no such user!");
+                return this.Content(HttpStatusCode.NotFound, "There is no such user!");
             }
 
             if (!userConfirm.EmailConfirmed)
             {
-                return Content(HttpStatusCode.Forbidden, "Email is not confirmed! Please check your email");
+                return this.Content(HttpStatusCode.Forbidden, "Email is not confirmed! Please check your email");
             }
 
-            return Ok();
+            return this.Ok();
         }
 
         // POST api/Account/Register
@@ -378,12 +375,12 @@ namespace EasyTravelWeb.Controllers
 
                 if (result.Succeeded)
                 {
-                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new {userId = user.Id, code = code}));
-                    await UserManager.SendEmailAsync(user.Id, "Confirm your account",
-                        string.Format("<a href=\"{0}\">Clink to confirm your registration</a>", callbackUrl));
+                    string code = await this.UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = new Uri(this.Url.Link("ConfirmEmailRoute", new {userId = user.Id, code = code}));
+                    await this.UserManager.SendEmailAsync(user.Id, "Confirm your account",
+	                    $"<a href=\"{callbackUrl}\">Clink to confirm your registration</a>");
                 }
-                else return Content(HttpStatusCode.BadRequest, "There is such user with same email!");
+                else return this.Content(HttpStatusCode.BadRequest, "There is such user with same email!");
             }
 
             return this.Ok();
@@ -399,18 +396,19 @@ namespace EasyTravelWeb.Controllers
         {
             if (userId == default(int) || code == string.Empty)
             {
-                ModelState.AddModelError("", "User Id and Code are required");
-                return BadRequest(ModelState);
+	            this.ModelState.AddModelError("", "User Id and Code are required");
+                return this.BadRequest(this.ModelState);
             }
 
-            IdentityResult result = await UserManager.ConfirmEmailAsync(userId, code);
+            IdentityResult result = await this.UserManager.ConfirmEmailAsync(userId, code);
 
             if (!result.Succeeded)
             {
-                return GetErrorResult(result);
+                return this.GetErrorResult(result);
             }
 
-            return Redirect("http://localhost:4200/main");
+            return this.Redirect(Constants.Constants.AccountControllerConstants
+	            .UrlForRedirectAfterEmailConfirmation);
         }
 
         /// <summary>
@@ -491,9 +489,7 @@ namespace EasyTravelWeb.Controllers
 
             public static ExternalLoginData FromIdentity(ClaimsIdentity identity)
             {
-                if (identity == null) return null;
-
-                Claim providerKeyClaim = identity.FindFirst(ClaimTypes.NameIdentifier);
+	            Claim providerKeyClaim = identity?.FindFirst(ClaimTypes.NameIdentifier);
 
                 if (providerKeyClaim == null || string.IsNullOrEmpty(providerKeyClaim.Issuer)
                                              || string.IsNullOrEmpty(providerKeyClaim.Value))
@@ -512,19 +508,19 @@ namespace EasyTravelWeb.Controllers
 
         private static class RandomOAuthStateGenerator
         {
-            private static readonly RandomNumberGenerator _random = new RNGCryptoServiceProvider();
+            private static readonly RandomNumberGenerator random = new RNGCryptoServiceProvider();
 
             public static string Generate(int strengthInBits)
             {
-                const int bitsPerByte = 8;
+                if (strengthInBits % Constants.Constants.
+	                    AccountControllerConstants.BitsPerByte != 0)
+                    throw new ArgumentException("strengthInBits must be evenly divisible by 8.", nameof(strengthInBits));
 
-                if (strengthInBits % bitsPerByte != 0)
-                    throw new ArgumentException("strengthInBits must be evenly divisible by 8.", "strengthInBits");
-
-                int strengthInBytes = strengthInBits / bitsPerByte;
+                int strengthInBytes = strengthInBits / 
+                                      Constants.Constants.AccountControllerConstants.BitsPerByte;
 
                 var data = new byte[strengthInBytes];
-                _random.GetBytes(data);
+                random.GetBytes(data);
                 return HttpServerUtility.UrlTokenEncode(data);
             }
         }

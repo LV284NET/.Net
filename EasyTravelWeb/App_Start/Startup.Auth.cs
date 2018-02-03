@@ -53,9 +53,9 @@ namespace EasyTravelWeb
             PublicClientId = "self";
             OAuthOptions = new OAuthAuthorizationServerOptions
             {
-                TokenEndpointPath = new PathString("/Token"),
+                TokenEndpointPath = new PathString(Constants.Constants.StartupConstants.TokenEndpointPath),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
-                AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
+                AuthorizeEndpointPath = new PathString(Constants.Constants.StartupConstants.AuthorizeEndpointPath),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(10),
                 // In production mode set AllowInsecureHttp = false
                 AllowInsecureHttp = true

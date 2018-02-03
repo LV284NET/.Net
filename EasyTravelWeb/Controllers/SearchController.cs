@@ -27,7 +27,7 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         public SearchController()
         {
-            InitializeData();
+	        this.InitializeData();
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace EasyTravelWeb.Controllers
             this.cityRepository = cityRepository;
             this.placeRepository = placeRepository;
 
-            InitializeData();
+	        this.InitializeData();
         }
 
         private void InitializeData()
@@ -46,13 +46,13 @@ namespace EasyTravelWeb.Controllers
             if (cities == null)
             {
                 cities = new List<CitySearchEntity>();
-                cityRepository.GetCitiesIdAndNames().ForEach(city => cities.Add(city));
+	            this.cityRepository.GetCitiesIdAndNames().ForEach(city => cities.Add(city));
             }
 
             if (places == null)
             {
                 places = new List<PlaceSearchEntity>();
-                placeRepository.GetPlacesIdsAndNames().ForEach(place => places.Add(place));
+	            this.placeRepository.GetPlacesIdsAndNames().ForEach(place => places.Add(place));
             }
         }
 
@@ -66,39 +66,44 @@ namespace EasyTravelWeb.Controllers
             {
                 searchWord = searchWord.ToLower();
                 IList<ISearchEntity> listOfSuggestions = new List<ISearchEntity>();
-                const int numberToShow = 4;
+
                 int counter = 0;
                 
                 foreach (ISearchEntity obj in cities)
                 {
-                    if (obj.Name.ToLower().StartsWith(searchWord))
-                    {
+                    if (obj.Name.ToLower().Contains(searchWord))
+					{
                         listOfSuggestions.Add(obj);
-                        if (++counter == numberToShow)
+                        if (++counter == Constants.Constants
+	                            .SearchControllerConstants.NumberOfSearchEntitiesToShow)
                         {
                             break;
                         }
                     }
                 }
 
-                foreach (ISearchEntity obj in places)
+	            counter = 0;
+
+				foreach (ISearchEntity obj in places)
                 {
-                    if (obj.Name.ToLower().StartsWith(searchWord))
+                    if (obj.Name.ToLower().Contains(searchWord))
                     {
                         listOfSuggestions.Add(obj);
-                        if (++counter == numberToShow + 4)
+
+                        if (++counter == Constants.Constants
+	                            .SearchControllerConstants.NumberOfSearchEntitiesToShow)
                         {
                             break;
                         }
                     }
                 }
                         
-                return Ok(listOfSuggestions);
+                return this.Ok(listOfSuggestions);
             }
             catch (Exception ex)
             {
-                logger.LogException(ex);
-                return InternalServerError();
+	            this.logger.LogException(ex);
+                return this.InternalServerError();
             }
         }
     }

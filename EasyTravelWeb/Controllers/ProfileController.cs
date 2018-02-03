@@ -10,36 +10,36 @@ using EasyTravelWeb.Infrastructure.Validators;
 namespace EasyTravelWeb.Controllers
 {
     /// <summary>
-    /// Controller for Profile page
+    ///		Controller for Profile page
     /// </summary>
     public class ProfileController : ApiController
     {
         #region Private Fields
 
         /// <summary>
-        /// Instance of UserRepository, using methods to do actions with database
+        ///		Instance of UserRepository, using methods to do actions with database
         /// </summary>
         private readonly UserRepository userRepository = new UserRepository();
 
 
         /// <summary>
-        /// Instance of RatingRepository, using methods to do actions with database
+        ///		Instance of RatingRepository, using methods to do actions with database
         /// </summary>
         private readonly RatingRepository ratingRepository = new RatingRepository();
 
         /// <summary>
-        /// Instance for stroring exceptions in file
+        ///		Instance for stroring exceptions in file
         /// </summary>
         private readonly Logger logger = Logger.GetInstance();
 
         /// <summary>
-        /// Validator fro first and lastn name
+        ///		Validator for first and last name
         /// </summary>
         private readonly IValidator<string> nameValidator =
             new NameChangingValidator();
 
         /// <summary>
-        /// Instance of PlaceRepository, using method to get favourite places for user from database
+        ///		Instance of PlaceRepository, using method to get favourite places for user from database
         /// </summary>
         private readonly PlaceRepository placeRepository = new PlaceRepository();
 
@@ -50,7 +50,6 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///     Default constructor
         /// </summary>
-
         public ProfileController() { }
 
         /// <summary>
@@ -74,7 +73,7 @@ namespace EasyTravelWeb.Controllers
         #region Public Controllers
 
         /// <summary>
-        /// Method for getting User from Db
+        ///		Method for getting User from Db
         /// </summary>
         /// <param name="id">id of current user</param>
         /// <returns>First, last, email of user</returns>
@@ -89,7 +88,7 @@ namespace EasyTravelWeb.Controllers
 
                 if (user == null)
                 {
-                    return NotFound();
+                    return this.NotFound();
                 }
 
             }
@@ -99,11 +98,11 @@ namespace EasyTravelWeb.Controllers
 
                 return this.NotFound();
             }
-            return Ok(user);
+            return this.Ok(user);
         }
 
         /// <summary>
-        /// Method for changing first name of a user
+        ///		Method for changing first name of a user
         /// </summary>
         /// <param name="id">Id of current user</param>
         /// <param name="firstName">First name which will be updated in database</param>
@@ -135,7 +134,7 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        /// Method for changing first name of a user
+        ///		Method for changing first name of a user
         /// </summary>
         /// <param name="id">Id of current user</param>
         /// <param name="lastName">Last name which will be updated in database</param>
@@ -167,7 +166,7 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        /// Cotroler fo getting favorite places of specific user
+        ///		Cotroler fo getting favorite places of specific user
         /// </summary>
         /// <returns>List of favourite Places</returns>
         [Authorize]
@@ -191,12 +190,11 @@ namespace EasyTravelWeb.Controllers
 
                 return this.NotFound();
             }
-
         }
 
 
         /// <summary>
-        /// Cotroller fo setting rating place of specific user
+        ///		Cotroller fo setting rating place of specific user
         /// </summary>
         /// <returns>List of favourite Places</returns>
         [Authorize]
@@ -205,17 +203,17 @@ namespace EasyTravelWeb.Controllers
         {
             try
             {
-                if (ratingRepository.SetUserRatingForPlace(userRating))
+                if (this.ratingRepository.SetUserRatingForPlace(userRating))
                 {
-                    return Ok();
+                    return this.Ok();
                 }
 
-                return Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
+                return this.Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
             }
             catch (Exception ex)
             {
                 this.logger.LogException(ex);
-                return InternalServerError();
+                return this.InternalServerError();
             }
         }
 
@@ -229,17 +227,17 @@ namespace EasyTravelWeb.Controllers
         {
             try
             {
-                if (ratingRepository.DeleteUserRatingForPlace(userRating.UserId, userRating.PlaceId))
+                if (this.ratingRepository.DeleteUserRatingForPlace(userRating.UserId, userRating.PlaceId))
                 {
                     return Ok();
                 }
 
-                return Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
+                return this.Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
             }
             catch (Exception ex)
             {
                 this.logger.LogException(ex);
-                return InternalServerError();
+                return this.InternalServerError();
             }
         }
 
@@ -253,12 +251,12 @@ namespace EasyTravelWeb.Controllers
         {
             try
             {
-                return Ok(ratingRepository.GetUserRatingOfPlace(userId, placeId));                
+                return this.Ok(this.ratingRepository.GetUserRatingOfPlace(userId, placeId));                
             }
             catch (Exception ex)
             {
                 this.logger.LogException(ex);
-                return InternalServerError();
+                return this.InternalServerError();
             }
         }
 

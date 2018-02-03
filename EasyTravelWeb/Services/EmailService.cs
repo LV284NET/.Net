@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -7,26 +6,29 @@ using Microsoft.AspNet.Identity;
 namespace EasyTravelWeb.Services
 {
     /// <summary>
-    ///    Service for send mail
+    ///    Service for sending email
     /// </summary>
 
     public class EmailService : IIdentityMessageService
     {
         /// <summary>
-        ///    
+        ///    Sends email to user
         /// </summary>
         public async Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-
-            Debug.Print(message.Destination);
-            var client = new SmtpClient("smtp.gmail.com", 587)
+            var client = new SmtpClient(
+	            Constants.Constants.EmailServiceConstants.SmtpClientHost, 
+	            Constants.Constants.EmailServiceConstants.SmtpClientPort)
             {
-                Credentials = new NetworkCredential("easytravelsystem284@gmail.com", ".netlv-284"),
+                Credentials = new NetworkCredential(
+	                Constants.Constants.EmailServiceConstants.Credentials.Email,
+	                Constants.Constants.EmailServiceConstants.Credentials.Password),
                 EnableSsl = true,
             };
 
-            var mail = new MailMessage("easytravelsystem284@gmail.com", to: message.Destination)
+            var mail = new MailMessage(
+	            Constants.Constants.EmailServiceConstants.Credentials.Email, 
+	            message.Destination)
             {
                 Body = message.Body,
                 IsBodyHtml = true,

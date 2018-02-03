@@ -44,7 +44,8 @@ namespace EasyTravelWeb.Infrastructure
 		/// <summary>
 		///     Instance of the Stream class
 		/// </summary>
-		private static readonly Stream FileStream = new FileStream($@"C:\Users\{Environment.UserName}\EasyTravelLog.txt",
+		private static readonly Stream FileStream = new FileStream(
+			Constants.Constants.LoggerConstants.PathForFileStream,
 			FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read);
 
 		/// <summary>

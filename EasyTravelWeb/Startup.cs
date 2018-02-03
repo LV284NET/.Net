@@ -18,7 +18,7 @@ namespace EasyTravelWeb
         {
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            ConfigureAuth(app);
+	        this.ConfigureAuth(app);
         }
     }
 }

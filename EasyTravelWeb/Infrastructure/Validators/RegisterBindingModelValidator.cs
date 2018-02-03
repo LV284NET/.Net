@@ -7,54 +7,30 @@ using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Infrastructure.Validators
 {
+	/// <inheritdoc />
 	/// <summary>
 	///     RegisterBindingModelValidator logic
 	/// </summary>
 	public class RegisterBindingModelValidator : IValidator<RegisterBindingModel>
 	{
-		#region Constants
-
-		/// <summary>
-		///     Minimum amount of password characters
-		/// </summary>
-		private const int PasswordLength = 8;
-
-		#endregion
-
 		#region Private Fields
 
 		/// <summary>
-		///     Validation register
+		///     Validation register.
 		/// </summary>
 		private readonly List<string> validationRegister;
 
 		/// <summary>
-		///     Instance of the Logger class for logging exceptions
+		///     Instance of the Logger class for logging exceptions.
 		/// </summary>
 		private readonly Logger logger;
-
-		/// <summary>
-		///     Pattern that must be met by an email (i.e. some@domain.com)
-		/// </summary>
-		private readonly string emailPattern = @"[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+";
-
-		/// <summary>
-		///     Pattern that must be met by a password (i.e. Aa1111!@)
-		/// </summary>
-		private string passwordPattern = @"((?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{8,20})$";
-
-
-		/// <summary>
-		///     Pattern that must be met by first name or last name (i.e. Pavlo)
-		/// </summary>
-		private string namePattern = @"^[а-яА-ЯёЁa-zA-Zʼ'є Є]{2,20}$";
 
 		#endregion
 
 		#region Constructor
 
 		/// <summary>
-		///     Initializes instance of the RegisterBindingModelValidator class
+		///     Initializes instance of the RegisterBindingModelValidator class.
 		/// </summary>
 		public RegisterBindingModelValidator()
 		{
@@ -70,8 +46,8 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		///     Gets data about validation process of the instance of the RegisterBindingModel class.
 		///     Useful in cases of necessary to watch problems concerning the validation process.
 		/// </summary>
-		/// <param name="model">Instance of the RegisterBindingModel class</param>
-		/// <returns>List of information messages about validation process</returns>
+		/// <param name="model">Instance of the RegisterBindingModel class.</param>
+		/// <returns>List of information messages about validation process.</returns>
 		public virtual List<string> GetValidationData(RegisterBindingModel model)
 		{
 			if (this.IsValid(model))
@@ -85,10 +61,10 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		}
 
 		/// <summary>
-		///     Checks if data of the instance of the RegisterBindingModel class is valid
+		///     Checks if data of the instance of the RegisterBindingModel class is valid.
 		/// </summary>
-		/// <param name="model">Instance of the RegisterBindingModel class</param>
-		/// <returns>bool</returns>
+		/// <param name="model">Instance of the RegisterBindingModel class.</param>
+		/// <returns>True if a data of the instance of the RegisterBindingModel class is valid, otherwise - false.</returns>
 		public bool IsValid(RegisterBindingModel model)
 		{
 			if (this.emailIsValid(model.Email) &
@@ -107,10 +83,10 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		#region Private Methods
 
 		/// <summary>
-		///     Checks if the email is valid
+		///     Checks if the email is valid.
 		/// </summary>
 		/// <param name="email">email</param>
-		/// <returns>bool</returns>
+		/// <returns>True if the email is valid, otherwise - false.</returns>
 		private bool emailIsValid(string email)
 		{
 			if (string.IsNullOrEmpty(email))
@@ -129,16 +105,17 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		}
 
 		/// <summary>
-		///     Checks if the email is met pattern requirements
+		///     Checks if the email is met pattern requirements.
 		/// </summary>
 		/// <param name="email">email</param>
-		/// <returns>bool</returns>
+		/// <returns>True if the email is met pattern requirements, otherwise - false.</returns>
 		private bool isEmailMetPatternRequirements(string email)
 		{
 			try
 			{
-				if (Regex.IsMatch(email, this.emailPattern,
-					RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
+				if (Regex.IsMatch(email, 
+					Constants.Constants.DataValidationConstants.EmailPattern,
+					RegexOptions.IgnoreCase))
 				{
 					return true;
 				}
@@ -157,13 +134,14 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		}
 
 		/// <summary>
-		///     Checks if the password is valid
+		///     Checks if the password is valid.
 		/// </summary>
 		/// <param name="password">password</param>
-		/// <returns>bool</returns>
+		/// <returns>True if the password is valid, otherwise - false.</returns>
 		private bool isPasswordValid(string password)
 		{
-			if (password.Length < PasswordLength)
+			if (password.Length < 
+			    Constants.Constants.DataValidationConstants.MinimumPasswordLength)
 			{
 				this.validationRegister
 					.Add("Password length must be equal or greater than 8 chars");
@@ -180,16 +158,17 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		}
 
 		/// <summary>
-		///     Checks if the password is met pattern requirements
+		///     Checks if the password is met pattern requirements.
 		/// </summary>
 		/// <param name="password">Password</param>
-		/// <returns></returns>
+		/// <returns>True if the password is met pattern requirements, otherwise - false.</returns>
 		private bool isPasswordMetPatternRequirements(string password)
 		{
 			try
 			{
-				if (Regex.IsMatch(password, this.passwordPattern,
-					RegexOptions.None, TimeSpan.FromMilliseconds(250)))
+				if (Regex.IsMatch(password, 
+					Constants.Constants.DataValidationConstants.PasswordPattern,
+					RegexOptions.None))
 				{
 					return true;
 				}
@@ -210,10 +189,10 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		}
 
 		/// <summary>
-		///     Checks if the first name is valid
+		///     Checks if the first name is valid.
 		/// </summary>
 		/// <param name="firstName">First name</param>
-		/// <returns>bool</returns>
+		/// <returns>True if the first name is valid, otherwise - false.</returns>
 		private bool firstNameIsValid(string firstName)
 		{
 			if (string.IsNullOrEmpty(firstName))
@@ -236,10 +215,10 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		}
 
 		/// <summary>
-		///     Checks if the last name is valid
+		///     Checks if the last name is valid.
 		/// </summary>
 		/// <param name="lastName">Last name</param>
-		/// <returns>bool</returns>
+		/// <returns>True if the last name is valid, otherwise - false.</returns>
 		private bool lastNameIsValid(string lastName)
 		{
 			if (string.IsNullOrEmpty(lastName))
@@ -262,16 +241,17 @@ namespace EasyTravelWeb.Infrastructure.Validators
 		}
 
 		/// <summary>
-		///     Checks if the first name or the last name are met pattern requirements
+		///     Checks if the first name or the last name are met pattern requirements.
 		/// </summary>
 		/// <param name="name">First name or last name</param>
-		/// <returns>bool</returns>
+		/// <returns>True if the first name or the last name are met pattern requirements, otherwise - false.</returns>
 		private bool isNameMetPatternRequirements(string name)
 		{
 			try
 			{
-				if (Regex.IsMatch(name, this.namePattern,
-					RegexOptions.None, TimeSpan.FromMilliseconds(250)))
+				if (Regex.IsMatch(name, 
+					Constants.Constants.DataValidationConstants.NamePattern,
+					RegexOptions.None))
 				{
 					return true;
 				}

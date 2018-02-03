@@ -13,10 +13,11 @@ namespace EasyTravelTest.ControllersTest
         [TestCase]
         public void GetPlaceActionTest()
         {
-            int GetTopPlacesByCityId = 1;
+            int cityId = 1;
+	        int numberOfTopPlaces = 4;
             PlaceController placeController = new PlaceController();
 
-            IHttpActionResult actual = placeController.GetTopPlacesByCityId(GetTopPlacesByCityId);
+            IHttpActionResult actual = placeController.GetTopPlacesByCityId(cityId, numberOfTopPlaces);
             Assert.That(actual, Is.TypeOf<OkNegotiatedContentResult<List<Place>>>());
         }
 

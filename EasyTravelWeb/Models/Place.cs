@@ -50,16 +50,5 @@ namespace EasyTravelWeb.Models
         {
             
         }
-
-        /// <summary>
-        ///    
-        /// </summary>
-        public Place(string name, string cityName, string description, string picturePlace)
-        {
-            this.Name = name;
-            this.CityName = cityName;
-            this.Description = description;
-            this.PicturePlace = picturePlace;
-        }
     }
 }

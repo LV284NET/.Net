@@ -17,7 +17,7 @@ namespace EasyTravelWeb.Providers
 
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
-        private readonly string _publicClientId;
+        private readonly string publicClientId;
 
         /// <summary>
         ///    
@@ -29,7 +29,7 @@ namespace EasyTravelWeb.Providers
                 throw new ArgumentNullException("publicClientId");
             }
 
-            _publicClientId = publicClientId;
+            this.publicClientId = publicClientId;
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace EasyTravelWeb.Providers
         /// </summary>
         public override Task ValidateClientRedirectUri (OAuthValidateClientRedirectUriContext context)
         {
-            if (context.ClientId == _publicClientId)
+            if (context.ClientId == this.publicClientId)
             {
                 Uri expectedRootUri = new Uri(context.Request.Uri, "/");
 
@@ -113,13 +113,13 @@ namespace EasyTravelWeb.Providers
         /// <summary>
         ///    
         /// </summary>
-        public static AuthenticationProperties CreateProperties(int idUser, string userName, string FirstName)
+        public static AuthenticationProperties CreateProperties(int idUser, string userName, string firstName)
         {
             IDictionary<string, string>
             data = new Dictionary<string, string>
             {
                 { "userName", userName },
-                { "firstName", FirstName},
+                { "firstName", firstName},
                 { "Id", idUser.ToString() }
             };
             return new AuthenticationProperties(data);

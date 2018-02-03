@@ -15,7 +15,7 @@ namespace EasyTravelWeb
             AllowAnyHeader = true,
             AllowAnyMethod = true,
             SupportsCredentials =  true,
-            Origins = {"https://localhost:4200"}
+            Origins = {Constants.Constants.CORSConstants.FrontEndUrl}
         };
     }
 }

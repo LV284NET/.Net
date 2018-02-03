@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
-using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Infrastructure.Validators
 {
@@ -18,7 +15,6 @@ namespace EasyTravelWeb.Infrastructure.Validators
 
         private List<string> name;
         private readonly Logger logger;
-        private string namePattern = @"^[а-яА-ЯёЁa-zA-Zʼ'є Є]{2,20}$";
 
         #endregion
 
@@ -100,8 +96,6 @@ namespace EasyTravelWeb.Infrastructure.Validators
             return false;
         }
 
-     
-
         /// <summary>
         ///     Checks if the first name or the last name are met pattern requirements
         /// </summary>
@@ -111,8 +105,9 @@ namespace EasyTravelWeb.Infrastructure.Validators
         {
             try
             {
-                if (Regex.IsMatch(name, this.namePattern,
-                    RegexOptions.None, TimeSpan.FromMilliseconds(250)))
+                if (Regex.IsMatch(name, 
+	                Constants.Constants.DataValidationConstants.NamePattern,
+                    RegexOptions.None))
                 {
                     return true;
                 }

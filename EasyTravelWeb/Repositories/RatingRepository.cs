@@ -11,22 +11,25 @@ namespace EasyTravelWeb.Repositories
     /// </summary>
     public class RatingRepository
     {
-        public bool SetUserRatingForPlace(UserPlaceRating userRating)
+		private int noRowsAffected = -1;
+
+		public bool SetUserRatingForPlace(UserPlaceRating userRating)
         {
-            using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+            using (SqlConnection connection = 
+	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("InsertOrUpdateUsersPlaceRating", connection);
+	            SqlCommand command = new SqlCommand("InsertOrUpdateUsersPlaceRating", connection)
+		        {
+					CommandType = CommandType.StoredProcedure
+		        };
 
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@UserID", userRating.UserId));
+	            command.Parameters.Add(new SqlParameter("@UserID", userRating.UserId));
                 command.Parameters.Add(new SqlParameter("@PlaceID", userRating.PlaceId));
                 command.Parameters.Add(new SqlParameter("@Rating", Convert.ToDecimal(userRating.Rating)));
 
-                if (command.ExecuteNonQuery() != -1)
+                if (command.ExecuteNonQuery() != this.noRowsAffected)
                 {
                     return true;
                 }
@@ -38,18 +41,19 @@ namespace EasyTravelWeb.Repositories
         public bool DeleteUserRatingForPlace(int userId, long placeId)
         {
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("DeleteUsersPlaceRating", connection);
+	            SqlCommand command = new SqlCommand("DeleteUsersPlaceRating", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
 
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@UserID", userId));
+	            command.Parameters.Add(new SqlParameter("@UserID", userId));
                 command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
 
-                if (command.ExecuteNonQuery() != -1)
+                if (command.ExecuteNonQuery() != this.noRowsAffected)
                 {
                     return true;
                 }
@@ -66,15 +70,16 @@ namespace EasyTravelWeb.Repositories
         public double GetUserRatingOfPlace(int UserId, long PlaceId)
         {
             using (SqlConnection connection =
-                new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
-                    .ConnectionString))
+                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("GetUserPlaceRating", connection);
+	            SqlCommand command = new SqlCommand("GetUserPlaceRating", connection)
+	            {
+		            CommandType = CommandType.StoredProcedure
+	            };
 
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@UserID", UserId));
+	            command.Parameters.Add(new SqlParameter("@UserID", UserId));
                 command.Parameters.Add(new SqlParameter("@PlaceID", PlaceId));
 
                 using (SqlDataReader reader = command.ExecuteReader())

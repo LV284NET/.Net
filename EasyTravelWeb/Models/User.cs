@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EasyTravelWeb.Models
+﻿namespace EasyTravelWeb.Models
 {
     /// <summary>
     ///    User Model
@@ -13,18 +11,6 @@ namespace EasyTravelWeb.Models
         /// </summary>
         public User()
         {
-        }
-
-        /// <summary>
-        ///    
-        /// </summary>
-        public User(int id, string email, string firstName, string lastName, string password)
-        {
-            this.UserId = id;
-            this.Email = email;
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Password = password;
         }
 
         /// <summary>
