@@ -29,10 +29,11 @@
   - [Create()](#M-EasyTravelWeb-Models-ApplicationDbContext-Create 'EasyTravelWeb.Models.ApplicationDbContext.Create')
 - [ApplicationOAuthProvider](#T-EasyTravelWeb-Providers-ApplicationOAuthProvider 'EasyTravelWeb.Providers.ApplicationOAuthProvider')
   - [#ctor()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-#ctor-System-String- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.#ctor(System.String)')
-  - [CreateProperties()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-CreateProperties-System-Int32,System-String,System-String- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.CreateProperties(System.Int32,System.String,System.String)')
-  - [GrantResourceOwnerCredentials()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-GrantResourceOwnerCredentials-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)')
-  - [TokenEndpoint()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-TokenEndpoint-Microsoft-Owin-Security-OAuth-OAuthTokenEndpointContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.TokenEndpoint(Microsoft.Owin.Security.OAuth.OAuthTokenEndpointContext)')
-  - [ValidateClientAuthentication()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientAuthentication-Microsoft-Owin-Security-OAuth-OAuthValidateClientAuthenticationContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)')
+  - [CreateProperties(idUser,userName,firstName)](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-CreateProperties-System-Int32,System-String,System-String- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.CreateProperties(System.Int32,System.String,System.String)')
+  - [DoesPasswordMatch(context,userManager,userFoundByEmail)](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-DoesPasswordMatch-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext,EasyTravelWeb-ApplicationUserManager,EasyTravelWeb-Models-ApplicationUser- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.DoesPasswordMatch(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext,EasyTravelWeb.ApplicationUserManager,EasyTravelWeb.Models.ApplicationUser)')
+  - [GrantResourceOwnerCredentials(context)](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-GrantResourceOwnerCredentials-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)')
+  - [TokenEndpoint(context)](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-TokenEndpoint-Microsoft-Owin-Security-OAuth-OAuthTokenEndpointContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.TokenEndpoint(Microsoft.Owin.Security.OAuth.OAuthTokenEndpointContext)')
+  - [ValidateClientAuthentication(context)](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientAuthentication-Microsoft-Owin-Security-OAuth-OAuthValidateClientAuthenticationContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)')
   - [ValidateClientRedirectUri()](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientRedirectUri-Microsoft-Owin-Security-OAuth-OAuthValidateClientRedirectUriContext- 'EasyTravelWeb.Providers.ApplicationOAuthProvider.ValidateClientRedirectUri(Microsoft.Owin.Security.OAuth.OAuthValidateClientRedirectUriContext)')
 - [ApplicationUser](#T-EasyTravelWeb-Models-ApplicationUser 'EasyTravelWeb.Models.ApplicationUser')
   - [FirstName](#P-EasyTravelWeb-Models-ApplicationUser-FirstName 'EasyTravelWeb.Models.ApplicationUser.FirstName')
@@ -219,7 +220,8 @@
 - [SearchController](#T-EasyTravelWeb-Controllers-SearchController 'EasyTravelWeb.Controllers.SearchController')
   - [#ctor()](#M-EasyTravelWeb-Controllers-SearchController-#ctor 'EasyTravelWeb.Controllers.SearchController.#ctor')
   - [#ctor()](#M-EasyTravelWeb-Controllers-SearchController-#ctor-EasyTravelWeb-Repositories-CityRepository,EasyTravelWeb-Repositories-PlaceRepository- 'EasyTravelWeb.Controllers.SearchController.#ctor(EasyTravelWeb.Repositories.CityRepository,EasyTravelWeb.Repositories.PlaceRepository)')
-  - [GetSuggestions()](#M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String- 'EasyTravelWeb.Controllers.SearchController.GetSuggestions(System.String)')
+  - [GetSuggestions(searchWord)](#M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String- 'EasyTravelWeb.Controllers.SearchController.GetSuggestions(System.String)')
+  - [InitializeData()](#M-EasyTravelWeb-Controllers-SearchController-InitializeData 'EasyTravelWeb.Controllers.SearchController.InitializeData')
 - [SetPasswordBindingModel](#T-EasyTravelWeb-Models-SetPasswordBindingModel 'EasyTravelWeb.Models.SetPasswordBindingModel')
   - [ConfirmPassword](#P-EasyTravelWeb-Models-SetPasswordBindingModel-ConfirmPassword 'EasyTravelWeb.Models.SetPasswordBindingModel.ConfirmPassword')
   - [NewPassword](#P-EasyTravelWeb-Models-SetPasswordBindingModel-NewPassword 'EasyTravelWeb.Models.SetPasswordBindingModel.NewPassword')
@@ -452,17 +454,17 @@ This method has no parameters.
 
 ##### Summary
 
-
+Registers user in database
 
 ##### Returns
 
-
+Http code according to success
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| model | [EasyTravelWeb.Models.RegisterBindingModel](#T-EasyTravelWeb-Models-RegisterBindingModel 'EasyTravelWeb.Models.RegisterBindingModel') |  |
+| model | [EasyTravelWeb.Models.RegisterBindingModel](#T-EasyTravelWeb-Models-RegisterBindingModel 'EasyTravelWeb.Models.RegisterBindingModel') | Object, which incapsulates user data, needed to register user(email, password, first name, last name) |
 
 <a name='M-EasyTravelWeb-Controllers-AccountController-RegisterExternal-EasyTravelWeb-Models-RegisterExternalBindingModel-'></a>
 ### RegisterExternal() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-RegisterExternal-EasyTravelWeb-Models-RegisterExternalBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
@@ -571,48 +573,93 @@ App Configuration
 This constructor has no parameters.
 
 <a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-CreateProperties-System-Int32,System-String,System-String-'></a>
-### CreateProperties() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-CreateProperties-System-Int32,System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+### CreateProperties(idUser,userName,firstName) `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-CreateProperties-System-Int32,System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Create properties, which are used later on frontend(localstorage)
+
+##### Returns
+
+Authentication properties
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| idUser | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Id of user |
+| userName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Nickname of user |
+| firstName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First name of user |
+
+<a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-DoesPasswordMatch-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext,EasyTravelWeb-ApplicationUserManager,EasyTravelWeb-Models-ApplicationUser-'></a>
+### DoesPasswordMatch(context,userManager,userFoundByEmail) `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-DoesPasswordMatch-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext,EasyTravelWeb-ApplicationUserManager,EasyTravelWeb-Models-ApplicationUser- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 
 
+##### Returns
+
+
+
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| context | [Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext](#T-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext 'Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext') |  |
+| userManager | [EasyTravelWeb.ApplicationUserManager](#T-EasyTravelWeb-ApplicationUserManager 'EasyTravelWeb.ApplicationUserManager') |  |
+| userFoundByEmail | [EasyTravelWeb.Models.ApplicationUser](#T-EasyTravelWeb-Models-ApplicationUser 'EasyTravelWeb.Models.ApplicationUser') |  |
 
 <a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-GrantResourceOwnerCredentials-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext-'></a>
-### GrantResourceOwnerCredentials() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-GrantResourceOwnerCredentials-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext- 'Go To Here') [=](#contents 'Back To Contents')
+### GrantResourceOwnerCredentials(context) `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-GrantResourceOwnerCredentials-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
+
+Sets a token for user, if user data is correct
+
+##### Returns
 
 
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| context | [Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext](#T-Microsoft-Owin-Security-OAuth-OAuthGrantResourceOwnerCredentialsContext 'Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext') | Contains information about user credentials |
 
 <a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-TokenEndpoint-Microsoft-Owin-Security-OAuth-OAuthTokenEndpointContext-'></a>
-### TokenEndpoint() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-TokenEndpoint-Microsoft-Owin-Security-OAuth-OAuthTokenEndpointContext- 'Go To Here') [=](#contents 'Back To Contents')
+### TokenEndpoint(context) `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-TokenEndpoint-Microsoft-Owin-Security-OAuth-OAuthTokenEndpointContext- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
+
+Last point of authentication workflow. Sets response
+
+##### Returns
 
 
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| context | [Microsoft.Owin.Security.OAuth.OAuthTokenEndpointContext](#T-Microsoft-Owin-Security-OAuth-OAuthTokenEndpointContext 'Microsoft.Owin.Security.OAuth.OAuthTokenEndpointContext') | Contains information about user credentials |
 
 <a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientAuthentication-Microsoft-Owin-Security-OAuth-OAuthValidateClientAuthenticationContext-'></a>
-### ValidateClientAuthentication() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientAuthentication-Microsoft-Owin-Security-OAuth-OAuthValidateClientAuthenticationContext- 'Go To Here') [=](#contents 'Back To Contents')
+### ValidateClientAuthentication(context) `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientAuthentication-Microsoft-Owin-Security-OAuth-OAuthValidateClientAuthenticationContext- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
+
+Entry point of authentication workflow
+
+##### Returns
 
 
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| context | [Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext](#T-Microsoft-Owin-Security-OAuth-OAuthValidateClientAuthenticationContext 'Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext') | Contains information about user credentials |
 
 <a name='M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientRedirectUri-Microsoft-Owin-Security-OAuth-OAuthValidateClientRedirectUriContext-'></a>
 ### ValidateClientRedirectUri() `method` [#](#M-EasyTravelWeb-Providers-ApplicationOAuthProvider-ValidateClientRedirectUri-Microsoft-Owin-Security-OAuth-OAuthValidateClientRedirectUriContext- 'Go To Here') [=](#contents 'Back To Contents')
@@ -2722,7 +2769,7 @@ Controller for search
 
 ##### Summary
 
-
+Default constructor
 
 ##### Parameters
 
@@ -2733,18 +2780,35 @@ This constructor has no parameters.
 
 ##### Summary
 
-
+Constructor with parameters for unit testing
 
 ##### Parameters
 
 This constructor has no parameters.
 
 <a name='M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String-'></a>
-### GetSuggestions() `method` [#](#M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+### GetSuggestions(searchWord) `method` [#](#M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
+Method for getting suggestion according to searchWord
 
+##### Returns
+
+List of suggestions according to searchWord
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| searchWord | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Key word, which is used to filter names of cities and places |
+
+<a name='M-EasyTravelWeb-Controllers-SearchController-InitializeData'></a>
+### InitializeData() `method` [#](#M-EasyTravelWeb-Controllers-SearchController-InitializeData 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Initialization of cities and places fields, if they are null
 
 ##### Parameters
 

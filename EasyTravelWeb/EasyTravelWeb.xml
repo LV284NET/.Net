@@ -326,18 +326,25 @@
         </member>
         <member name="M:EasyTravelWeb.Controllers.SearchController.#ctor">
             <summary>
-               
+               Default constructor
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.SearchController.#ctor(EasyTravelWeb.Repositories.CityRepository,EasyTravelWeb.Repositories.PlaceRepository)">
             <summary>
-               
+               Constructor with parameters for unit testing
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.SearchController.InitializeData">
+            <summary>
+            Initialization of cities and places fields, if they are null
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.SearchController.GetSuggestions(System.String)">
             <summary>
-               
+            Method for getting suggestion according to searchWord
             </summary>
+            <param name="searchWord">Key word, which is used to filter names of cities and places</param>
+            <returns>List of suggestions according to searchWord</returns>
         </member>
         <member name="T:EasyTravelWeb.Controllers.AccountController">
             <summary>
@@ -431,10 +438,10 @@
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.Register(EasyTravelWeb.Models.RegisterBindingModel)">
             <summary>
-            
+            Registers user in database
             </summary>
-            <param name="model"></param>
-            <returns></returns>
+            <param name="model">Object, which incapsulates user data, needed to register user(email, password, first name, last name)</param>
+            <returns>Http code according to success</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.ConfirmEmail(System.Int32,System.String)">
             <summary>
@@ -1149,18 +1156,24 @@
         </member>
         <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)">
             <summary>
-               
+            Sets a token for user, if user data is correct
             </summary>
+            <param name="context">Contains information about user credentials</param>
+            <returns></returns>
         </member>
         <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.TokenEndpoint(Microsoft.Owin.Security.OAuth.OAuthTokenEndpointContext)">
             <summary>
-               
+            Last point of authentication workflow. Sets response
             </summary>
+            <param name="context">Contains information about user credentials</param>
+            <returns></returns>
         </member>
         <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)">
             <summary>
-               
+            Entry point of authentication workflow
             </summary>
+            <param name="context">Contains information about user credentials</param>
+            <returns></returns>
         </member>
         <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.ValidateClientRedirectUri(Microsoft.Owin.Security.OAuth.OAuthValidateClientRedirectUriContext)">
             <summary>
@@ -1169,8 +1182,21 @@
         </member>
         <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.CreateProperties(System.Int32,System.String,System.String)">
             <summary>
-               
+            Create properties, which are used later on frontend(localstorage)
             </summary>
+            <param name="idUser">Id of user</param>
+            <param name="userName">Nickname of user</param>
+            <param name="firstName">First name of user</param>
+            <returns>Authentication properties</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.DoesPasswordMatch(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext,EasyTravelWeb.ApplicationUserManager,EasyTravelWeb.Models.ApplicationUser)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="userManager"></param>
+            <param name="userFoundByEmail"></param>
+            <returns></returns>
         </member>
         <member name="T:EasyTravelWeb.Repositories.CityRepository">
             <summary>

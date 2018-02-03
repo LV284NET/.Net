@@ -356,10 +356,10 @@ namespace EasyTravelWeb.Controllers
 
         // POST api/Account/Register
         /// <summary>
-        /// 
+        /// Registers user in database
         /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <param name="model">Object, which incapsulates user data, needed to register user(email, password, first name, last name)</param>
+        /// <returns>Http code according to success</returns>
         [AllowAnonymous]
         [HttpPost]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
