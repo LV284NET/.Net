@@ -33,8 +33,10 @@ namespace EasyTravelWeb.Providers
         }
 
         /// <summary>
-        ///    
+        /// Sets a token for user, if user data is correct
         /// </summary>
+        /// <param name="context">Contains information about user credentials</param>
+        /// <returns></returns>
         public override async Task GrantResourceOwnerCredentials (OAuthGrantResourceOwnerCredentialsContext context)
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
@@ -64,8 +66,10 @@ namespace EasyTravelWeb.Providers
         }
 
         /// <summary>
-        ///    
+        /// Last point of authentication workflow. Sets response
         /// </summary>
+        /// <param name="context">Contains information about user credentials</param>
+        /// <returns></returns>
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
         {
 
@@ -79,8 +83,10 @@ namespace EasyTravelWeb.Providers
         }
 
         /// <summary>
-        ///    
+        /// Entry point of authentication workflow
         /// </summary>
+        /// <param name="context">Contains information about user credentials</param>
+        /// <returns></returns>
         public override Task ValidateClientAuthentication (OAuthValidateClientAuthenticationContext context)
         {
             // Resource owner password credentials does not provide a client ID.
@@ -111,20 +117,31 @@ namespace EasyTravelWeb.Providers
         }
 
         /// <summary>
-        ///    
+        /// Create properties, which are used later on frontend(localstorage)
         /// </summary>
-        public static AuthenticationProperties CreateProperties(int idUser, string userName, string FirstName)
+        /// <param name="idUser">Id of user</param>
+        /// <param name="userName">Nickname of user</param>
+        /// <param name="firstName">First name of user</param>
+        /// <returns>Authentication properties</returns>
+        public static AuthenticationProperties CreateProperties(int idUser, string userName, string firstName)
         {
             IDictionary<string, string>
             data = new Dictionary<string, string>
             {
                 { "userName", userName },
-                { "firstName", FirstName},
+                { "firstName", firstName},
                 { "Id", idUser.ToString() }
             };
             return new AuthenticationProperties(data);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="userManager"></param>
+        /// <param name="userFoundByEmail"></param>
+        /// <returns></returns>
         private bool DoesPasswordMatch(OAuthGrantResourceOwnerCredentialsContext context, ApplicationUserManager userManager, 
             ApplicationUser userFoundByEmail)
         {
