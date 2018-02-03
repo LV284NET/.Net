@@ -11,7 +11,6 @@ namespace EasyTravelWeb.Controllers
     /// <summary>
     ///     Controller for search
     /// </summary>
-
     public class SearchController : ApiController
     {
         private readonly Logger logger = Logger.GetInstance();

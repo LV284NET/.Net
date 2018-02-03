@@ -4,24 +4,20 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web.Http.Results;
-using EasyTravelWeb.Infrastructure;
-using EasyTravelWeb.Controllers;
 using EasyTravelWeb.Models;
-using Microsoft.AspNet.Identity;
-using WebGrease.Css.Extensions;
 
 namespace EasyTravelWeb.Repositories
 {
     /// <summary>
-    ///    
+    /// Repository for get info about places
     /// </summary>
     public class PlaceRepository
     {
-
         /// <summary>
-        ///    
+        /// get info about place from DataBase
         /// </summary>
+        /// <param name="placeId">ID of place</param>
+        /// <returns>Info about current place</returns>
         public Place GetPlaceById(long placeId)
         {
             using (SqlConnection connection =
@@ -57,8 +53,10 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// get rating of place from DataBase
         /// </summary>
+        /// <param name="placeId">ID of place</param>
+        /// <returns>rating of place</returns>
         public double GetPlaceRating(long placeId)
         {
             List<Place> listToReturn = new List<Place>();
@@ -135,8 +133,12 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// get places for page from DataBase
         /// </summary>
+        /// <param name="page">number of the page</param>
+        /// <param name="cityId">ID of current city</param>
+        /// <param name="pageSize">count of place on the page</param>
+        /// <returns>list of places</returns>
         public List<Place> GetPlacesPage(int page, long cityId, int pageSize)
         {
             List<Place> listToReturn = new List<Place>();
@@ -180,10 +182,11 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-
-            /// <summary>
-            ///    
-            /// </summary>
+        /// <summary>
+        /// get top places from DataBase
+        /// </summary>
+        /// <param name="cityId">ID of current city</param>
+        /// <returns>list of top places by place rating</returns>
             public List<Place> GetTopPlacesByCityId(long cityId)
 			{
             List<Place> listToReturn = new List<Place>();
@@ -219,13 +222,12 @@ namespace EasyTravelWeb.Repositories
                     return listToReturn;
                 }
             }
-
-            //return null;
         }
 
         /// <summary>
-        ///    
+        /// get id and name of places from DataBase
         /// </summary>
+        /// <returns>list of ids and names</returns>
         public virtual IList<PlaceSearchEntity> GetPlacesIdsAndNames()
         {
             List<PlaceSearchEntity> places = new List<PlaceSearchEntity>();
@@ -261,8 +263,11 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// add place to user favorite in DataBase
         /// </summary>
+        /// <param name="userId">ID of current user</param>
+        /// <param name="placeId">ID of place</param>
+        /// <returns>bool value (true if success request, false if fail)</returns>
         public bool AddFavoritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
@@ -288,8 +293,11 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// delete place from user favorite in DataBase
         /// </summary>
+        /// <param name="userId">ID of current user</param>
+        /// <param name="placeId">ID of place</param>
+        /// <returns>bool value (true if success request, false if fail)</returns>
         public bool DeleteFavoritePlace(int userId, long placeId)
         {
             using (SqlConnection connection =
@@ -315,8 +323,10 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// get user favorite places from DataBase
         /// </summary>
+        /// <param name="id">ID of current user</param>
+        /// <returns>list of user favorite places</returns>
         public virtual List<Place> GetFavoritePlaces(int id)
         {
             List<Place> favouritePlaces = new List<Place>();
@@ -352,8 +362,10 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// get count of places in city
         /// </summary>
+        /// <param name="cityId">ID of city</param>
+        /// <returns>count of places</returns>
         public int GetCountPlace(long cityId)
         {
             int placesCount = 0;
@@ -446,6 +458,5 @@ namespace EasyTravelWeb.Repositories
             }
 
         }
-
     }
 }

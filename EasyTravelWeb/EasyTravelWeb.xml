@@ -11,7 +11,7 @@
         </member>
         <member name="M:EasyTravelWeb.BundleConfig.RegisterBundles(System.Web.Optimization.BundleCollection)">
             <summary>
-               
+               Register Bundles
             </summary>
         </member>
         <member name="T:EasyTravelWeb.CORSConfig">
@@ -21,7 +21,7 @@
         </member>
         <member name="F:EasyTravelWeb.CORSConfig.CorsPolicy">
             <summary>
-               
+              CORS Polisy for allow requests from FrontEnd
             </summary>
         </member>
         <member name="T:EasyTravelWeb.FilterConfig">
@@ -31,7 +31,7 @@
         </member>
         <member name="M:EasyTravelWeb.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)">
             <summary>
-               
+               Register Global Filters
             </summary>
         </member>
         <member name="T:EasyTravelWeb.ApplicationUserManager">
@@ -56,7 +56,7 @@
         </member>
         <member name="M:EasyTravelWeb.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)">
             <summary>
-               
+               Route for requests
             </summary>
         </member>
         <member name="T:EasyTravelWeb.Startup">
@@ -96,38 +96,46 @@
         </member>
         <member name="T:EasyTravelWeb.Controllers.CityController">
             <summary>
-               
+               Controller for get and set info about cities
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.#ctor">
             <summary>
-               
+               Default constructor
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.#ctor(EasyTravelWeb.Repositories.CityRepository)">
             <summary>
-               
+               Constructor with params
             </summary>
+            <params name="cityRepository"> Repository for get info about cities</params>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.GetTopCities">
             <summary>
-               
+               Controller for getting Top of Cities
             </summary>
+            <returns>Status code with top cities</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.GetCities(System.Int32,System.Int32)">
             <summary>
-               
+            Controller for getting Cities
             </summary>
+            <param name="page">number of current page</param>
+            <param name="pageSize">Count of cities on the page</param>
+            <returns>Status code with list of cities</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.GetCity(System.Int32)">
             <summary>
-               
+            Controller for getting City
             </summary>
+            <param name="id">City ID</param>
+            <returns>Status code with city model</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.GetCountCity">
             <summary>
-               
+            Controller for getting count of Cities
             </summary>
+            <returns>Status code with count of cities</returns>
         </member>
         <member name="T:EasyTravelWeb.Controllers.MainPageController">
             <summary>
@@ -141,28 +149,43 @@
         </member>
         <member name="T:EasyTravelWeb.Controllers.PlaceController">
             <summary>
-               
+               Controller model for get info about places 
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.#ctor">
             <summary>
-               
+               Default constructor
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)">
             <summary>
-               
+               Controller for get info about place
             </summary>
+            <param name="placeId"> ID of current place</param>
+            <returns>Status code with place model</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlaceRating(System.Int64)">
+            <summary>
+             Contoller for get rating of place
+             </summary>
+             <param name="placeId">ID of current place</param>
+             <returns>Status code with place rating</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64)">
             <summary>
-               
-            </summary>
+             Contoller for get top places of current city
+             </summary>
+             <param name="cityId">ID of current city</param>
+             <returns>Status code with list of top places</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlacesPageByCityId(System.Int64,System.Int32,System.Int32)">
             <summary>
-               
-            </summary>
+             Contoller for get places of some city for some page
+             </summary>
+             <param name="cityId">ID of current city</param>
+             <param name="page">number of the page</param>
+             <param name="pageSize">Count of places on page</param>
+             <returns>Status code with places list</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.GetFilteredPlacesByCityId(System.Int64,System.Int32,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
             <summary>
@@ -184,24 +207,20 @@
             </summary>
             <returns>List of filters for specific place</returns>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)">
-            <summary>
-               
-            </summary>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)" -->
         <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)">
             <summary>
-            
+            Controller for add place to favorite by user
             </summary>
-            <param name="favoriteUserPlace"></param>
-            <returns></returns>
+            <param name="favoriteUserPlace">Favorite User Model</param>
+            <returns>Result of request</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)">
             <summary>
-            
+            Controller for delete place from favorite by user
             </summary>
-            <param name="favoritePlace"></param>
-            <returns></returns>
+            <param name="favoriteUserPlace">Favorite User Model</param>
+            <returns>Result of request</returns>
         </member>
         <member name="T:EasyTravelWeb.Controllers.ProfileController">
             <summary>
@@ -273,27 +292,32 @@
         </member>
         <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)">
             <summary>
-            Cotroler fo getting favorite places of specific user
+            Cotroller fo getting favorite places of specific user
             </summary>
+            <param name="id">ID of current user</param>
             <returns>List of favourite Places</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.ProfileController.SetUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)">
             <summary>
-            Cotroller fo setting rating place of specific user
+            Cotroller fo setting rating of place of specific user
             </summary>
-            <returns>List of favourite Places</returns>
+            <param name="userRating"> Model UserPlaceRating</param>
+            <returns>Status code for request</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.ProfileController.DeleteUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)">
             <summary>
-            Cotroller fo delete rating place of specific user
+            Cotroller fo delete rating of place of specific user
             </summary>
-            <returns>List of favourite Places</returns>
+            <param name="userRating"> Model UserPlaceRating</param>
+            <returns>Status code for request</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.ProfileController.GetUserRatingOfPlace(System.Int32,System.Int64)">
             <summary>
             Cotroller fo getting rating place of specific user
             </summary>
-            <returns>List of favourite Places</returns>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of current place</param>
+            <returns>Status code with user rating of place</returns>
         </member>
         <member name="T:EasyTravelWeb.Controllers.SearchController">
             <summary>
@@ -317,28 +341,30 @@
         </member>
         <member name="T:EasyTravelWeb.Controllers.AccountController">
             <summary>
-               
+               Controller for register, sign in or change User private info
             </summary>
         </member>
         <member name="F:EasyTravelWeb.Controllers.AccountController.registerBindingModelValidator">
             <summary>
-               
+               Validation model
             </summary>
         </member>
         <member name="F:EasyTravelWeb.Controllers.AccountController.userManager">
             <summary>
-               
+               Aplication manager
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.#ctor">
             <summary>
-               
+               Constructor
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.#ctor(EasyTravelWeb.ApplicationUserManager,Microsoft.Owin.Security.ISecureDataFormat{Microsoft.Owin.Security.AuthenticationTicket})">
             <summary>
-               
+               Constructor
             </summary>
+            <param name="userManager">Identity User Manager</param>
+            <param name="accessTokenFormat">Token format</param> 
         </member>
         <member name="P:EasyTravelWeb.Controllers.AccountController.UserManager">
             <summary>
@@ -352,13 +378,15 @@
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.GetUserInfo">
             <summary>
-               
+               Controller for get UserInfo
             </summary>
+            <returns>First, user information</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.Logout">
             <summary>
-               
+               Controller for logOut
             </summary>
+            <returns>Status code of request</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.GetManageInfo(System.String,System.Boolean)">
             <summary>
@@ -366,9 +394,8 @@
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.ChangePassword(EasyTravelWeb.Models.ChangePasswordBindingModel)">
-            <summary>
-               
-            </summary>
+            <param name="model">User Model for change password</param>
+            <returns>Status code of result</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.SetPassword(EasyTravelWeb.Models.SetPasswordBindingModel)">
             <summary>
@@ -1158,38 +1185,49 @@
         </member>
         <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCitiesPage(System.Int32,System.Int32)">
             <summary>
-               
+            get a few cities from DataBase
             </summary>
+            <param name="page">number of page</param>
+            <param name="pageSize">count of cities on page</param>
+            <returns>list of cities</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCitiesIdAndNames">
             <summary>
-               
+            get id and name of cities from DataBase
             </summary>
+            <returns>list of ids and names</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCity(System.Int64)">
             <summary>
-               
+            get info about city from DataBase
             </summary>
+            <param name="id">ID of city</param>
+            <returns>Info about current city</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCountCity">
             <summary>
-               
+            get info about count of cities in DataBase
             </summary>
+            <returns>Count of cities</returns>
         </member>
         <member name="T:EasyTravelWeb.Repositories.PlaceRepository">
             <summary>
-               
+            Repository for get info about places
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaceById(System.Int64)">
             <summary>
-               
+            get info about place from DataBase
             </summary>
+            <param name="placeId">ID of place</param>
+            <returns>Info about current place</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaceRating(System.Int64)">
             <summary>
-               
+            get rating of place from DataBase
             </summary>
+            <param name="placeId">ID of place</param>
+            <returns>rating of place</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlacesPage(System.Int32,System.Int64,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
             <summary>
@@ -1200,38 +1238,55 @@
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlacesPage(System.Int32,System.Int64,System.Int32)">
             <summary>
-               
+            get places for page from DataBase
             </summary>
+            <param name="page">number of the page</param>
+            <param name="cityId">ID of current city</param>
+            <param name="pageSize">count of place on the page</param>
+            <returns>list of places</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64)">
             <summary>
-               
+            get top places from DataBase
             </summary>
+            <param name="cityId">ID of current city</param>
+            <returns>list of top places by place rating</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames">
             <summary>
-               
+            get id and name of places from DataBase
             </summary>
+            <returns>list of ids and names</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.AddFavoritePlace(System.Int32,System.Int64)">
             <summary>
-               
+            add place to user favorite in DataBase
             </summary>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of place</param>
+            <returns>bool value (true if success request, false if fail)</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.DeleteFavoritePlace(System.Int32,System.Int64)">
             <summary>
-               
+            delete place from user favorite in DataBase
             </summary>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of place</param>
+            <returns>bool value (true if success request, false if fail)</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFavoritePlaces(System.Int32)">
             <summary>
-               
+            get user favorite places from DataBase
             </summary>
+            <param name="id">ID of current user</param>
+            <returns>list of user favorite places</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetCountPlace(System.Int64)">
             <summary>
-               
+            get count of places in city
             </summary>
+            <param name="cityId">ID of city</param>
+            <returns>count of places</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredCountPlace(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
             <summary>
@@ -1248,13 +1303,31 @@
         </member>
         <member name="T:EasyTravelWeb.Repositories.RatingRepository">
             <summary>
-               
+               Repository for get info about user rating
             </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.RatingRepository.SetUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)">
+            <summary>
+            set user rating in DataBase
+            </summary>
+            <param name="userRating">User Place Rating model (user id, place id, rating)</param>
+            <returns>bool value(true if success request, false if fail)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.RatingRepository.DeleteUserRatingForPlace(System.Int32,System.Int64)">
+            <summary>
+            delete user rating from DataBase
+            </summary>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of place</param>
+            <returns>bool value(true if success request, false if fail)</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.RatingRepository.GetUserRatingOfPlace(System.Int32,System.Int64)">
             <summary>
-               
+            get user rating of place from DataBase
             </summary>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of place</param>
+            <returns>user rating of place</returns>
         </member>
         <member name="T:EasyTravelWeb.Repositories.UserRepository">
             <summary>

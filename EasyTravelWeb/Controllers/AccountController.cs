@@ -21,7 +21,7 @@ using Microsoft.Owin.Security.OAuth;
 namespace EasyTravelWeb.Controllers
 {
     /// <summary>
-    ///    
+    ///    Controller for register, sign in or change User private info
     /// </summary>
     [Authorize]
     public class AccountController : ApiController
@@ -29,13 +29,13 @@ namespace EasyTravelWeb.Controllers
         private const string LocalLoginProvider = "Local";
 
         /// <summary>
-        ///    
+        ///    Validation model
         /// </summary>
         private readonly IValidator<RegisterBindingModel> registerBindingModelValidator =
             new RegisterBindingModelValidator();
 
         /// <summary>
-        ///    
+        ///    Aplication manager
         /// </summary>
         private ApplicationUserManager userManager;
 
@@ -44,15 +44,17 @@ namespace EasyTravelWeb.Controllers
         //        private BaseContext _baseContext;
 
         /// <summary>
-        ///    
+        ///    Constructor
         /// </summary>
         public AccountController()
         {
         }
 
         /// <summary>
-        ///    
+        ///    Constructor
         /// </summary>
+        /// <param name="userManager">Identity User Manager</param>
+        /// <param name="accessTokenFormat">Token format</param> 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
@@ -63,7 +65,6 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         ///    
         /// </summary>
-
         public ApplicationUserManager UserManager
         {
             get => this.userManager ?? this.Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -76,8 +77,9 @@ namespace EasyTravelWeb.Controllers
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; }
 
         /// <summary>
-        ///    
+        ///    Controller for get UserInfo
         /// </summary>
+        /// <returns>First, user information</returns>
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [HttpGet]
@@ -94,8 +96,9 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        ///    
+        ///    Controller for logOut
         /// </summary>
+        /// <returns>Status code of request</returns>
         // POST api/Account/Logout
         [HttpPost]
         public IHttpActionResult Logout()
@@ -141,9 +144,11 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        ///    
+        ///    Controller for change User password
         /// </summary>
         // POST api/Account/ChangePassword
+        /// <param name="model">User Model for change password</param>
+        /// <returns>Status code of result</returns>
         [HttpPost]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {

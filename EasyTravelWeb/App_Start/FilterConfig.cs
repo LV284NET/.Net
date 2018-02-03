@@ -8,7 +8,7 @@ namespace EasyTravelWeb
     public class FilterConfig
     {
         /// <summary>
-        ///    
+        ///    Register Global Filters
         /// </summary>
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)

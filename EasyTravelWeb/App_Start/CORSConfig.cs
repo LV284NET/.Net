@@ -8,7 +8,7 @@ namespace EasyTravelWeb
     public static class CORSConfig
     {
         /// <summary>
-        ///    
+        ///   CORS Polisy for allow requests from FrontEnd
         /// </summary>
         public static CorsPolicy CorsPolicy = new CorsPolicy
         {

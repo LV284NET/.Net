@@ -167,8 +167,9 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        /// Cotroler fo getting favorite places of specific user
+        /// Cotroller fo getting favorite places of specific user
         /// </summary>
+        /// <param name="id">ID of current user</param>
         /// <returns>List of favourite Places</returns>
         [Authorize]
         [HttpGet]
@@ -194,11 +195,11 @@ namespace EasyTravelWeb.Controllers
 
         }
 
-
         /// <summary>
-        /// Cotroller fo setting rating place of specific user
+        /// Cotroller fo setting rating of place of specific user
         /// </summary>
-        /// <returns>List of favourite Places</returns>
+        /// <param name="userRating"> Model UserPlaceRating</param>
+        /// <returns>Status code for request</returns>
         [Authorize]
         [HttpPost]
         public IHttpActionResult SetUserRatingForPlace([FromBody] UserPlaceRating userRating)
@@ -220,9 +221,10 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        /// Cotroller fo delete rating place of specific user
+        /// Cotroller fo delete rating of place of specific user
         /// </summary>
-        /// <returns>List of favourite Places</returns>
+        /// <param name="userRating"> Model UserPlaceRating</param>
+        /// <returns>Status code for request</returns>
         [Authorize]
         [HttpDelete]
         public IHttpActionResult DeleteUserRatingForPlace([FromBody] UserPlaceRating userRating)
@@ -246,7 +248,9 @@ namespace EasyTravelWeb.Controllers
         /// <summary>
         /// Cotroller fo getting rating place of specific user
         /// </summary>
-        /// <returns>List of favourite Places</returns>
+        /// <param name="userId">ID of current user</param>
+        /// <param name="placeId">ID of current place</param>
+        /// <returns>Status code with user rating of place</returns>
         [Authorize]
         [HttpGet]
         public IHttpActionResult GetUserRatingOfPlace(int userId, long placeId)

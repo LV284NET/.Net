@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using EasyTravelWeb.Controllers;
 using EasyTravelWeb.Models;
 
 namespace EasyTravelWeb.Repositories
@@ -11,10 +10,8 @@ namespace EasyTravelWeb.Repositories
     /// <summary>
     ///    Repository for get data about City
     /// </summary>
-
     public class CityRepository
     {
-
 		/// <summary>
 		///		Returns list of top 4 cities according to their rating
 		/// </summary>
@@ -55,8 +52,11 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// get a few cities from DataBase
         /// </summary>
+        /// <param name="page">number of page</param>
+        /// <param name="pageSize">count of cities on page</param>
+        /// <returns>list of cities</returns>
         public virtual IList<City> GetCitiesPage(int page,int pageSize)
         {
              
@@ -97,8 +97,9 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// get id and name of cities from DataBase
         /// </summary>
+        /// <returns>list of ids and names</returns>
         public virtual IList<CitySearchEntity> GetCitiesIdAndNames()
         {
             List<CitySearchEntity> cities = new List<CitySearchEntity>();
@@ -130,8 +131,10 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// get info about city from DataBase
         /// </summary>
+        /// <param name="id">ID of city</param>
+        /// <returns>Info about current city</returns>
         public virtual City GetCity(long id)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["EasyTravelConnectionString"]
@@ -162,8 +165,9 @@ namespace EasyTravelWeb.Repositories
         }
 
         /// <summary>
-        ///    
+        /// get info about count of cities in DataBase
         /// </summary>
+        /// <returns>Count of cities</returns>
         public virtual int GetCountCity()
         {
             int placesCount = 0;
