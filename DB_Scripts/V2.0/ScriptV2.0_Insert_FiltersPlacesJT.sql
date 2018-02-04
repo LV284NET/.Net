@@ -98,4 +98,5 @@ INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (9, 62)
 INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (10, 9)
 INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (10, 21)
 SET IDENTITY_INSERT [dbo].[FiltersPlacesJT] OFF
+END
 

@@ -99,6 +99,8 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
   </changeSet>
 
 <changeSet author="Rostyslav Tsenov" id="V2.0">
+    <sqlFile path="V2.0/ScriptV2.0_Table_Filters.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V2.0/ScriptV2.0_Table_FiltersPlacesJT.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V2.0/ScriptV2.0_Function_GetFilteredPlacesFunction.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V2.0/ScriptV2.0_Function_IntListToTable.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V2.0/ScriptV2.0_Insert_Filters.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
@@ -106,7 +108,5 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <sqlFile path="V2.0/ScriptV2.0_Procedure_GetCountFromFilteredPlaces.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V2.0/ScriptV2.0_Procedure_GetFilteredPlaces.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V2.0/ScriptV2.0_Procedure_GetPlaceFilters.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
-    <sqlFile path="V2.0/ScriptV2.0_Table_Filters.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
-    <sqlFile path="V2.0/ScriptV2.0_Table_FiltersPlacesJT.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
   </changeSet>
 </databaseChangeLog> 
