@@ -761,16 +761,6 @@
                 Logs applicatuon exceptions into EasyTravelLog.txt in C:\Users\Public directory
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Logger.#ctor">
-            <summary>
-                Prevents a default instance of the Logger class from being created
-            </summary>
-        </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Logger.Finalize">
-            <summary>
-                Finalizes an instance of the Logger class
-            </summary>
-        </member>
         <member name="F:EasyTravelWeb.Infrastructure.Logger.logger">
             <summary>
                 The only one instance of the Logger class
@@ -786,13 +776,31 @@
                 Instance of the StreamWriter class
             </summary>
         </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.#cctor">
+            <summary>
+                Specified to execute only when an instance of the class is created 
+                or a static member is referenced, and to execute only once per AppDomain. 
+                Given that check for the type being newly constructed needs to be executed 
+                whatever else happens, it will be faster than adding extra checking 
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.#ctor">
+            <summary>
+                Prevents a default instance of the Logger class from being created
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.Finalize">
+            <summary>
+                Finalizes an instance of the Logger class
+            </summary>
+        </member>
         <member name="M:EasyTravelWeb.Infrastructure.Logger.GetInstance">
             <summary>
                 Returns a new instance of the Logger class for exceptions logging
             </summary>
             <returns>Instance of the Logger class</returns>
         </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Logger.LogException(System.Exception)">
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.AsyncLogException(System.Exception)">
             <summary>
                 Writes the exception details into the file
             </summary>

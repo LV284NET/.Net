@@ -94,7 +94,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
 
                 return this.NotFound();
             }
@@ -124,7 +124,7 @@ namespace EasyTravelWeb.Controllers
                 }
                 catch (Exception ex)
                 {
-                    this.logger.LogException(ex);
+                    this.logger.AsyncLogException(ex);
 
                     return this.BadRequest();
                 }
@@ -156,7 +156,7 @@ namespace EasyTravelWeb.Controllers
                 }
                 catch (Exception ex)
                 {
-                    this.logger.LogException(ex);
+                    this.logger.AsyncLogException(ex);
 
                     return this.BadRequest();
                 }
@@ -187,7 +187,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
 
                 return this.NotFound();
             }
@@ -213,7 +213,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
                 return this.InternalServerError();
             }
         }
@@ -238,7 +238,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
                 return this.InternalServerError();
             }
         }
@@ -259,7 +259,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
                 return this.InternalServerError();
             }
         }

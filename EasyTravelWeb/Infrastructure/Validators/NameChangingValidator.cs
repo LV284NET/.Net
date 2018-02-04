@@ -115,7 +115,7 @@ namespace EasyTravelWeb.Infrastructure.Validators
 
             catch (RegexMatchTimeoutException ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
 
                 return false;
             }

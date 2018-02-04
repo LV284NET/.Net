@@ -133,9 +133,10 @@
   - [FileStream](#F-EasyTravelWeb-Infrastructure-Logger-FileStream 'EasyTravelWeb.Infrastructure.Logger.FileStream')
   - [logger](#F-EasyTravelWeb-Infrastructure-Logger-logger 'EasyTravelWeb.Infrastructure.Logger.logger')
   - [streamWriter](#F-EasyTravelWeb-Infrastructure-Logger-streamWriter 'EasyTravelWeb.Infrastructure.Logger.streamWriter')
+  - [#cctor()](#M-EasyTravelWeb-Infrastructure-Logger-#cctor 'EasyTravelWeb.Infrastructure.Logger.#cctor')
+  - [AsyncLogException(ex)](#M-EasyTravelWeb-Infrastructure-Logger-AsyncLogException-System-Exception- 'EasyTravelWeb.Infrastructure.Logger.AsyncLogException(System.Exception)')
   - [Finalize()](#M-EasyTravelWeb-Infrastructure-Logger-Finalize 'EasyTravelWeb.Infrastructure.Logger.Finalize')
   - [GetInstance()](#M-EasyTravelWeb-Infrastructure-Logger-GetInstance 'EasyTravelWeb.Infrastructure.Logger.GetInstance')
-  - [LogException(ex)](#M-EasyTravelWeb-Infrastructure-Logger-LogException-System-Exception- 'EasyTravelWeb.Infrastructure.Logger.LogException(System.Exception)')
   - [LogMessage(message)](#M-EasyTravelWeb-Infrastructure-Logger-LogMessage-System-String- 'EasyTravelWeb.Infrastructure.Logger.LogMessage(System.String)')
 - [LoggerConstants](#T-EasyTravelWeb-Constants-Constants-LoggerConstants 'EasyTravelWeb.Constants.Constants.LoggerConstants')
   - [PathForFileStream](#F-EasyTravelWeb-Constants-Constants-LoggerConstants-PathForFileStream 'EasyTravelWeb.Constants.Constants.LoggerConstants.PathForFileStream')
@@ -1695,6 +1696,30 @@ The only one instance of the Logger class
 
 Instance of the StreamWriter class
 
+<a name='M-EasyTravelWeb-Infrastructure-Logger-#cctor'></a>
+### #cctor() `method` [#](#M-EasyTravelWeb-Infrastructure-Logger-#cctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Specified to execute only when an instance of the class is created or a static member is referenced, and to execute only once per AppDomain. Given that check for the type being newly constructed needs to be executed whatever else happens, it will be faster than adding extra checking
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-EasyTravelWeb-Infrastructure-Logger-AsyncLogException-System-Exception-'></a>
+### AsyncLogException(ex) `method` [#](#M-EasyTravelWeb-Infrastructure-Logger-AsyncLogException-System-Exception- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Writes the exception details into the file
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ex | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Instence of the Exception class |
+
 <a name='M-EasyTravelWeb-Infrastructure-Logger-Finalize'></a>
 ### Finalize() `method` [#](#M-EasyTravelWeb-Infrastructure-Logger-Finalize 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -1720,19 +1745,6 @@ Instance of the Logger class
 ##### Parameters
 
 This method has no parameters.
-
-<a name='M-EasyTravelWeb-Infrastructure-Logger-LogException-System-Exception-'></a>
-### LogException(ex) `method` [#](#M-EasyTravelWeb-Infrastructure-Logger-LogException-System-Exception- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Writes the exception details into the file
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| ex | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Instence of the Exception class |
 
 <a name='M-EasyTravelWeb-Infrastructure-Logger-LogMessage-System-String-'></a>
 ### LogMessage(message) `method` [#](#M-EasyTravelWeb-Infrastructure-Logger-LogMessage-System-String- 'Go To Here') [=](#contents 'Back To Contents')
