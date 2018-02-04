@@ -47,9 +47,9 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.logger.LogException(ex);
+				this.logger.AsyncLogException(ex);
 
-				return this.NotFound();
+				return this.InternalServerError();
 			}
 		}
 
@@ -67,10 +67,10 @@ namespace EasyTravelWeb.Controllers
 	        }
 	        catch (Exception ex)
 	        {
-	            this.logger.LogException(ex);
+	            this.logger.AsyncLogException(ex);
 
-	            return this.NotFound();
-	        }
+				return this.InternalServerError();
+			}
 	    }
 
 	    ///<summary>
@@ -94,7 +94,7 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.logger.LogException(ex);
+				this.logger.AsyncLogException(ex);
 
 				return this.NotFound();
 			}
@@ -123,9 +123,9 @@ namespace EasyTravelWeb.Controllers
 			}
 			catch (Exception ex)
 			{
-				this.logger.LogException(ex);
+				this.logger.AsyncLogException(ex);
 
-				return this.NotFound();
+				return this.InternalServerError();
 			}
 
 		}
@@ -149,7 +149,7 @@ namespace EasyTravelWeb.Controllers
 	        }
 	        catch (Exception ex)
 	        {
-	            this.logger.LogException(ex);
+	            this.logger.AsyncLogException(ex);
 	            return this.InternalServerError();
 	        }
 	    }
@@ -173,7 +173,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
                 return this.InternalServerError();
             }
         }
@@ -196,7 +196,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
                 return this.InternalServerError();
             }
         }
@@ -219,7 +219,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
                 return this.InternalServerError();
             }
             return this.Ok(placeCount);
@@ -245,7 +245,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
                 return this.InternalServerError();
             }
         }
@@ -270,7 +270,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-                this.logger.LogException(ex);
+                this.logger.AsyncLogException(ex);
                 return this.InternalServerError();
             }
         }

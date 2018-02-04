@@ -106,7 +106,7 @@ namespace EasyTravelWeb.Controllers
             }
             catch (Exception ex)
             {
-	            this.logger.LogException(ex);
+	            this.logger.AsyncLogException(ex);
                 return this.InternalServerError();
             }
         }
