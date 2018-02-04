@@ -1,4 +1,4 @@
-IF EXISTS (SELECT * FROM sys.objects Where name = 'FiltersPlacesJT')
+﻿IF EXISTS (SELECT * FROM sys.objects Where name = 'FiltersPlacesJT')
 BEGIN
 	DROP TABLE [dbo].[FiltersPlacesJT]
 END

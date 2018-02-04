@@ -1,4 +1,4 @@
-SET IDENTITY_INSERT [dbo].[Filters] OFF
+﻿SET IDENTITY_INSERT [dbo].[Filters] OFF
 GO
 INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (1, 10)
 GO

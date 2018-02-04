@@ -1,4 +1,4 @@
-IF EXISTS (SELECT * FROM sys.objects Where name = 'GetFilteredPlacesFunction')
+﻿IF EXISTS (SELECT * FROM sys.objects Where name = 'GetFilteredPlacesFunction')
 BEGIN
 	DROP FUNCTION [dbo].[GetFilteredPlacesFunction]
 END

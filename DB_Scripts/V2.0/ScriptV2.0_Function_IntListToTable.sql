@@ -1,4 +1,4 @@
-IF EXISTS (SELECT * FROM sys.objects Where name = 'IntListToTable')
+﻿IF EXISTS (SELECT * FROM sys.objects Where name = 'IntListToTable')
 BEGIN
 	DROP FUNCTION [dbo].[IntListToTable]
 END

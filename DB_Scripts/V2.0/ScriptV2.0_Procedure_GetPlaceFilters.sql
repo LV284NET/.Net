@@ -1,4 +1,4 @@
-IF EXISTS (SELECT * FROM sys.objects Where name = 'GetPlaceFilters')
+﻿IF EXISTS (SELECT * FROM sys.objects Where name = 'GetPlaceFilters')
 BEGIN
 	DROP PROCEDURE [dbo].[GetPlaceFilters]
 END
