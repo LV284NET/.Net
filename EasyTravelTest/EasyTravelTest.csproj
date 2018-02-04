@@ -79,7 +79,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesTest\PlaceRepositoryTest.cs" />
     <Compile Include="RepositoriesTest\CityRepositoryTest.cs" />
-    <Compile Include="RepositoriesTest\RatingRepositoryTest.cs" />
     <Compile Include="ValidatorsTest\RegisterBindingModelValidatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
