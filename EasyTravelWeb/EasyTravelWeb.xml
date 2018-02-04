@@ -1340,9 +1340,10 @@
         </member>
         <member name="M:EasyTravelWeb.Repositories.CityRepository.GetTopCities(System.Int32)">
             <summary>
-            	Returns list of top 4 cities according to their rating
+            	Returns list of top cities according to their rating
             </summary>
-            <returns>List of top 4 cities</returns>
+            <param name="numberOfTopCities">Number of cities with higher rating to show</param>
+            <returns></returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCitiesPage(System.Int32,System.Int32)">
             <summary>
@@ -1416,6 +1417,7 @@
             get top places from DataBase
             </summary>
             <param name="cityId">ID of current city</param>
+            <param name="numberOfTopPlaces">Number of places with higher rating to show</param>
             <returns>list of top places by place rating</returns>
         </member>
         <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames">

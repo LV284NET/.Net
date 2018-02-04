@@ -183,11 +183,12 @@ namespace EasyTravelWeb.Repositories
             return null;
         }
 
-        /// <summary>
-        /// get top places from DataBase
-        /// </summary>
-        /// <param name="cityId">ID of current city</param>
-        /// <returns>list of top places by place rating</returns>
+		/// <summary>
+		/// get top places from DataBase
+		/// </summary>
+		/// <param name="cityId">ID of current city</param>
+		/// <param name="numberOfTopPlaces">Number of places with higher rating to show</param>
+		/// <returns>list of top places by place rating</returns>
 		public List<Place> GetTopPlacesByCityId(long cityId, int numberOfTopPlaces)
 		{
         List<Place> listToReturn = new List<Place>();

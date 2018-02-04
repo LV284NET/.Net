@@ -12,9 +12,10 @@ namespace EasyTravelWeb.Repositories
     public class CityRepository
     {
 		/// <summary>
-		///		Returns list of top 4 cities according to their rating
+		///		Returns list of top cities according to their rating
 		/// </summary>
-		/// <returns>List of top 4 cities</returns>
+		/// <param name="numberOfTopCities">Number of cities with higher rating to show</param>
+		/// <returns></returns>
 		public virtual IList<City> GetTopCities(int numberOfTopCities)
         {
             List<City> listToReturn = new List<City>();

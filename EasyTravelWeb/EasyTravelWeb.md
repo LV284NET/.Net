@@ -75,7 +75,7 @@
   - [GetCitiesPage(page,pageSize)](#M-EasyTravelWeb-Repositories-CityRepository-GetCitiesPage-System-Int32,System-Int32- 'EasyTravelWeb.Repositories.CityRepository.GetCitiesPage(System.Int32,System.Int32)')
   - [GetCity(id)](#M-EasyTravelWeb-Repositories-CityRepository-GetCity-System-Int64- 'EasyTravelWeb.Repositories.CityRepository.GetCity(System.Int64)')
   - [GetCountCity()](#M-EasyTravelWeb-Repositories-CityRepository-GetCountCity 'EasyTravelWeb.Repositories.CityRepository.GetCountCity')
-  - [GetTopCities()](#M-EasyTravelWeb-Repositories-CityRepository-GetTopCities-System-Int32- 'EasyTravelWeb.Repositories.CityRepository.GetTopCities(System.Int32)')
+  - [GetTopCities(numberOfTopCities)](#M-EasyTravelWeb-Repositories-CityRepository-GetTopCities-System-Int32- 'EasyTravelWeb.Repositories.CityRepository.GetTopCities(System.Int32)')
 - [CitySearchEntity](#T-EasyTravelWeb-Models-CitySearchEntity 'EasyTravelWeb.Models.CitySearchEntity')
   - [Id](#P-EasyTravelWeb-Models-CitySearchEntity-Id 'EasyTravelWeb.Models.CitySearchEntity.Id')
   - [Name](#P-EasyTravelWeb-Models-CitySearchEntity-Name 'EasyTravelWeb.Models.CitySearchEntity.Name')
@@ -187,7 +187,7 @@
   - [GetPlaceRating(placeId)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlaceRating-System-Int64- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlaceRating(System.Int64)')
   - [GetPlacesIdsAndNames()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesIdsAndNames 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames')
   - [GetPlacesPage(page,cityId,pageSize)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesPage-System-Int32,System-Int64,System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesPage(System.Int32,System.Int64,System.Int32)')
-  - [GetTopPlacesByCityId(cityId)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64,System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64,System.Int32)')
+  - [GetTopPlacesByCityId(cityId,numberOfTopPlaces)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64,System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64,System.Int32)')
 - [PlaceSearchEntity](#T-EasyTravelWeb-Models-PlaceSearchEntity 'EasyTravelWeb.Models.PlaceSearchEntity')
   - [CityId](#P-EasyTravelWeb-Models-PlaceSearchEntity-CityId 'EasyTravelWeb.Models.PlaceSearchEntity.CityId')
   - [Id](#P-EasyTravelWeb-Models-PlaceSearchEntity-Id 'EasyTravelWeb.Models.PlaceSearchEntity.Id')
@@ -1122,19 +1122,21 @@ Count of cities
 This method has no parameters.
 
 <a name='M-EasyTravelWeb-Repositories-CityRepository-GetTopCities-System-Int32-'></a>
-### GetTopCities() `method` [#](#M-EasyTravelWeb-Repositories-CityRepository-GetTopCities-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+### GetTopCities(numberOfTopCities) `method` [#](#M-EasyTravelWeb-Repositories-CityRepository-GetTopCities-System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
-Returns list of top 4 cities according to their rating
+Returns list of top cities according to their rating
 
 ##### Returns
 
-List of top 4 cities
+
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| numberOfTopCities | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Number of cities with higher rating to show |
 
 <a name='T-EasyTravelWeb-Models-CitySearchEntity'></a>
 ## CitySearchEntity [#](#T-EasyTravelWeb-Models-CitySearchEntity 'Go To Here') [=](#contents 'Back To Contents')
@@ -2392,7 +2394,7 @@ list of places
 | pageSize | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | count of place on the page |
 
 <a name='M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64,System-Int32-'></a>
-### GetTopPlacesByCityId(cityId) `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
+### GetTopPlacesByCityId(cityId,numberOfTopPlaces) `method` [#](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64,System-Int32- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -2407,6 +2409,7 @@ list of top places by place rating
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | cityId | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | ID of current city |
+| numberOfTopPlaces | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Number of places with higher rating to show |
 
 <a name='T-EasyTravelWeb-Models-PlaceSearchEntity'></a>
 ## PlaceSearchEntity [#](#T-EasyTravelWeb-Models-PlaceSearchEntity 'Go To Here') [=](#contents 'Back To Contents')
