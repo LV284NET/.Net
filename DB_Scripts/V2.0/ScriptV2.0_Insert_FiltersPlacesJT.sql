@@ -1,6 +1,5 @@
 ﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'FiltersPlacesJT')
 BEGIN
-SET IDENTITY_INSERT [dbo].[FiltersPlacesJT] ON 
 INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (1, 10)
 INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (1, 12)
 INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (1, 23)
@@ -97,6 +96,5 @@ INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (9, 61)
 INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (9, 62)
 INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (10, 9)
 INSERT [dbo].[FiltersPlacesJT] ([FilterId], [PlaceId]) VALUES (10, 21)
-SET IDENTITY_INSERT [dbo].[FiltersPlacesJT] OFF
 END
 
