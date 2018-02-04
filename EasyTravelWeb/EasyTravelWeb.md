@@ -76,10 +76,10 @@
   - [GetCity(id)](#M-EasyTravelWeb-Repositories-CityRepository-GetCity-System-Int64- 'EasyTravelWeb.Repositories.CityRepository.GetCity(System.Int64)')
   - [GetCountCity()](#M-EasyTravelWeb-Repositories-CityRepository-GetCountCity 'EasyTravelWeb.Repositories.CityRepository.GetCountCity')
   - [GetTopCities(numberOfTopCities)](#M-EasyTravelWeb-Repositories-CityRepository-GetTopCities-System-Int32- 'EasyTravelWeb.Repositories.CityRepository.GetTopCities(System.Int32)')
-- [CitySearchEntity](#T-EasyTravelWeb-Models-CitySearchEntity 'EasyTravelWeb.Models.CitySearchEntity')
-  - [Id](#P-EasyTravelWeb-Models-CitySearchEntity-Id 'EasyTravelWeb.Models.CitySearchEntity.Id')
-  - [Name](#P-EasyTravelWeb-Models-CitySearchEntity-Name 'EasyTravelWeb.Models.CitySearchEntity.Name')
-  - [Type](#P-EasyTravelWeb-Models-CitySearchEntity-Type 'EasyTravelWeb.Models.CitySearchEntity.Type')
+- [CitySearchEntity](#T-EasyTravelWeb-Models-SearchEntities-CitySearchEntity 'EasyTravelWeb.Models.SearchEntities.CitySearchEntity')
+  - [Id](#P-EasyTravelWeb-Models-SearchEntities-CitySearchEntity-Id 'EasyTravelWeb.Models.SearchEntities.CitySearchEntity.Id')
+  - [Name](#P-EasyTravelWeb-Models-SearchEntities-CitySearchEntity-Name 'EasyTravelWeb.Models.SearchEntities.CitySearchEntity.Name')
+  - [Type](#P-EasyTravelWeb-Models-SearchEntities-CitySearchEntity-Type 'EasyTravelWeb.Models.SearchEntities.CitySearchEntity.Type')
 - [ConfigurationConstants](#T-EasyTravelWeb-Constants-Constants-ConfigurationConstants 'EasyTravelWeb.Constants.Constants.ConfigurationConstants')
   - [ContextKey](#F-EasyTravelWeb-Constants-Constants-ConfigurationConstants-ContextKey 'EasyTravelWeb.Constants.Constants.ConfigurationConstants.ContextKey')
 - [ConnectionStrings](#T-EasyTravelWeb-Constants-Constants-ConnectionStrings 'EasyTravelWeb.Constants.Constants.ConnectionStrings')
@@ -121,10 +121,10 @@
 - [Filter](#T-EasyTravelWeb-Models-Filter 'EasyTravelWeb.Models.Filter')
 - [FilterConfig](#T-EasyTravelWeb-FilterConfig 'EasyTravelWeb.FilterConfig')
   - [RegisterGlobalFilters()](#M-EasyTravelWeb-FilterConfig-RegisterGlobalFilters-System-Web-Mvc-GlobalFilterCollection- 'EasyTravelWeb.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)')
-- [ISearchEntity](#T-EasyTravelWeb-Models-ISearchEntity 'EasyTravelWeb.Models.ISearchEntity')
-  - [Id](#P-EasyTravelWeb-Models-ISearchEntity-Id 'EasyTravelWeb.Models.ISearchEntity.Id')
-  - [Name](#P-EasyTravelWeb-Models-ISearchEntity-Name 'EasyTravelWeb.Models.ISearchEntity.Name')
-  - [Type](#P-EasyTravelWeb-Models-ISearchEntity-Type 'EasyTravelWeb.Models.ISearchEntity.Type')
+- [ISearchEntity](#T-EasyTravelWeb-Models-SearchEntities-ISearchEntity 'EasyTravelWeb.Models.SearchEntities.ISearchEntity')
+  - [Id](#P-EasyTravelWeb-Models-SearchEntities-ISearchEntity-Id 'EasyTravelWeb.Models.SearchEntities.ISearchEntity.Id')
+  - [Name](#P-EasyTravelWeb-Models-SearchEntities-ISearchEntity-Name 'EasyTravelWeb.Models.SearchEntities.ISearchEntity.Name')
+  - [Type](#P-EasyTravelWeb-Models-SearchEntities-ISearchEntity-Type 'EasyTravelWeb.Models.SearchEntities.ISearchEntity.Type')
 - [IValidator\`1](#T-EasyTravelWeb-Infrastructure-Validators-IValidator`1 'EasyTravelWeb.Infrastructure.Validators.IValidator`1')
   - [GetValidationData(obj)](#M-EasyTravelWeb-Infrastructure-Validators-IValidator`1-GetValidationData-`0- 'EasyTravelWeb.Infrastructure.Validators.IValidator`1.GetValidationData(`0)')
   - [IsValid(obj)](#M-EasyTravelWeb-Infrastructure-Validators-IValidator`1-IsValid-`0- 'EasyTravelWeb.Infrastructure.Validators.IValidator`1.IsValid(`0)')
@@ -135,9 +135,9 @@
   - [streamWriter](#F-EasyTravelWeb-Infrastructure-Logger-streamWriter 'EasyTravelWeb.Infrastructure.Logger.streamWriter')
   - [#cctor()](#M-EasyTravelWeb-Infrastructure-Logger-#cctor 'EasyTravelWeb.Infrastructure.Logger.#cctor')
   - [AsyncLogException(ex)](#M-EasyTravelWeb-Infrastructure-Logger-AsyncLogException-System-Exception- 'EasyTravelWeb.Infrastructure.Logger.AsyncLogException(System.Exception)')
+  - [AsyncLogMessage(message)](#M-EasyTravelWeb-Infrastructure-Logger-AsyncLogMessage-System-String- 'EasyTravelWeb.Infrastructure.Logger.AsyncLogMessage(System.String)')
   - [Finalize()](#M-EasyTravelWeb-Infrastructure-Logger-Finalize 'EasyTravelWeb.Infrastructure.Logger.Finalize')
   - [GetInstance()](#M-EasyTravelWeb-Infrastructure-Logger-GetInstance 'EasyTravelWeb.Infrastructure.Logger.GetInstance')
-  - [LogMessage(message)](#M-EasyTravelWeb-Infrastructure-Logger-LogMessage-System-String- 'EasyTravelWeb.Infrastructure.Logger.LogMessage(System.String)')
 - [LoggerConstants](#T-EasyTravelWeb-Constants-Constants-LoggerConstants 'EasyTravelWeb.Constants.Constants.LoggerConstants')
   - [PathForFileStream](#F-EasyTravelWeb-Constants-Constants-LoggerConstants-PathForFileStream 'EasyTravelWeb.Constants.Constants.LoggerConstants.PathForFileStream')
 - [MainPageController](#T-EasyTravelWeb-Controllers-MainPageController 'EasyTravelWeb.Controllers.MainPageController')
@@ -189,11 +189,11 @@
   - [GetPlacesIdsAndNames()](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesIdsAndNames 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames')
   - [GetPlacesPage(page,cityId,pageSize)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetPlacesPage-System-Int32,System-Int64,System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetPlacesPage(System.Int32,System.Int64,System.Int32)')
   - [GetTopPlacesByCityId(cityId,numberOfTopPlaces)](#M-EasyTravelWeb-Repositories-PlaceRepository-GetTopPlacesByCityId-System-Int64,System-Int32- 'EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64,System.Int32)')
-- [PlaceSearchEntity](#T-EasyTravelWeb-Models-PlaceSearchEntity 'EasyTravelWeb.Models.PlaceSearchEntity')
-  - [CityId](#P-EasyTravelWeb-Models-PlaceSearchEntity-CityId 'EasyTravelWeb.Models.PlaceSearchEntity.CityId')
-  - [Id](#P-EasyTravelWeb-Models-PlaceSearchEntity-Id 'EasyTravelWeb.Models.PlaceSearchEntity.Id')
-  - [Name](#P-EasyTravelWeb-Models-PlaceSearchEntity-Name 'EasyTravelWeb.Models.PlaceSearchEntity.Name')
-  - [Type](#P-EasyTravelWeb-Models-PlaceSearchEntity-Type 'EasyTravelWeb.Models.PlaceSearchEntity.Type')
+- [PlaceSearchEntity](#T-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity 'EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity')
+  - [CityId](#P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-CityId 'EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.CityId')
+  - [Id](#P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-Id 'EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.Id')
+  - [Name](#P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-Name 'EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.Name')
+  - [Type](#P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-Type 'EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.Type')
 - [ProfileController](#T-EasyTravelWeb-Controllers-ProfileController 'EasyTravelWeb.Controllers.ProfileController')
   - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor 'EasyTravelWeb.Controllers.ProfileController.#ctor')
   - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-UserRepository- 'EasyTravelWeb.Controllers.ProfileController.#ctor(EasyTravelWeb.Repositories.UserRepository)')
@@ -1139,37 +1139,37 @@ Returns list of top cities according to their rating
 | ---- | ---- | ----------- |
 | numberOfTopCities | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Number of cities with higher rating to show |
 
-<a name='T-EasyTravelWeb-Models-CitySearchEntity'></a>
-## CitySearchEntity [#](#T-EasyTravelWeb-Models-CitySearchEntity 'Go To Here') [=](#contents 'Back To Contents')
+<a name='T-EasyTravelWeb-Models-SearchEntities-CitySearchEntity'></a>
+## CitySearchEntity [#](#T-EasyTravelWeb-Models-SearchEntities-CitySearchEntity 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
-EasyTravelWeb.Models
+EasyTravelWeb.Models.SearchEntities
 
 ##### Summary
 
+Provides info about a city for searching.
 
-
-<a name='P-EasyTravelWeb-Models-CitySearchEntity-Id'></a>
-### Id `property` [#](#P-EasyTravelWeb-Models-CitySearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-<a name='P-EasyTravelWeb-Models-CitySearchEntity-Name'></a>
-### Name `property` [#](#P-EasyTravelWeb-Models-CitySearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-SearchEntities-CitySearchEntity-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Models-SearchEntities-CitySearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
+ID of a city.
 
-
-<a name='P-EasyTravelWeb-Models-CitySearchEntity-Type'></a>
-### Type `property` [#](#P-EasyTravelWeb-Models-CitySearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-SearchEntities-CitySearchEntity-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Models-SearchEntities-CitySearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
+ID of a city.
 
+<a name='P-EasyTravelWeb-Models-SearchEntities-CitySearchEntity-Type'></a>
+### Type `property` [#](#P-EasyTravelWeb-Models-SearchEntities-CitySearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Type is necessary for distinguishing SearchItems on Front-End.
 
 <a name='T-EasyTravelWeb-Constants-Constants-ConfigurationConstants'></a>
 ## ConfigurationConstants [#](#T-EasyTravelWeb-Constants-Constants-ConfigurationConstants 'Go To Here') [=](#contents 'Back To Contents')
@@ -1570,37 +1570,37 @@ Register Global Filters
 
 This method has no parameters.
 
-<a name='T-EasyTravelWeb-Models-ISearchEntity'></a>
-## ISearchEntity [#](#T-EasyTravelWeb-Models-ISearchEntity 'Go To Here') [=](#contents 'Back To Contents')
+<a name='T-EasyTravelWeb-Models-SearchEntities-ISearchEntity'></a>
+## ISearchEntity [#](#T-EasyTravelWeb-Models-SearchEntities-ISearchEntity 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
-EasyTravelWeb.Models
+EasyTravelWeb.Models.SearchEntities
 
 ##### Summary
 
+Provides members for SearchEntities types.
 
-
-<a name='P-EasyTravelWeb-Models-ISearchEntity-Id'></a>
-### Id `property` [#](#P-EasyTravelWeb-Models-ISearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-<a name='P-EasyTravelWeb-Models-ISearchEntity-Name'></a>
-### Name `property` [#](#P-EasyTravelWeb-Models-ISearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-SearchEntities-ISearchEntity-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Models-SearchEntities-ISearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
+ID of SearchEntity.
 
-
-<a name='P-EasyTravelWeb-Models-ISearchEntity-Type'></a>
-### Type `property` [#](#P-EasyTravelWeb-Models-ISearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-SearchEntities-ISearchEntity-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Models-SearchEntities-ISearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
+Name of SearchEntity.
 
+<a name='P-EasyTravelWeb-Models-SearchEntities-ISearchEntity-Type'></a>
+### Type `property` [#](#P-EasyTravelWeb-Models-SearchEntities-ISearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Type of SearchEntity.
 
 <a name='T-EasyTravelWeb-Infrastructure-Validators-IValidator`1'></a>
 ## IValidator\`1 [#](#T-EasyTravelWeb-Infrastructure-Validators-IValidator`1 'Go To Here') [=](#contents 'Back To Contents')
@@ -1662,7 +1662,7 @@ EasyTravelWeb.Infrastructure
 
 ##### Summary
 
-Logs applicatuon exceptions into EasyTravelLog.txt in C:\Users\Public directory
+Logs applicatuon exceptions and messages into EasyTravelLog.txt in C:\Users\current user's directory
 
 <a name='M-EasyTravelWeb-Infrastructure-Logger-#ctor'></a>
 ### #ctor() `constructor` [#](#M-EasyTravelWeb-Infrastructure-Logger-#ctor 'Go To Here') [=](#contents 'Back To Contents')
@@ -1712,13 +1712,26 @@ This method has no parameters.
 
 ##### Summary
 
-Writes the exception details into the file
+Writes the exception details into the file.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ex | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Instence of the Exception class |
+| ex | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Instence of the Exception class. |
+
+<a name='M-EasyTravelWeb-Infrastructure-Logger-AsyncLogMessage-System-String-'></a>
+### AsyncLogMessage(message) `method` [#](#M-EasyTravelWeb-Infrastructure-Logger-AsyncLogMessage-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Writes the message into the file.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Message that should be logged. |
 
 <a name='M-EasyTravelWeb-Infrastructure-Logger-Finalize'></a>
 ### Finalize() `method` [#](#M-EasyTravelWeb-Infrastructure-Logger-Finalize 'Go To Here') [=](#contents 'Back To Contents')
@@ -1736,28 +1749,15 @@ This method has no parameters.
 
 ##### Summary
 
-Returns a new instance of the Logger class for exceptions logging
+Returns a new instance of the Logger class for exceptions logging.
 
 ##### Returns
 
-Instance of the Logger class
+Instance of the Logger class.
 
 ##### Parameters
 
 This method has no parameters.
-
-<a name='M-EasyTravelWeb-Infrastructure-Logger-LogMessage-System-String-'></a>
-### LogMessage(message) `method` [#](#M-EasyTravelWeb-Infrastructure-Logger-LogMessage-System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Writes the message into the file
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Message that should be logged |
 
 <a name='T-EasyTravelWeb-Constants-Constants-LoggerConstants'></a>
 ## LoggerConstants [#](#T-EasyTravelWeb-Constants-Constants-LoggerConstants 'Go To Here') [=](#contents 'Back To Contents')
@@ -2423,44 +2423,44 @@ list of top places by place rating
 | cityId | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | ID of current city |
 | numberOfTopPlaces | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Number of places with higher rating to show |
 
-<a name='T-EasyTravelWeb-Models-PlaceSearchEntity'></a>
-## PlaceSearchEntity [#](#T-EasyTravelWeb-Models-PlaceSearchEntity 'Go To Here') [=](#contents 'Back To Contents')
+<a name='T-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity'></a>
+## PlaceSearchEntity [#](#T-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
-EasyTravelWeb.Models
+EasyTravelWeb.Models.SearchEntities
 
 ##### Summary
 
+Provides info about a place for searching.
 
-
-<a name='P-EasyTravelWeb-Models-PlaceSearchEntity-CityId'></a>
-### CityId `property` [#](#P-EasyTravelWeb-Models-PlaceSearchEntity-CityId 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-<a name='P-EasyTravelWeb-Models-PlaceSearchEntity-Id'></a>
-### Id `property` [#](#P-EasyTravelWeb-Models-PlaceSearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-CityId'></a>
+### CityId `property` [#](#P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-CityId 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
+ID of a city.
 
-
-<a name='P-EasyTravelWeb-Models-PlaceSearchEntity-Name'></a>
-### Name `property` [#](#P-EasyTravelWeb-Models-PlaceSearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-
-
-<a name='P-EasyTravelWeb-Models-PlaceSearchEntity-Type'></a>
-### Type `property` [#](#P-EasyTravelWeb-Models-PlaceSearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+<a name='P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-Id'></a>
+### Id `property` [#](#P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-Id 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
+ID of a place.
 
+<a name='P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-Name'></a>
+### Name `property` [#](#P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-Name 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+ID of a place.
+
+<a name='P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-Type'></a>
+### Type `property` [#](#P-EasyTravelWeb-Models-SearchEntities-PlaceSearchEntity-Type 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Type is necessary for distinguishing SearchItems on Front-End.
 
 <a name='T-EasyTravelWeb-Controllers-ProfileController'></a>
 ## ProfileController [#](#T-EasyTravelWeb-Controllers-ProfileController 'Go To Here') [=](#contents 'Back To Contents')

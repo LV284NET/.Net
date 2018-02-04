@@ -5,6 +5,7 @@ using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Repositories;
 using WebGrease.Css.Extensions;
 using EasyTravelWeb.Models;
+using EasyTravelWeb.Models.SearchEntities;
 
 namespace EasyTravelWeb.Controllers
 {

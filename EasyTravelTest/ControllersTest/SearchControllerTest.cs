@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http.Results;
 using EasyTravelWeb.Controllers;
-using EasyTravelWeb.Models;
+using EasyTravelWeb.Models.SearchEntities;
 using EasyTravelWeb.Repositories;
 using NUnit.Framework;
 using Rhino.Mocks;

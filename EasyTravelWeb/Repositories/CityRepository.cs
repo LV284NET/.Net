@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using EasyTravelWeb.Models;
+using EasyTravelWeb.Models.SearchEntities;
 
 namespace EasyTravelWeb.Repositories
 {

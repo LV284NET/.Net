@@ -758,7 +758,8 @@
         </member>
         <member name="T:EasyTravelWeb.Infrastructure.Logger">
             <summary>
-                Logs applicatuon exceptions into EasyTravelLog.txt in C:\Users\Public directory
+                Logs applicatuon exceptions and messages into 
+            	EasyTravelLog.txt in C:\Users\current user's directory
             </summary>
         </member>
         <member name="F:EasyTravelWeb.Infrastructure.Logger.logger">
@@ -796,21 +797,21 @@
         </member>
         <member name="M:EasyTravelWeb.Infrastructure.Logger.GetInstance">
             <summary>
-                Returns a new instance of the Logger class for exceptions logging
+                Returns a new instance of the Logger class for exceptions logging.
             </summary>
-            <returns>Instance of the Logger class</returns>
+            <returns>Instance of the Logger class.</returns>
         </member>
         <member name="M:EasyTravelWeb.Infrastructure.Logger.AsyncLogException(System.Exception)">
             <summary>
-                Writes the exception details into the file
+                Writes the exception details into the file.
             </summary>
-            <param name="ex">Instence of the Exception class</param>
+            <param name="ex">Instence of the Exception class.</param>
         </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Logger.LogMessage(System.String)">
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.AsyncLogMessage(System.String)">
             <summary>
-                Writes the message into the file
+                Writes the message into the file.
             </summary>
-            <param name="message">Message that should be logged</param>
+            <param name="message">Message that should be logged.</param>
         </member>
         <member name="T:EasyTravelWeb.Models.AddExternalLoginBindingModel">
             <summary>
@@ -1022,6 +1023,71 @@
                
             </summary>
         </member>
+        <member name="T:EasyTravelWeb.Models.SearchEntities.CitySearchEntity">
+            <summary>
+            	Provides info about a city for searching.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.CitySearchEntity.Id">
+            <summary>
+               ID of a city.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.CitySearchEntity.Name">
+            <summary>
+               ID of a city.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.CitySearchEntity.Type">
+            <summary>
+            	Type is necessary for distinguishing SearchItems on Front-End.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.SearchEntities.ISearchEntity">
+            <summary>
+            	Provides members for SearchEntities types.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.ISearchEntity.Id">
+            <summary>
+               ID of SearchEntity.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.ISearchEntity.Name">
+            <summary>
+               Name of SearchEntity.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.ISearchEntity.Type">
+            <summary>
+               Type of SearchEntity.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity">
+            <summary>
+               Provides info about a place for searching.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.Id">
+            <summary>
+               ID of a place.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.CityId">
+            <summary>
+               ID of a city.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.Name">
+            <summary>
+               ID of a place.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.Type">
+            <summary>
+               Type is necessary for distinguishing SearchItems on Front-End.
+            </summary>
+        </member>
         <member name="T:EasyTravelWeb.Models.FavoritePlace">
             <summary>
                
@@ -1168,71 +1234,6 @@
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Models.Place.#ctor">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="T:EasyTravelWeb.Models.ISearchEntity">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.ISearchEntity.Id">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.ISearchEntity.Name">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.ISearchEntity.Type">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="T:EasyTravelWeb.Models.CitySearchEntity">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.CitySearchEntity.Id">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.CitySearchEntity.Name">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.CitySearchEntity.Type">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="T:EasyTravelWeb.Models.PlaceSearchEntity">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.PlaceSearchEntity.Id">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.PlaceSearchEntity.CityId">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.PlaceSearchEntity.Name">
-            <summary>
-               
-            </summary>
-        </member>
-        <member name="P:EasyTravelWeb.Models.PlaceSearchEntity.Type">
             <summary>
                
             </summary>
