@@ -165,7 +165,7 @@ namespace EasyTravelWeb.Controllers
             int placeCount = this.placeRepository.GetFilteredCountPlace(cityId,filters);
             try
             {
-                if (placeCount == 0)
+                if (placeCount == null)
                 {
                     return this.NotFound();
                 }
