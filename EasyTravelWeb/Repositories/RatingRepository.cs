@@ -7,13 +7,21 @@ using EasyTravelWeb.Models;
 namespace EasyTravelWeb.Repositories
 {
     /// <summary>
-    ///    
+    ///    Repository for get info about user rating
     /// </summary>
     public class RatingRepository
     {
+		/// <summary>
+		///		Means that no rows were affected by SQL command.
+		/// </summary>
 		private int noRowsAffected = -1;
 
-		public bool SetUserRatingForPlace(UserPlaceRating userRating)
+        /// <summary>
+        /// set user rating in DataBase
+        /// </summary>
+        /// <param name="userRating">User Place Rating model (user id, place id, rating)</param>
+        /// <returns>bool value(true if success request, false if fail)</returns>
+        public bool SetUserRatingForPlace(UserPlaceRating userRating)
         {
             using (SqlConnection connection = 
 	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
@@ -38,6 +46,12 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
+        /// <summary>
+        /// delete user rating from DataBase
+        /// </summary>
+        /// <param name="userId">ID of current user</param>
+        /// <param name="placeId">ID of place</param>
+        /// <returns>bool value(true if success request, false if fail)</returns>
         public bool DeleteUserRatingForPlace(int userId, long placeId)
         {
             using (SqlConnection connection =
@@ -62,12 +76,13 @@ namespace EasyTravelWeb.Repositories
             }
         }
 
-
-
         /// <summary>
-        ///    
+        /// get user rating of place from DataBase
         /// </summary>
-        public double GetUserRatingOfPlace(int UserId, long PlaceId)
+        /// <param name="userId">ID of current user</param>
+        /// <param name="placeId">ID of place</param>
+        /// <returns>user rating of place</returns>
+        public double GetUserRatingOfPlace(int userId, long placeId)
         {
             using (SqlConnection connection =
                 new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
@@ -79,8 +94,9 @@ namespace EasyTravelWeb.Repositories
 		            CommandType = CommandType.StoredProcedure
 	            };
 
-	            command.Parameters.Add(new SqlParameter("@UserID", UserId));
-                command.Parameters.Add(new SqlParameter("@PlaceID", PlaceId));
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@UserID", userId));
+                command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {

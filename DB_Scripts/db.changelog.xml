@@ -94,7 +94,7 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
   </changeSet>
 
   <changeSet author="Dmytro Ratynchuk" id="V1.9">
-    <sqlFile path="ScriptV1.9_Create_Procedure_GetTopCities.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
-    <sqlFile path="ScriptV1.9_Create_Procedure_GetTopPlacesByCityId.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.9/ScriptV1.9_Create_Procedure_GetTopCities.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+    <sqlFile path="V1.9/ScriptV1.9_Create_Procedure_GetTopPlacesByCityId.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
   </changeSet>
 </databaseChangeLog> 

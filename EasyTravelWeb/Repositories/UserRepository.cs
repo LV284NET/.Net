@@ -8,7 +8,6 @@ namespace EasyTravelWeb.Repositories
     /// <summary>
     ///    Repository for get info about User
     /// </summary>
-
     public class UserRepository
 	{
         /// <summary>

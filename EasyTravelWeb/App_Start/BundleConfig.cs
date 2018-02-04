@@ -9,7 +9,7 @@ namespace EasyTravelWeb
     public class BundleConfig
     {
         /// <summary>
-        ///    
+        ///    Register Bundles
         /// </summary>
 
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862

@@ -10,7 +10,7 @@ namespace EasyTravelWeb
     public class RouteConfig
     {
         /// <summary>
-        ///    
+        ///    Route for requests
         /// </summary>
 
         public static void RegisterRoutes(RouteCollection routes)

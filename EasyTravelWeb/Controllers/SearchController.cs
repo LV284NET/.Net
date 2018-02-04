@@ -11,7 +11,6 @@ namespace EasyTravelWeb.Controllers
     /// <summary>
     ///     Controller for search
     /// </summary>
-
     public class SearchController : ApiController
     {
         private readonly Logger logger = Logger.GetInstance();
@@ -23,7 +22,7 @@ namespace EasyTravelWeb.Controllers
         private static List<PlaceSearchEntity> places;
 
         /// <summary>
-        ///    
+        ///    Default constructor
         /// </summary>
         public SearchController()
         {
@@ -31,7 +30,7 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        ///    
+        ///    Constructor with parameters for unit testing
         /// </summary>
         public SearchController(CityRepository cityRepository, PlaceRepository placeRepository)
         {
@@ -41,6 +40,9 @@ namespace EasyTravelWeb.Controllers
 	        this.InitializeData();
         }
 
+        /// <summary>
+        /// Initialization of cities and places fields, if they are null
+        /// </summary>
         private void InitializeData()
         {
             if (cities == null)
@@ -57,8 +59,10 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        ///    
+        /// Method for getting suggestion according to searchWord
         /// </summary>
+        /// <param name="searchWord">Key word, which is used to filter names of cities and places</param>
+        /// <returns>List of suggestions according to searchWord</returns>
         [HttpGet]
 		public IHttpActionResult GetSuggestions(string searchWord)
         {

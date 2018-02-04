@@ -9,7 +9,7 @@ using EasyTravelWeb.Repositories;
 namespace EasyTravelWeb.Controllers
 {
     /// <summary>
-    ///    
+    ///    Controller model for get info about places 
     /// </summary>
     public class PlaceController : ApiController
 	{
@@ -17,7 +17,7 @@ namespace EasyTravelWeb.Controllers
 		private readonly PlaceRepository placeRepository;
 
 	    /// <summary>
-	    ///    
+	    ///    Default constructor
 	    /// </summary>
         public PlaceController()
 		{
@@ -25,10 +25,11 @@ namespace EasyTravelWeb.Controllers
 			this.logger = Logger.GetInstance();
 		}
 
-
         /// <summary>
-        ///    
+        ///    Controller for get info about place
         /// </summary>
+        /// <param name="placeId"> ID of current place</param>
+        /// <returns>Status code with place model</returns>
 		[HttpGet]
 		public IHttpActionResult GetPlaceById(long placeId)
 		{
@@ -51,8 +52,13 @@ namespace EasyTravelWeb.Controllers
 				return this.NotFound();
 			}
 		}
-            
-	    [HttpGet]
+
+        ///<summary>
+        /// Contoller for get rating of place
+        /// </summary>
+        /// <param name="placeId">ID of current place</param>
+        /// <returns>Status code with place rating</returns>
+        [HttpGet]
 	    public IHttpActionResult GetPlaceRating(long placeId)
 	    {
 	        try
@@ -67,9 +73,11 @@ namespace EasyTravelWeb.Controllers
 	        }
 	    }
 
-        /// <summary>
-        ///    
-        /// </summary>
+	    ///<summary>
+	    /// Contoller for get top places of current city
+	    /// </summary>
+	    /// <param name="cityId">ID of current city</param>
+	    /// <returns>Status code with list of top places</returns>
         [HttpGet]
 		public IHttpActionResult GetTopPlacesByCityId(long cityId, int numberOfTopPlaces)
 		{
@@ -92,10 +100,14 @@ namespace EasyTravelWeb.Controllers
 			}
 		}
 
-	    /// <summary>
-	    ///    
-	    /// </summary>
-		[HttpGet]
+        ///<summary>
+        /// Contoller for get places of some city for some page
+        /// </summary>
+        /// <param name="cityId">ID of current city</param>
+        /// <param name="page">number of the page</param>
+        /// <param name="pageSize">Count of places on page</param>
+        /// <returns>Status code with places list</returns>
+        [HttpGet]
 		public IHttpActionResult GetPlacesPageByCityId(long cityId, int page, int pageSize)
 		{
             try
@@ -141,7 +153,6 @@ namespace EasyTravelWeb.Controllers
 	            return this.InternalServerError();
 	        }
 	    }
-
 
         /// <summary>
         /// Controller method for getting count of filtered places
@@ -190,9 +201,11 @@ namespace EasyTravelWeb.Controllers
             }
         }
 
-        /// <summary>
-        ///    
-        /// </summary>
+	    /// <summary>
+	    /// Controller for get count of places for current city
+	    /// </summary>
+	    /// <param name="cityId">ID of current city</param>
+	    /// <returnsCount of places</returns>
         [HttpGet]
         public IHttpActionResult GetCountPlaces(long cityId)
         {
@@ -212,13 +225,11 @@ namespace EasyTravelWeb.Controllers
             return this.Ok(placeCount);
         }
 
-
-
         /// <summary>
-        /// 
+        /// Controller for add place to favorite by user
         /// </summary>
-        /// <param name="favoriteUserPlace"></param>
-        /// <returns></returns>
+        /// <param name="favoriteUserPlace">Favorite User Model</param>
+        /// <returns>Result of request</returns>
         [Authorize]
         [HttpPost]
         public IHttpActionResult AddUserFavoritePlace([FromBody] FavoritePlace favoriteUserPlace)
@@ -239,11 +250,11 @@ namespace EasyTravelWeb.Controllers
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="favoritePlace"></param>
-        /// <returns></returns>
+	    /// <summary>
+	    /// Controller for delete place from favorite by user
+	    /// </summary>
+	    /// <param name="favoriteUserPlace">Favorite User Model</param>
+	    /// <returns>Result of request</returns>
         [Authorize]
         [HttpDelete]
         public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavoritePlace favoritePlace)
