@@ -397,6 +397,7 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet]
+        [Route("api/Account/ConfirmEmail", Name = "ConfirmEmailRoute")]
         public async Task<IHttpActionResult> ConfirmEmail(int userId = 0, string code = "")
         {
             if (userId == default(int) || code == string.Empty)

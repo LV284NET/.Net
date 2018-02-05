@@ -71,7 +71,7 @@ namespace EasyTravelWeb.Constants
 			/// <summary>
 			///		URL where user is redirected after email confirmation.
 			/// </summary>
-			public const string UrlForRedirectAfterEmailConfirmation = "http://localhost:4200/main";
+			public const string UrlForRedirectAfterEmailConfirmation = "https://localhost:4200/main";
 
 			/// <summary>
 			///		Name of local login provider.
