@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTravelWeb", "EasyTravelWeb\EasyTravelWeb.csproj", "{2CEF35A1-9417-481A-AE60-7F856A103A99}"
 EndProject
@@ -19,18 +19,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.0", "V1.0", "{B4510B7C-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.1", "V1.1", "{1A0AB2A5-9218-46B0-B850-306A32737B3C}"
 	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetCities.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetCities.sql
 		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetCityById.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetCityById.sql
 		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlaceById.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlaceById.sql
 		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlaceByName.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlaceByName.sql
 		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlacesByCityId.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetPlacesByCityId.sql
 		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetTopPlacesByCityId.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetTopPlacesByCityId.sql
 		DB_Scripts\V1.1\ScriptV1.1_Procedure_GetTopPlacesByCityName.sql = DB_Scripts\V1.1\ScriptV1.1_Procedure_GetTopPlacesByCityName.sql
-		DB_Scripts\V1.1\ScriptV1.1_Procedures.sql = DB_Scripts\V1.1\ScriptV1.1_Procedures.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.2", "V1.2", "{86B63F85-B9AF-4895-A651-797AFBC4BFF1}"
 	ProjectSection(SolutionItems) = preProject
 		DB_Scripts\V1.2\ScriptV1.2_InsertData.sql = DB_Scripts\V1.2\ScriptV1.2_InsertData.sql
+		DB_Scripts\V1.2\ScriptV1.2_Procedure_GetPlaces.sql = DB_Scripts\V1.2\ScriptV1.2_Procedure_GetPlaces.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1.3", "v1.3", "{255AB994-ADD2-418F-9AE0-14A8E3AEADF2}"
@@ -40,7 +41,97 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1.3", "v1.3", "{255AB994-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.4", "V1.4", "{6007506F-4664-472F-9676-FA83C021ACEA}"
 	ProjectSection(SolutionItems) = preProject
-		ScriptV1.4_Truncate_Table.sql = ScriptV1.4_Truncate_Table.sql
+		DB_Scripts\V1.4\ScriptV1.4_Procedure_GetCitiesIdAndNames.sql = DB_Scripts\V1.4\ScriptV1.4_Procedure_GetCitiesIdAndNames.sql
+		DB_Scripts\V1.4\ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql = DB_Scripts\V1.4\ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql
+		DB_Scripts\V1.4\ScriptV1.4_TrunkateDataAstNetUsers.sql = DB_Scripts\V1.4\ScriptV1.4_TrunkateDataAstNetUsers.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.5", "V1.5", "{26E22196-ACE0-4E10-A96A-4CB6DF287BDD}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeFirstName.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_ChangeLastName.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCitiesPage.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCitiesPage.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCountCity.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCountCity.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCountPlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetCountPlace.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetPlacesPage.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetPlacesPage.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_GetUserById.sql
+		DB_Scripts\V1.5\ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql = DB_Scripts\V1.5\ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.6", "V1.6", "{0B046B2E-AA01-4F6E-B7AD-87C8F2BD2C0A}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V1.6\ScriptV1.6_Procedure_GetCitiesPage.sql = DB_Scripts\V1.6\ScriptV1.6_Procedure_GetCitiesPage.sql
+		DB_Scripts\V1.6\ScriptV1.6_Procedure_GetCityById.sql = DB_Scripts\V1.6\ScriptV1.6_Procedure_GetCityById.sql
+		DB_Scripts\V1.6\ScriptV1.6_Procedure_GetCountCity.sql = DB_Scripts\V1.6\ScriptV1.6_Procedure_GetCountCity.sql
+		DB_Scripts\V1.6\ScriptV1.6_Procedure_GetCountPlace.sql = DB_Scripts\V1.6\ScriptV1.6_Procedure_GetCountPlace.sql
+		DB_Scripts\V1.6\ScriptV1.6_Procedure_GetPlaces.sql = DB_Scripts\V1.6\ScriptV1.6_Procedure_GetPlaces.sql
+		DB_Scripts\V1.6\ScriptV1.6_Procedure_GetTopPlacesByCityId.sql = DB_Scripts\V1.6\ScriptV1.6_Procedure_GetTopPlacesByCityId.sql
+		DB_Scripts\V1.6\ScriptV1.6_Procedure_GetTopPlacesByCityName.sql = DB_Scripts\V1.6\ScriptV1.6_Procedure_GetTopPlacesByCityName.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1.7", "v1.7", "{C357FBBD-3B0F-472A-B4CF-8606C7F17093}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V1.7\ScriptV1.7_Alter_Table_City-Add_CityRating_Column.sql = DB_Scripts\V1.7\ScriptV1.7_Alter_Table_City-Add_CityRating_Column.sql
+		DB_Scripts\V1.7\ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql = DB_Scripts\V1.7\ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_DeleteUsersPlaceRating.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_DeleteUsersPlaceRating.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetCitiesPage.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetCitiesPage.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetCityById.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetCityById.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetPlaceById.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetPlaceById.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetPlaceRating.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetPlaceRating.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetPlacesPage.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetPlacesPage.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetTopCities.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetTopCities.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetTopPlacesByCityId.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetTopPlacesByCityId.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetUserPlaceRating.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_GetUserPlaceRating.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_UpdateCityRating.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_UpdateCityRating.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_UpdatePlaceRating.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Procedure_UpdatePlaceRating.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Table_UsersPlaceRatings.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Table_UsersPlaceRatings.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_Place_After_Delete.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_Place_After_Delete.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_Place_After_Insert.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_Place_After_Insert.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_Place_After_Update.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_Place_After_Update.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Delete.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Delete.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert.sql
+		DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Update.sql = DB_Scripts\V1.7\ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Update.sql
+		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetCities_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetCities_If_Exists.sql
+		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetPlaceByName_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetPlaceByName_If_Exists.sql
+		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetPlacesByCityId_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetPlacesByCityId_If_Exists.sql
+		DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetTopPlacesByCityName_If_Exists.sql = DB_Scripts\V1.7\ScriptV1.7_Drop_Procedure_GetTopPlacesByCityName_If_Exists.sql
+		DB_Scripts\V1.7\ScriptV1.7_IdentityChangeColumnId.sql = DB_Scripts\V1.7\ScriptV1.7_IdentityChangeColumnId.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.8", "V1.8", "{89914158-A2F6-40AC-A954-BEDCDB44B45B}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V1.8\ScriptV1.8_Fix_Data_ColumnCityRatingNull.sql = DB_Scripts\V1.8\ScriptV1.8_Fix_Data_ColumnCityRatingNull.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.9", "V1.9", "{2C00DA7D-83B8-45A2-8A4B-1832C15B5C03}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V1.9\ScriptV1.9_Create_Procedure_GetTopCities.sql = DB_Scripts\V1.9\ScriptV1.9_Create_Procedure_GetTopCities.sql
+		DB_Scripts\V1.9\ScriptV1.9_Create_Procedure_GetTopPlacesByCityId.sql = DB_Scripts\V1.9\ScriptV1.9_Create_Procedure_GetTopPlacesByCityId.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2.0", "V2.0", "{B83CF57A-349F-4DED-858C-08EC88F74ACA}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V2.0\ScriptV2.0_Function_GetFilteredPlacesFunction.sql = DB_Scripts\V2.0\ScriptV2.0_Function_GetFilteredPlacesFunction.sql
+		DB_Scripts\V2.0\ScriptV2.0_Function_IntListToTable.sql = DB_Scripts\V2.0\ScriptV2.0_Function_IntListToTable.sql
+		DB_Scripts\V2.0\ScriptV2.0_Insert_Filters.sql = DB_Scripts\V2.0\ScriptV2.0_Insert_Filters.sql
+		DB_Scripts\V2.0\ScriptV2.0_Insert_FiltersPlacesJT.sql = DB_Scripts\V2.0\ScriptV2.0_Insert_FiltersPlacesJT.sql
+		DB_Scripts\V2.0\ScriptV2.0_Procedure_GetCountFromFilteredPlaces.sql = DB_Scripts\V2.0\ScriptV2.0_Procedure_GetCountFromFilteredPlaces.sql
+		DB_Scripts\V2.0\ScriptV2.0_Procedure_GetFilteredPlaces.sql = DB_Scripts\V2.0\ScriptV2.0_Procedure_GetFilteredPlaces.sql
+		DB_Scripts\V2.0\ScriptV2.0_Procedure_GetPlaceFilters.sql = DB_Scripts\V2.0\ScriptV2.0_Procedure_GetPlaceFilters.sql
+		DB_Scripts\V2.0\ScriptV2.0_Table_Filters.sql = DB_Scripts\V2.0\ScriptV2.0_Table_Filters.sql
+		DB_Scripts\V2.0\ScriptV2.0_Table_FiltersPlacesJT.sql = DB_Scripts\V2.0\ScriptV2.0_Table_FiltersPlacesJT.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2.1", "V2.1", "{65ED6AAC-C62A-4098-8E70-DF5EA2D31B61}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V2.1\ScriptV2.1_Create_Procedure_GetTopCities.sql = DB_Scripts\V2.1\ScriptV2.1_Create_Procedure_GetTopCities.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2.2", "V2.2", "{E19D50E4-EB80-41D5-9A8F-70117F7CE318}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V2.2\ScriptV2.2_Procedure_GetCitiesIdAndNames.sql = DB_Scripts\V2.2\ScriptV2.2_Procedure_GetCitiesIdAndNames.sql
 	EndProjectSection
 EndProject
 Global
@@ -67,6 +158,14 @@ Global
 		{86B63F85-B9AF-4895-A651-797AFBC4BFF1} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 		{255AB994-ADD2-418F-9AE0-14A8E3AEADF2} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 		{6007506F-4664-472F-9676-FA83C021ACEA} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{26E22196-ACE0-4E10-A96A-4CB6DF287BDD} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{0B046B2E-AA01-4F6E-B7AD-87C8F2BD2C0A} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{C357FBBD-3B0F-472A-B4CF-8606C7F17093} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{89914158-A2F6-40AC-A954-BEDCDB44B45B} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{2C00DA7D-83B8-45A2-8A4B-1832C15B5C03} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{B83CF57A-349F-4DED-858C-08EC88F74ACA} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{65ED6AAC-C62A-4098-8E70-DF5EA2D31B61} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{E19D50E4-EB80-41D5-9A8F-70117F7CE318} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69F34F38-389E-42AF-9CDB-515325528627}

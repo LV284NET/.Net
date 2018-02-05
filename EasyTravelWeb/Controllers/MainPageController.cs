@@ -7,7 +7,10 @@ namespace EasyTravelWeb.Controllers
 	/// </summary>
 	public class MainPageController : Controller
 	{
-		// GET: MainPage
+		/// <summary>
+		///		Returns a ViewResult object that rensers a view to the MainPage
+		/// </summary>
+		/// <returns>A ViewResult object that rensers a view to the MainPage</returns>
 		public ActionResult Index()
 		{
 			return this.View();

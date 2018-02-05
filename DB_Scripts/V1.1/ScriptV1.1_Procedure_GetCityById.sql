@@ -1,11 +1,14 @@
 ﻿IF EXISTS (SELECT * FROM sys.objects WHERE name = 'GetCityById')
-BEGIN 
+BEGIN
 	DROP PROCEDURE [dbo].[GetCityById]
 END
 GO
+CREATE procedure [dbo].[GetCityById](@CityID bigint)
+as
 
-CREATE PROCEDURE [dbo].[GetCityById](@CityID bigint)
-AS
+set transaction isolation level read committed 
+
+begin transaction
 	select * from [City]
-	where @CityID = [CityID]
-GO
+	where @CityID = [CityID]	
+commit transaction

@@ -1,0 +1,1650 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyTravelWeb</name>
+    </assembly>
+    <members>
+        <member name="T:EasyTravelWeb.BundleConfig">
+            <summary>
+                Bundle logic
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.BundleConfig.RegisterBundles(System.Web.Optimization.BundleCollection)">
+            <summary>
+               Register Bundles
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.CORSConfig">
+            <summary>
+               Cors Configuration
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.CORSConfig.CorsPolicy">
+            <summary>
+              CORS Polisy for allow requests from FrontEnd
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.FilterConfig">
+            <summary>
+                Filter config
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)">
+            <summary>
+               Register Global Filters
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.ApplicationUserManager">
+            <summary>
+                Model of User in Identity
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.ApplicationUserManager.#ctor(Microsoft.AspNet.Identity.IUserStore{EasyTravelWeb.Models.ApplicationUser,System.Int32})">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.ApplicationUserManager.Create(Microsoft.AspNet.Identity.Owin.IdentityFactoryOptions{EasyTravelWeb.ApplicationUserManager},Microsoft.Owin.IOwinContext)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.RouteConfig">
+            <summary>
+                RouteConfig
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)">
+            <summary>
+               Route for requests
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Startup">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Startup.OAuthOptions">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Startup.PublicClientId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Startup.ConfigureAuth(Owin.IAppBuilder)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.WebApiConfig">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants">
+            <summary>
+             Provides constants for all classes of EasyTravelWeb project.	
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.CORSConstants">
+            <summary>
+            	Provides constants for CORSConfig class
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.CORSConstants.FrontEndUrl">
+            <summary>
+            	Origin of Cors Policy.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.EmailServiceConstants">
+            <summary>
+            	Provides constants for EmailService class
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.EmailServiceConstants.SmtpClientHost">
+            <summary>
+            	Host for SmtpClient.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.EmailServiceConstants.SmtpClientPort">
+            <summary>
+            	Port for SmtpClient.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.EmailServiceConstants.Credentials">
+            <summary>
+            	Provides credentials for EmailService class.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.EmailServiceConstants.Credentials.Email">
+            <summary>
+            	Email that is used for sending requests for confirmation of user email.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.EmailServiceConstants.Credentials.Password">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.ConnectionStrings">
+            <summary>
+            	Provides connection strings.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.AccountControllerConstants">
+            <summary>
+            	Provides constants for AccountController class.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.AccountControllerConstants.UrlForRedirectAfterEmailConfirmation">
+            <summary>
+            	URL where user is redirected after email confirmation.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.AccountControllerConstants.LocalLoginProvider">
+            <summary>
+            	Name of local login provider.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.AccountControllerConstants.BitsPerByte">
+            <summary>
+            	Number of bits per byte.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.SearchControllerConstants">
+            <summary>
+            	Provides constants for SearchController class.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.SearchControllerConstants.NumberOfSearchEntitiesToShow">
+            <summary>
+            	Optimal number of cities or places to show in search suggestions.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.StartupConstants">
+            <summary>
+            	Provides constants for Startup class.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.StartupConstants.TokenEndpointPath">
+            <summary>
+            	Token endpoint path
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.StartupConstants.AuthorizeEndpointPath">
+            <summary>
+            	Authorize endpoint path
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.ConfigurationConstants">
+            <summary>
+            	Provides constants for Configuration class.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.ConfigurationConstants.ContextKey">
+            <summary>
+            	String used to distinguish migrations.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.LoggerConstants">
+            <summary>
+            	Provides constants for Logger class.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.LoggerConstants.PathForFileStream">
+            <summary>
+            	The path to the file in which exceptions are logged.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Constants.Constants.DataValidationConstants">
+            <summary>
+            	Provides constants for data validation.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.DataValidationConstants.MinimumPasswordLength">
+            <summary>
+                Minimum amount of password characters.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.DataValidationConstants.EmailPattern">
+            <summary>
+                Pattern that must be met by an email. 
+            </summary>
+            <example>some@domain.com</example>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.DataValidationConstants.PasswordPattern">
+            <summary>
+                Pattern that must be met by a password.
+            </summary>
+            <example>Aa1111!@</example>
+        </member>
+        <member name="F:EasyTravelWeb.Constants.Constants.DataValidationConstants.NamePattern">
+            <summary>
+                Pattern that must be met by first name or last name.
+            </summary>
+            <example>Petro</example>
+        </member>
+        <member name="T:EasyTravelWeb.Controllers.CityController">
+            <summary>
+               Controller for get and set info about cities
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.CityController.#ctor">
+            <summary>
+               Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.CityController.#ctor(EasyTravelWeb.Repositories.CityRepository)">
+            <summary>
+               Constructor with params
+            </summary>
+            <params name="cityRepository"> Repository for get info about cities</params>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.CityController.GetTopCities(System.Int32)">
+            <summary>
+               Controller for getting Top of Cities
+            </summary>
+            <returns>Status code with top cities</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.CityController.GetCities(System.Int32,System.Int32)">
+            <summary>
+            Controller for getting Cities
+            </summary>
+            <param name="page">number of current page</param>
+            <param name="pageSize">Count of cities on the page</param>
+            <returns>Status code with list of cities</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.CityController.GetCity(System.Int32)">
+            <summary>
+            Controller for getting City
+            </summary>
+            <param name="id">City ID</param>
+            <returns>Status code with city model</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.CityController.GetCountCity">
+            <summary>
+            Controller for getting count of Cities
+            </summary>
+            <returns>Status code with count of cities</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Controllers.MainPageController">
+            <summary>
+                Controller for the default page which informs about the app running
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.MainPageController.Index">
+            <summary>
+            	Returns a ViewResult object that rensers a view to the MainPage
+            </summary>
+            <returns>A ViewResult object that rensers a view to the MainPage</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Controllers.PlaceController">
+            <summary>
+               Controller model for get info about places 
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.#ctor">
+            <summary>
+               Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlaceById(System.Int64)">
+            <summary>
+               Controller for get info about place
+            </summary>
+            <param name="placeId"> ID of current place</param>
+            <returns>Status code with place model</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlaceRating(System.Int64)">
+            <summary>
+             Contoller for get rating of place
+             </summary>
+             <param name="placeId">ID of current place</param>
+             <returns>Status code with place rating</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetTopPlacesByCityId(System.Int64,System.Int32)">
+            <summary>
+             Contoller for get top places of current city
+             </summary>
+             <param name="cityId">ID of current city</param>
+             <returns>Status code with list of top places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlacesPageByCityId(System.Int64,System.Int32,System.Int32)">
+            <summary>
+             Contoller for get places of some city for some page
+             </summary>
+             <param name="cityId">ID of current city</param>
+             <param name="page">number of the page</param>
+             <param name="pageSize">Count of places on page</param>
+             <returns>Status code with places list</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetFilteredPlacesByCityId(System.Int64,System.Int32,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+            <summary>
+            Controller method for getting filtered places
+            </summary>
+            <param name="filters">Collection of filters, which you want to apply for search</param>
+            <returns>Collection of filtered places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetCountFromFilteredPlaces(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+            <summary>
+            Controller method for getting count of filtered places
+            </summary>
+            <param name="filters">Collection of filters, which you want to apply for search</param>
+            <returns>Count of filtered places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.GetPlaceFilters(System.Int64)">
+            <summary>
+            Controller method for filters of specific city
+            </summary>
+            <returns>List of filters for specific place</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:EasyTravelWeb.Controllers.PlaceController.GetCountPlaces(System.Int64)" -->
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.AddUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)">
+            <summary>
+            Controller for add place to favorite by user
+            </summary>
+            <param name="favoriteUserPlace">Favorite User Model</param>
+            <returns>Result of request</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.PlaceController.DeleteUserFavoritePlace(EasyTravelWeb.Models.FavoritePlace)">
+            <summary>
+            Controller for delete place from favorite by user
+            </summary>
+            <param name="favoriteUserPlace">Favorite User Model</param>
+            <returns>Result of request</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Controllers.ProfileController">
+            <summary>
+            	Controller for Profile page
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.userRepository">
+            <summary>
+            	Instance of UserRepository, using methods to do actions with database
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.ratingRepository">
+            <summary>
+            	Instance of RatingRepository, using methods to do actions with database
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.logger">
+            <summary>
+            	Instance for stroring exceptions in file
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.nameValidator">
+            <summary>
+            	Validator for first and last name
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ProfileController.placeRepository">
+            <summary>
+            	Instance of PlaceRepository, using method to get favourite places for user from database
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.#ctor">
+            <summary>
+                Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.#ctor(EasyTravelWeb.Repositories.UserRepository)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.#ctor(EasyTravelWeb.Repositories.PlaceRepository)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetUserInfo(System.Int32)">
+            <summary>
+            	Method for getting User from Db
+            </summary>
+            <param name="id">id of current user</param>
+            <returns>First, last, email of user</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)">
+            <summary>
+            	Method for changing first name of a user
+            </summary>
+            <param name="id">Id of current user</param>
+            <param name="firstName">First name which will be updated in database</param>
+            <returns>result of chaning (Bad or Ok)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)">
+            <summary>
+            	Method for changing first name of a user
+            </summary>
+            <param name="id">Id of current user</param>
+            <param name="lastName">Last name which will be updated in database</param>
+            <returns>result of chaning (Bad or Ok)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)">
+            <summary>
+            Cotroller fo getting favorite places of specific user
+            </summary>
+            <param name="id">ID of current user</param>
+            <returns>List of favourite Places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.SetUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)">
+            <summary>
+            Cotroller fo setting rating of place of specific user
+            </summary>
+            <param name="userRating"> Model UserPlaceRating</param>
+            <returns>Status code for request</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.DeleteUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)">
+            <summary>
+            Cotroller fo delete rating of place of specific user
+            </summary>
+            <param name="userRating"> Model UserPlaceRating</param>
+            <returns>Status code for request</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ProfileController.GetUserRatingOfPlace(System.Int32,System.Int64)">
+            <summary>
+            Cotroller fo getting rating place of specific user
+            </summary>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of current place</param>
+            <returns>Status code with user rating of place</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Controllers.SearchController">
+            <summary>
+                Controller for search
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.SearchController.#ctor">
+            <summary>
+               Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.SearchController.#ctor(EasyTravelWeb.Repositories.CityRepository,EasyTravelWeb.Repositories.PlaceRepository)">
+            <summary>
+               Constructor with parameters for unit testing
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.SearchController.InitializeData">
+            <summary>
+            Initialization of cities and places fields, if they are null
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.SearchController.GetSuggestions(System.String)">
+            <summary>
+            Method for getting suggestion according to searchWord
+            </summary>
+            <param name="searchWord">Key word, which is used to filter names of cities and places</param>
+            <returns>List of suggestions according to searchWord</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Controllers.AccountController">
+            <summary>
+               Controller for register, sign in or change User private info
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.AccountController.registerBindingModelValidator">
+            <summary>
+               Validation model
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.AccountController.userManager">
+            <summary>
+               Aplication manager
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.#ctor">
+            <summary>
+               Constructor
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.#ctor(EasyTravelWeb.ApplicationUserManager,Microsoft.Owin.Security.ISecureDataFormat{Microsoft.Owin.Security.AuthenticationTicket})">
+            <summary>
+               Constructor
+            </summary>
+            <param name="userManager">Identity User Manager</param>
+            <param name="accessTokenFormat">Token format</param> 
+        </member>
+        <member name="P:EasyTravelWeb.Controllers.AccountController.UserManager">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Controllers.AccountController.AccessTokenFormat">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.GetUserInfo">
+            <summary>
+               Controller for get UserInfo
+            </summary>
+            <returns>First, user information</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.Logout">
+            <summary>
+               Controller for logOut
+            </summary>
+            <returns>Status code of request</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.GetManageInfo(System.String,System.Boolean)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.ChangePassword(EasyTravelWeb.Models.ChangePasswordBindingModel)">
+            <param name="model">User Model for change password</param>
+            <returns>Status code of result</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.SetPassword(EasyTravelWeb.Models.SetPasswordBindingModel)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.AddExternalLoginBindingModel)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.RemoveLogin(EasyTravelWeb.Models.RemoveLoginBindingModel)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.GetExternalLogin(System.String,System.String)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.GetExternalLogins(System.String,System.Boolean)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.ConfirmUser(EasyTravelWeb.Models.User)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.Register(EasyTravelWeb.Models.RegisterBindingModel)">
+            <summary>
+            Registers user in database
+            </summary>
+            <param name="model">Object, which incapsulates user data, needed to register user(email, password, first name, last name)</param>
+            <returns>Http code according to success</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.ConfirmEmail(System.Int32,System.String)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.RegisterExternal(EasyTravelWeb.Models.RegisterExternalBindingModel)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.Dispose(System.Boolean)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.MvcApplication">
+            <summary>
+                Start App
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.MvcApplication.Application_Start">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Validators.EmailValidator">
+            <summary>
+            	Validates user's email
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.EmailValidator.validationRegister">
+            <summary>
+                Validation register.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.EmailValidator.logger">
+            <summary>
+                Instance of the Logger class for logging exceptions.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.#ctor">
+            <summary>
+                Initializes instance of the EmailValidator class.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.GetValidationData(System.String)">
+            <summary>
+            	Gets data about validation process of User's email.
+                Useful in cases of necessary to watch problems concerning the validation process.
+            </summary>
+            <param name="name">User's email</param>
+            <returns>List of information messages about validation process.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.IsValid(System.String)">
+            <summary>
+                Checks if user's emal is valid.
+            </summary>
+            <param name="model">User's email.</param>
+            <returns>True if user's email is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.emailIsValid(System.String)">
+            <summary>
+                Checks if the email is valid.
+            </summary>
+            <param name="email">email</param>
+            <returns>True if the email is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.isEmailMetPatternRequirements(System.String)">
+            <summary>
+                Checks if the email is met pattern requirements.
+            </summary>
+            <param name="email">email</param>
+            <returns>True if the email is met pattern requirements, otherwise - false.</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Validators.IValidator`1">
+            <summary>
+            	Defines methods for data validation
+            </summary>
+            <typeparam name="T">Type that contains data that must be validated</typeparam>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.IValidator`1.GetValidationData(`0)">
+            <summary>
+            	Returns an information about a validation process
+            </summary>
+            <param name="obj">Type that contains data that must be validated</param>
+            <returns>Information about validation process</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.IValidator`1.IsValid(`0)">
+            <summary>
+            	Checks if a data is valid
+            </summary>
+            <param name="obj">Type that contains data that must be validated</param>
+            <returns>True when a data is valid. Otherwise - false.</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Validators.NameValidator">
+            <summary>
+            	Validates user's name
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.NameValidator.validationRegister">
+            <summary>
+                Validation register.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.NameValidator.logger">
+            <summary>
+                Instance of the Logger class for logging exceptions.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.#ctor">
+            <summary>
+                Initializes instance of the NameValidator class.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.GetValidationData(System.String)">
+            <summary>
+            	Gets data about validation process of User's name.
+                Useful in cases of necessary to watch problems concerning the validation process.
+            </summary>
+            <param name="name">User's name</param>
+            <returns>List of information messages about validation process.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.IsValid(System.String)">
+            <summary>
+            	Checks if user's name is valid.
+            </summary>
+            <param name="name">User's name.</param>
+            <returns>True if user's name is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.nameIsValid(System.String)">
+            <summary>
+                Checks if a name is valid.
+            </summary>
+            <param name="firstName">First name</param>
+            <returns>True if a name is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.isNameMetPatternRequirements(System.String)">
+            <summary>
+                Checks if a name is met pattern requirements.
+            </summary>
+            <param name="name">User's name</param>
+            <returns>True if a name is met pattern requirements, otherwise - false.</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Validators.PasswordValidator">
+            <summary>
+            	Validates user's password
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.validationRegister">
+            <summary>
+                Validation register.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.logger">
+            <summary>
+                Instance of the Logger class for logging exceptions.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.#ctor">
+            <summary>
+                Initializes instance of the PasswordValidator class.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.GetValidationData(System.String)">
+            <summary>
+            	Gets data about validation process of User's password.
+                Useful in cases of necessary to watch problems concerning the validation process.
+            </summary>
+            <param name="name">User's password</param>
+            <returns>List of information messages about validation process.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.IsValid(System.String)">
+            <summary>
+            	Checks if user's password is valid.
+            </summary>
+            <param name="name">User's password.</param>
+            <returns>True if user's password is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.isPasswordValid(System.String)">
+            <summary>
+                Checks if the password is valid.
+            </summary>
+            <param name="password">User's password</param>
+            <returns>True if the password is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.isPasswordMetPatternRequirements(System.String)">
+            <summary>
+                Checks if the password is met pattern requirements.
+            </summary>
+            <param name="password">User's assword</param>
+            <returns>True if the password is met pattern requirements, otherwise - false.</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator">
+            <inheritdoc />
+            <summary>
+                RegisterBindingModelValidator logic
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.validationRegister">
+            <summary>
+                Validation register.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.logger">
+            <summary>
+                Instance of the Logger class for logging exceptions.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.nameValidator">
+            <summary>
+            	Instance of the class that implements IValidator interface for name validation.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailValidator">
+            <summary>
+            	Instance of the class that implements IValidator interface for email validation.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.passwordValidator">
+            <summary>
+            	Instance of the class that implements IValidator interface for password validation.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor">
+            <summary>
+                Initializes instance of the RegisterBindingModelValidator class.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.GetValidationData(EasyTravelWeb.Models.RegisterBindingModel)">
+            <summary>
+                Gets data about validation process of the instance of the RegisterBindingModel class.
+                Useful in cases of necessary to watch problems concerning the validation process.
+            </summary>
+            <param name="model">Instance of the RegisterBindingModel class.</param>
+            <returns>List of information messages about validation process.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.IsValid(EasyTravelWeb.Models.RegisterBindingModel)">
+            <summary>
+                Checks if data of the instance of the RegisterBindingModel class is valid.
+            </summary>
+            <param name="model">Instance of the RegisterBindingModel class.</param>
+            <returns>True if a data of the instance of the RegisterBindingModel class is valid, otherwise - false.</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Logger">
+            <summary>
+                Logs applicatuon exceptions and messages into 
+            	EasyTravelLog.txt in C:\Users\current user's directory
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Logger.logger">
+            <summary>
+                The only one instance of the Logger class
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Logger.FileStream">
+            <summary>
+                Instance of the Stream class
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Logger.streamWriter">
+            <summary>
+                Instance of the StreamWriter class
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.#cctor">
+            <summary>
+                Specified to execute only when an instance of the class is created 
+                or a static member is referenced, and to execute only once per AppDomain. 
+                Given that check for the type being newly constructed needs to be executed 
+                whatever else happens, it will be faster than adding extra checking 
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.#ctor">
+            <summary>
+                Prevents a default instance of the Logger class from being created
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.Finalize">
+            <summary>
+                Finalizes an instance of the Logger class
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.GetInstance">
+            <summary>
+                Returns a new instance of the Logger class for exceptions logging.
+            </summary>
+            <returns>Instance of the Logger class.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.AsyncLogException(System.Exception)">
+            <summary>
+                Writes the exception details into the file.
+            </summary>
+            <param name="ex">Instence of the Exception class.</param>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Logger.AsyncLogMessage(System.String)">
+            <summary>
+                Writes the message into the file.
+            </summary>
+            <param name="message">Message that should be logged.</param>
+        </member>
+        <member name="T:EasyTravelWeb.Models.AddExternalLoginBindingModel">
+            <summary>
+               Identity AddExternalLoginBindingModel
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.AddExternalLoginBindingModel.ExternalAccessToken">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.ChangePasswordBindingModel">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ChangePasswordBindingModel.OldPassword">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ChangePasswordBindingModel.NewPassword">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ChangePasswordBindingModel.ConfirmPassword">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.RegisterBindingModel">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.RegisterBindingModel.Email">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.RegisterBindingModel.Password">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.RegisterBindingModel.ConfirmPassword">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.RegisterBindingModel.FirstName">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.RegisterBindingModel.LastName">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.RegisterExternalBindingModel">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.RegisterExternalBindingModel.Email">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.RemoveLoginBindingModel">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.RemoveLoginBindingModel.LoginProvider">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.RemoveLoginBindingModel.ProviderKey">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.SetPasswordBindingModel">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SetPasswordBindingModel.NewPassword">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SetPasswordBindingModel.ConfirmPassword">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.ExternalLoginViewModel">
+            <summary>
+               Models returned by AccountController actions.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ExternalLoginViewModel.Name">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ExternalLoginViewModel.Url">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ExternalLoginViewModel.State">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.ManageInfoViewModel">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ManageInfoViewModel.LocalLoginProvider">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ManageInfoViewModel.Email">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ManageInfoViewModel.Logins">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ManageInfoViewModel.ExternalLoginProviders">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.UserInfoViewModel">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserInfoViewModel.Email">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserInfoViewModel.HasRegistered">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserInfoViewModel.LoginProvider">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.UserLoginInfoViewModel">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserLoginInfoViewModel.LoginProvider">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserLoginInfoViewModel.ProviderKey">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.City">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.City.Id">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.City.Name">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.City.PicturePath">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.City.Description">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.City.CityRating">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.SearchEntities.CitySearchEntity">
+            <summary>
+            	Provides info about a city for searching.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.CitySearchEntity.Id">
+            <summary>
+               ID of a city.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.CitySearchEntity.Name">
+            <summary>
+               ID of a city.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.CitySearchEntity.Type">
+            <summary>
+            	Type is necessary for distinguishing SearchItems on Front-End.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.SearchEntities.ISearchEntity">
+            <summary>
+            	Provides members for SearchEntities types.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.ISearchEntity.Id">
+            <summary>
+               ID of SearchEntity.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.ISearchEntity.Name">
+            <summary>
+               Name of SearchEntity.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.ISearchEntity.Type">
+            <summary>
+               Type of SearchEntity.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity">
+            <summary>
+               Provides info about a place for searching.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.Id">
+            <summary>
+               ID of a place.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.CityId">
+            <summary>
+               ID of a city.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.Name">
+            <summary>
+               ID of a place.
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.SearchEntities.PlaceSearchEntity.Type">
+            <summary>
+               Type is necessary for distinguishing SearchItems on Front-End.
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.FavoritePlace">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.FavoritePlace.UserId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.FavoritePlace.PlaceId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.Filter">
+            <summary>
+                Filters for places
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.ApplicationUser">
+            <summary>
+               IdentityUser
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ApplicationUser.FirstName">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ApplicationUser.LastName">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Models.ApplicationUser.GenerateUserIdentityAsync(Microsoft.AspNet.Identity.UserManager{EasyTravelWeb.Models.ApplicationUser,System.Int32},System.String)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.ApplicationDbContext">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Models.ApplicationDbContext.#ctor">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Models.ApplicationDbContext.Create">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.CustomUserRole">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.CustomUserClaim">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.CustomUserLogin">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.CustomRole">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Models.CustomRole.#ctor">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Models.CustomRole.#ctor(System.String)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.CustomUserStore">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Models.CustomUserStore.#ctor(EasyTravelWeb.Models.ApplicationDbContext)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.CustomRoleStore">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Models.CustomRoleStore.#ctor(EasyTravelWeb.Models.ApplicationDbContext)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.Place">
+            <summary>
+               Place Model
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.Place.PlaceId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.Place.Name">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.Place.CityName">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.Place.Description">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.Place.PicturePlace">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.Place.CityId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.Place.PlaceRating">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Models.Place.#ctor">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Models.User">
+            <summary>
+               User Model
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Models.User.#ctor">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.User.UserId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.User.Email">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.User.FirstName">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.User.LastName">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.User.Password">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserPlaceRating.UserId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserPlaceRating.PlaceId">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.UserPlaceRating.Rating">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Providers.ApplicationOAuthProvider">
+            <summary>
+               App Configuration
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.#ctor(System.String)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)">
+            <summary>
+            Sets a token for user, if user data is correct
+            </summary>
+            <param name="context">Contains information about user credentials</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.TokenEndpoint(Microsoft.Owin.Security.OAuth.OAuthTokenEndpointContext)">
+            <summary>
+            Last point of authentication workflow. Sets response
+            </summary>
+            <param name="context">Contains information about user credentials</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)">
+            <summary>
+            Entry point of authentication workflow
+            </summary>
+            <param name="context">Contains information about user credentials</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.ValidateClientRedirectUri(Microsoft.Owin.Security.OAuth.OAuthValidateClientRedirectUriContext)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.CreateProperties(System.Int32,System.String,System.String)">
+            <summary>
+            	Create properties, which are used later on frontend(localstorage)
+            </summary>
+            <param name="idUser">Id of user</param>
+            <param name="userName">Nickname of user</param>
+            <param name="firstName">First name of user</param>
+            <returns>Authentication properties</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Providers.ApplicationOAuthProvider.DoesPasswordMatch(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext,EasyTravelWeb.ApplicationUserManager,EasyTravelWeb.Models.ApplicationUser)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="userManager"></param>
+            <param name="userFoundByEmail"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyTravelWeb.Repositories.CityRepository">
+            <summary>
+               Repository for get data about City
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.CityRepository.GetTopCities(System.Int32)">
+            <summary>
+            	Returns list of top cities according to their rating
+            </summary>
+            <param name="numberOfTopCities">Number of cities with higher rating to show</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCitiesPage(System.Int32,System.Int32)">
+            <summary>
+            get a few cities from DataBase
+            </summary>
+            <param name="page">number of page</param>
+            <param name="pageSize">count of cities on page</param>
+            <returns>list of cities</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCitiesIdAndNames">
+            <summary>
+            get id and name of cities from DataBase
+            </summary>
+            <returns>list of ids and names</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCity(System.Int64)">
+            <summary>
+            get info about city from DataBase
+            </summary>
+            <param name="id">ID of city</param>
+            <returns>Info about current city</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.CityRepository.GetCountCity">
+            <summary>
+            get info about count of cities in DataBase
+            </summary>
+            <returns>Count of cities</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Repositories.PlaceRepository">
+            <summary>
+            Repository for get info about places
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Repositories.PlaceRepository.noRowsAffected">
+            <summary>
+            	Means that no rows were affected by SQL command.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaceById(System.Int64)">
+            <summary>
+            get info about place from DataBase
+            </summary>
+            <param name="placeId">ID of place</param>
+            <returns>Info about current place</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaceRating(System.Int64)">
+            <summary>
+            get rating of place from DataBase
+            </summary>
+            <param name="placeId">ID of place</param>
+            <returns>rating of place</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredPlacesPage(System.Int32,System.Int64,System.Int32,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+            <summary>
+            	Gets list of places accodring to setected filters
+            </summary>
+            <param name="filters">List of filters</param>
+            <returns>List of places according to list of filters</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlacesPage(System.Int32,System.Int64,System.Int32)">
+            <summary>
+            get places for page from DataBase
+            </summary>
+            <param name="page">number of the page</param>
+            <param name="cityId">ID of current city</param>
+            <param name="pageSize">count of place on the page</param>
+            <returns>list of places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetTopPlacesByCityId(System.Int64,System.Int32)">
+            <summary>
+            get top places from DataBase
+            </summary>
+            <param name="cityId">ID of current city</param>
+            <param name="numberOfTopPlaces">Number of places with higher rating to show</param>
+            <returns>list of top places by place rating</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlacesIdsAndNames">
+            <summary>
+            get id and name of places from DataBase
+            </summary>
+            <returns>list of ids and names</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.AddFavoritePlace(System.Int32,System.Int64)">
+            <summary>
+            add place to user favorite in DataBase
+            </summary>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of place</param>
+            <returns>bool value (true if success request, false if fail)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.DeleteFavoritePlace(System.Int32,System.Int64)">
+            <summary>
+            delete place from user favorite in DataBase
+            </summary>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of place</param>
+            <returns>bool value (true if success request, false if fail)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFavoritePlaces(System.Int32)">
+            <summary>
+            get user favorite places from DataBase
+            </summary>
+            <param name="id">ID of current user</param>
+            <returns>list of user favorite places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetCountPlace(System.Int64)">
+            <summary>
+            get count of places in city
+            </summary>
+            <param name="cityId">ID of city</param>
+            <returns>count of places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetFilteredCountPlace(System.Int64,System.Collections.Generic.IList{EasyTravelWeb.Models.Filter})">
+            <summary>
+            	Method which takes count fo filtered places from databse
+            </summary>
+            <param name="filters">Collection of filters, which you want to apply for search</param>
+            <returns>Count of places</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.PlaceRepository.GetPlaceFilters(System.Int64)">
+            <summary>
+            	Method which takes filter of specific place
+            </summary>
+            <returns>list of place filters</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Repositories.RatingRepository">
+            <summary>
+               Repository for get info about user rating
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Repositories.RatingRepository.noRowsAffected">
+            <summary>
+            	Means that no rows were affected by SQL command.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.RatingRepository.SetUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)">
+            <summary>
+            set user rating in DataBase
+            </summary>
+            <param name="userRating">User Place Rating model (user id, place id, rating)</param>
+            <returns>bool value(true if success request, false if fail)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.RatingRepository.DeleteUserRatingForPlace(System.Int32,System.Int64)">
+            <summary>
+            delete user rating from DataBase
+            </summary>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of place</param>
+            <returns>bool value(true if success request, false if fail)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.RatingRepository.GetUserRatingOfPlace(System.Int32,System.Int64)">
+            <summary>
+            get user rating of place from DataBase
+            </summary>
+            <param name="userId">ID of current user</param>
+            <param name="placeId">ID of place</param>
+            <returns>user rating of place</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Repositories.UserRepository">
+            <summary>
+               Repository for get info about User
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.UserRepository.GetUser(System.Int32)">
+            <summary>
+            Method for getting information of specific user from Database
+            </summary>
+            <param name="id">ID of current user</param>
+            <returns>infromation of User(email, First and Last names)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.UserRepository.ChangeFirstName(System.Int32,System.String)">
+            <summary>
+            Method For changing First Name of user in database
+            </summary>
+            <param name="id">ID of current user</param>
+            <param name="firstName">New first name of user</param>
+        </member>
+        <member name="M:EasyTravelWeb.Repositories.UserRepository.ChangeLastName(System.Int32,System.String)">
+            <summary>
+            Method For changing last Name of user in database
+            </summary>
+            <param name="id">ID of current user</param>
+            <param name="lastName">New last name of user</param>
+        </member>
+        <member name="T:EasyTravelWeb.Results.ChallengeResult">
+            <summary>
+              
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Results.ChallengeResult.#ctor(System.String,System.Web.Http.ApiController)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Results.ChallengeResult.LoginProvider">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Results.ChallengeResult.Request">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Results.ChallengeResult.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Services.EmailService">
+            <summary>
+               Service for sending email
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Services.EmailService.SendAsync(Microsoft.AspNet.Identity.IdentityMessage)">
+            <summary>
+               Sends email to user
+            </summary>
+        </member>
+    </members>
+</doc>

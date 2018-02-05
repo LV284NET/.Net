@@ -6,33 +6,43 @@ using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 
 namespace EasyTravelWeb.Providers
 {
+    /// <summary>
+    ///    App Configuration
+    /// </summary>
+
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
-        private readonly string _publicClientId;
+        private readonly string publicClientId;
 
+        /// <summary>
+        ///    
+        /// </summary>
         public ApplicationOAuthProvider(string publicClientId)
         {
-            if (publicClientId == null)
+            if (publicClientId == string.Empty)
             {
                 throw new ArgumentNullException("publicClientId");
             }
 
-            _publicClientId = publicClientId;
+            this.publicClientId = publicClientId;
         }
 
+        /// <summary>
+        /// Sets a token for user, if user data is correct
+        /// </summary>
+        /// <param name="context">Contains information about user credentials</param>
+        /// <returns></returns>
         public override async Task GrantResourceOwnerCredentials (OAuthGrantResourceOwnerCredentialsContext context)
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
-            //ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
-            ApplicationUser user = await userManager.FindByEmailAsync(context.UserName);//UserName == email from frontend 
+
+            ApplicationUser user = await userManager.FindByEmailAsync(context.UserName);
 
             if (user==null)
             {
@@ -49,12 +59,17 @@ namespace EasyTravelWeb.Providers
             //ClaimsIdentity oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
             //ClaimsIdentity cookiesIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(context.UserName, user.FirstName);
+            AuthenticationProperties properties = CreateProperties(user.Id, context.UserName, user.FirstName);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
         }
 
+        /// <summary>
+        /// Last point of authentication workflow. Sets response
+        /// </summary>
+        /// <param name="context">Contains information about user credentials</param>
+        /// <returns></returns>
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
         {
 
@@ -67,6 +82,11 @@ namespace EasyTravelWeb.Providers
             return Task.FromResult<object>(null);
         }
 
+        /// <summary>
+        /// Entry point of authentication workflow
+        /// </summary>
+        /// <param name="context">Contains information about user credentials</param>
+        /// <returns></returns>
         public override Task ValidateClientAuthentication (OAuthValidateClientAuthenticationContext context)
         {
             // Resource owner password credentials does not provide a client ID.
@@ -78,9 +98,12 @@ namespace EasyTravelWeb.Providers
             return Task.FromResult<object>(null);
         }
 
+        /// <summary>
+        ///    
+        /// </summary>
         public override Task ValidateClientRedirectUri (OAuthValidateClientRedirectUriContext context)
         {
-            if (context.ClientId == _publicClientId)
+            if (context.ClientId == this.publicClientId)
             {
                 Uri expectedRootUri = new Uri(context.Request.Uri, "/");
 
@@ -93,17 +116,32 @@ namespace EasyTravelWeb.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName, string FirstName)
+        /// <summary>
+        ///		Create properties, which are used later on frontend(localstorage)
+        /// </summary>
+        /// <param name="idUser">Id of user</param>
+        /// <param name="userName">Nickname of user</param>
+        /// <param name="firstName">First name of user</param>
+        /// <returns>Authentication properties</returns>
+        public static AuthenticationProperties CreateProperties(int idUser, string userName, string firstName)
         {
             IDictionary<string, string>
             data = new Dictionary<string, string>
             {
                 { "userName", userName },
-                { "firstName", FirstName}
+                { "firstName", firstName},
+                { "Id", idUser.ToString() }
             };
             return new AuthenticationProperties(data);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="userManager"></param>
+        /// <param name="userFoundByEmail"></param>
+        /// <returns></returns>
         private bool DoesPasswordMatch(OAuthGrantResourceOwnerCredentialsContext context, ApplicationUserManager userManager, 
             ApplicationUser userFoundByEmail)
         {
