@@ -612,6 +612,55 @@
                
             </summary>
         </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Validators.EmailValidator">
+            <summary>
+            	Validates user's email
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.EmailValidator.validationRegister">
+            <summary>
+                Validation register.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.EmailValidator.logger">
+            <summary>
+                Instance of the Logger class for logging exceptions.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.#ctor">
+            <summary>
+                Initializes instance of the EmailValidator class.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.GetValidationData(System.String)">
+            <summary>
+            	Gets data about validation process of User's email.
+                Useful in cases of necessary to watch problems concerning the validation process.
+            </summary>
+            <param name="name">User's email</param>
+            <returns>List of information messages about validation process.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.IsValid(System.String)">
+            <summary>
+                Checks if user's emal is valid.
+            </summary>
+            <param name="model">User's email.</param>
+            <returns>True if user's email is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.emailIsValid(System.String)">
+            <summary>
+                Checks if the email is valid.
+            </summary>
+            <param name="email">email</param>
+            <returns>True if the email is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.EmailValidator.isEmailMetPatternRequirements(System.String)">
+            <summary>
+                Checks if the email is met pattern requirements.
+            </summary>
+            <param name="email">email</param>
+            <returns>True if the email is met pattern requirements, otherwise - false.</returns>
+        </member>
         <member name="T:EasyTravelWeb.Infrastructure.Validators.IValidator`1">
             <summary>
             	Defines methods for data validation
@@ -632,44 +681,103 @@
             <param name="obj">Type that contains data that must be validated</param>
             <returns>True when a data is valid. Otherwise - false.</returns>
         </member>
-        <member name="T:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator">
+        <member name="T:EasyTravelWeb.Infrastructure.Validators.NameValidator">
             <summary>
-               
+            	Validates user's name
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.#ctor">
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.NameValidator.validationRegister">
             <summary>
-               
+                Validation register.
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.GetValidationData(System.String)">
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.NameValidator.logger">
             <summary>
-                Gets data about validation process of the instance of the string class.
+                Instance of the Logger class for logging exceptions.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.#ctor">
+            <summary>
+                Initializes instance of the NameValidator class.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.GetValidationData(System.String)">
+            <summary>
+            	Gets data about validation process of User's name.
                 Useful in cases of necessary to watch problems concerning the validation process.
             </summary>
-            <param name="model">Instance of the string class</param>
-            <returns>List of information messages about validation process</returns>
+            <param name="name">User's name</param>
+            <returns>List of information messages about validation process.</returns>
         </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.IsValid(System.String)">
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.IsValid(System.String)">
             <summary>
-                Checks if data of the instance of the RegisterBindingModel class is valid
+            	Checks if user's name is valid.
             </summary>
-            <param name="model">Instance of the RegisterBindingModel class</param>
-            <returns>bool</returns>
+            <param name="name">User's name.</param>
+            <returns>True if user's name is valid, otherwise - false.</returns>
         </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.NameIsValid(System.String)">
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.nameIsValid(System.String)">
             <summary>
-                Checks if the first name is valid
+                Checks if a name is valid.
             </summary>
-            <param name="name">First or Last name</param>
-            <returns>bool</returns>
+            <param name="firstName">First name</param>
+            <returns>True if a name is valid, otherwise - false.</returns>
         </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.isNameMetPatternRequirements(System.String)">
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.NameValidator.isNameMetPatternRequirements(System.String)">
             <summary>
-                Checks if the first name or the last name are met pattern requirements
+                Checks if a name is met pattern requirements.
             </summary>
-            <param name="name">First name or last name</param>
-            <returns>bool</returns>
+            <param name="name">User's name</param>
+            <returns>True if a name is met pattern requirements, otherwise - false.</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Infrastructure.Validators.PasswordValidator">
+            <summary>
+            	Validates user's password
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.validationRegister">
+            <summary>
+                Validation register.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.logger">
+            <summary>
+                Instance of the Logger class for logging exceptions.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.#ctor">
+            <summary>
+                Initializes instance of the PasswordValidator class.
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.GetValidationData(System.String)">
+            <summary>
+            	Gets data about validation process of User's password.
+                Useful in cases of necessary to watch problems concerning the validation process.
+            </summary>
+            <param name="name">User's password</param>
+            <returns>List of information messages about validation process.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.IsValid(System.String)">
+            <summary>
+            	Checks if user's password is valid.
+            </summary>
+            <param name="name">User's password.</param>
+            <returns>True if user's password is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.isPasswordValid(System.String)">
+            <summary>
+                Checks if the password is valid.
+            </summary>
+            <param name="password">User's password</param>
+            <returns>True if the password is valid, otherwise - false.</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Infrastructure.Validators.PasswordValidator.isPasswordMetPatternRequirements(System.String)">
+            <summary>
+                Checks if the password is met pattern requirements.
+            </summary>
+            <param name="password">User's assword</param>
+            <returns>True if the password is met pattern requirements, otherwise - false.</returns>
         </member>
         <member name="T:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator">
             <inheritdoc />
@@ -685,6 +793,21 @@
         <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.logger">
             <summary>
                 Instance of the Logger class for logging exceptions.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.nameValidator">
+            <summary>
+            	Instance of the class that implements IValidator interface for name validation.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailValidator">
+            <summary>
+            	Instance of the class that implements IValidator interface for email validation.
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.passwordValidator">
+            <summary>
+            	Instance of the class that implements IValidator interface for password validation.
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor">
@@ -706,55 +829,6 @@
             </summary>
             <param name="model">Instance of the RegisterBindingModel class.</param>
             <returns>True if a data of the instance of the RegisterBindingModel class is valid, otherwise - false.</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailIsValid(System.String)">
-            <summary>
-                Checks if the email is valid.
-            </summary>
-            <param name="email">email</param>
-            <returns>True if the email is valid, otherwise - false.</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isEmailMetPatternRequirements(System.String)">
-            <summary>
-                Checks if the email is met pattern requirements.
-            </summary>
-            <param name="email">email</param>
-            <returns>True if the email is met pattern requirements, otherwise - false.</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isPasswordValid(System.String)">
-            <summary>
-                Checks if the password is valid.
-            </summary>
-            <param name="password">password</param>
-            <returns>True if the password is valid, otherwise - false.</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isPasswordMetPatternRequirements(System.String)">
-            <summary>
-                Checks if the password is met pattern requirements.
-            </summary>
-            <param name="password">Password</param>
-            <returns>True if the password is met pattern requirements, otherwise - false.</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.firstNameIsValid(System.String)">
-            <summary>
-                Checks if the first name is valid.
-            </summary>
-            <param name="firstName">First name</param>
-            <returns>True if the first name is valid, otherwise - false.</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.lastNameIsValid(System.String)">
-            <summary>
-                Checks if the last name is valid.
-            </summary>
-            <param name="lastName">Last name</param>
-            <returns>True if the last name is valid, otherwise - false.</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isNameMetPatternRequirements(System.String)">
-            <summary>
-                Checks if the first name or the last name are met pattern requirements.
-            </summary>
-            <param name="name">First name or last name</param>
-            <returns>True if the first name or the last name are met pattern requirements, otherwise - false.</returns>
         </member>
         <member name="T:EasyTravelWeb.Infrastructure.Logger">
             <summary>

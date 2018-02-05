@@ -111,6 +111,14 @@
 - [EmailServiceConstants](#T-EasyTravelWeb-Constants-Constants-EmailServiceConstants 'EasyTravelWeb.Constants.Constants.EmailServiceConstants')
   - [SmtpClientHost](#F-EasyTravelWeb-Constants-Constants-EmailServiceConstants-SmtpClientHost 'EasyTravelWeb.Constants.Constants.EmailServiceConstants.SmtpClientHost')
   - [SmtpClientPort](#F-EasyTravelWeb-Constants-Constants-EmailServiceConstants-SmtpClientPort 'EasyTravelWeb.Constants.Constants.EmailServiceConstants.SmtpClientPort')
+- [EmailValidator](#T-EasyTravelWeb-Infrastructure-Validators-EmailValidator 'EasyTravelWeb.Infrastructure.Validators.EmailValidator')
+  - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.#ctor')
+  - [logger](#F-EasyTravelWeb-Infrastructure-Validators-EmailValidator-logger 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.logger')
+  - [validationRegister](#F-EasyTravelWeb-Infrastructure-Validators-EmailValidator-validationRegister 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.validationRegister')
+  - [emailIsValid(email)](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-emailIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.emailIsValid(System.String)')
+  - [GetValidationData(name)](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-GetValidationData-System-String- 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.GetValidationData(System.String)')
+  - [isEmailMetPatternRequirements(email)](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-isEmailMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.isEmailMetPatternRequirements(System.String)')
+  - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.IsValid(System.String)')
 - [ExternalLoginViewModel](#T-EasyTravelWeb-Models-ExternalLoginViewModel 'EasyTravelWeb.Models.ExternalLoginViewModel')
   - [Name](#P-EasyTravelWeb-Models-ExternalLoginViewModel-Name 'EasyTravelWeb.Models.ExternalLoginViewModel.Name')
   - [State](#P-EasyTravelWeb-Models-ExternalLoginViewModel-State 'EasyTravelWeb.Models.ExternalLoginViewModel.State')
@@ -149,12 +157,22 @@
   - [Logins](#P-EasyTravelWeb-Models-ManageInfoViewModel-Logins 'EasyTravelWeb.Models.ManageInfoViewModel.Logins')
 - [MvcApplication](#T-EasyTravelWeb-MvcApplication 'EasyTravelWeb.MvcApplication')
   - [Application_Start()](#M-EasyTravelWeb-MvcApplication-Application_Start 'EasyTravelWeb.MvcApplication.Application_Start')
-- [NameChangingValidator](#T-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator')
-  - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.#ctor')
-  - [GetValidationData(model)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-GetValidationData-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.GetValidationData(System.String)')
-  - [isNameMetPatternRequirements(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-isNameMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.isNameMetPatternRequirements(System.String)')
-  - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.IsValid(System.String)')
-  - [NameIsValid(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameChangingValidator.NameIsValid(System.String)')
+- [NameValidator](#T-EasyTravelWeb-Infrastructure-Validators-NameValidator 'EasyTravelWeb.Infrastructure.Validators.NameValidator')
+  - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.NameValidator.#ctor')
+  - [logger](#F-EasyTravelWeb-Infrastructure-Validators-NameValidator-logger 'EasyTravelWeb.Infrastructure.Validators.NameValidator.logger')
+  - [validationRegister](#F-EasyTravelWeb-Infrastructure-Validators-NameValidator-validationRegister 'EasyTravelWeb.Infrastructure.Validators.NameValidator.validationRegister')
+  - [GetValidationData(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-GetValidationData-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameValidator.GetValidationData(System.String)')
+  - [isNameMetPatternRequirements(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-isNameMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameValidator.isNameMetPatternRequirements(System.String)')
+  - [IsValid(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameValidator.IsValid(System.String)')
+  - [nameIsValid(firstName)](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-nameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameValidator.nameIsValid(System.String)')
+- [PasswordValidator](#T-EasyTravelWeb-Infrastructure-Validators-PasswordValidator 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator')
+  - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator.#ctor')
+  - [logger](#F-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-logger 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator.logger')
+  - [validationRegister](#F-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-validationRegister 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator.validationRegister')
+  - [GetValidationData(name)](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-GetValidationData-System-String- 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator.GetValidationData(System.String)')
+  - [isPasswordMetPatternRequirements(password)](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-isPasswordMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator.isPasswordMetPatternRequirements(System.String)')
+  - [isPasswordValid(password)](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-isPasswordValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator.isPasswordValid(System.String)')
+  - [IsValid(name)](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator.IsValid(System.String)')
 - [Place](#T-EasyTravelWeb-Models-Place 'EasyTravelWeb.Models.Place')
   - [#ctor()](#M-EasyTravelWeb-Models-Place-#ctor 'EasyTravelWeb.Models.Place.#ctor')
   - [CityId](#P-EasyTravelWeb-Models-Place-CityId 'EasyTravelWeb.Models.Place.CityId')
@@ -223,17 +241,13 @@
   - [Password](#P-EasyTravelWeb-Models-RegisterBindingModel-Password 'EasyTravelWeb.Models.RegisterBindingModel.Password')
 - [RegisterBindingModelValidator](#T-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.#ctor')
+  - [emailValidator](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-emailValidator 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailValidator')
   - [logger](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-logger 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.logger')
+  - [nameValidator](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-nameValidator 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.nameValidator')
+  - [passwordValidator](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-passwordValidator 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.passwordValidator')
   - [validationRegister](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-validationRegister 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.validationRegister')
-  - [emailIsValid(email)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-emailIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.emailIsValid(System.String)')
-  - [firstNameIsValid(firstName)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-firstNameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.firstNameIsValid(System.String)')
   - [GetValidationData(model)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-GetValidationData-EasyTravelWeb-Models-RegisterBindingModel- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.GetValidationData(EasyTravelWeb.Models.RegisterBindingModel)')
-  - [isEmailMetPatternRequirements(email)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isEmailMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isEmailMetPatternRequirements(System.String)')
-  - [isNameMetPatternRequirements(name)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isNameMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isNameMetPatternRequirements(System.String)')
-  - [isPasswordMetPatternRequirements(password)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isPasswordMetPatternRequirements(System.String)')
-  - [isPasswordValid(password)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.isPasswordValid(System.String)')
   - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-IsValid-EasyTravelWeb-Models-RegisterBindingModel- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.IsValid(EasyTravelWeb.Models.RegisterBindingModel)')
-  - [lastNameIsValid(lastName)](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-lastNameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.RegisterBindingModelValidator.lastNameIsValid(System.String)')
 - [RegisterExternalBindingModel](#T-EasyTravelWeb-Models-RegisterExternalBindingModel 'EasyTravelWeb.Models.RegisterExternalBindingModel')
   - [Email](#P-EasyTravelWeb-Models-RegisterExternalBindingModel-Email 'EasyTravelWeb.Models.RegisterExternalBindingModel.Email')
 - [RemoveLoginBindingModel](#T-EasyTravelWeb-Models-RemoveLoginBindingModel 'EasyTravelWeb.Models.RemoveLoginBindingModel')
@@ -1480,6 +1494,110 @@ Host for SmtpClient.
 
 Port for SmtpClient.
 
+<a name='T-EasyTravelWeb-Infrastructure-Validators-EmailValidator'></a>
+## EmailValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-EmailValidator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Infrastructure.Validators
+
+##### Summary
+
+Validates user's email
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Initializes instance of the EmailValidator class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='F-EasyTravelWeb-Infrastructure-Validators-EmailValidator-logger'></a>
+### logger `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-EmailValidator-logger 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Instance of the Logger class for logging exceptions.
+
+<a name='F-EasyTravelWeb-Infrastructure-Validators-EmailValidator-validationRegister'></a>
+### validationRegister `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-EmailValidator-validationRegister 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Validation register.
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-emailIsValid-System-String-'></a>
+### emailIsValid(email) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-emailIsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if the email is valid.
+
+##### Returns
+
+True if the email is valid, otherwise - false.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| email | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | email |
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-GetValidationData-System-String-'></a>
+### GetValidationData(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-GetValidationData-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Gets data about validation process of User's email. Useful in cases of necessary to watch problems concerning the validation process.
+
+##### Returns
+
+List of information messages about validation process.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's email |
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-isEmailMetPatternRequirements-System-String-'></a>
+### isEmailMetPatternRequirements(email) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-isEmailMetPatternRequirements-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if the email is met pattern requirements.
+
+##### Returns
+
+True if the email is met pattern requirements, otherwise - false.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| email | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | email |
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-IsValid-System-String-'></a>
+### IsValid(model) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-IsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if user's emal is valid.
+
+##### Returns
+
+True if user's email is valid, otherwise - false.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| model | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's email. |
+
 <a name='T-EasyTravelWeb-Models-ExternalLoginViewModel'></a>
 ## ExternalLoginViewModel [#](#T-EasyTravelWeb-Models-ExternalLoginViewModel 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -1864,8 +1982,8 @@ Start App
 
 This method has no parameters.
 
-<a name='T-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator'></a>
-## NameChangingValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator 'Go To Here') [=](#contents 'Back To Contents')
+<a name='T-EasyTravelWeb-Infrastructure-Validators-NameValidator'></a>
+## NameValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-NameValidator 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Namespace
 
@@ -1873,86 +1991,204 @@ EasyTravelWeb.Infrastructure.Validators
 
 ##### Summary
 
+Validates user's name
 
-
-<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-#ctor'></a>
-### #ctor() `constructor` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameValidator-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-#ctor 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
-
+Initializes instance of the NameValidator class.
 
 ##### Parameters
 
 This constructor has no parameters.
 
-<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-GetValidationData-System-String-'></a>
-### GetValidationData(model) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-GetValidationData-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='F-EasyTravelWeb-Infrastructure-Validators-NameValidator-logger'></a>
+### logger `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-NameValidator-logger 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
-Gets data about validation process of the instance of the string class. Useful in cases of necessary to watch problems concerning the validation process.
+Instance of the Logger class for logging exceptions.
+
+<a name='F-EasyTravelWeb-Infrastructure-Validators-NameValidator-validationRegister'></a>
+### validationRegister `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-NameValidator-validationRegister 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Validation register.
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameValidator-GetValidationData-System-String-'></a>
+### GetValidationData(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-GetValidationData-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Gets data about validation process of User's name. Useful in cases of necessary to watch problems concerning the validation process.
 
 ##### Returns
 
-List of information messages about validation process
+List of information messages about validation process.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| model | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Instance of the string class |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's name |
 
-<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-isNameMetPatternRequirements-System-String-'></a>
-### isNameMetPatternRequirements(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-isNameMetPatternRequirements-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameValidator-isNameMetPatternRequirements-System-String-'></a>
+### isNameMetPatternRequirements(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-isNameMetPatternRequirements-System-String- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
-Checks if the first name or the last name are met pattern requirements
+Checks if a name is met pattern requirements.
 
 ##### Returns
 
-bool
+True if a name is met pattern requirements, otherwise - false.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First name or last name |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's name |
 
-<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String-'></a>
-### IsValid(model) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-IsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameValidator-IsValid-System-String-'></a>
+### IsValid(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-IsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
-Checks if data of the instance of the RegisterBindingModel class is valid
+Checks if user's name is valid.
 
 ##### Returns
 
-bool
+True if user's name is valid, otherwise - false.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| model | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Instance of the RegisterBindingModel class |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's name. |
 
-<a name='M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String-'></a>
-### NameIsValid(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameChangingValidator-NameIsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Infrastructure-Validators-NameValidator-nameIsValid-System-String-'></a>
+### nameIsValid(firstName) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-nameIsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
-Checks if the first name is valid
+Checks if a name is valid.
 
 ##### Returns
 
-bool
+True if a name is valid, otherwise - false.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First or Last name |
+| firstName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First name |
+
+<a name='T-EasyTravelWeb-Infrastructure-Validators-PasswordValidator'></a>
+## PasswordValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-PasswordValidator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Infrastructure.Validators
+
+##### Summary
+
+Validates user's password
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-#ctor'></a>
+### #ctor() `constructor` [#](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-#ctor 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Initializes instance of the PasswordValidator class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='F-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-logger'></a>
+### logger `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-logger 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Instance of the Logger class for logging exceptions.
+
+<a name='F-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-validationRegister'></a>
+### validationRegister `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-validationRegister 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Validation register.
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-GetValidationData-System-String-'></a>
+### GetValidationData(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-GetValidationData-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Gets data about validation process of User's password. Useful in cases of necessary to watch problems concerning the validation process.
+
+##### Returns
+
+List of information messages about validation process.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's password |
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-isPasswordMetPatternRequirements-System-String-'></a>
+### isPasswordMetPatternRequirements(password) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-isPasswordMetPatternRequirements-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if the password is met pattern requirements.
+
+##### Returns
+
+True if the password is met pattern requirements, otherwise - false.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's assword |
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-isPasswordValid-System-String-'></a>
+### isPasswordValid(password) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-isPasswordValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if the password is valid.
+
+##### Returns
+
+True if the password is valid, otherwise - false.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's password |
+
+<a name='M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-IsValid-System-String-'></a>
+### IsValid(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-IsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Checks if user's password is valid.
+
+##### Returns
+
+True if user's password is valid, otherwise - false.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's password. |
 
 <a name='T-EasyTravelWeb-Models-Place'></a>
 ## Place [#](#T-EasyTravelWeb-Models-Place 'Go To Here') [=](#contents 'Back To Contents')
@@ -2806,6 +3042,13 @@ Initializes instance of the RegisterBindingModelValidator class.
 
 This constructor has no parameters.
 
+<a name='F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-emailValidator'></a>
+### emailValidator `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-emailValidator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Instance of the class that implements IValidator interface for email validation.
+
 <a name='F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-logger'></a>
 ### logger `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-logger 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -2813,46 +3056,26 @@ This constructor has no parameters.
 
 Instance of the Logger class for logging exceptions.
 
+<a name='F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-nameValidator'></a>
+### nameValidator `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-nameValidator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Instance of the class that implements IValidator interface for name validation.
+
+<a name='F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-passwordValidator'></a>
+### passwordValidator `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-passwordValidator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Instance of the class that implements IValidator interface for password validation.
+
 <a name='F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-validationRegister'></a>
 ### validationRegister `constants` [#](#F-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-validationRegister 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
 Validation register.
-
-<a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-emailIsValid-System-String-'></a>
-### emailIsValid(email) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-emailIsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Checks if the email is valid.
-
-##### Returns
-
-True if the email is valid, otherwise - false.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| email | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | email |
-
-<a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-firstNameIsValid-System-String-'></a>
-### firstNameIsValid(firstName) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-firstNameIsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Checks if the first name is valid.
-
-##### Returns
-
-True if the first name is valid, otherwise - false.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| firstName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First name |
 
 <a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-GetValidationData-EasyTravelWeb-Models-RegisterBindingModel-'></a>
 ### GetValidationData(model) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-GetValidationData-EasyTravelWeb-Models-RegisterBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
@@ -2871,74 +3094,6 @@ List of information messages about validation process.
 | ---- | ---- | ----------- |
 | model | [EasyTravelWeb.Models.RegisterBindingModel](#T-EasyTravelWeb-Models-RegisterBindingModel 'EasyTravelWeb.Models.RegisterBindingModel') | Instance of the RegisterBindingModel class. |
 
-<a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isEmailMetPatternRequirements-System-String-'></a>
-### isEmailMetPatternRequirements(email) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isEmailMetPatternRequirements-System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Checks if the email is met pattern requirements.
-
-##### Returns
-
-True if the email is met pattern requirements, otherwise - false.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| email | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | email |
-
-<a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isNameMetPatternRequirements-System-String-'></a>
-### isNameMetPatternRequirements(name) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isNameMetPatternRequirements-System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Checks if the first name or the last name are met pattern requirements.
-
-##### Returns
-
-True if the first name or the last name are met pattern requirements, otherwise - false.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First name or last name |
-
-<a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordMetPatternRequirements-System-String-'></a>
-### isPasswordMetPatternRequirements(password) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordMetPatternRequirements-System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Checks if the password is met pattern requirements.
-
-##### Returns
-
-True if the password is met pattern requirements, otherwise - false.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Password |
-
-<a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordValid-System-String-'></a>
-### isPasswordValid(password) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-isPasswordValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Checks if the password is valid.
-
-##### Returns
-
-True if the password is valid, otherwise - false.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | password |
-
 <a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-IsValid-EasyTravelWeb-Models-RegisterBindingModel-'></a>
 ### IsValid(model) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-IsValid-EasyTravelWeb-Models-RegisterBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -2955,23 +3110,6 @@ True if a data of the instance of the RegisterBindingModel class is valid, other
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | model | [EasyTravelWeb.Models.RegisterBindingModel](#T-EasyTravelWeb-Models-RegisterBindingModel 'EasyTravelWeb.Models.RegisterBindingModel') | Instance of the RegisterBindingModel class. |
-
-<a name='M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-lastNameIsValid-System-String-'></a>
-### lastNameIsValid(lastName) `method` [#](#M-EasyTravelWeb-Infrastructure-Validators-RegisterBindingModelValidator-lastNameIsValid-System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Checks if the last name is valid.
-
-##### Returns
-
-True if the last name is valid, otherwise - false.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Last name |
 
 <a name='T-EasyTravelWeb-Models-RegisterExternalBindingModel'></a>
 ## RegisterExternalBindingModel [#](#T-EasyTravelWeb-Models-RegisterExternalBindingModel 'Go To Here') [=](#contents 'Back To Contents')
