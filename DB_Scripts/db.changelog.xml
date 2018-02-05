@@ -117,4 +117,8 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
   <changeSet author="Pavlo Shostak" id="V2.2">
     <sqlFile path="V2.2/ScriptV2.2_Procedure_GetCitiesIdAndNames.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
    </changeSet>
+
+  <changeSet author="Pavlo Shostak" id="V2.3">
+    <sqlFile path="V2.3/ScriptV2.3_Procedure_GetUserFavoritePlaces.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+   </changeSet>
 </databaseChangeLog> 
