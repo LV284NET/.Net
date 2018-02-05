@@ -109,4 +109,8 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <sqlFile path="V2.0/ScriptV2.0_Procedure_GetFilteredPlaces.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
     <sqlFile path="V2.0/ScriptV2.0_Procedure_GetPlaceFilters.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
   </changeSet>
+
+  <changeSet author="Dmytro Ratynchuk" id="V2.1">
+    <sqlFile path="V2.1/ScriptV2.1_Create_Procedure_GetTopCities.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+   </changeSet>
 </databaseChangeLog> 
