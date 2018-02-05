@@ -26,7 +26,7 @@ namespace EasyTravelTest.ValidatorsTest
 				LastName = "Taras"
 			};
 
-			Assert.AreEqual("IsValid", validator.GetValidationData(model)[0]);
+			Assert.AreEqual("User's info is valid", validator.GetValidationData(model)[0]);
 		}
 
 		/// <summary>
