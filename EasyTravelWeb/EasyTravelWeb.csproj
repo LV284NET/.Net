@@ -228,9 +228,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Validators\EmailValidator.cs" />
     <Compile Include="Infrastructure\Validators\IValidator.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
-    <Compile Include="Infrastructure\Validators\NameChangingValidator.cs" />
+    <Compile Include="Infrastructure\Validators\NameValidator.cs" />
+    <Compile Include="Infrastructure\Validators\PasswordValidator.cs" />
     <Compile Include="Infrastructure\Validators\RegisterBindingModelValidator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />

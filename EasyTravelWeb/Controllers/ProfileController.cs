@@ -36,7 +36,7 @@ namespace EasyTravelWeb.Controllers
         ///		Validator for first and last name
         /// </summary>
         private readonly IValidator<string> nameValidator =
-            new NameChangingValidator();
+            new NameValidator();
 
         /// <summary>
         ///		Instance of PlaceRepository, using method to get favourite places for user from database

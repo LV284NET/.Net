@@ -160,7 +160,7 @@ namespace EasyTravelWeb.Constants
 			///     Pattern that must be met by first name or last name.
 			/// </summary>
 			/// <example>Petro</example>
-			public const string NamePattern = @"^[а-яА-ЯёЁa-zA-Zʼ'є Є]{2,20}$";
+			public const string NamePattern = @"^[а-яА-ЯёЁa-zA-Zʼ'ї Ї і І є Є-]{2,40}$";
 		}
 	}
 }
