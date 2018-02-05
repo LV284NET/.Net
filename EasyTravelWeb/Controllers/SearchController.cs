@@ -60,6 +60,53 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
+        /// Adds cities to suggestions
+        /// </summary>
+        /// <param name="searchWord">Key word, which is used to filter names of cities</param>
+        /// <param name="listOfSuggestions">List of suggestions according to searchWord</param>
+        private void AddCitiesToSuggestions(string searchWord, IList<ISearchEntity> listOfSuggestions)
+        {
+            int counter = 0;
+
+            foreach (ISearchEntity obj in cities)
+            {
+                if (obj.Name.ToLower().Contains(searchWord))
+                {
+                    listOfSuggestions.Add(obj);
+                    if (++counter == Constants.Constants
+                            .SearchControllerConstants.NumberOfSearchEntitiesToShow)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds places to suggestions
+        /// </summary>
+        /// <param name="searchWord">Key word, which is used to filter names of places</param>
+        /// <param name="listOfSuggestions">List of suggestions according to searchWord</param>
+        private void AddPlacesToSuggestions(string searchWord, IList<ISearchEntity> listOfSuggestions)
+        {
+            int counter = 0;
+
+            foreach (ISearchEntity obj in places)
+            {
+                if (obj.Name.ToLower().Contains(searchWord))
+                {
+                    listOfSuggestions.Add(obj);
+
+                    if (++counter == Constants.Constants
+                            .SearchControllerConstants.NumberOfSearchEntitiesToShow)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Method for getting suggestion according to searchWord
         /// </summary>
         /// <param name="searchWord">Key word, which is used to filter names of cities and places</param>
@@ -72,37 +119,9 @@ namespace EasyTravelWeb.Controllers
                 searchWord = searchWord.ToLower();
                 IList<ISearchEntity> listOfSuggestions = new List<ISearchEntity>();
 
-                int counter = 0;
-                
-                foreach (ISearchEntity obj in cities)
-                {
-                    if (obj.Name.ToLower().Contains(searchWord))
-					{
-                        listOfSuggestions.Add(obj);
-                        if (++counter == Constants.Constants
-	                            .SearchControllerConstants.NumberOfSearchEntitiesToShow)
-                        {
-                            break;
-                        }
-                    }
-                }
+                AddCitiesToSuggestions(searchWord, listOfSuggestions);
+                AddPlacesToSuggestions(searchWord, listOfSuggestions);
 
-	            counter = 0;
-
-				foreach (ISearchEntity obj in places)
-                {
-                    if (obj.Name.ToLower().Contains(searchWord))
-                    {
-                        listOfSuggestions.Add(obj);
-
-                        if (++counter == Constants.Constants
-	                            .SearchControllerConstants.NumberOfSearchEntitiesToShow)
-                        {
-                            break;
-                        }
-                    }
-                }
-                        
                 return this.Ok(listOfSuggestions);
             }
             catch (Exception ex)

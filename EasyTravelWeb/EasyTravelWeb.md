@@ -258,6 +258,8 @@
 - [SearchController](#T-EasyTravelWeb-Controllers-SearchController 'EasyTravelWeb.Controllers.SearchController')
   - [#ctor()](#M-EasyTravelWeb-Controllers-SearchController-#ctor 'EasyTravelWeb.Controllers.SearchController.#ctor')
   - [#ctor()](#M-EasyTravelWeb-Controllers-SearchController-#ctor-EasyTravelWeb-Repositories-CityRepository,EasyTravelWeb-Repositories-PlaceRepository- 'EasyTravelWeb.Controllers.SearchController.#ctor(EasyTravelWeb.Repositories.CityRepository,EasyTravelWeb.Repositories.PlaceRepository)')
+  - [AddCitiesToSuggestions(searchWord,listOfSuggestions)](#M-EasyTravelWeb-Controllers-SearchController-AddCitiesToSuggestions-System-String,System-Collections-Generic-IList{EasyTravelWeb-Models-SearchEntities-ISearchEntity}- 'EasyTravelWeb.Controllers.SearchController.AddCitiesToSuggestions(System.String,System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity})')
+  - [AddPlacesToSuggestions(searchWord,listOfSuggestions)](#M-EasyTravelWeb-Controllers-SearchController-AddPlacesToSuggestions-System-String,System-Collections-Generic-IList{EasyTravelWeb-Models-SearchEntities-ISearchEntity}- 'EasyTravelWeb.Controllers.SearchController.AddPlacesToSuggestions(System.String,System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity})')
   - [GetSuggestions(searchWord)](#M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String- 'EasyTravelWeb.Controllers.SearchController.GetSuggestions(System.String)')
   - [InitializeData()](#M-EasyTravelWeb-Controllers-SearchController-InitializeData 'EasyTravelWeb.Controllers.SearchController.InitializeData')
 - [SearchControllerConstants](#T-EasyTravelWeb-Constants-Constants-SearchControllerConstants 'EasyTravelWeb.Constants.Constants.SearchControllerConstants')
@@ -3208,6 +3210,34 @@ Constructor with parameters for unit testing
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-SearchController-AddCitiesToSuggestions-System-String,System-Collections-Generic-IList{EasyTravelWeb-Models-SearchEntities-ISearchEntity}-'></a>
+### AddCitiesToSuggestions(searchWord,listOfSuggestions) `method` [#](#M-EasyTravelWeb-Controllers-SearchController-AddCitiesToSuggestions-System-String,System-Collections-Generic-IList{EasyTravelWeb-Models-SearchEntities-ISearchEntity}- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Adds cities to suggestions
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| searchWord | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Key word, which is used to filter names of cities |
+| listOfSuggestions | [System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity}') | List of suggestions according to searchWord |
+
+<a name='M-EasyTravelWeb-Controllers-SearchController-AddPlacesToSuggestions-System-String,System-Collections-Generic-IList{EasyTravelWeb-Models-SearchEntities-ISearchEntity}-'></a>
+### AddPlacesToSuggestions(searchWord,listOfSuggestions) `method` [#](#M-EasyTravelWeb-Controllers-SearchController-AddPlacesToSuggestions-System-String,System-Collections-Generic-IList{EasyTravelWeb-Models-SearchEntities-ISearchEntity}- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Adds places to suggestions
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| searchWord | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Key word, which is used to filter names of places |
+| listOfSuggestions | [System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity}') | List of suggestions according to searchWord |
 
 <a name='M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String-'></a>
 ### GetSuggestions(searchWord) `method` [#](#M-EasyTravelWeb-Controllers-SearchController-GetSuggestions-System-String- 'Go To Here') [=](#contents 'Back To Contents')

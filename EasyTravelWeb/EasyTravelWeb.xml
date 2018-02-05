@@ -483,6 +483,20 @@
             Initialization of cities and places fields, if they are null
             </summary>
         </member>
+        <member name="M:EasyTravelWeb.Controllers.SearchController.AddCitiesToSuggestions(System.String,System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity})">
+            <summary>
+            Adds cities to suggestions
+            </summary>
+            <param name="searchWord">Key word, which is used to filter names of cities</param>
+            <param name="listOfSuggestions">List of suggestions according to searchWord</param>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.SearchController.AddPlacesToSuggestions(System.String,System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity})">
+            <summary>
+            Adds places to suggestions
+            </summary>
+            <param name="searchWord">Key word, which is used to filter names of places</param>
+            <param name="listOfSuggestions">List of suggestions according to searchWord</param>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.SearchController.GetSuggestions(System.String)">
             <summary>
             Method for getting suggestion according to searchWord
