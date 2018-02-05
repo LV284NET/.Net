@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTravelWeb", "EasyTravelWeb\EasyTravelWeb.csproj", "{2CEF35A1-9417-481A-AE60-7F856A103A99}"
 EndProject
@@ -129,6 +129,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2.1", "V2.1", "{65ED6AAC-C
 		DB_Scripts\V2.1\ScriptV2.1_Create_Procedure_GetTopCities.sql = DB_Scripts\V2.1\ScriptV2.1_Create_Procedure_GetTopCities.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2.2", "V2.2", "{E19D50E4-EB80-41D5-9A8F-70117F7CE318}"
+	ProjectSection(SolutionItems) = preProject
+		DB_Scripts\V2.2\ScriptV2.2_Procedure_GetCitiesIdAndNames.sql = DB_Scripts\V2.2\ScriptV2.2_Procedure_GetCitiesIdAndNames.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -160,6 +165,7 @@ Global
 		{2C00DA7D-83B8-45A2-8A4B-1832C15B5C03} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 		{B83CF57A-349F-4DED-858C-08EC88F74ACA} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 		{65ED6AAC-C62A-4098-8E70-DF5EA2D31B61} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
+		{E19D50E4-EB80-41D5-9A8F-70117F7CE318} = {55AA4B21-211E-4125-AC13-0D149F5A7502}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69F34F38-389E-42AF-9CDB-515325528627}

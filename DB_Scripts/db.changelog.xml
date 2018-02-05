@@ -113,4 +113,8 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
   <changeSet author="Dmytro Ratynchuk" id="V2.1">
     <sqlFile path="V2.1/ScriptV2.1_Create_Procedure_GetTopCities.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
    </changeSet>
+
+  <changeSet author="Pavlo Shostak" id="V2.2">
+    <sqlFile path="V2.2/ScriptV2.2_Procedure_GetCitiesIdAndNames.sql" endDelimiter="\nGO" encoding="UTF-8" splitStatements="true" relativeToChangelogFile="true"/>
+   </changeSet>
 </databaseChangeLog> 
