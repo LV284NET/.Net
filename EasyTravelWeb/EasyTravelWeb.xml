@@ -553,9 +553,9 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.AddExternalLoginBindingModel)">
+        <member name="M:EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.FacebookUserViewModel)">
             <summary>
-               
+             Authorization with External service (Facebook)
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.RemoveLogin(EasyTravelWeb.Models.RemoveLoginBindingModel)">
@@ -991,6 +991,31 @@
         <member name="P:EasyTravelWeb.Models.UserLoginInfoViewModel.ProviderKey">
             <summary>
                
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.FacebookUserViewModel.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.FacebookUserViewModel.FirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.FacebookUserViewModel.LastName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.FacebookUserViewModel.Username">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.FacebookUserViewModel.Email">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:EasyTravelWeb.Models.City">
