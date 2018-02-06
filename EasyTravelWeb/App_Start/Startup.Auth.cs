@@ -8,6 +8,7 @@ using Owin;
 using EasyTravelWeb.Providers;
 using EasyTravelWeb.Models;
 using Microsoft.Owin.Cors;
+using Microsoft.Owin.Security.Facebook;
 
 namespace EasyTravelWeb
 {
@@ -76,7 +77,15 @@ namespace EasyTravelWeb
             //app.UseFacebookAuthentication(
             //    appId: "",
             //    appSecret: "");
-
+//            var options = new FacebookAuthenticationOptions
+//            {
+//                AppId = "1982326058704428",
+//                AppSecret = "6df8d23da2eb874ebd4e256bb274c2f7",
+//                BackchannelHttpHandler = new FacebookBackChannelHandler(),
+//                UserInformationEndpoint = "https://graph.facebook.com/v2.12/me?fields=id,email,username"
+//            };
+//            options.Scope.Add("email");
+//            app.UseFacebookAuthentication(options);
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
             //    ClientId = "",

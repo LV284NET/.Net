@@ -7,15 +7,18 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Security;
 using EasyTravelWeb.Infrastructure.Validators;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Providers;
 using EasyTravelWeb.Results;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using Microsoft.Owin.Security.Provider;
 
 namespace EasyTravelWeb.Controllers
 {
@@ -36,9 +39,9 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         private ApplicationUserManager userManager;
 
-        //        private OAuthGrantResourceOwnerCredentialsContext _context;
+        private OAuthGrantResourceOwnerCredentialsContext _context;
 
-        //        private BaseContext _baseContext;
+        private BaseContext _baseContext;
 
         /// <summary>
         ///    Constructor
@@ -178,34 +181,52 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
-        ///    
+        ///  Authorization with External service (Facebook)
         /// </summary>
         // POST api/Account/AddExternalLogin
         [HttpPost]
-        public async Task<IHttpActionResult> AddExternalLogin(AddExternalLoginBindingModel model)
+        [AllowAnonymous]
+        public async Task<IHttpActionResult> AddExternalLogin([FromBody] FacebookUserViewModel fbUser)
         {
-            if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
-
+           
             this.Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            ApplicationUser user = await UserManager.FindByEmailAsync(fbUser.Email);
 
-            AuthenticationTicket ticket = this.AccessTokenFormat.Unprotect(model.ExternalAccessToken);
+            if (user == null)
+            {
+                user = new ApplicationUser
+                {
+                    Email = fbUser.Email,
+                    FirstName = fbUser.FirstName,
+                    LastName = fbUser.LastName,
+                    UserName = fbUser.Email,
+                    EmailConfirmed = true
+                };
 
-            if (ticket == null || ticket.Identity == null || ticket.Properties != null
-                && ticket.Properties.ExpiresUtc.HasValue
-                && ticket.Properties.ExpiresUtc.Value < DateTimeOffset.UtcNow)
-                return this.BadRequest("External login failure.");
+                IdentityResult
+                    result = await UserManager.CreateAsync(user, "Aa1111!!"); //Membership.GeneratePassword(8, 1));
 
-            ExternalLoginData externalData = ExternalLoginData.FromIdentity(ticket.Identity);
+                if (!result.Succeeded)
+                    return Content(HttpStatusCode.BadRequest, "Something went wrong, please try later");
+            }
 
-            if (externalData == null)
-                return this.BadRequest("The external login is already associated with an account.");
+            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(this.UserManager,
+                OAuthDefaults.AuthenticationType);
 
-            IdentityResult result = await this.UserManager.AddLoginAsync(this.User.Identity.GetUserId<int>(),
-                new UserLoginInfo(externalData.LoginProvider, externalData.ProviderKey));
+            AuthenticationProperties properties =
+                ApplicationOAuthProvider.CreateProperties(user.Id, user.UserName, user.FirstName);
+            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
 
-            if (!result.Succeeded) return this.GetErrorResult(result);
-
-            return this.Ok();
+            var token = Startup.OAuthOptions.AccessTokenFormat.Protect(ticket);
+            return Ok(new
+            {
+                access_token = token,
+                userName = user.UserName,
+                firstName = user.FirstName,
+                id = user.Id,
+                authentication_type = OAuthDefaults.AuthenticationType,
+                expires_in = TimeSpan.FromSeconds(500.0).Ticks
+            });
         }
 
         /// <summary>
@@ -383,7 +404,7 @@ namespace EasyTravelWeb.Controllers
                     string code = await this.UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = new Uri(this.Url.Link("ConfirmEmailRoute", new {userId = user.Id, code = code}));
                     await this.UserManager.SendEmailAsync(user.Id, "Confirm your account",
-	                    $"<a href=\"{callbackUrl}\">Clink to confirm your registration</a>");
+                        $"<a href=\"{callbackUrl}\">Clink to confirm your registration</a>");
                 }
                 else return this.Content(HttpStatusCode.BadRequest, "There is such user with same email!");
             }
@@ -402,7 +423,7 @@ namespace EasyTravelWeb.Controllers
         {
             if (userId == default(int) || code == string.Empty)
             {
-	            this.ModelState.AddModelError("", "User Id and Code are required");
+                this.ModelState.AddModelError("", "User Id and Code are required");
                 return this.BadRequest(this.ModelState);
             }
 
@@ -414,7 +435,7 @@ namespace EasyTravelWeb.Controllers
             }
 
             return this.Redirect(Constants.Constants.AccountControllerConstants
-	            .UrlForRedirectAfterEmailConfirmation);
+                .UrlForRedirectAfterEmailConfirmation);
         }
 
         /// <summary>
@@ -495,7 +516,7 @@ namespace EasyTravelWeb.Controllers
 
             public static ExternalLoginData FromIdentity(ClaimsIdentity identity)
             {
-	            Claim providerKeyClaim = identity?.FindFirst(ClaimTypes.NameIdentifier);
+                Claim providerKeyClaim = identity?.FindFirst(ClaimTypes.NameIdentifier);
 
                 if (providerKeyClaim == null || string.IsNullOrEmpty(providerKeyClaim.Issuer)
                                              || string.IsNullOrEmpty(providerKeyClaim.Value))
@@ -518,11 +539,11 @@ namespace EasyTravelWeb.Controllers
 
             public static string Generate(int strengthInBits)
             {
-                if (strengthInBits % Constants.Constants.
-	                    AccountControllerConstants.BitsPerByte != 0)
-                    throw new ArgumentException("strengthInBits must be evenly divisible by 8.", nameof(strengthInBits));
+                if (strengthInBits % Constants.Constants.AccountControllerConstants.BitsPerByte != 0)
+                    throw new ArgumentException("strengthInBits must be evenly divisible by 8.",
+                        nameof(strengthInBits));
 
-                int strengthInBytes = strengthInBits / 
+                int strengthInBytes = strengthInBits /
                                       Constants.Constants.AccountControllerConstants.BitsPerByte;
 
                 var data = new byte[strengthInBytes];

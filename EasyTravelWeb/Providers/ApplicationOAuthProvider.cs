@@ -14,7 +14,6 @@ namespace EasyTravelWeb.Providers
     /// <summary>
     ///    App Configuration
     /// </summary>
-
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
         private readonly string publicClientId;
@@ -37,25 +36,31 @@ namespace EasyTravelWeb.Providers
         /// </summary>
         /// <param name="context">Contains information about user credentials</param>
         /// <returns></returns>
-        public override async Task GrantResourceOwnerCredentials (OAuthGrantResourceOwnerCredentialsContext context)
+        public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
+        
+        
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
 
             ApplicationUser user = await userManager.FindByEmailAsync(context.UserName);
 
-            if (user==null)
+            if (user == null)
             {
                 context.SetError("invalid_grant", "The email is incorrect!");
                 return;
             }
+
             if (!DoesPasswordMatch(context, userManager, user))
             {
                 context.SetError("invalid_grant", "The password is incorrect!");
                 return;
             }
-            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, OAuthDefaults.AuthenticationType);
-            ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager, CookieAuthenticationDefaults.AuthenticationType);
+
+            ClaimsIdentity oAuthIdentity =
+                await user.GenerateUserIdentityAsync(userManager, OAuthDefaults.AuthenticationType);
+            ClaimsIdentity cookiesIdentity =
+                await user.GenerateUserIdentityAsync(userManager, CookieAuthenticationDefaults.AuthenticationType);
             //ClaimsIdentity oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
             //ClaimsIdentity cookiesIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
 
@@ -72,9 +77,8 @@ namespace EasyTravelWeb.Providers
         /// <returns></returns>
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
         {
-
             foreach (KeyValuePair<string,
-            string> property in context.Properties.Dictionary)
+                string> property in context.Properties.Dictionary)
             {
                 context.AdditionalResponseParameters.Add(property.Key, property.Value);
             }
@@ -87,7 +91,7 @@ namespace EasyTravelWeb.Providers
         /// </summary>
         /// <param name="context">Contains information about user credentials</param>
         /// <returns></returns>
-        public override Task ValidateClientAuthentication (OAuthValidateClientAuthenticationContext context)
+        public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             // Resource owner password credentials does not provide a client ID.
             if (context.ClientId == null)
@@ -101,7 +105,7 @@ namespace EasyTravelWeb.Providers
         /// <summary>
         ///    
         /// </summary>
-        public override Task ValidateClientRedirectUri (OAuthValidateClientRedirectUriContext context)
+        public override Task ValidateClientRedirectUri(OAuthValidateClientRedirectUriContext context)
         {
             if (context.ClientId == this.publicClientId)
             {
@@ -126,12 +130,12 @@ namespace EasyTravelWeb.Providers
         public static AuthenticationProperties CreateProperties(int idUser, string userName, string firstName)
         {
             IDictionary<string, string>
-            data = new Dictionary<string, string>
-            {
-                { "userName", userName },
-                { "firstName", firstName},
-                { "Id", idUser.ToString() }
-            };
+                data = new Dictionary<string, string>
+                {
+                    {"userName", userName},
+                    {"firstName", firstName},
+                    {"Id", idUser.ToString()}
+                };
             return new AuthenticationProperties(data);
         }
 
@@ -142,7 +146,8 @@ namespace EasyTravelWeb.Providers
         /// <param name="userManager"></param>
         /// <param name="userFoundByEmail"></param>
         /// <returns></returns>
-        private bool DoesPasswordMatch(OAuthGrantResourceOwnerCredentialsContext context, ApplicationUserManager userManager, 
+        private bool DoesPasswordMatch(OAuthGrantResourceOwnerCredentialsContext context,
+            ApplicationUserManager userManager,
             ApplicationUser userFoundByEmail)
         {
             ApplicationUser userFoundByUsernameAndPassword =

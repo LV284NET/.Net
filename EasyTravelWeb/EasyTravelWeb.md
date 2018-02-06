@@ -8,7 +8,7 @@
   - [userManager](#F-EasyTravelWeb-Controllers-AccountController-userManager 'EasyTravelWeb.Controllers.AccountController.userManager')
   - [AccessTokenFormat](#P-EasyTravelWeb-Controllers-AccountController-AccessTokenFormat 'EasyTravelWeb.Controllers.AccountController.AccessTokenFormat')
   - [UserManager](#P-EasyTravelWeb-Controllers-AccountController-UserManager 'EasyTravelWeb.Controllers.AccountController.UserManager')
-  - [AddExternalLogin()](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-AddExternalLoginBindingModel- 'EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.AddExternalLoginBindingModel)')
+  - [AddExternalLogin()](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-FacebookUserViewModel- 'EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.FacebookUserViewModel)')
   - [ChangePassword(model)](#M-EasyTravelWeb-Controllers-AccountController-ChangePassword-EasyTravelWeb-Models-ChangePasswordBindingModel- 'EasyTravelWeb.Controllers.AccountController.ChangePassword(EasyTravelWeb.Models.ChangePasswordBindingModel)')
   - [ConfirmEmail()](#M-EasyTravelWeb-Controllers-AccountController-ConfirmEmail-System-Int32,System-String- 'EasyTravelWeb.Controllers.AccountController.ConfirmEmail(System.Int32,System.String)')
   - [ConfirmUser(user)](#M-EasyTravelWeb-Controllers-AccountController-ConfirmUser-EasyTravelWeb-Models-User- 'EasyTravelWeb.Controllers.AccountController.ConfirmUser(EasyTravelWeb.Models.User)')
@@ -123,6 +123,12 @@
   - [Name](#P-EasyTravelWeb-Models-ExternalLoginViewModel-Name 'EasyTravelWeb.Models.ExternalLoginViewModel.Name')
   - [State](#P-EasyTravelWeb-Models-ExternalLoginViewModel-State 'EasyTravelWeb.Models.ExternalLoginViewModel.State')
   - [Url](#P-EasyTravelWeb-Models-ExternalLoginViewModel-Url 'EasyTravelWeb.Models.ExternalLoginViewModel.Url')
+- [FacebookUserViewModel](#T-EasyTravelWeb-Models-FacebookUserViewModel 'EasyTravelWeb.Models.FacebookUserViewModel')
+  - [Email](#P-EasyTravelWeb-Models-FacebookUserViewModel-Email 'EasyTravelWeb.Models.FacebookUserViewModel.Email')
+  - [FirstName](#P-EasyTravelWeb-Models-FacebookUserViewModel-FirstName 'EasyTravelWeb.Models.FacebookUserViewModel.FirstName')
+  - [ID](#P-EasyTravelWeb-Models-FacebookUserViewModel-ID 'EasyTravelWeb.Models.FacebookUserViewModel.ID')
+  - [LastName](#P-EasyTravelWeb-Models-FacebookUserViewModel-LastName 'EasyTravelWeb.Models.FacebookUserViewModel.LastName')
+  - [Username](#P-EasyTravelWeb-Models-FacebookUserViewModel-Username 'EasyTravelWeb.Models.FacebookUserViewModel.Username')
 - [FavoritePlace](#T-EasyTravelWeb-Models-FavoritePlace 'EasyTravelWeb.Models.FavoritePlace')
   - [PlaceId](#P-EasyTravelWeb-Models-FavoritePlace-PlaceId 'EasyTravelWeb.Models.FavoritePlace.PlaceId')
   - [UserId](#P-EasyTravelWeb-Models-FavoritePlace-UserId 'EasyTravelWeb.Models.FavoritePlace.UserId')
@@ -365,12 +371,12 @@ Aplication manager
 
 
 
-<a name='M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-AddExternalLoginBindingModel-'></a>
-### AddExternalLogin() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-AddExternalLoginBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-FacebookUserViewModel-'></a>
+### AddExternalLogin() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-FacebookUserViewModel- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
-
+Authorization with External service (Facebook)
 
 ##### Parameters
 
@@ -1625,6 +1631,48 @@ Models returned by AccountController actions.
 
 <a name='P-EasyTravelWeb-Models-ExternalLoginViewModel-Url'></a>
 ### Url `property` [#](#P-EasyTravelWeb-Models-ExternalLoginViewModel-Url 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-FacebookUserViewModel'></a>
+## FacebookUserViewModel [#](#T-EasyTravelWeb-Models-FacebookUserViewModel 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+<a name='P-EasyTravelWeb-Models-FacebookUserViewModel-Email'></a>
+### Email `property` [#](#P-EasyTravelWeb-Models-FacebookUserViewModel-Email 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-FacebookUserViewModel-FirstName'></a>
+### FirstName `property` [#](#P-EasyTravelWeb-Models-FacebookUserViewModel-FirstName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-FacebookUserViewModel-ID'></a>
+### ID `property` [#](#P-EasyTravelWeb-Models-FacebookUserViewModel-ID 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-FacebookUserViewModel-LastName'></a>
+### LastName `property` [#](#P-EasyTravelWeb-Models-FacebookUserViewModel-LastName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-FacebookUserViewModel-Username'></a>
+### Username `property` [#](#P-EasyTravelWeb-Models-FacebookUserViewModel-Username 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 

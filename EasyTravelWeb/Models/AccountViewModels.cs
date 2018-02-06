@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace EasyTravelWeb.Models
 {
@@ -87,4 +88,38 @@ namespace EasyTravelWeb.Models
         /// </summary>
         public string ProviderKey { get; set; }
     }
+    
+    public class FacebookUserViewModel
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("id")]
+        public int ID { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("first_name")]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("last_name")]
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("username")]
+        public string Username { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("email")]
+        public string Email { get; set; }
+    }
+
 }
