@@ -81,24 +81,22 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetUserInfo(int id)
         {
-            User user;
             try
             {
-                user = this.userRepository.GetUser(id);
+                User user = this.userRepository.GetUser(id);
 
                 if (user == null)
                 {
-                    return this.NotFound();
+                    return NotFound();
                 }
-
+                return Ok(user);
             }
             catch (Exception ex)
             {
                 this.logger.AsyncLogException(ex);
 
-                return this.NotFound();
+                return InternalServerError();
             }
-            return this.Ok(user);
         }
 
         /// <summary>
@@ -178,12 +176,11 @@ namespace EasyTravelWeb.Controllers
             {
                 List<Place> cityPlaces = this.placeRepository.GetFavoritePlaces(id);
 
-                if (cityPlaces != null)
+                if (cityPlaces == null)
                 {
-                    return this.Ok(cityPlaces);
+                    return NotFound();
                 }
-
-                return this.NotFound();
+                return Ok(cityPlaces);
             }
             catch (Exception ex)
             {

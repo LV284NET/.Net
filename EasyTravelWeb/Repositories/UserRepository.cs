@@ -31,15 +31,18 @@ namespace EasyTravelWeb.Repositories
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    reader.Read();
-                    return new User
+                    if (reader.Read())
                     {
-                        FirstName = reader["firstName"].ToString(),
-                        LastName = reader["lastName"].ToString(),
-                        Email = reader["email"].ToString()
-                    };
+                        return new User
+                        {
+                            FirstName = reader["firstName"].ToString(),
+                            LastName = reader["lastName"].ToString(),
+                            Email = reader["email"].ToString()
+                        };
+                    }
                 }
             }
+            return null;
         }
 
         /// <summary>

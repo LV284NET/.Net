@@ -39,7 +39,7 @@ namespace EasyTravelWeb.Controllers
 
 				if (place != null)
 				{
-					return this.Ok((place));
+					return this.Ok(place);
 				}
 
 				return this.NotFound();
@@ -116,7 +116,7 @@ namespace EasyTravelWeb.Controllers
 
 				if (cityPlaces != null)
 				{	
-                    return  this.Ok(cityPlaces);
+                    return this.Ok(cityPlaces);
                 }
 
 				return this.NotFound();
@@ -165,7 +165,7 @@ namespace EasyTravelWeb.Controllers
             int placeCount = this.placeRepository.GetFilteredCountPlace(cityId,filters);
             try
             {
-                if (placeCount == null)
+                if (placeCount == 0)
                 {
                     return this.NotFound();
                 }

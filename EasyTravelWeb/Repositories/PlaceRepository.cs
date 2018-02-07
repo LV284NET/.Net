@@ -51,10 +51,9 @@ namespace EasyTravelWeb.Repositories
                             PlaceRating = Convert.ToDouble(reader["PlaceRating"])
                         };
                     }
-
-                    return null;
                 }
             }
+            return null;
         }
 
         /// <summary>
@@ -64,16 +63,15 @@ namespace EasyTravelWeb.Repositories
         /// <returns>rating of place</returns>
         public double GetPlaceRating(long placeId)
         {
-            List<Place> listToReturn = new List<Place>();
-
             using (SqlConnection connection =
                 new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("GetPlaceRating", connection);
-
-                command.CommandType = CommandType.StoredProcedure;
+                SqlCommand command = new SqlCommand("GetPlaceRating", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
 
                 command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
 
@@ -96,7 +94,6 @@ namespace EasyTravelWeb.Repositories
         /// <returns>List of places according to list of filters</returns>
         public virtual IList<Place> GetFilteredPlacesPage(int page, long cityId, int pageSize, IList<Filter> filters)
         {
-            IList<Place> filteredPlaces = new List<Place>();
             using (SqlConnection connection = 
 	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
@@ -117,6 +114,7 @@ namespace EasyTravelWeb.Repositories
                 {
                     if (reader.HasRows)
                     {
+                        IList<Place> filteredPlaces = new List<Place>();
                         while (reader.Read())
                         {
                             filteredPlaces.Add(new Place
@@ -129,10 +127,11 @@ namespace EasyTravelWeb.Repositories
                                 PlaceRating = Convert.ToDouble(reader["PlaceRating"])
                             });
                         }
+                        return filteredPlaces;
                     }
-                    return filteredPlaces;
                 }
             }
+            return null;
         }
 
         /// <summary>
@@ -144,8 +143,6 @@ namespace EasyTravelWeb.Repositories
         /// <returns>list of places</returns>
         public List<Place> GetPlacesPage(int page, long cityId, int pageSize)
         {
-            List<Place> listToReturn = new List<Place>();
-
             using (SqlConnection connection = 
 	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
@@ -163,6 +160,7 @@ namespace EasyTravelWeb.Repositories
                 {
                     if (reader.HasRows)
                     {
+                        List<Place> listToReturn = new List<Place>();
                         while (reader.Read())
                         {
                             listToReturn.Add(new Place
@@ -180,7 +178,6 @@ namespace EasyTravelWeb.Repositories
                     }
                 }
             }
-
             return null;
         }
 
@@ -192,40 +189,40 @@ namespace EasyTravelWeb.Repositories
 		/// <returns>list of top places by place rating</returns>
 		public List<Place> GetTopPlacesByCityId(long cityId, int numberOfTopPlaces)
 		{
-        List<Place> listToReturn = new List<Place>();
+		    using (SqlConnection connection =
+		        new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
+		    {
+		        connection.Open();
 
-        using (SqlConnection connection =
-                new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
-        {
-			connection.Open();
+		        SqlCommand command = new SqlCommand("GetTopPlacesByCityId", connection)
+		        {
+		            CommandType = CommandType.StoredProcedure
+		        };
 
-			SqlCommand command = new SqlCommand("GetTopPlacesByCityId", connection)
-	        {
-				CommandType = CommandType.StoredProcedure
-	        };
+		        command.Parameters.Add(new SqlParameter("@CityID", cityId));
+		        command.Parameters.Add("@TopPlacesNumber", numberOfTopPlaces);
 
-	        command.Parameters.Add(new SqlParameter("@CityID", cityId));
-	        command.Parameters.Add("@TopPlacesNumber", numberOfTopPlaces);
-
-			using (SqlDataReader reader = command.ExecuteReader())
-            {
-				if (reader.HasRows)
-                {
-                    while (reader.Read())
-					{
-						listToReturn.Add(new Place
-                        {
-                            PlaceId = Convert.ToInt64(reader["PlaceID"]),
-                            Name = reader["PlaceName"].ToString(),
-                            Description = reader["PlaceDescription"].ToString(),
-                            PicturePlace = reader["MainPlaceImage"].ToString(),
-                            CityName = ""
-                         });
-                        }
+		        using (SqlDataReader reader = command.ExecuteReader())
+		        {
+		            if (reader.HasRows)
+		            {
+		                List<Place> listToReturn = new List<Place>();
+                        while (reader.Read())
+		                {
+		                    listToReturn.Add(new Place
+		                    {
+		                        PlaceId = Convert.ToInt64(reader["PlaceID"]),
+		                        Name = reader["PlaceName"].ToString(),
+		                        Description = reader["PlaceDescription"].ToString(),
+		                        PicturePlace = reader["MainPlaceImage"].ToString(),
+		                        CityName = ""
+		                    });
+		                }
+		                return listToReturn;
                     }
-                    return listToReturn;
-                }
+                }     
             }
+		    return null;
         }
 
         /// <summary>
@@ -234,7 +231,6 @@ namespace EasyTravelWeb.Repositories
         /// <returns>list of ids and names</returns>
         public virtual IList<PlaceSearchEntity> GetPlacesIdsAndNames()
         {
-            List<PlaceSearchEntity> places = new List<PlaceSearchEntity>();
             using (SqlConnection connection = 
 	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
@@ -247,6 +243,7 @@ namespace EasyTravelWeb.Repositories
                 {
                     if (reader.HasRows)
                     {
+                        List<PlaceSearchEntity> places = new List<PlaceSearchEntity>();
                         while (reader.Read())
                         {
                             places.Add(new PlaceSearchEntity
@@ -256,12 +253,10 @@ namespace EasyTravelWeb.Repositories
                                 Name = reader["PlaceName"].ToString()
                             });
                         }
-
                         return places;
                     }
                 }
             }
-
             return null;
         }
 
@@ -287,12 +282,7 @@ namespace EasyTravelWeb.Repositories
                 command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
 
 
-                if (command.ExecuteNonQuery() != this.noRowsAffected)
-                {
-                    return true;
-                }
-
-                return false;
+                return command.ExecuteNonQuery() != this.noRowsAffected;
             }
         }
 
@@ -318,12 +308,7 @@ namespace EasyTravelWeb.Repositories
                 command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
 
 
-                if (command.ExecuteNonQuery() != 0)
-                {
-                    return true;
-                }
-
-                return false;
+                return command.ExecuteNonQuery() != 0;
             }
         }
 
@@ -334,7 +319,6 @@ namespace EasyTravelWeb.Repositories
         /// <returns>list of user favorite places</returns>
         public virtual List<Place> GetFavoritePlaces(int id)
         {
-            List<Place> favouritePlaces = new List<Place>();
             using (SqlConnection connection = 
 	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
@@ -349,6 +333,7 @@ namespace EasyTravelWeb.Repositories
                 {
                     if (reader.HasRows)
                     {
+                        List<Place> favouritePlaces = new List<Place>();
                         while (reader.Read())
                         {
                             favouritePlaces.Add(new Place
@@ -361,10 +346,11 @@ namespace EasyTravelWeb.Repositories
                                 CityId = Convert.ToInt64(reader["CityID"])
                             });
                         }
+                        return favouritePlaces;
                     }
-                    return favouritePlaces;
                 }
             }
+            return null;
         }
 
         /// <summary>
@@ -380,8 +366,11 @@ namespace EasyTravelWeb.Repositories
 	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("GetCountPlace", connection);
-                command.CommandType = CommandType.StoredProcedure;
+                SqlCommand command = new SqlCommand("GetCountPlace", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
                 command.Parameters.Add(new SqlParameter("@CityID", cityId));
 
 
@@ -441,7 +430,6 @@ namespace EasyTravelWeb.Repositories
         /// <returns>list of place filters</returns>
         public IList<int> GetPlaceFilters(long placeId)
         {
-            List<int> placeFiltersId = new List<int>();
             using (SqlConnection connection = 
 	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
@@ -456,15 +444,16 @@ namespace EasyTravelWeb.Repositories
                 {
                     if (reader.HasRows)
                     {
+                        List<int> placeFiltersId = new List<int>();
                         while (reader.Read())
                         {
                             placeFiltersId.Add(Convert.ToInt32(reader["FilterId"]));
                         }
+                        return placeFiltersId;
                     }
-                    return placeFiltersId;
                 }
             }
-
+            return null;
         }
     }
 }
