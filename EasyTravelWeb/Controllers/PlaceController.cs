@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
-using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
 
@@ -13,7 +11,6 @@ namespace EasyTravelWeb.Controllers
     /// </summary>
     public class PlaceController : ApiController
 	{
-		private readonly Logger logger;
 		private readonly PlaceRepository placeRepository;
 
 	    /// <summary>
@@ -22,7 +19,6 @@ namespace EasyTravelWeb.Controllers
         public PlaceController()
 		{
 			this.placeRepository = new PlaceRepository();
-			this.logger = Logger.GetInstance();
 		}
 
         /// <summary>
@@ -33,24 +29,13 @@ namespace EasyTravelWeb.Controllers
 		[HttpGet]
 		public IHttpActionResult GetPlaceById(long placeId)
 		{
-			try
-			{
 				Place place = this.placeRepository.GetPlaceById(placeId);
 
 				if (place != null)
 				{
 					return this.Ok(place);
 				}
-
 				return this.NotFound();
-
-			}
-			catch (Exception ex)
-			{
-				this.logger.AsyncLogException(ex);
-
-				return this.InternalServerError();
-			}
 		}
 
         ///<summary>
@@ -61,16 +46,7 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
 	    public IHttpActionResult GetPlaceRating(long placeId)
 	    {
-	        try
-	        {
-	            return this.Ok(this.placeRepository.GetPlaceRating(placeId));
-	        }
-	        catch (Exception ex)
-	        {
-	            this.logger.AsyncLogException(ex);
-
-				return this.InternalServerError();
-			}
+	        return this.Ok(this.placeRepository.GetPlaceRating(placeId));
 	    }
 
 	    ///<summary>
@@ -81,23 +57,13 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
 		public IHttpActionResult GetTopPlacesByCityId(long cityId, int numberOfTopPlaces)
 		{
-			try
+			List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityId(cityId, numberOfTopPlaces);
+
+			if (cityPlaces != null)
 			{
-				List<Place> cityPlaces = this.placeRepository.GetTopPlacesByCityId(cityId, numberOfTopPlaces);
-
-				if (cityPlaces != null)
-				{
-					return this.Ok(cityPlaces);
-				}
-
-				return this.NotFound();
+				return this.Ok(cityPlaces);
 			}
-			catch (Exception ex)
-			{
-				this.logger.AsyncLogException(ex);
-
-				return this.NotFound();
-			}
+			return this.NotFound();
 		}
 
         ///<summary>
@@ -110,24 +76,13 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
 		public IHttpActionResult GetPlacesPageByCityId(long cityId, int page, int pageSize)
 		{
-            try
-			{
-				List<Place> cityPlaces = this.placeRepository.GetPlacesPage(page, cityId, pageSize);
+			List<Place> cityPlaces = this.placeRepository.GetPlacesPage(page, cityId, pageSize);
 
-				if (cityPlaces != null)
-				{	
-                    return this.Ok(cityPlaces);
-                }
-
-				return this.NotFound();
-			}
-			catch (Exception ex)
-			{
-				this.logger.AsyncLogException(ex);
-
-				return this.InternalServerError();
-			}
-
+			if (cityPlaces != null)
+			{	
+                return this.Ok(cityPlaces);
+            }
+			return this.NotFound();
 		}
 
 	    /// <summary>
@@ -138,20 +93,12 @@ namespace EasyTravelWeb.Controllers
 	    [HttpGet]
 	    public IHttpActionResult GetFilteredPlacesByCityId(long cityId, int page, int pageSize, [FromUri]IList<Filter> filters)
 	    {
-	        try
+	        IList<Place> filteredPlaces = this.placeRepository.GetFilteredPlacesPage(page, cityId, pageSize, filters);
+	        if (filteredPlaces == null)
 	        {
-	            IList<Place> filteredPlaces = this.placeRepository.GetFilteredPlacesPage(page, cityId, pageSize, filters);
-	            if (filteredPlaces == null)
-	            {
-	                return this.NotFound();
-	            }
-	            return this.Ok(filteredPlaces);
+	            return this.NotFound();
 	        }
-	        catch (Exception ex)
-	        {
-	            this.logger.AsyncLogException(ex);
-	            return this.InternalServerError();
-	        }
+	        return this.Ok(filteredPlaces);
 	    }
 
         /// <summary>
@@ -163,19 +110,12 @@ namespace EasyTravelWeb.Controllers
         public IHttpActionResult GetCountFromFilteredPlaces(long cityId, [FromUri]IList<Filter> filters)
         {
             int placeCount = this.placeRepository.GetFilteredCountPlace(cityId,filters);
-            try
+
+            if (placeCount == 0)
             {
-                if (placeCount == 0)
-                {
-                    return this.NotFound();
-                }
-                return this.Ok(placeCount);
+                return this.NotFound();
             }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
+            return this.Ok(placeCount);
         }
 
         /// <summary>
@@ -186,19 +126,12 @@ namespace EasyTravelWeb.Controllers
         public IHttpActionResult GetPlaceFilters(long placeId)
         {
             IList<int> placeFiltersId = this.placeRepository.GetPlaceFilters(placeId);
-            try
+
+            if (placeFiltersId == null)
             {
-                if (placeFiltersId == null)
-                {
-                    return this.NotFound();
-                }
-                return this.Ok(placeFiltersId);
+                return this.NotFound();
             }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
+            return this.Ok(placeFiltersId);
         }
 
 	    /// <summary>
@@ -210,17 +143,10 @@ namespace EasyTravelWeb.Controllers
         public IHttpActionResult GetCountPlaces(long cityId)
         {
             int placeCount = this.placeRepository.GetCountPlace(cityId);
-            try
+
+            if (placeCount == 0)
             {
-                if (placeCount == 0)
-                {
-                    return this.NotFound();
-                }
-            }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
+                return this.NotFound();
             }
             return this.Ok(placeCount);
         }
@@ -234,20 +160,11 @@ namespace EasyTravelWeb.Controllers
         [HttpPost]
         public IHttpActionResult AddUserFavoritePlace([FromBody] FavoritePlace favoriteUserPlace)
         {
-            try
+            if (this.placeRepository.AddFavoritePlace(favoriteUserPlace.UserId, favoriteUserPlace.PlaceId))
             {
-                if (this.placeRepository.AddFavoritePlace(favoriteUserPlace.UserId, favoriteUserPlace.PlaceId))
-                {
-                    return this.Ok();
-                }
-
-                return this.Content(HttpStatusCode.BadRequest, "You already add this place to favourite");
+                return this.Ok();
             }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
+            return this.Content(HttpStatusCode.BadRequest, "You have already added this place to favourite");
         }
 
 	    /// <summary>
@@ -259,20 +176,11 @@ namespace EasyTravelWeb.Controllers
         [HttpDelete]
         public IHttpActionResult DeleteUserFavoritePlace([FromBody] FavoritePlace favoritePlace)
         {
-            try
+            if (this.placeRepository.DeleteFavoritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
             {
-                if (this.placeRepository.DeleteFavoritePlace(favoritePlace.UserId, favoritePlace.PlaceId))
-                {
-                    return this.Ok();
-                }
-
-                return this.BadRequest();
+                return this.Ok();
             }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
+            return this.BadRequest();
         }
     }
 }

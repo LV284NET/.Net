@@ -1,5 +1,7 @@
 ﻿using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
+using EasyTravelWeb.Infrastructure;
 
 namespace EasyTravelWeb
 {
@@ -17,6 +19,7 @@ namespace EasyTravelWeb
             // Web API routes
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.Services.Replace(typeof(IExceptionHandler), new GlobalErrorHandling());
 
             config.MapHttpAttributeRoutes();
             //config.EnableCors();

@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Repositories;
 
 namespace EasyTravelWeb.Controllers
 {
+    /// <inheritdoc />
     /// <summary>
     ///    Controller for get and set info about cities
     /// </summary>
     public class CityController : ApiController
     {
         private readonly CityRepository cityRepository = new CityRepository();
-        private readonly Logger logger = Logger.GetInstance();
 
+        /// <inheritdoc />
         /// <summary>
         ///    Default constructor
         /// </summary>
         public CityController() { }
 
+        /// <inheritdoc />
         /// <summary>
         ///    Constructor with params
         /// </summary>
@@ -37,19 +37,10 @@ namespace EasyTravelWeb.Controllers
         public IHttpActionResult GetTopCities(int numberOfTopCities)
         {
             IList<City> getCities = this.cityRepository.GetTopCities(numberOfTopCities);
-            try
+            if (getCities == null)
             {
-                if (getCities == null)
-                {
-                    return this.NotFound();
-                }
+                return this.NotFound();
             }
-            catch (Exception ex)
-            {
-	            this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
-
             return this.Ok(getCities);
         }
 
@@ -61,22 +52,12 @@ namespace EasyTravelWeb.Controllers
         /// <returns>Status code with list of cities</returns>
         [HttpGet]
         public IHttpActionResult GetCities(int page, int pageSize)
-        {
-
-            IList<City> getCities = this.cityRepository.GetCitiesPage(page,pageSize);
-            try
+        { 
+            IList<City> getCities = this.cityRepository.GetCitiesPage(page, pageSize);
+            if (getCities == null)
             {
-                if (getCities == null)
-                {
-                    return this.NotFound();
-                }
+                return this.NotFound();
             }
-            catch (Exception ex)
-            {
-	            this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
-
             return this.Ok(getCities);
         }
 
@@ -88,19 +69,10 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetCity(int id)
         {
-            City cityToReturn;
-            try
+            City cityToReturn = this.cityRepository.GetCity(id);
+            if (cityToReturn == null)
             {
-                cityToReturn = this.cityRepository.GetCity(id);
-                if (cityToReturn == null)
-                {
-                    return this.NotFound();
-                }
-            }
-            catch (Exception ex)
-            {
-	            this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
+                return this.NotFound();
             }
             return this.Ok(cityToReturn);
         }
@@ -113,19 +85,12 @@ namespace EasyTravelWeb.Controllers
         public IHttpActionResult GetCountCity()
         {
             int cityCount = this.cityRepository.GetCountCity();
-            try
+
+            if (cityCount == 0)
             {
-                if (cityCount == 0)
-                {
-                     return this.NotFound();
-                }
+                    return this.NotFound();
             }
-            catch (Exception ex)
-            {
-	            this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
-           return this.Ok(cityCount);
+            return this.Ok(cityCount);
         }
     }
 }

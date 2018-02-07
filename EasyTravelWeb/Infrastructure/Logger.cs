@@ -4,7 +4,7 @@ using System.IO;
 namespace EasyTravelWeb.Infrastructure
 {
 	/// <summary>
-	///     Logs applicatuon exceptions and messages into 
+	///     Logs application exceptions and messages into 
 	///		EasyTravelLog.txt in C:\Users\current user's directory
 	/// </summary>
 	public class Logger

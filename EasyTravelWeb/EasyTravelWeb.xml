@@ -238,16 +238,19 @@
             <example>Petro</example>
         </member>
         <member name="T:EasyTravelWeb.Controllers.CityController">
+            <inheritdoc />
             <summary>
                Controller for get and set info about cities
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.#ctor">
+            <inheritdoc />
             <summary>
                Default constructor
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.#ctor(EasyTravelWeb.Repositories.CityRepository)">
+            <inheritdoc />
             <summary>
                Constructor with params
             </summary>
@@ -381,11 +384,6 @@
             	Instance of RatingRepository, using methods to do actions with database
             </summary>
         </member>
-        <member name="F:EasyTravelWeb.Controllers.ProfileController.logger">
-            <summary>
-            	Instance for stroring exceptions in file
-            </summary>
-        </member>
         <member name="F:EasyTravelWeb.Controllers.ProfileController.nameValidator">
             <summary>
             	Validator for first and last name
@@ -482,6 +480,20 @@
             <summary>
             Initialization of cities and places fields, if they are null
             </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.SearchController.AddCitiesToSuggestions(System.String,System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity})">
+            <summary>
+            Adds cities to suggestions
+            </summary>
+            <param name="searchWord">Key word, which is used to filter names of cities</param>
+            <param name="listOfSuggestions">List of suggestions according to searchWord</param>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.SearchController.AddPlacesToSuggestions(System.String,System.Collections.Generic.IList{EasyTravelWeb.Models.SearchEntities.ISearchEntity})">
+            <summary>
+            Adds places to suggestions
+            </summary>
+            <param name="searchWord">Key word, which is used to filter names of places</param>
+            <param name="listOfSuggestions">List of suggestions according to searchWord</param>
         </member>
         <member name="M:EasyTravelWeb.Controllers.SearchController.GetSuggestions(System.String)">
             <summary>
@@ -832,7 +844,7 @@
         </member>
         <member name="T:EasyTravelWeb.Infrastructure.Logger">
             <summary>
-                Logs applicatuon exceptions and messages into 
+                Logs application exceptions and messages into 
             	EasyTravelLog.txt in C:\Users\current user's directory
             </summary>
         </member>
