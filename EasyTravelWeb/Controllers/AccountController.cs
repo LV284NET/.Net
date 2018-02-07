@@ -153,10 +153,27 @@ namespace EasyTravelWeb.Controllers
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
             if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
+            var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId<int>());
 
-            IdentityResult result = await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId<int>(),
+            PasswordHasher passwordHasher = new PasswordHasher();
+            var verificationResult = passwordHasher.VerifyHashedPassword(user.PasswordHash, model.OldPassword);
+            
+            if (verificationResult != PasswordVerificationResult.Success)
+                return this.BadRequest("Old password doesnt match");
+
+            IdentityResult result;
+
+            if (!model.OldPassword.Equals(model.NewPassword))
+            {
+                result = await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId<int>(),
                 model.OldPassword,
                 model.NewPassword);
+            }
+
+            else
+            {
+                return this.BadRequest("Old Password match new Password pls");
+            }
 
             if (!result.Succeeded) return this.GetErrorResult(result);
 
