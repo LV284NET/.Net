@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
 
 namespace EasyTravelWeb.Constants
 {
@@ -162,5 +159,10 @@ namespace EasyTravelWeb.Constants
 			/// <example>Petro</example>
 			public const string NamePattern = @"^[а-яА-ЯёЁa-zA-Zʼ'ї Ї і І є Є-]{2,40}$";
 		}
+
+	    internal static class BlaBlaCarResponseConstants
+	    {
+	        public const string URL = "https://public-api.blablacar.com/api/v2/trips";
+	    }
 	}
 }
