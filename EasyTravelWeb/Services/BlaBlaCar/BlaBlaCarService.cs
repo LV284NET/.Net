@@ -9,12 +9,12 @@ namespace EasyTravelWeb.Services.BlaBlaCar
     {
         private string urlParameters = "?key=f97db510a2934f3680d9658fe17d54dc&locale=uk_UA&cur=UAH";
 
-        public BlaBlaCarResponseModel BlaBlaCarRequest(string fromCity, string toCity, string travelDate)
+        public BlaBlaCarResponseModel BlaBlaCarRequest(string fromCity, string toCity, DateTime travelDate)
         {
             urlParameters = AddParam("fn" ,fromCity);
             urlParameters = AddParam("tn", toCity);
-            urlParameters = AddParam("db", travelDate);
-            urlParameters = AddParam("de", travelDate);
+            urlParameters = AddParam("db", travelDate.ToShortDateString());
+            urlParameters = AddParam("de", travelDate.ToShortDateString());
             urlParameters = AddParam("limit", "90");
             urlParameters = AddParam("seats", "1");
 

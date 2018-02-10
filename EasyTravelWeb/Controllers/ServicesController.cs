@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Services.BlaBlaCar;
 
@@ -9,7 +10,7 @@ namespace EasyTravelWeb.Controllers
         private BlaBlaCarService blaBlaCar = new BlaBlaCarService();
 
         [HttpGet]
-        public IHttpActionResult GetBlaBlaCarRequestResult(string fromCity, string toCity, string dateOfTrip)
+        public IHttpActionResult GetBlaBlaCarRequestResult(string fromCity, string toCity, DateTime dateOfTrip)
         {
             BlaBlaCarResponseModel resultModel = this.blaBlaCar.BlaBlaCarRequest(fromCity, toCity, dateOfTrip);
 
