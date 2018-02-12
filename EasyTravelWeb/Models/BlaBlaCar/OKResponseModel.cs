@@ -2,6 +2,9 @@
 
 namespace EasyTravelWeb.Models.BlaBlaCar
 {
+    /// <summary>
+    ///     model for parse info from success request 
+    /// </summary
     public class OKResponseModel
     {
         public Links links { get; set; }

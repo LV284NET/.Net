@@ -5,10 +5,23 @@ using EasyTravelWeb.Services.BlaBlaCar;
 
 namespace EasyTravelWeb.Controllers
 {
+    /// <summary>
+    ///     Send requests on different services 
+    /// </summary>
     public class ServicesController: ApiController
     {
-        private BlaBlaCarService blaBlaCar = new BlaBlaCarService();
+        /// <summary>
+        ///  BlaBlaCar Service
+        /// </summary>
+        private readonly BlaBlaCarService blaBlaCar = new BlaBlaCarService();
 
+        /// <summary>
+        /// get info about trips from one city to other city in some date on BlaBlaCar
+        /// </summary>
+        /// <param name="fromCity">departure city</param>
+        /// <param name="toCity">arrival city</param>
+        /// <param name="dateOfTrip">Date of trip</param>
+        /// <returns>Status code with info about trips</returns>
         [HttpGet]
         public IHttpActionResult GetBlaBlaCarRequestResult(string fromCity, string toCity, DateTime dateOfTrip)
         {
@@ -19,6 +32,12 @@ namespace EasyTravelWeb.Controllers
             return this.BadRequest(((BadResponse)resultModel).error);
         }
 
+        /// <summary>
+        /// get info about trips from one city to other city on BlaBlaCar
+        /// </summary>
+        /// <param name="fromCity">departure city</param>
+        /// <param name="toCity">arrival city</param>
+        /// <param name="dateOfTrip">Date of trip</param>
         [HttpGet]
         public IHttpActionResult GetBlaBlaCarRequestResult(string fromCity, string toCity)
         {

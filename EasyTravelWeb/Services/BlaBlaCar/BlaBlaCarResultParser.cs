@@ -1,13 +1,20 @@
 ﻿using System.Linq;
 using System.Net.Http;
-using EasyTravelWeb.Models;
 using EasyTravelWeb.Models.BlaBlaCar;
 using EasyTravelWeb.Models.BlaBlaCarResponse;
 
 namespace EasyTravelWeb.Services.BlaBlaCar
 {
+    /// <summary>
+    /// parse response from blablacar 
+    /// </summary>
     public class BlaBlaCarResultParser
     {
+        /// <summary>
+        /// parse response from success result 
+        /// </summary>
+        /// <param name="response">response from blablacar</param>
+        /// <returns>info about trips</returns>
         public OKResponse SuccessResult(HttpResponseMessage response)
         {
             OKResponseModel responseModel = response.Content.ReadAsAsync<OKResponseModel>().Result;
@@ -36,6 +43,11 @@ namespace EasyTravelWeb.Services.BlaBlaCar
             };
         }
 
+        /// <summary>
+        /// parse response from bad result 
+        /// </summary>
+        /// <param name="response">response from blablacar</param>
+        /// <returns>info about error</returns>
         public BadResponse BadResult(HttpResponseMessage response)
         {
             BadResponseModel responseModel = response.Content.ReadAsAsync<BadResponseModel>().Result;

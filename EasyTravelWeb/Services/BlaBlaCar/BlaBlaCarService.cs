@@ -5,10 +5,23 @@ using EasyTravelWeb.Models.BlaBlaCarResponse;
 
 namespace EasyTravelWeb.Services.BlaBlaCar
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class BlaBlaCarService
     {
+        /// <summary>
+        /// url with params
+        /// </summary>
         private string urlParameters = Constants.Constants.BlaBlaCarResponseConstants.Params;
 
+        /// <summary>
+        /// create request with params 
+        /// </summary>
+        /// <param name="fromCity">departure city</param>
+        /// <param name="toCity">arrival city</param>
+        /// <param name="travelDate">Date of trip</param>
+        /// <returns>info about trips</returns>
         public BlaBlaCarResponseModel BlaBlaCarRequest(string fromCity, string toCity, DateTime travelDate)
         {
             urlParameters = AddParam("fn" ,fromCity);
@@ -29,6 +42,12 @@ namespace EasyTravelWeb.Services.BlaBlaCar
             }
         }
 
+        /// <summary>
+        /// create request with params 
+        /// </summary>
+        /// <param name="fromCity">departure city</param>
+        /// <param name="toCity">arrival city</param>
+        /// <returns>info about trips</returns>
         public BlaBlaCarResponseModel BlaBlaCarRequest(string fromCity, string toCity)
         {
             urlParameters = AddParam("fn", fromCity);
@@ -47,6 +66,11 @@ namespace EasyTravelWeb.Services.BlaBlaCar
             }
         }
 
+        /// <summary>
+        /// send request with params 
+        /// </summary>
+        /// <param name="urlParams">url for with params for request</param>
+        /// <returns>response from blablacar</returns>
         private HttpResponseMessage SendRequest(string urlParams)
         {
             HttpClient client = new HttpClient();
@@ -60,11 +84,23 @@ namespace EasyTravelWeb.Services.BlaBlaCar
             return client.GetAsync(urlParams).Result;
         }
 
+        /// <summary>
+        /// add headers to request
+        /// </summary>
+        /// <param name="client">http client</param>
+        /// <param name="header">name of header</param>
+        /// <param name="value">value of header</param>
         private void AddHeaders(HttpClient client, string header, string value)
         {
             client.DefaultRequestHeaders.Add(header, value);   
         }
 
+        /// <summary>
+        /// create request with params 
+        /// </summary>
+        /// <param name="name">name of param</param>
+        /// <param name="value">value of param</param>
+        /// <returns>new url with add params</returns>
         private string AddParam(string name, string value)
         {
             return urlParameters + '&' +name + '=' + value;

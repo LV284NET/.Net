@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace EasyTravelWeb.Models.BlaBlaCarResponse
+﻿namespace EasyTravelWeb.Models.BlaBlaCarResponse
 {
+    /// <summary>
+    ///     info model from success request 
+    /// </summary> 
     public class OKResponse: BlaBlaCarResponseModel
     {
         public int LowestPrice { get; set; }

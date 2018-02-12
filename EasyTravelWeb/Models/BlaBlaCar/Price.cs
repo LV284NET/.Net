@@ -2,6 +2,9 @@
 
 namespace EasyTravelWeb.Models.BlaBlaCar
 {
+    /// <summary>
+    ///     model of price in request 
+    /// </summary
     public class Price: IComparable
     {
         public int value { get; set; }
