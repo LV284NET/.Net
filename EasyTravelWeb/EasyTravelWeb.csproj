@@ -239,11 +239,14 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BlaBlaCarResponseModel.cs" />
+    <Compile Include="Models\BlaBlaCarResponse\BadResponse.cs" />
+    <Compile Include="Models\BlaBlaCarResponse\BlaBlaCarResponseModel.cs" />
+    <Compile Include="Models\BlaBlaCarResponse\OKResponse.cs" />
+    <Compile Include="Models\BlaBlaCar\BadResponseModel.cs" />
     <Compile Include="Models\BlaBlaCar\Links.cs" />
     <Compile Include="Models\BlaBlaCar\Pager.cs" />
     <Compile Include="Models\BlaBlaCar\Price.cs" />
-    <Compile Include="Models\BlaBlaCar\ResponseModel.cs" />
+    <Compile Include="Models\BlaBlaCar\OKResponseModel.cs" />
     <Compile Include="Models\BlaBlaCar\Trip.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\SearchEntities\CitySearchEntity.cs" />

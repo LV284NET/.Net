@@ -163,6 +163,8 @@ namespace EasyTravelWeb.Constants
 	    internal static class BlaBlaCarResponseConstants
 	    {
 	        public const string URL = "https://public-api.blablacar.com/api/v2/trips";
+	        public const string Params = "?key=f97db510a2934f3680d9658fe17d54dc&locale=uk_UA&cur=UAH";
+
 	    }
 	}
 }

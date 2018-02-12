@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EasyTravelWeb.Models
+namespace EasyTravelWeb.Models.BlaBlaCarResponse
 {
-    public class BlaBlaCarResponseModel
+    public class OKResponse: BlaBlaCarResponseModel
     {
         public int LowestPrice { get; set; }
 

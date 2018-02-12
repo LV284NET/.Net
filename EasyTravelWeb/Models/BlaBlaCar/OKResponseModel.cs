@@ -2,7 +2,7 @@
 
 namespace EasyTravelWeb.Models.BlaBlaCar
 {
-    public class ResponseModel
+    public class OKResponseModel
     {
         public Links links { get; set; }
 

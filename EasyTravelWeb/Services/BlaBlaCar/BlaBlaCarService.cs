@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using EasyTravelWeb.Models;
+using EasyTravelWeb.Models.BlaBlaCarResponse;
 
 namespace EasyTravelWeb.Services.BlaBlaCar
 {
     public class BlaBlaCarService
     {
-        private string urlParameters = "?key=f97db510a2934f3680d9658fe17d54dc&locale=uk_UA&cur=UAH";
+        private string urlParameters = Constants.Constants.BlaBlaCarResponseConstants.Params;
 
         public BlaBlaCarResponseModel BlaBlaCarRequest(string fromCity, string toCity, DateTime travelDate)
         {
@@ -18,15 +18,15 @@ namespace EasyTravelWeb.Services.BlaBlaCar
             urlParameters = AddParam("limit", "90");
             urlParameters = AddParam("seats", "1");
 
-            HttpResponseMessage message = this.SendRequest(urlParameters);
-
-            if (message.IsSuccessStatusCode)
+            using (HttpResponseMessage message = this.SendRequest(urlParameters))
             {
                 BlaBlaCarResultParser parser = new BlaBlaCarResultParser();
-                return parser.SuccessResult(message);
+                if (message.IsSuccessStatusCode)
+                {
+                    return parser.SuccessResult(message);
+                }
+                return parser.BadResult(message);
             }
-
-            return null;
         }
 
         public BlaBlaCarResponseModel BlaBlaCarRequest(string fromCity, string toCity)
@@ -36,15 +36,15 @@ namespace EasyTravelWeb.Services.BlaBlaCar
             urlParameters = AddParam("limit", "90");
             urlParameters = AddParam("seats", "1");
 
-            HttpResponseMessage message = this.SendRequest(urlParameters);
-
-            if (message.IsSuccessStatusCode)
+            using (HttpResponseMessage message = this.SendRequest(urlParameters))
             {
                 BlaBlaCarResultParser parser = new BlaBlaCarResultParser();
-                return parser.SuccessResult(message);
+                if (message.IsSuccessStatusCode)
+                {
+                    return parser.SuccessResult(message);
+                }
+                return parser.BadResult(message);
             }
-
-            return null;
         }
 
         private HttpResponseMessage SendRequest(string urlParams)

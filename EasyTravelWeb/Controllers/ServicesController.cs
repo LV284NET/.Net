@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Http;
-using EasyTravelWeb.Models;
+using EasyTravelWeb.Models.BlaBlaCarResponse;
 using EasyTravelWeb.Services.BlaBlaCar;
 
 namespace EasyTravelWeb.Controllers
@@ -14,9 +14,9 @@ namespace EasyTravelWeb.Controllers
         {
             BlaBlaCarResponseModel resultModel = this.blaBlaCar.BlaBlaCarRequest(fromCity, toCity, dateOfTrip);
 
-            if (resultModel != null)
+            if (resultModel is OKResponse)
                 return this.Ok(resultModel);
-            return BadRequest();
+            return this.BadRequest(((BadResponse)resultModel).error);
         }
 
         [HttpGet]
@@ -24,9 +24,10 @@ namespace EasyTravelWeb.Controllers
         {
             BlaBlaCarResponseModel resultModel = this.blaBlaCar.BlaBlaCarRequest(fromCity, toCity);
 
-            if (resultModel != null)
+            if (resultModel is OKResponse)
                 return this.Ok(resultModel);
-            return BadRequest();
+            return this.BadRequest(((BadResponse)resultModel).error);
+
         }
     }
 }
