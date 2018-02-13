@@ -12,6 +12,7 @@ using EasyTravelWeb.Infrastructure.Validators;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Providers;
 using EasyTravelWeb.Results;
+using EasyTravelWeb.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -186,10 +187,15 @@ namespace EasyTravelWeb.Controllers
         // POST api/Account/AddExternalLogin
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IHttpActionResult> AddExternalLogin([FromBody] FacebookUserViewModel fbUser)
+        public async Task<IHttpActionResult> AddExternalLogin([FromBody] ProviderInfo logInfo)
         {
            
             this.Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+
+            var verificator = new ExternalLoginVerificator();
+
+            var fbUser = await verificator.VerifyFacebookAccessToken(logInfo.AccessToken);
+            
             ApplicationUser user = await UserManager.FindByEmailAsync(fbUser.Email);
 
             if (user == null)
@@ -208,8 +214,17 @@ namespace EasyTravelWeb.Controllers
 
                 if (!result.Succeeded)
                     return Content(HttpStatusCode.BadRequest, "Something went wrong, please try later");
+                
+                await UserManager.AddLoginAsync(user.Id, new UserLoginInfo(logInfo.Provider, fbUser.ID));
             }
 
+            ApplicationUser existingUser = await UserManager.FindAsync(new UserLoginInfo(logInfo.Provider, fbUser.ID));
+
+            if (existingUser == null)
+            {
+                await UserManager.AddLoginAsync(user.Id, new UserLoginInfo(logInfo.Provider, fbUser.ID));
+            }
+            
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(this.UserManager,
                 OAuthDefaults.AuthenticationType);
 

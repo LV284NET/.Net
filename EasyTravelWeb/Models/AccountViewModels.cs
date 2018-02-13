@@ -95,7 +95,7 @@ namespace EasyTravelWeb.Models
         /// 
         /// </summary>
         [JsonProperty("id")]
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         /// <summary>
         /// 
