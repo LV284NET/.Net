@@ -249,6 +249,7 @@
     <Compile Include="Models\BlaBlaCar\OKResponseModel.cs" />
     <Compile Include="Models\BlaBlaCar\Trip.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\ProviderInfo.cs" />
     <Compile Include="Models\SearchEntities\CitySearchEntity.cs" />
     <Compile Include="Models\FavoritePlace.cs" />
     <Compile Include="Models\Filter.cs" />
@@ -268,6 +269,7 @@
     <Compile Include="Services\BlaBlaCar\BlaBlaCarResultParser.cs" />
     <Compile Include="Services\BlaBlaCar\BlaBlaCarService.cs" />
     <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\ExternalLoginVerificator.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

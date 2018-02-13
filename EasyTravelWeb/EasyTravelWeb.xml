@@ -565,7 +565,7 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.FacebookUserViewModel)">
+        <member name="M:EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.ProviderInfo)">
             <summary>
              Authorization with External service (Facebook)
             </summary>
@@ -1134,6 +1134,16 @@
                
             </summary>
         </member>
+        <member name="P:EasyTravelWeb.Models.ProviderInfo.AccessToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ProviderInfo.Provider">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:EasyTravelWeb.Models.SearchEntities.CitySearchEntity">
             <summary>
             	Provides info about a city for searching.
@@ -1682,6 +1692,13 @@
             <summary>
                Sends email to user
             </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Services.ExternalLoginVerificator.VerifyFacebookAccessToken(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="accessToken"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
