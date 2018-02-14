@@ -26,12 +26,6 @@ namespace EasyTravelWeb.Controllers
         private readonly RatingRepository ratingRepository = new RatingRepository();
 
         /// <summary>
-        ///		Validator for first and last name
-        /// </summary>
-        private readonly IValidator<string> nameValidator =
-            new NameValidator();
-
-        /// <summary>
         ///		Instance of PlaceRepository, using method to get favourite places for user from database
         /// </summary>
         private readonly PlaceRepository placeRepository = new PlaceRepository();
@@ -81,52 +75,6 @@ namespace EasyTravelWeb.Controllers
                 return NotFound();
             }
             return Ok(user);
-        }
-
-        /// <summary>
-        ///		Method for changing first name of a user
-        /// </summary>
-        /// <param name="id">Id of current user</param>
-        /// <param name="firstName">First name which will be updated in database</param>
-        /// <returns>result of chaning (Bad or Ok)</returns>
-        [Authorize]
-        [HttpPost]
-        public IHttpActionResult ChangeFirstName(int id, string firstName)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.BadRequest();
-            }
-
-            if (this.nameValidator.IsValid(firstName))
-            {
-                this.userRepository.ChangeFirstName(id, firstName);
-            }
-
-            return this.Ok();
-        }
-
-        /// <summary>
-        ///		Method for changing first name of a user
-        /// </summary>
-        /// <param name="id">Id of current user</param>
-        /// <param name="lastName">Last name which will be updated in database</param>
-        /// <returns>result of chaning (Bad or Ok)</returns>
-        [Authorize]
-        [HttpPost]
-        public IHttpActionResult ChangeLastName(int id, string lastName)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.BadRequest();
-            }
-
-            if (this.nameValidator.IsValid(lastName))
-            {
-                this.userRepository.ChangeLastName(id, lastName);
-            }
-
-            return this.Ok();
         }
 
         /// <summary>

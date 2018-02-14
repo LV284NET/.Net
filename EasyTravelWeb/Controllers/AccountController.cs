@@ -12,6 +12,7 @@ using EasyTravelWeb.Infrastructure.Validators;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Providers;
 using EasyTravelWeb.Results;
+using EasyTravelWeb.Repositories;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -38,6 +39,17 @@ namespace EasyTravelWeb.Controllers
         ///    Aplication manager
         /// </summary>
         private ApplicationUserManager userManager;
+
+        /// <summary>
+        ///		Validator for first and last name
+        /// </summary>
+        private readonly IValidator<string> nameValidator =
+            new NameValidator();
+
+        /// <summary>
+        ///		Instance of UserRepository, using methods to do actions with database
+        /// </summary>
+        private readonly UserRepository userRepository = new UserRepository();
 
         private OAuthGrantResourceOwnerCredentialsContext _context;
 
@@ -141,6 +153,64 @@ namespace EasyTravelWeb.Controllers
                 Logins = logins,
                 ExternalLoginProviders = this.GetExternalLogins(returnUrl, generateState)
             };
+        }
+
+        /// <summary>
+        ///		Method for changing first name of a user
+        /// </summary>
+        /// <param name="id">Id of current user</param>
+        /// <param name="newFirstName">First name which will be updated in database</param>
+        /// <returns>result of chaning (Bad or Ok)</returns>
+        [HttpPost]
+        public async Task<IHttpActionResult> ChangeFirstName(ChangeFirstName model)
+        {
+            var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId<int>());
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest("The name is not Valid");
+            }
+
+            if (!this.nameValidator.IsValid(model.newFirstName))
+            {
+                return this.BadRequest("The name is not Valid");
+            }
+
+
+            if (this.nameValidator.IsValid(model.newFirstName))
+            {
+                this.userRepository.ChangeFirstName(user.Id, model.newFirstName);
+            }
+
+            return this.Ok();
+        }
+
+        /// <summary>
+        ///		Method for changing first name of a user
+        /// </summary>
+        /// <param name="id">Id of current user</param>
+        /// <param name="newLastName">Last name which will be updated in database</param>
+        /// <returns>result of chaning (Bad or Ok)</returns>
+        [HttpPost]
+        public async Task<IHttpActionResult> ChangeLastName(ChangeLastName model)
+        {
+            var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId<int>());
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest("The name is not Valid");
+            }
+
+            if(!this.nameValidator.IsValid(model.newLastName))
+            {
+                return this.BadRequest("The name is not Valid");
+            }
+
+            if (this.nameValidator.IsValid(model.newLastName))
+            {
+                this.userRepository.ChangeLastName(user.Id, model.newLastName);
+            }
+
+            return this.Ok();
         }
 
         /// <summary>

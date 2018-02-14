@@ -51,6 +51,26 @@ namespace EasyTravelWeb.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class ChangeFirstName
+    {
+        /// <summary>
+        ///    
+        /// </summary>
+        [Required]
+        [Display(Name = "New First Name")]
+        public string newFirstName { get; set; }
+    }
+
+    public class ChangeLastName
+    {
+        /// <summary>
+        ///    
+        /// </summary>
+        [Required]
+        [Display(Name = "New Last Name")]
+        public string newLastName { get; set; }
+    }
+
     /// <summary>
     ///    
     /// </summary>
