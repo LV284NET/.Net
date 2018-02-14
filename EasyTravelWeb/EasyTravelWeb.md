@@ -46,6 +46,17 @@
 - [ApplicationUserManager](#T-EasyTravelWeb-ApplicationUserManager 'EasyTravelWeb.ApplicationUserManager')
   - [#ctor()](#M-EasyTravelWeb-ApplicationUserManager-#ctor-Microsoft-AspNet-Identity-IUserStore{EasyTravelWeb-Models-ApplicationUser,System-Int32}- 'EasyTravelWeb.ApplicationUserManager.#ctor(Microsoft.AspNet.Identity.IUserStore{EasyTravelWeb.Models.ApplicationUser,System.Int32})')
   - [Create()](#M-EasyTravelWeb-ApplicationUserManager-Create-Microsoft-AspNet-Identity-Owin-IdentityFactoryOptions{EasyTravelWeb-ApplicationUserManager},Microsoft-Owin-IOwinContext- 'EasyTravelWeb.ApplicationUserManager.Create(Microsoft.AspNet.Identity.Owin.IdentityFactoryOptions{EasyTravelWeb.ApplicationUserManager},Microsoft.Owin.IOwinContext)')
+- [BadResponse](#T-EasyTravelWeb-Models-BlaBlaCarResponse-BadResponse 'EasyTravelWeb.Models.BlaBlaCarResponse.BadResponse')
+- [BlaBlaCarResultParser](#T-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarResultParser 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarResultParser')
+  - [BadResult(response)](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarResultParser-BadResult-System-Net-Http-HttpResponseMessage- 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarResultParser.BadResult(System.Net.Http.HttpResponseMessage)')
+  - [SuccessResult(response)](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarResultParser-SuccessResult-System-Net-Http-HttpResponseMessage- 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarResultParser.SuccessResult(System.Net.Http.HttpResponseMessage)')
+- [BlaBlaCarService](#T-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService')
+  - [urlParameters](#F-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-urlParameters 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.urlParameters')
+  - [AddHeaders(client,header,value)](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-AddHeaders-System-Net-Http-HttpClient,System-String,System-String- 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.AddHeaders(System.Net.Http.HttpClient,System.String,System.String)')
+  - [AddParam(name,value)](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-AddParam-System-String,System-String- 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.AddParam(System.String,System.String)')
+  - [BlaBlaCarRequest(fromCity,toCity,travelDate)](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-BlaBlaCarRequest-System-String,System-String,System-DateTime- 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.BlaBlaCarRequest(System.String,System.String,System.DateTime)')
+  - [BlaBlaCarRequest(fromCity,toCity)](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-BlaBlaCarRequest-System-String,System-String- 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.BlaBlaCarRequest(System.String,System.String)')
+  - [SendRequest(urlParams)](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-SendRequest-System-String- 'EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.SendRequest(System.String)')
 - [BundleConfig](#T-EasyTravelWeb-BundleConfig 'EasyTravelWeb.BundleConfig')
   - [RegisterBundles()](#M-EasyTravelWeb-BundleConfig-RegisterBundles-System-Web-Optimization-BundleCollection- 'EasyTravelWeb.BundleConfig.RegisterBundles(System.Web.Optimization.BundleCollection)')
 - [ChallengeResult](#T-EasyTravelWeb-Results-ChallengeResult 'EasyTravelWeb.Results.ChallengeResult')
@@ -173,6 +184,7 @@
   - [isNameMetPatternRequirements(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-isNameMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameValidator.isNameMetPatternRequirements(System.String)')
   - [IsValid(name)](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameValidator.IsValid(System.String)')
   - [nameIsValid(firstName)](#M-EasyTravelWeb-Infrastructure-Validators-NameValidator-nameIsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.NameValidator.nameIsValid(System.String)')
+- [OKResponse](#T-EasyTravelWeb-Models-BlaBlaCarResponse-OKResponse 'EasyTravelWeb.Models.BlaBlaCarResponse.OKResponse')
 - [PasswordValidator](#T-EasyTravelWeb-Infrastructure-Validators-PasswordValidator 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator')
   - [#ctor()](#M-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-#ctor 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator.#ctor')
   - [logger](#F-EasyTravelWeb-Infrastructure-Validators-PasswordValidator-logger 'EasyTravelWeb.Infrastructure.Validators.PasswordValidator.logger')
@@ -274,6 +286,10 @@
   - [InitializeData()](#M-EasyTravelWeb-Controllers-SearchController-InitializeData 'EasyTravelWeb.Controllers.SearchController.InitializeData')
 - [SearchControllerConstants](#T-EasyTravelWeb-Constants-Constants-SearchControllerConstants 'EasyTravelWeb.Constants.Constants.SearchControllerConstants')
   - [NumberOfSearchEntitiesToShow](#F-EasyTravelWeb-Constants-Constants-SearchControllerConstants-NumberOfSearchEntitiesToShow 'EasyTravelWeb.Constants.Constants.SearchControllerConstants.NumberOfSearchEntitiesToShow')
+- [ServicesController](#T-EasyTravelWeb-Controllers-ServicesController 'EasyTravelWeb.Controllers.ServicesController')
+  - [blaBlaCar](#F-EasyTravelWeb-Controllers-ServicesController-blaBlaCar 'EasyTravelWeb.Controllers.ServicesController.blaBlaCar')
+  - [GetBlaBlaCarRequestResult(fromCity,toCity,dateOfTrip)](#M-EasyTravelWeb-Controllers-ServicesController-GetBlaBlaCarRequestResult-System-String,System-String,System-DateTime- 'EasyTravelWeb.Controllers.ServicesController.GetBlaBlaCarRequestResult(System.String,System.String,System.DateTime)')
+  - [GetBlaBlaCarRequestResult(fromCity,toCity,dateOfTrip)](#M-EasyTravelWeb-Controllers-ServicesController-GetBlaBlaCarRequestResult-System-String,System-String- 'EasyTravelWeb.Controllers.ServicesController.GetBlaBlaCarRequestResult(System.String,System.String)')
 - [SetPasswordBindingModel](#T-EasyTravelWeb-Models-SetPasswordBindingModel 'EasyTravelWeb.Models.SetPasswordBindingModel')
   - [ConfirmPassword](#P-EasyTravelWeb-Models-SetPasswordBindingModel-ConfirmPassword 'EasyTravelWeb.Models.SetPasswordBindingModel.ConfirmPassword')
   - [NewPassword](#P-EasyTravelWeb-Models-SetPasswordBindingModel-NewPassword 'EasyTravelWeb.Models.SetPasswordBindingModel.NewPassword')
@@ -826,6 +842,167 @@ This constructor has no parameters.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='T-EasyTravelWeb-Models-BlaBlaCarResponse-BadResponse'></a>
+## BadResponse [#](#T-EasyTravelWeb-Models-BlaBlaCarResponse-BadResponse 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models.BlaBlaCarResponse
+
+##### Summary
+
+model of error from request
+
+<a name='T-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarResultParser'></a>
+## BlaBlaCarResultParser [#](#T-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarResultParser 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Services.BlaBlaCar
+
+##### Summary
+
+parse response from blablacar
+
+<a name='M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarResultParser-BadResult-System-Net-Http-HttpResponseMessage-'></a>
+### BadResult(response) `method` [#](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarResultParser-BadResult-System-Net-Http-HttpResponseMessage- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+parse response from bad result
+
+##### Returns
+
+info about error
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| response | [System.Net.Http.HttpResponseMessage](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Net.Http.HttpResponseMessage 'System.Net.Http.HttpResponseMessage') | response from blablacar |
+
+<a name='M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarResultParser-SuccessResult-System-Net-Http-HttpResponseMessage-'></a>
+### SuccessResult(response) `method` [#](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarResultParser-SuccessResult-System-Net-Http-HttpResponseMessage- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+parse response from success result
+
+##### Returns
+
+info about trips
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| response | [System.Net.Http.HttpResponseMessage](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Net.Http.HttpResponseMessage 'System.Net.Http.HttpResponseMessage') | response from blablacar |
+
+<a name='T-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService'></a>
+## BlaBlaCarService [#](#T-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Services.BlaBlaCar
+
+##### Summary
+
+
+
+<a name='F-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-urlParameters'></a>
+### urlParameters `constants` [#](#F-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-urlParameters 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+url with params
+
+<a name='M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-AddHeaders-System-Net-Http-HttpClient,System-String,System-String-'></a>
+### AddHeaders(client,header,value) `method` [#](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-AddHeaders-System-Net-Http-HttpClient,System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+add headers to request
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| client | [System.Net.Http.HttpClient](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Net.Http.HttpClient 'System.Net.Http.HttpClient') | http client |
+| header | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | name of header |
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | value of header |
+
+<a name='M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-AddParam-System-String,System-String-'></a>
+### AddParam(name,value) `method` [#](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-AddParam-System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+create request with params
+
+##### Returns
+
+new url with add params
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | name of param |
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | value of param |
+
+<a name='M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-BlaBlaCarRequest-System-String,System-String,System-DateTime-'></a>
+### BlaBlaCarRequest(fromCity,toCity,travelDate) `method` [#](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-BlaBlaCarRequest-System-String,System-String,System-DateTime- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+create request with params
+
+##### Returns
+
+info about trips
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fromCity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | departure city |
+| toCity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | arrival city |
+| travelDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | Date of trip |
+
+<a name='M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-BlaBlaCarRequest-System-String,System-String-'></a>
+### BlaBlaCarRequest(fromCity,toCity) `method` [#](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-BlaBlaCarRequest-System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+create request with params
+
+##### Returns
+
+info about trips
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fromCity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | departure city |
+| toCity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | arrival city |
+
+<a name='M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-SendRequest-System-String-'></a>
+### SendRequest(urlParams) `method` [#](#M-EasyTravelWeb-Services-BlaBlaCar-BlaBlaCarService-SendRequest-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+send request with params
+
+##### Returns
+
+response from blablacar
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| urlParams | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | url for with params for request |
 
 <a name='T-EasyTravelWeb-BundleConfig'></a>
 ## BundleConfig [#](#T-EasyTravelWeb-BundleConfig 'Go To Here') [=](#contents 'Back To Contents')
@@ -2176,6 +2353,17 @@ True if a name is valid, otherwise - false.
 | ---- | ---- | ----------- |
 | firstName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First name |
 
+<a name='T-EasyTravelWeb-Models-BlaBlaCarResponse-OKResponse'></a>
+## OKResponse [#](#T-EasyTravelWeb-Models-BlaBlaCarResponse-OKResponse 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models.BlaBlaCarResponse
+
+##### Summary
+
+info model from success request
+
 <a name='T-EasyTravelWeb-Infrastructure-Validators-PasswordValidator'></a>
 ## PasswordValidator [#](#T-EasyTravelWeb-Infrastructure-Validators-PasswordValidator 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -3386,6 +3574,57 @@ Provides constants for SearchController class.
 ##### Summary
 
 Optimal number of cities or places to show in search suggestions.
+
+<a name='T-EasyTravelWeb-Controllers-ServicesController'></a>
+## ServicesController [#](#T-EasyTravelWeb-Controllers-ServicesController 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Controllers
+
+##### Summary
+
+Send requests on different services
+
+<a name='F-EasyTravelWeb-Controllers-ServicesController-blaBlaCar'></a>
+### blaBlaCar `constants` [#](#F-EasyTravelWeb-Controllers-ServicesController-blaBlaCar 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+BlaBlaCar Service
+
+<a name='M-EasyTravelWeb-Controllers-ServicesController-GetBlaBlaCarRequestResult-System-String,System-String,System-DateTime-'></a>
+### GetBlaBlaCarRequestResult(fromCity,toCity,dateOfTrip) `method` [#](#M-EasyTravelWeb-Controllers-ServicesController-GetBlaBlaCarRequestResult-System-String,System-String,System-DateTime- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+get info about trips from one city to other city in some date on BlaBlaCar
+
+##### Returns
+
+Status code with info about trips
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fromCity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | departure city |
+| toCity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | arrival city |
+| dateOfTrip | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | Date of trip |
+
+<a name='M-EasyTravelWeb-Controllers-ServicesController-GetBlaBlaCarRequestResult-System-String,System-String-'></a>
+### GetBlaBlaCarRequestResult(fromCity,toCity,dateOfTrip) `method` [#](#M-EasyTravelWeb-Controllers-ServicesController-GetBlaBlaCarRequestResult-System-String,System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+get info about trips from one city to other city on BlaBlaCar
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fromCity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | departure city |
+| toCity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | arrival city |
 
 <a name='T-EasyTravelWeb-Models-SetPasswordBindingModel'></a>
 ## SetPasswordBindingModel [#](#T-EasyTravelWeb-Models-SetPasswordBindingModel 'Go To Here') [=](#contents 'Back To Contents')
