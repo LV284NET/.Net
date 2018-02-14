@@ -10,7 +10,7 @@
   - [userRepository](#F-EasyTravelWeb-Controllers-AccountController-userRepository 'EasyTravelWeb.Controllers.AccountController.userRepository')
   - [AccessTokenFormat](#P-EasyTravelWeb-Controllers-AccountController-AccessTokenFormat 'EasyTravelWeb.Controllers.AccountController.AccessTokenFormat')
   - [UserManager](#P-EasyTravelWeb-Controllers-AccountController-UserManager 'EasyTravelWeb.Controllers.AccountController.UserManager')
-  - [AddExternalLogin()](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-FacebookUserViewModel- 'EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.FacebookUserViewModel)')
+  - [AddExternalLogin()](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-ProviderInfo- 'EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.ProviderInfo)')
   - [ChangeFirstName(id,newFirstName)](#M-EasyTravelWeb-Controllers-AccountController-ChangeFirstName-EasyTravelWeb-Models-ChangeFirstName- 'EasyTravelWeb.Controllers.AccountController.ChangeFirstName(EasyTravelWeb.Models.ChangeFirstName)')
   - [ChangeLastName(id,newLastName)](#M-EasyTravelWeb-Controllers-AccountController-ChangeLastName-EasyTravelWeb-Models-ChangeLastName- 'EasyTravelWeb.Controllers.AccountController.ChangeLastName(EasyTravelWeb.Models.ChangeLastName)')
   - [ChangePassword(model)](#M-EasyTravelWeb-Controllers-AccountController-ChangePassword-EasyTravelWeb-Models-ChangePasswordBindingModel- 'EasyTravelWeb.Controllers.AccountController.ChangePassword(EasyTravelWeb.Models.ChangePasswordBindingModel)')
@@ -138,6 +138,8 @@
   - [GetValidationData(name)](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-GetValidationData-System-String- 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.GetValidationData(System.String)')
   - [isEmailMetPatternRequirements(email)](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-isEmailMetPatternRequirements-System-String- 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.isEmailMetPatternRequirements(System.String)')
   - [IsValid(model)](#M-EasyTravelWeb-Infrastructure-Validators-EmailValidator-IsValid-System-String- 'EasyTravelWeb.Infrastructure.Validators.EmailValidator.IsValid(System.String)')
+- [ExternalLoginVerificator](#T-EasyTravelWeb-Services-ExternalLoginVerificator 'EasyTravelWeb.Services.ExternalLoginVerificator')
+  - [VerifyFacebookAccessToken(accessToken)](#M-EasyTravelWeb-Services-ExternalLoginVerificator-VerifyFacebookAccessToken-System-String- 'EasyTravelWeb.Services.ExternalLoginVerificator.VerifyFacebookAccessToken(System.String)')
 - [ExternalLoginViewModel](#T-EasyTravelWeb-Models-ExternalLoginViewModel 'EasyTravelWeb.Models.ExternalLoginViewModel')
   - [Name](#P-EasyTravelWeb-Models-ExternalLoginViewModel-Name 'EasyTravelWeb.Models.ExternalLoginViewModel.Name')
   - [State](#P-EasyTravelWeb-Models-ExternalLoginViewModel-State 'EasyTravelWeb.Models.ExternalLoginViewModel.State')
@@ -250,6 +252,9 @@
   - [GetUserInfo(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUserInfo-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUserInfo(System.Int32)')
   - [GetUserRatingOfPlace(userId,placeId)](#M-EasyTravelWeb-Controllers-ProfileController-GetUserRatingOfPlace-System-Int32,System-Int64- 'EasyTravelWeb.Controllers.ProfileController.GetUserRatingOfPlace(System.Int32,System.Int64)')
   - [SetUserRatingForPlace(userRating)](#M-EasyTravelWeb-Controllers-ProfileController-SetUserRatingForPlace-EasyTravelWeb-Models-UserPlaceRating- 'EasyTravelWeb.Controllers.ProfileController.SetUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)')
+- [ProviderInfo](#T-EasyTravelWeb-Models-ProviderInfo 'EasyTravelWeb.Models.ProviderInfo')
+  - [AccessToken](#P-EasyTravelWeb-Models-ProviderInfo-AccessToken 'EasyTravelWeb.Models.ProviderInfo.AccessToken')
+  - [Provider](#P-EasyTravelWeb-Models-ProviderInfo-Provider 'EasyTravelWeb.Models.ProviderInfo.Provider')
 - [RatingRepository](#T-EasyTravelWeb-Repositories-RatingRepository 'EasyTravelWeb.Repositories.RatingRepository')
   - [noRowsAffected](#F-EasyTravelWeb-Repositories-RatingRepository-noRowsAffected 'EasyTravelWeb.Repositories.RatingRepository.noRowsAffected')
   - [DeleteUserRatingForPlace(userId,placeId)](#M-EasyTravelWeb-Repositories-RatingRepository-DeleteUserRatingForPlace-System-Int32,System-Int64- 'EasyTravelWeb.Repositories.RatingRepository.DeleteUserRatingForPlace(System.Int32,System.Int64)')
@@ -407,8 +412,8 @@ Instance of UserRepository, using methods to do actions with database
 
 
 
-<a name='M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-FacebookUserViewModel-'></a>
-### AddExternalLogin() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-FacebookUserViewModel- 'Go To Here') [=](#contents 'Back To Contents')
+<a name='M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-ProviderInfo-'></a>
+### AddExternalLogin() `method` [#](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-ProviderInfo- 'Go To Here') [=](#contents 'Back To Contents')
 
 ##### Summary
 
@@ -1875,6 +1880,30 @@ True if user's email is valid, otherwise - false.
 | ---- | ---- | ----------- |
 | model | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's email. |
 
+<a name='T-EasyTravelWeb-Services-ExternalLoginVerificator'></a>
+## ExternalLoginVerificator [#](#T-EasyTravelWeb-Services-ExternalLoginVerificator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Services
+
+<a name='M-EasyTravelWeb-Services-ExternalLoginVerificator-VerifyFacebookAccessToken-System-String-'></a>
+### VerifyFacebookAccessToken(accessToken) `method` [#](#M-EasyTravelWeb-Services-ExternalLoginVerificator-VerifyFacebookAccessToken-System-String- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accessToken | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
+
 <a name='T-EasyTravelWeb-Models-ExternalLoginViewModel'></a>
 ## ExternalLoginViewModel [#](#T-EasyTravelWeb-Models-ExternalLoginViewModel 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -3178,6 +3207,27 @@ Status code for request
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | userRating | [EasyTravelWeb.Models.UserPlaceRating](#T-EasyTravelWeb-Models-UserPlaceRating 'EasyTravelWeb.Models.UserPlaceRating') | Model UserPlaceRating |
+
+<a name='T-EasyTravelWeb-Models-ProviderInfo'></a>
+## ProviderInfo [#](#T-EasyTravelWeb-Models-ProviderInfo 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+<a name='P-EasyTravelWeb-Models-ProviderInfo-AccessToken'></a>
+### AccessToken `property` [#](#P-EasyTravelWeb-Models-ProviderInfo-AccessToken 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='P-EasyTravelWeb-Models-ProviderInfo-Provider'></a>
+### Provider `property` [#](#P-EasyTravelWeb-Models-ProviderInfo-Provider 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
 
 <a name='T-EasyTravelWeb-Repositories-RatingRepository'></a>
 ## RatingRepository [#](#T-EasyTravelWeb-Repositories-RatingRepository 'Go To Here') [=](#contents 'Back To Contents')
