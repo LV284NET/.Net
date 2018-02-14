@@ -384,11 +384,6 @@
             	Instance of RatingRepository, using methods to do actions with database
             </summary>
         </member>
-        <member name="F:EasyTravelWeb.Controllers.ProfileController.nameValidator">
-            <summary>
-            	Validator for first and last name
-            </summary>
-        </member>
         <member name="F:EasyTravelWeb.Controllers.ProfileController.placeRepository">
             <summary>
             	Instance of PlaceRepository, using method to get favourite places for user from database
@@ -415,22 +410,6 @@
             </summary>
             <param name="id">id of current user</param>
             <returns>First, last, email of user</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)">
-            <summary>
-            	Method for changing first name of a user
-            </summary>
-            <param name="id">Id of current user</param>
-            <param name="firstName">First name which will be updated in database</param>
-            <returns>result of chaning (Bad or Ok)</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)">
-            <summary>
-            	Method for changing first name of a user
-            </summary>
-            <param name="id">Id of current user</param>
-            <param name="lastName">Last name which will be updated in database</param>
-            <returns>result of chaning (Bad or Ok)</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)">
             <summary>
@@ -517,6 +496,16 @@
                Aplication manager
             </summary>
         </member>
+        <member name="F:EasyTravelWeb.Controllers.AccountController.nameValidator">
+            <summary>
+            	Validator for first and last name
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.AccountController.userRepository">
+            <summary>
+            	Instance of UserRepository, using methods to do actions with database
+            </summary>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.#ctor">
             <summary>
                Constructor
@@ -555,6 +544,22 @@
             <summary>
                
             </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.ChangeFirstName(EasyTravelWeb.Models.ChangeFirstName)">
+            <summary>
+            	Method for changing first name of a user
+            </summary>
+            <param name="id">Id of current user</param>
+            <param name="newFirstName">First name which will be updated in database</param>
+            <returns>result of chaning (Bad or Ok)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.ChangeLastName(EasyTravelWeb.Models.ChangeLastName)">
+            <summary>
+            	Method for changing first name of a user
+            </summary>
+            <param name="id">Id of current user</param>
+            <param name="newLastName">Last name which will be updated in database</param>
+            <returns>result of chaning (Bad or Ok)</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.ChangePassword(EasyTravelWeb.Models.ChangePasswordBindingModel)">
             <param name="model">User Model for change password</param>
@@ -952,6 +957,16 @@
             </summary>
         </member>
         <member name="P:EasyTravelWeb.Models.ChangePasswordBindingModel.ConfirmPassword">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ChangeFirstName.newFirstName">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ChangeLastName.newLastName">
             <summary>
                
             </summary>

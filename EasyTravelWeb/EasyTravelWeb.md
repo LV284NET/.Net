@@ -4,11 +4,15 @@
 - [AccountController](#T-EasyTravelWeb-Controllers-AccountController 'EasyTravelWeb.Controllers.AccountController')
   - [#ctor()](#M-EasyTravelWeb-Controllers-AccountController-#ctor 'EasyTravelWeb.Controllers.AccountController.#ctor')
   - [#ctor(userManager,accessTokenFormat)](#M-EasyTravelWeb-Controllers-AccountController-#ctor-EasyTravelWeb-ApplicationUserManager,Microsoft-Owin-Security-ISecureDataFormat{Microsoft-Owin-Security-AuthenticationTicket}- 'EasyTravelWeb.Controllers.AccountController.#ctor(EasyTravelWeb.ApplicationUserManager,Microsoft.Owin.Security.ISecureDataFormat{Microsoft.Owin.Security.AuthenticationTicket})')
+  - [nameValidator](#F-EasyTravelWeb-Controllers-AccountController-nameValidator 'EasyTravelWeb.Controllers.AccountController.nameValidator')
   - [registerBindingModelValidator](#F-EasyTravelWeb-Controllers-AccountController-registerBindingModelValidator 'EasyTravelWeb.Controllers.AccountController.registerBindingModelValidator')
   - [userManager](#F-EasyTravelWeb-Controllers-AccountController-userManager 'EasyTravelWeb.Controllers.AccountController.userManager')
+  - [userRepository](#F-EasyTravelWeb-Controllers-AccountController-userRepository 'EasyTravelWeb.Controllers.AccountController.userRepository')
   - [AccessTokenFormat](#P-EasyTravelWeb-Controllers-AccountController-AccessTokenFormat 'EasyTravelWeb.Controllers.AccountController.AccessTokenFormat')
   - [UserManager](#P-EasyTravelWeb-Controllers-AccountController-UserManager 'EasyTravelWeb.Controllers.AccountController.UserManager')
   - [AddExternalLogin()](#M-EasyTravelWeb-Controllers-AccountController-AddExternalLogin-EasyTravelWeb-Models-ProviderInfo- 'EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.ProviderInfo)')
+  - [ChangeFirstName(id,newFirstName)](#M-EasyTravelWeb-Controllers-AccountController-ChangeFirstName-EasyTravelWeb-Models-ChangeFirstName- 'EasyTravelWeb.Controllers.AccountController.ChangeFirstName(EasyTravelWeb.Models.ChangeFirstName)')
+  - [ChangeLastName(id,newLastName)](#M-EasyTravelWeb-Controllers-AccountController-ChangeLastName-EasyTravelWeb-Models-ChangeLastName- 'EasyTravelWeb.Controllers.AccountController.ChangeLastName(EasyTravelWeb.Models.ChangeLastName)')
   - [ChangePassword(model)](#M-EasyTravelWeb-Controllers-AccountController-ChangePassword-EasyTravelWeb-Models-ChangePasswordBindingModel- 'EasyTravelWeb.Controllers.AccountController.ChangePassword(EasyTravelWeb.Models.ChangePasswordBindingModel)')
   - [ConfirmEmail()](#M-EasyTravelWeb-Controllers-AccountController-ConfirmEmail-System-Int32,System-String- 'EasyTravelWeb.Controllers.AccountController.ConfirmEmail(System.Int32,System.String)')
   - [ConfirmUser(user)](#M-EasyTravelWeb-Controllers-AccountController-ConfirmUser-EasyTravelWeb-Models-User- 'EasyTravelWeb.Controllers.AccountController.ConfirmUser(EasyTravelWeb.Models.User)')
@@ -64,6 +68,10 @@
   - [LoginProvider](#P-EasyTravelWeb-Results-ChallengeResult-LoginProvider 'EasyTravelWeb.Results.ChallengeResult.LoginProvider')
   - [Request](#P-EasyTravelWeb-Results-ChallengeResult-Request 'EasyTravelWeb.Results.ChallengeResult.Request')
   - [ExecuteAsync()](#M-EasyTravelWeb-Results-ChallengeResult-ExecuteAsync-System-Threading-CancellationToken- 'EasyTravelWeb.Results.ChallengeResult.ExecuteAsync(System.Threading.CancellationToken)')
+- [ChangeFirstName](#T-EasyTravelWeb-Models-ChangeFirstName 'EasyTravelWeb.Models.ChangeFirstName')
+  - [newFirstName](#P-EasyTravelWeb-Models-ChangeFirstName-newFirstName 'EasyTravelWeb.Models.ChangeFirstName.newFirstName')
+- [ChangeLastName](#T-EasyTravelWeb-Models-ChangeLastName 'EasyTravelWeb.Models.ChangeLastName')
+  - [newLastName](#P-EasyTravelWeb-Models-ChangeLastName-newLastName 'EasyTravelWeb.Models.ChangeLastName.newLastName')
 - [ChangePasswordBindingModel](#T-EasyTravelWeb-Models-ChangePasswordBindingModel 'EasyTravelWeb.Models.ChangePasswordBindingModel')
   - [ConfirmPassword](#P-EasyTravelWeb-Models-ChangePasswordBindingModel-ConfirmPassword 'EasyTravelWeb.Models.ChangePasswordBindingModel.ConfirmPassword')
   - [NewPassword](#P-EasyTravelWeb-Models-ChangePasswordBindingModel-NewPassword 'EasyTravelWeb.Models.ChangePasswordBindingModel.NewPassword')
@@ -236,12 +244,9 @@
   - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor 'EasyTravelWeb.Controllers.ProfileController.#ctor')
   - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-UserRepository- 'EasyTravelWeb.Controllers.ProfileController.#ctor(EasyTravelWeb.Repositories.UserRepository)')
   - [#ctor()](#M-EasyTravelWeb-Controllers-ProfileController-#ctor-EasyTravelWeb-Repositories-PlaceRepository- 'EasyTravelWeb.Controllers.ProfileController.#ctor(EasyTravelWeb.Repositories.PlaceRepository)')
-  - [nameValidator](#F-EasyTravelWeb-Controllers-ProfileController-nameValidator 'EasyTravelWeb.Controllers.ProfileController.nameValidator')
   - [placeRepository](#F-EasyTravelWeb-Controllers-ProfileController-placeRepository 'EasyTravelWeb.Controllers.ProfileController.placeRepository')
   - [ratingRepository](#F-EasyTravelWeb-Controllers-ProfileController-ratingRepository 'EasyTravelWeb.Controllers.ProfileController.ratingRepository')
   - [userRepository](#F-EasyTravelWeb-Controllers-ProfileController-userRepository 'EasyTravelWeb.Controllers.ProfileController.userRepository')
-  - [ChangeFirstName(id,firstName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)')
-  - [ChangeLastName(id,lastName)](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)')
   - [DeleteUserRatingForPlace(userRating)](#M-EasyTravelWeb-Controllers-ProfileController-DeleteUserRatingForPlace-EasyTravelWeb-Models-UserPlaceRating- 'EasyTravelWeb.Controllers.ProfileController.DeleteUserRatingForPlace(EasyTravelWeb.Models.UserPlaceRating)')
   - [GetFavoritePlaces(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetFavoritePlaces-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)')
   - [GetUserInfo(id)](#M-EasyTravelWeb-Controllers-ProfileController-GetUserInfo-System-Int32- 'EasyTravelWeb.Controllers.ProfileController.GetUserInfo(System.Int32)')
@@ -365,6 +370,13 @@ Constructor
 | userManager | [EasyTravelWeb.ApplicationUserManager](#T-EasyTravelWeb-ApplicationUserManager 'EasyTravelWeb.ApplicationUserManager') | Identity User Manager |
 | accessTokenFormat | [Microsoft.Owin.Security.ISecureDataFormat{Microsoft.Owin.Security.AuthenticationTicket}](#T-Microsoft-Owin-Security-ISecureDataFormat{Microsoft-Owin-Security-AuthenticationTicket} 'Microsoft.Owin.Security.ISecureDataFormat{Microsoft.Owin.Security.AuthenticationTicket}') | Token format |
 
+<a name='F-EasyTravelWeb-Controllers-AccountController-nameValidator'></a>
+### nameValidator `constants` [#](#F-EasyTravelWeb-Controllers-AccountController-nameValidator 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Validator for first and last name
+
 <a name='F-EasyTravelWeb-Controllers-AccountController-registerBindingModelValidator'></a>
 ### registerBindingModelValidator `constants` [#](#F-EasyTravelWeb-Controllers-AccountController-registerBindingModelValidator 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -378,6 +390,13 @@ Validation model
 ##### Summary
 
 Aplication manager
+
+<a name='F-EasyTravelWeb-Controllers-AccountController-userRepository'></a>
+### userRepository `constants` [#](#F-EasyTravelWeb-Controllers-AccountController-userRepository 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Instance of UserRepository, using methods to do actions with database
 
 <a name='P-EasyTravelWeb-Controllers-AccountController-AccessTokenFormat'></a>
 ### AccessTokenFormat `property` [#](#P-EasyTravelWeb-Controllers-AccountController-AccessTokenFormat 'Go To Here') [=](#contents 'Back To Contents')
@@ -403,6 +422,40 @@ Authorization with External service (Facebook)
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-ChangeFirstName-EasyTravelWeb-Models-ChangeFirstName-'></a>
+### ChangeFirstName(id,newFirstName) `method` [#](#M-EasyTravelWeb-Controllers-AccountController-ChangeFirstName-EasyTravelWeb-Models-ChangeFirstName- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method for changing first name of a user
+
+##### Returns
+
+result of chaning (Bad or Ok)
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [EasyTravelWeb.Models.ChangeFirstName](#T-EasyTravelWeb-Models-ChangeFirstName 'EasyTravelWeb.Models.ChangeFirstName') | Id of current user |
+
+<a name='M-EasyTravelWeb-Controllers-AccountController-ChangeLastName-EasyTravelWeb-Models-ChangeLastName-'></a>
+### ChangeLastName(id,newLastName) `method` [#](#M-EasyTravelWeb-Controllers-AccountController-ChangeLastName-EasyTravelWeb-Models-ChangeLastName- 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+Method for changing first name of a user
+
+##### Returns
+
+result of chaning (Bad or Ok)
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [EasyTravelWeb.Models.ChangeLastName](#T-EasyTravelWeb-Models-ChangeLastName 'EasyTravelWeb.Models.ChangeLastName') | Id of current user |
 
 <a name='M-EasyTravelWeb-Controllers-AccountController-ChangePassword-EasyTravelWeb-Models-ChangePasswordBindingModel-'></a>
 ### ChangePassword(model) `method` [#](#M-EasyTravelWeb-Controllers-AccountController-ChangePassword-EasyTravelWeb-Models-ChangePasswordBindingModel- 'Go To Here') [=](#contents 'Back To Contents')
@@ -1072,6 +1125,34 @@ This constructor has no parameters.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='T-EasyTravelWeb-Models-ChangeFirstName'></a>
+## ChangeFirstName [#](#T-EasyTravelWeb-Models-ChangeFirstName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+<a name='P-EasyTravelWeb-Models-ChangeFirstName-newFirstName'></a>
+### newFirstName `property` [#](#P-EasyTravelWeb-Models-ChangeFirstName-newFirstName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
+
+<a name='T-EasyTravelWeb-Models-ChangeLastName'></a>
+## ChangeLastName [#](#T-EasyTravelWeb-Models-ChangeLastName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Namespace
+
+EasyTravelWeb.Models
+
+<a name='P-EasyTravelWeb-Models-ChangeLastName-newLastName'></a>
+### newLastName `property` [#](#P-EasyTravelWeb-Models-ChangeLastName-newLastName 'Go To Here') [=](#contents 'Back To Contents')
+
+##### Summary
+
+
 
 <a name='T-EasyTravelWeb-Models-ChangePasswordBindingModel'></a>
 ## ChangePasswordBindingModel [#](#T-EasyTravelWeb-Models-ChangePasswordBindingModel 'Go To Here') [=](#contents 'Back To Contents')
@@ -3020,13 +3101,6 @@ This constructor has no parameters.
 
 This constructor has no parameters.
 
-<a name='F-EasyTravelWeb-Controllers-ProfileController-nameValidator'></a>
-### nameValidator `constants` [#](#F-EasyTravelWeb-Controllers-ProfileController-nameValidator 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Validator for first and last name
-
 <a name='F-EasyTravelWeb-Controllers-ProfileController-placeRepository'></a>
 ### placeRepository `constants` [#](#F-EasyTravelWeb-Controllers-ProfileController-placeRepository 'Go To Here') [=](#contents 'Back To Contents')
 
@@ -3047,42 +3121,6 @@ Instance of RatingRepository, using methods to do actions with database
 ##### Summary
 
 Instance of UserRepository, using methods to do actions with database
-
-<a name='M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String-'></a>
-### ChangeFirstName(id,firstName) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-ChangeFirstName-System-Int32,System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Method for changing first name of a user
-
-##### Returns
-
-result of chaning (Bad or Ok)
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Id of current user |
-| firstName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First name which will be updated in database |
-
-<a name='M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String-'></a>
-### ChangeLastName(id,lastName) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-ChangeLastName-System-Int32,System-String- 'Go To Here') [=](#contents 'Back To Contents')
-
-##### Summary
-
-Method for changing first name of a user
-
-##### Returns
-
-result of chaning (Bad or Ok)
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| id | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Id of current user |
-| lastName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Last name which will be updated in database |
 
 <a name='M-EasyTravelWeb-Controllers-ProfileController-DeleteUserRatingForPlace-EasyTravelWeb-Models-UserPlaceRating-'></a>
 ### DeleteUserRatingForPlace(userRating) `method` [#](#M-EasyTravelWeb-Controllers-ProfileController-DeleteUserRatingForPlace-EasyTravelWeb-Models-UserPlaceRating- 'Go To Here') [=](#contents 'Back To Contents')
