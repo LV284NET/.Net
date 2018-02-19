@@ -26,8 +26,8 @@ namespace EasyTravelWeb.Services.BlaBlaCar
         {
             urlParameters = AddParam("fn" ,fromCity);
             urlParameters = AddParam("tn", toCity);
-            urlParameters = AddParam("db", travelDate.ToShortDateString());
-            urlParameters = AddParam("de", travelDate.ToShortDateString());
+            urlParameters = AddParam("db", DateToString(travelDate));
+            urlParameters = AddParam("de", DateToString(travelDate));
             urlParameters = AddParam("limit", "90");
             urlParameters = AddParam("seats", "1");
 
@@ -104,6 +104,11 @@ namespace EasyTravelWeb.Services.BlaBlaCar
         private string AddParam(string name, string value)
         {
             return urlParameters + '&' +name + '=' + value;
+        }
+
+        private string DateToString(DateTime date)
+        {
+            return date.Day.ToString() + '.' + date.Month.ToString() + '.' + date.Year.ToString();
         }
    }
 }
