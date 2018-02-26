@@ -37,12 +37,7 @@ namespace EasyTravelWeb.Repositories
                 command.Parameters.Add(new SqlParameter("@PlaceID", userRating.PlaceId));
                 command.Parameters.Add(new SqlParameter("@Rating", Convert.ToDecimal(userRating.Rating)));
 
-                if (command.ExecuteNonQuery() != this.noRowsAffected)
-                {
-                    return true;
-                }
-
-                return false;
+                return command.ExecuteNonQuery() != this.noRowsAffected;
             }
         }
 
@@ -67,12 +62,7 @@ namespace EasyTravelWeb.Repositories
 	            command.Parameters.Add(new SqlParameter("@UserID", userId));
                 command.Parameters.Add(new SqlParameter("@PlaceID", placeId));
 
-                if (command.ExecuteNonQuery() != this.noRowsAffected)
-                {
-                    return true;
-                }
-
-                return false;
+                return command.ExecuteNonQuery() != this.noRowsAffected;
             }
         }
 
@@ -105,10 +95,7 @@ namespace EasyTravelWeb.Repositories
                         reader.Read();
                         return Convert.ToDouble(reader["Rating"]);
                     }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
 
             }

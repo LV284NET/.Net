@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Repositories;
 using WebGrease.Css.Extensions;
-using EasyTravelWeb.Models;
 using EasyTravelWeb.Models.SearchEntities;
 
 namespace EasyTravelWeb.Controllers
@@ -14,8 +11,6 @@ namespace EasyTravelWeb.Controllers
     /// </summary>
     public class SearchController : ApiController
     {
-        private readonly Logger logger = Logger.GetInstance();
-
         private readonly CityRepository cityRepository = new CityRepository();
         private readonly PlaceRepository placeRepository = new PlaceRepository();
 
@@ -27,7 +22,7 @@ namespace EasyTravelWeb.Controllers
         /// </summary>
         public SearchController()
         {
-	        this.InitializeData();
+            this.InitializeData();
         }
 
         /// <summary>
@@ -38,7 +33,7 @@ namespace EasyTravelWeb.Controllers
             this.cityRepository = cityRepository;
             this.placeRepository = placeRepository;
 
-	        this.InitializeData();
+            this.InitializeData();
         }
 
         /// <summary>
@@ -49,13 +44,13 @@ namespace EasyTravelWeb.Controllers
             if (cities == null)
             {
                 cities = new List<CitySearchEntity>();
-	            this.cityRepository.GetCitiesIdAndNames().ForEach(city => cities.Add(city));
+                this.cityRepository.GetCitiesIdAndNames().ForEach(city => cities.Add(city));
             }
 
             if (places == null)
             {
                 places = new List<PlaceSearchEntity>();
-	            this.placeRepository.GetPlacesIdsAndNames().ForEach(place => places.Add(place));
+                this.placeRepository.GetPlacesIdsAndNames().ForEach(place => places.Add(place));
             }
         }
 
@@ -112,23 +107,15 @@ namespace EasyTravelWeb.Controllers
         /// <param name="searchWord">Key word, which is used to filter names of cities and places</param>
         /// <returns>List of suggestions according to searchWord</returns>
         [HttpGet]
-		public IHttpActionResult GetSuggestions(string searchWord)
+        public IHttpActionResult GetSuggestions(string searchWord)
         {
-            try
-            {
-                searchWord = searchWord.ToLower();
-                IList<ISearchEntity> listOfSuggestions = new List<ISearchEntity>();
+            searchWord = searchWord.ToLower();
+            IList<ISearchEntity> listOfSuggestions = new List<ISearchEntity>();
 
-                AddCitiesToSuggestions(searchWord, listOfSuggestions);
-                AddPlacesToSuggestions(searchWord, listOfSuggestions);
+            AddCitiesToSuggestions(searchWord, listOfSuggestions);
+            AddPlacesToSuggestions(searchWord, listOfSuggestions);
 
-                return this.Ok(listOfSuggestions);
-            }
-            catch (Exception ex)
-            {
-	            this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
+            return this.Ok(listOfSuggestions);
         }
     }
 }

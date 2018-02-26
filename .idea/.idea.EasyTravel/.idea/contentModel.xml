@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\src\SoftServe\EasyTravel\Net" t="IncludeFlat">
+      <e p="DB_Scripts" t="Include">
+        <e p="db.changelog.xml" t="Include" />
+        <e p="V1.0" t="Include">
+          <e p="ScriptV1.0.sql" t="Include" />
+        </e>
+        <e p="V1.1" t="Include">
+          <e p="ScriptV1.1_Procedure_GetCities.sql" t="Include" />
+          <e p="ScriptV1.1_Procedure_GetCityById.sql" t="Include" />
+          <e p="ScriptV1.1_Procedure_GetPlaceById.sql" t="Include" />
+          <e p="ScriptV1.1_Procedure_GetPlaceByName.sql" t="Include" />
+          <e p="ScriptV1.1_Procedure_GetPlacesByCityId.sql" t="Include" />
+          <e p="ScriptV1.1_Procedure_GetTopPlacesByCityId.sql" t="Include" />
+          <e p="ScriptV1.1_Procedure_GetTopPlacesByCityName.sql" t="Include" />
+        </e>
+        <e p="V1.2" t="Include">
+          <e p="ScriptV1.2_InsertData.sql" t="Include" />
+          <e p="ScriptV1.2_Procedure_GetPlaces.sql" t="Include" />
+        </e>
+        <e p="v1.3" t="Include">
+          <e p="ScriptV1.3_Alter_Table_AspNetUsers_Add_FirstName_And_LastName_Columns.sql" t="Include" />
+        </e>
+        <e p="V1.4" t="Include">
+          <e p="ScriptV1.4_Procedure_GetCitiesIdAndNames.sql" t="Include" />
+          <e p="ScriptV1.4_Procedure_GetPlacesIdsAndNames.sql" t="Include" />
+          <e p="ScriptV1.4_TrunkateDataAstNetUsers.sql" t="Include" />
+        </e>
+        <e p="V1.5" t="Include">
+          <e p="ScriptV1.5_Procedure_ChangeFirstName.sql" t="Include" />
+          <e p="ScriptV1.5_Procedure_ChangeLastName.sql" t="Include" />
+          <e p="ScriptV1.5_Procedure_DeleteUserFavoritePlace.sql" t="Include" />
+          <e p="ScriptV1.5_Procedure_GetCitiesPage.sql" t="Include" />
+          <e p="ScriptV1.5_Procedure_GetCountCity.sql" t="Include" />
+          <e p="ScriptV1.5_Procedure_GetCountPlace.sql" t="Include" />
+          <e p="ScriptV1.5_Procedure_GetPlacesPage.sql" t="Include" />
+          <e p="ScriptV1.5_Procedure_GetUserById.sql" t="Include" />
+          <e p="ScriptV1.5_Procedure_InsertNewUserFavoritePlace.sql" t="Include" />
+        </e>
+        <e p="V1.6" t="Include">
+          <e p="ScriptV1.6_Procedure_GetCitiesPage.sql" t="Include" />
+          <e p="ScriptV1.6_Procedure_GetCityById.sql" t="Include" />
+          <e p="ScriptV1.6_Procedure_GetCountCity.sql" t="Include" />
+          <e p="ScriptV1.6_Procedure_GetCountPlace.sql" t="Include" />
+          <e p="ScriptV1.6_Procedure_GetPlaces.sql" t="Include" />
+          <e p="ScriptV1.6_Procedure_GetTopPlacesByCityId.sql" t="Include" />
+          <e p="ScriptV1.6_Procedure_GetTopPlacesByCityName.sql" t="Include" />
+        </e>
+        <e p="v1.7" t="Include">
+          <e p="ScriptV1.7_Alter_Table_City-Add_CityRating_Column.sql" t="Include" />
+          <e p="ScriptV1.7_Alter_Table_Place-Add_PlaceRating_Column.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_DeleteUsersPlaceRating.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_GetCitiesPage.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_GetCityById.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_GetPlaceById.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_GetPlaceRating.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_GetPlacesPage.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_GetTopCities.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_GetTopPlacesByCityId.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_GetUserPlaceRating.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_InsertOrUpdateUsersPlaceRating.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_UpdateCityRating.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Procedure_UpdatePlaceRating.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Table_UsersPlaceRatings.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Trigger_tr_Place_After_Delete.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Trigger_tr_Place_After_Insert.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Trigger_tr_Place_After_Update.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Delete.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Insert.sql" t="Include" />
+          <e p="ScriptV1.7_Create_Trigger_tr_UsersPlaceRatings_After_Update.sql" t="Include" />
+          <e p="ScriptV1.7_Drop_Procedure_GetCities_If_Exists.sql" t="Include" />
+          <e p="ScriptV1.7_Drop_Procedure_GetPlaceByName_If_Exists.sql" t="Include" />
+          <e p="ScriptV1.7_Drop_Procedure_GetPlacesByCityId_If_Exists.sql" t="Include" />
+          <e p="ScriptV1.7_Drop_Procedure_GetTopPlacesByCityName_If_Exists.sql" t="Include" />
+          <e p="ScriptV1.7_IdentityChangeColumnId.sql" t="Include" />
+        </e>
+        <e p="V1.8" t="Include">
+          <e p="ScriptV1.8_Fix_Data_ColumnCityRatingNull.sql" t="Include" />
+        </e>
+        <e p="V1.9" t="Include">
+          <e p="ScriptV1.9_Create_Procedure_GetTopCities.sql" t="Include" />
+          <e p="ScriptV1.9_Create_Procedure_GetTopPlacesByCityId.sql" t="Include" />
+        </e>
+        <e p="V2.0" t="Include">
+          <e p="ScriptV2.0_Function_GetFilteredPlacesFunction.sql" t="Include" />
+          <e p="ScriptV2.0_Function_IntListToTable.sql" t="Include" />
+          <e p="ScriptV2.0_Insert_Filters.sql" t="Include" />
+          <e p="ScriptV2.0_Insert_FiltersPlacesJT.sql" t="Include" />
+          <e p="ScriptV2.0_Procedure_GetCountFromFilteredPlaces.sql" t="Include" />
+          <e p="ScriptV2.0_Procedure_GetFilteredPlaces.sql" t="Include" />
+          <e p="ScriptV2.0_Procedure_GetPlaceFilters.sql" t="Include" />
+          <e p="ScriptV2.0_Table_Filters.sql" t="Include" />
+          <e p="ScriptV2.0_Table_FiltersPlacesJT.sql" t="Include" />
+        </e>
+        <e p="V2.1" t="Include">
+          <e p="ScriptV2.1_Create_Procedure_GetTopCities.sql" t="Include" />
+        </e>
+        <e p="V2.2" t="Include">
+          <e p="ScriptV2.2_Procedure_GetCitiesIdAndNames.sql" t="Include" />
+        </e>
+      </e>
+      <e p="EasyTravel.sln" t="IncludeFlat" />
+      <e p="EasyTravelTest" t="IncludeRecursive">
+        <e p="app.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ControllersTest" t="Include">
+          <e p="CityControllerTest.cs" t="Include" />
+          <e p="PlaceControllerTest.cs" t="Include" />
+          <e p="ProfileControllerTest.cs" t="Include" />
+          <e p="SearchControllerTest.cs" t="Include" />
+        </e>
+        <e p="EasyTravelTest.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="RepositoriesTest" t="Include">
+          <e p="CityRepositoryTest.cs" t="Include" />
+          <e p="PlaceRepositoryTest.cs" t="Include" />
+        </e>
+        <e p="ValidatorsTest" t="Include">
+          <e p="RegisterBindingModelValidatorTest.cs" t="Include" />
+        </e>
+      </e>
+      <e p="EasyTravelWeb" t="IncludeRecursive">
+        <e p="App_Start" t="Include">
+          <e p="BundleConfig.cs" t="Include" />
+          <e p="CORSConfig.cs" t="Include" />
+          <e p="FilterConfig.cs" t="Include" />
+          <e p="IdentityConfig.cs" t="Include" />
+          <e p="RouteConfig.cs" t="Include" />
+          <e p="Startup.Auth.cs" t="Include" />
+          <e p="WebApiConfig.cs" t="Include" />
+        </e>
+        <e p="ApplicationInsights.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Constants" t="Include">
+          <e p="Constants.cs" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="AccountController.cs" t="Include" />
+          <e p="CityController.cs" t="Include" />
+          <e p="MainPageController.cs" t="Include" />
+          <e p="PlaceController.cs" t="Include" />
+          <e p="ProfileController.cs" t="Include" />
+          <e p="SearchController.cs" t="Include" />
+          <e p="ServicesController.cs" t="Include" />
+        </e>
+        <e p="EasyTravelWeb.csproj" t="IncludeRecursive" />
+        <e p="favicon.ico" t="Include" />
+        <e p="Global.asax" t="Include" />
+        <e p="Global.asax.cs" t="Include" />
+        <e p="Infrastructure" t="Include">
+          <e p="ExceptionHandler.cs" t="Include" />
+          <e p="Logger.cs" t="Include" />
+          <e p="Validators" t="Include">
+            <e p="EmailValidator.cs" t="Include" />
+            <e p="IValidator.cs" t="Include" />
+            <e p="NameValidator.cs" t="Include" />
+            <e p="PasswordValidator.cs" t="Include" />
+            <e p="RegisterBindingModelValidator.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="Configuration.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="AccountBindingModels.cs" t="Include" />
+          <e p="AccountViewModels.cs" t="Include" />
+          <e p="BlaBlaCar" t="Include">
+            <e p="BadResponseModel.cs" t="Include" />
+            <e p="Links.cs" t="Include" />
+            <e p="OKResponseModel.cs" t="Include" />
+            <e p="Pager.cs" t="Include" />
+            <e p="Price.cs" t="Include" />
+            <e p="Trip.cs" t="Include" />
+          </e>
+          <e p="BlaBlaCarResponse" t="Include">
+            <e p="BadResponse.cs" t="Include" />
+            <e p="BlaBlaCarResponseModel.cs" t="Include" />
+            <e p="OKResponse.cs" t="Include" />
+          </e>
+          <e p="City.cs" t="Include" />
+          <e p="FavoritePlace.cs" t="Include" />
+          <e p="Filter.cs" t="Include" />
+          <e p="IdentityModels.cs" t="Include" />
+          <e p="Place.cs" t="Include" />
+          <e p="ProviderInfo.cs" t="Include" />
+          <e p="SearchEntities" t="Include">
+            <e p="CitySearchEntity.cs" t="Include" />
+            <e p="ISearchEntity.cs" t="Include" />
+            <e p="PlaceSearchEntity.cs" t="Include" />
+          </e>
+          <e p="User.cs" t="Include" />
+          <e p="UserPlaceRating.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="FolderProfile.pubxml" t="Include" />
+          </e>
+        </e>
+        <e p="Providers" t="Include">
+          <e p="ApplicationOAuthProvider.cs" t="Include" />
+        </e>
+        <e p="Repositories" t="Include">
+          <e p="CityRepository.cs" t="Include" />
+          <e p="PlaceRepository.cs" t="Include" />
+          <e p="RatingRepository.cs" t="Include" />
+          <e p="UserRepository.cs" t="Include" />
+        </e>
+        <e p="Results" t="Include">
+          <e p="ChallengeResult.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="modernizr-2.8.3.js" t="Include" />
+          <e p="respond.js" t="Include" />
+          <e p="respond.matchmedia.addListener.js" t="Include" />
+          <e p="respond.matchmedia.addListener.min.js" t="Include" />
+          <e p="respond.min.js" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="BlaBlaCar" t="Include">
+            <e p="BlaBlaCarResultParser.cs" t="Include" />
+            <e p="BlaBlaCarService.cs" t="Include" />
+          </e>
+          <e p="EmailService.cs" t="Include" />
+          <e p="ExternalLoginVerificator.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="Views" t="Include">
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="MainPage" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+          </e>
+          <e p="Web.config" t="Include" />
+        </e>
+        <e p="Web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Web.Release.config" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive">
+        <e p="MSTest.TestAdapter.1.1.18\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" t="Include" />
+        <e p="MSTest.TestAdapter.1.1.18\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" t="Include" />
+        <e p="MSTest.TestAdapter.1.1.18\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
+      </e>
+    </e>
+    <e p="C:\Users\mrkel\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_EasyTravel.1672962177.00" t="ExcludeRecursive" />
+  </component>
+</project>

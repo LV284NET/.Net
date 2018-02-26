@@ -19,7 +19,6 @@ namespace EasyTravelWeb.Repositories
 		/// <returns></returns>
 		public virtual IList<City> GetTopCities(int numberOfTopCities)
         {
-            List<City> listToReturn = new List<City>();
             using (SqlConnection connection = 
 	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
@@ -35,6 +34,7 @@ namespace EasyTravelWeb.Repositories
                 {
                     if (reader.HasRows)
                     {
+                        List<City> listToReturn = new List<City>();
                         while (reader.Read())
                         {
                             listToReturn.Add(new City
@@ -73,7 +73,6 @@ namespace EasyTravelWeb.Repositories
                 command.Parameters.Add(new SqlParameter("@PageSize", pageSize));
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-
                     IList<City> listToReturn = new List<City>();
                     if (reader.HasRows)
                     {
@@ -103,7 +102,6 @@ namespace EasyTravelWeb.Repositories
         /// <returns>list of ids and names</returns>
         public virtual IList<CitySearchEntity> GetCitiesIdAndNames()
         {
-            List<CitySearchEntity> cities = new List<CitySearchEntity>();
             using (SqlConnection connection = 
 	            new SqlConnection(Constants.Constants.ConnectionStrings.DatabaseConnectionString))
             {
@@ -116,6 +114,7 @@ namespace EasyTravelWeb.Repositories
                 {
                     if (reader.HasRows)
                     {
+                        List<CitySearchEntity> cities = new List<CitySearchEntity>();
                         while (reader.Read())
                         {
                             cities.Add(new CitySearchEntity

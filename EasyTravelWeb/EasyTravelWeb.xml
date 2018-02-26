@@ -238,16 +238,19 @@
             <example>Petro</example>
         </member>
         <member name="T:EasyTravelWeb.Controllers.CityController">
+            <inheritdoc />
             <summary>
                Controller for get and set info about cities
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.#ctor">
+            <inheritdoc />
             <summary>
                Default constructor
             </summary>
         </member>
         <member name="M:EasyTravelWeb.Controllers.CityController.#ctor(EasyTravelWeb.Repositories.CityRepository)">
+            <inheritdoc />
             <summary>
                Constructor with params
             </summary>
@@ -381,16 +384,6 @@
             	Instance of RatingRepository, using methods to do actions with database
             </summary>
         </member>
-        <member name="F:EasyTravelWeb.Controllers.ProfileController.logger">
-            <summary>
-            	Instance for stroring exceptions in file
-            </summary>
-        </member>
-        <member name="F:EasyTravelWeb.Controllers.ProfileController.nameValidator">
-            <summary>
-            	Validator for first and last name
-            </summary>
-        </member>
         <member name="F:EasyTravelWeb.Controllers.ProfileController.placeRepository">
             <summary>
             	Instance of PlaceRepository, using method to get favourite places for user from database
@@ -417,22 +410,6 @@
             </summary>
             <param name="id">id of current user</param>
             <returns>First, last, email of user</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Controllers.ProfileController.ChangeFirstName(System.Int32,System.String)">
-            <summary>
-            	Method for changing first name of a user
-            </summary>
-            <param name="id">Id of current user</param>
-            <param name="firstName">First name which will be updated in database</param>
-            <returns>result of chaning (Bad or Ok)</returns>
-        </member>
-        <member name="M:EasyTravelWeb.Controllers.ProfileController.ChangeLastName(System.Int32,System.String)">
-            <summary>
-            	Method for changing first name of a user
-            </summary>
-            <param name="id">Id of current user</param>
-            <param name="lastName">Last name which will be updated in database</param>
-            <returns>result of chaning (Bad or Ok)</returns>
         </member>
         <member name="M:EasyTravelWeb.Controllers.ProfileController.GetFavoritePlaces(System.Int32)">
             <summary>
@@ -519,6 +496,16 @@
                Aplication manager
             </summary>
         </member>
+        <member name="F:EasyTravelWeb.Controllers.AccountController.nameValidator">
+            <summary>
+            	Validator for first and last name
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.AccountController.userRepository">
+            <summary>
+            	Instance of UserRepository, using methods to do actions with database
+            </summary>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.#ctor">
             <summary>
                Constructor
@@ -558,6 +545,22 @@
                
             </summary>
         </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.ChangeFirstName(EasyTravelWeb.Models.ChangeFirstName)">
+            <summary>
+            	Method for changing first name of a user
+            </summary>
+            <param name="id">Id of current user</param>
+            <param name="newFirstName">First name which will be updated in database</param>
+            <returns>result of chaning (Bad or Ok)</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.AccountController.ChangeLastName(EasyTravelWeb.Models.ChangeLastName)">
+            <summary>
+            	Method for changing first name of a user
+            </summary>
+            <param name="id">Id of current user</param>
+            <param name="newLastName">Last name which will be updated in database</param>
+            <returns>result of chaning (Bad or Ok)</returns>
+        </member>
         <member name="M:EasyTravelWeb.Controllers.AccountController.ChangePassword(EasyTravelWeb.Models.ChangePasswordBindingModel)">
             <param name="model">User Model for change password</param>
             <returns>Status code of result</returns>
@@ -567,7 +570,7 @@
                
             </summary>
         </member>
-        <member name="M:EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.FacebookUserViewModel)">
+        <member name="M:EasyTravelWeb.Controllers.AccountController.AddExternalLogin(EasyTravelWeb.Models.ProviderInfo)">
             <summary>
              Authorization with External service (Facebook)
             </summary>
@@ -615,6 +618,33 @@
             <summary>
                
             </summary>
+        </member>
+        <member name="T:EasyTravelWeb.Controllers.ServicesController">
+            <summary>
+                Send requests on different services 
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Controllers.ServicesController.blaBlaCar">
+            <summary>
+             BlaBlaCar Service
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ServicesController.GetBlaBlaCarRequestResult(System.String,System.String,System.DateTime)">
+            <summary>
+            get info about trips from one city to other city in some date on BlaBlaCar
+            </summary>
+            <param name="fromCity">departure city</param>
+            <param name="toCity">arrival city</param>
+            <param name="dateOfTrip">Date of trip</param>
+            <returns>Status code with info about trips</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Controllers.ServicesController.GetBlaBlaCarRequestResult(System.String,System.String)">
+            <summary>
+            get info about trips from one city to other city on BlaBlaCar
+            </summary>
+            <param name="fromCity">departure city</param>
+            <param name="toCity">arrival city</param>
+            <param name="dateOfTrip">Date of trip</param>
         </member>
         <member name="T:EasyTravelWeb.MvcApplication">
             <summary>
@@ -846,7 +876,7 @@
         </member>
         <member name="T:EasyTravelWeb.Infrastructure.Logger">
             <summary>
-                Logs applicatuon exceptions and messages into 
+                Logs application exceptions and messages into 
             	EasyTravelLog.txt in C:\Users\current user's directory
             </summary>
         </member>
@@ -927,6 +957,16 @@
             </summary>
         </member>
         <member name="P:EasyTravelWeb.Models.ChangePasswordBindingModel.ConfirmPassword">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ChangeFirstName.newFirstName">
+            <summary>
+               
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ChangeLastName.newLastName">
             <summary>
                
             </summary>
@@ -1106,6 +1146,23 @@
             
             </summary>
         </member>
+        <member name="T:EasyTravelWeb.Models.BlaBlaCarResponse.BadResponse">
+            <summary>
+                model of error from request 
+            </summary> 
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:EasyTravelWeb.Models.BlaBlaCarResponse.BlaBlaCarResponseModel" -->
+        <member name="T:EasyTravelWeb.Models.BlaBlaCarResponse.OKResponse">
+            <summary>
+                info model from success request 
+            </summary> 
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:EasyTravelWeb.Models.BlaBlaCar.BadResponseModel" -->
+        <!-- Badly formed XML comment ignored for member "T:EasyTravelWeb.Models.BlaBlaCar.Links" -->
+        <!-- Badly formed XML comment ignored for member "T:EasyTravelWeb.Models.BlaBlaCar.Pager" -->
+        <!-- Badly formed XML comment ignored for member "T:EasyTravelWeb.Models.BlaBlaCar.Price" -->
+        <!-- Badly formed XML comment ignored for member "T:EasyTravelWeb.Models.BlaBlaCar.OKResponseModel" -->
+        <!-- Badly formed XML comment ignored for member "T:EasyTravelWeb.Models.BlaBlaCar.Trip" -->
         <member name="T:EasyTravelWeb.Models.City">
             <summary>
                
@@ -1134,6 +1191,16 @@
         <member name="P:EasyTravelWeb.Models.City.CityRating">
             <summary>
                
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ProviderInfo.AccessToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTravelWeb.Models.ProviderInfo.Provider">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:EasyTravelWeb.Models.SearchEntities.CitySearchEntity">
@@ -1675,6 +1742,75 @@
                
             </summary>
         </member>
+        <member name="T:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarResultParser">
+            <summary>
+            parse response from blablacar 
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarResultParser.SuccessResult(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            parse response from success result 
+            </summary>
+            <param name="response">response from blablacar</param>
+            <returns>info about trips</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarResultParser.BadResult(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            parse response from bad result 
+            </summary>
+            <param name="response">response from blablacar</param>
+            <returns>info about error</returns>
+        </member>
+        <member name="T:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.urlParameters">
+            <summary>
+            url with params
+            </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.BlaBlaCarRequest(System.String,System.String,System.DateTime)">
+            <summary>
+            create request with params 
+            </summary>
+            <param name="fromCity">departure city</param>
+            <param name="toCity">arrival city</param>
+            <param name="travelDate">Date of trip</param>
+            <returns>info about trips</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.BlaBlaCarRequest(System.String,System.String)">
+            <summary>
+            create request with params 
+            </summary>
+            <param name="fromCity">departure city</param>
+            <param name="toCity">arrival city</param>
+            <returns>info about trips</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.SendRequest(System.String)">
+            <summary>
+            send request with params 
+            </summary>
+            <param name="urlParams">url for with params for request</param>
+            <returns>response from blablacar</returns>
+        </member>
+        <member name="M:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.AddHeaders(System.Net.Http.HttpClient,System.String,System.String)">
+            <summary>
+            add headers to request
+            </summary>
+            <param name="client">http client</param>
+            <param name="header">name of header</param>
+            <param name="value">value of header</param>
+        </member>
+        <member name="M:EasyTravelWeb.Services.BlaBlaCar.BlaBlaCarService.AddParam(System.String,System.String)">
+            <summary>
+            create request with params 
+            </summary>
+            <param name="name">name of param</param>
+            <param name="value">value of param</param>
+            <returns>new url with add params</returns>
+        </member>
         <member name="T:EasyTravelWeb.Services.EmailService">
             <summary>
                Service for sending email
@@ -1684,6 +1820,13 @@
             <summary>
                Sends email to user
             </summary>
+        </member>
+        <member name="M:EasyTravelWeb.Services.ExternalLoginVerificator.VerifyFacebookAccessToken(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="accessToken"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

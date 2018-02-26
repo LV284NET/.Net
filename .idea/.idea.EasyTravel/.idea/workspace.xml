@@ -1,0 +1,1293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6346f8c4-9a74-4acb-9e47-965cd289e77b" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Controllers/ServicesController.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Infrastructure/ExceptionHandler.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/BadResponseModel.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Links.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/OKResponseModel.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Pager.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Price.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Trip.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCarResponse/BadResponse.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCarResponse/BlaBlaCarResponseModel.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCarResponse/OKResponse.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/ProviderInfo.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Services/BlaBlaCar/BlaBlaCarResultParser.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Services/BlaBlaCar/BlaBlaCarService.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/EasyTravelWeb/Services/ExternalLoginVerificator.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/App_Start/WebApiConfig.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/App_Start/WebApiConfig.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Constants/Constants.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Constants/Constants.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Controllers/CityController.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Controllers/CityController.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Controllers/PlaceController.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Controllers/PlaceController.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Controllers/ProfileController.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Controllers/ProfileController.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Controllers/SearchController.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Controllers/SearchController.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/EasyTravelWeb.csproj" afterPath="$PROJECT_DIR$/EasyTravelWeb/EasyTravelWeb.csproj" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/EasyTravelWeb.md" afterPath="$PROJECT_DIR$/EasyTravelWeb/EasyTravelWeb.md" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/EasyTravelWeb.xml" afterPath="$PROJECT_DIR$/EasyTravelWeb/EasyTravelWeb.xml" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Infrastructure/Logger.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Infrastructure/Logger.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Models/AccountBindingModels.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/AccountBindingModels.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Models/AccountViewModels.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Models/AccountViewModels.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Repositories/CityRepository.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Repositories/CityRepository.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Repositories/PlaceRepository.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Repositories/PlaceRepository.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Repositories/RatingRepository.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Repositories/RatingRepository.cs" />
+      <change beforePath="$PROJECT_DIR$/EasyTravelWeb/Repositories/UserRepository.cs" afterPath="$PROJECT_DIR$/EasyTravelWeb/Repositories/UserRepository.cs" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Links.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Links.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1519634872232" expanded="true" signature="40:197" ph="{...}" />
+                <marker date="1519634872232" expanded="true" signature="47:117" ph="/// &lt;summary&gt; ... " />
+                <marker date="1519634872232" expanded="true" signature="140:195" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchController.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/SearchController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <marker date="1519635832278" expanded="false" signature="6:165" ph="..." />
+                <marker date="1519635832278" expanded="true" signature="202:4186" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="209:275" ph="///     Controller for search ... " />
+                <marker date="1519635832278" expanded="true" signature="325:4184" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="612:683" ph="///    Default constructor ... " />
+                <marker date="1519635832278" expanded="true" signature="717:772" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="782:878" ph="///    Constructor with parameters for unit testing ... " />
+                <marker date="1519635832278" expanded="true" signature="974:1132" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="1142:1251" ph="/// Initialization of cities and places fields, if they are null ... " />
+                <marker date="1519635832278" expanded="true" signature="1289:1731" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="1331:1507" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="1540:1721" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="1741:2007" ph="/// Adds cities to suggestions ... " />
+                <marker date="1519635832278" expanded="true" signature="2110:2600" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="2200:2590" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="2275:2576" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="2483:2558" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="2610:2876" ph="/// Adds places to suggestions ... " />
+                <marker date="1519635832278" expanded="true" signature="2979:3470" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="3069:3460" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="3144:3446" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="3353:3428" ph="{...}" />
+                <marker date="1519635832278" expanded="true" signature="3480:3763" ph="/// Method for getting suggestion according to searchWord ... " />
+                <marker date="1519635832278" expanded="true" signature="3848:4178" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/ServicesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/ProviderInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/ExceptionHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/SearchController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Services/ExternalLoginVerificator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCarResponse/BlaBlaCarResponseModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCarResponse/OKResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCarResponse/BadResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Links.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/BadResponseModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Repositories/CityRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/OKResponseModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/Logger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Trip.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Price.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Pager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Services/BlaBlaCar/BlaBlaCarResultParser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Services/BlaBlaCar/BlaBlaCarService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Web.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/EasyTravelWeb/Constants/Constants.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/EasyTravelWeb/Services/ExternalLoginVerificator.cs" />
+        <option value="$PROJECT_DIR$/EasyTravelWeb/Controllers/SearchController.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
+    <option name="width" value="794" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="EasyTravel (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="EasyTravel (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="EasyTravelWeb" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="EasyTravel (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="EasyTravelWeb" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Controllers" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="C:/Program Files/IIS Express/iisexpress.exe" />
+      <option name="PROGRAM_PARAMETERS" value="/config:$PROJECT_DIR$/.idea/config/applicationhost.config /site:EasyTravelWeb /apppool:Clr4IntegratedAppPool" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EasyTravelWeb" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <envs />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/EasyTravelWeb/EasyTravelWeb.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Web" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.6.1" />
+      <browser url="https://localhost:44317/" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6346f8c4-9a74-4acb-9e47-965cd289e77b" name="Default" comment="" />
+      <created>1518616626432</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518616626432</updated>
+      <workItem from="1518616641056" duration="2620000" />
+      <workItem from="1519025016444" duration="3352000" />
+      <workItem from="1519141902296" duration="797000" />
+      <workItem from="1519305114109" duration="2480000" />
+      <workItem from="1519386341521" duration="986000" />
+      <workItem from="1519470195538" duration="2799000" />
+      <workItem from="1519589553025" duration="1194000" />
+      <workItem from="1519635110896" duration="835000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="15063000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28214827" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27941176" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs</url>
+          <line>277</line>
+          <properties documentPath="$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs">
+            <startOffsets>
+              <startOffset value="9656" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="9657" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Web.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="163" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/ProviderInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Services/ExternalLoginVerificator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/ExceptionHandler.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="65" lean-forward="false" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519634872204" expanded="false" signature="6:691" ph="..." />
+            <marker date="1519634872204" expanded="true" signature="735:839" ph="///    Controller for register, sign in or change User private info ... " />
+            <marker date="1519634872204" expanded="true" signature="906:24162" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="921:989" ph="///    Validation model ... " />
+            <marker date="1519634872204" expanded="true" signature="1138:1208" ph="///    Aplication manager ... " />
+            <marker date="1519634872204" expanded="true" signature="1270:1353" ph="///&#9;&#9;Validator for first and last name ... " />
+            <marker date="1519634872204" expanded="true" signature="1456:1575" ph="///&#9;&#9;Instance of UserRepository, using methods to do actions with database ... " />
+            <marker date="1519634872204" expanded="true" signature="1776:1839" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="1874:1894" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="1904:2101" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="2241:2361" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2371:2423" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2473:2657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2667:2719" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2811:2981" ph="///    Controller for get UserInfo ... " />
+            <marker date="1519634872204" expanded="true" signature="3118:3529" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3299:3518" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3539:3701" ph="///    Controller for logOut ... " />
+            <marker date="1519634872204" expanded="true" signature="3762:3902" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3912:4035" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="4160:5295" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4513:4657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4774:4944" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5003:5284" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5305:5604" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="5707:6326" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5857:5950" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6016:6109" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6175:6285" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6336:6633" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="6734:7348" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6885:6978" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7042:7135" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7199:7307" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7358:7612" ph="///    Controller for change User password ... " />
+            <marker date="1519634872204" expanded="true" signature="7725:8792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8350:8554" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8572:8679" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8802:8894" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="9001:9357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="9367:9508" ph="///  Authorization with External service (Facebook) ... " />
+            <marker date="1519634872204" expanded="true" signature="9647:11925" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10037:10788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10111:10357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10948:11082" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11609:11913" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11935:12027" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="12134:12788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="12798:12891" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="13139:15029" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="13616:13792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14033:14725" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14742:14988" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15039:15166" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="15324:16563" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15574:15726" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15743:15801" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15878:16525" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15964:16475" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16096:16421" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16609:16730" ph="///  ... " />
+            <marker date="1519634872204" expanded="true" signature="16853:17341" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16996:17112" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17158:17300" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17388:17667" ph="/// Registers user in database ... " />
+            <marker date="1519634872204" expanded="true" signature="17793:19006" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17845:17915" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17983:18965" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18061:18260" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18399:18843" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19017:19069" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="19276:19875" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19350:19519" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19648:19728" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19885:19982" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20185:20869" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="20879:20931" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20987:21213" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21052:21165" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21223:24156" ph="Helpers" />
+            <marker date="1519634872204" expanded="true" signature="21415:21891" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21528:21855" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21932:23311" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22142:22514" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22597:23301" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23076:23286" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23367:24136" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23539:24126" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Repositories/CityRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="67" column="80" lean-forward="false" selection-start-line="67" selection-start-column="80" selection-end-line="67" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Constants/Constants.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="59" column="70" lean-forward="false" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Web.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="163" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/ProviderInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Services/ExternalLoginVerificator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/ExceptionHandler.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="65" lean-forward="false" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3945">
+          <caret line="285" column="12" lean-forward="false" selection-start-line="285" selection-start-column="12" selection-end-line="285" selection-end-column="12" />
+          <folding>
+            <marker date="1519634872204" expanded="false" signature="6:691" ph="..." />
+            <marker date="1519634872204" expanded="true" signature="735:839" ph="///    Controller for register, sign in or change User private info ... " />
+            <marker date="1519634872204" expanded="true" signature="906:24162" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="921:989" ph="///    Validation model ... " />
+            <marker date="1519634872204" expanded="true" signature="1138:1208" ph="///    Aplication manager ... " />
+            <marker date="1519634872204" expanded="true" signature="1270:1353" ph="///&#9;&#9;Validator for first and last name ... " />
+            <marker date="1519634872204" expanded="true" signature="1456:1575" ph="///&#9;&#9;Instance of UserRepository, using methods to do actions with database ... " />
+            <marker date="1519634872204" expanded="true" signature="1776:1839" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="1874:1894" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="1904:2101" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="2241:2361" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2371:2423" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2473:2657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2667:2719" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2811:2981" ph="///    Controller for get UserInfo ... " />
+            <marker date="1519634872204" expanded="true" signature="3118:3529" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3299:3518" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3539:3701" ph="///    Controller for logOut ... " />
+            <marker date="1519634872204" expanded="true" signature="3762:3902" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3912:4035" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="4160:5295" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4513:4657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4774:4944" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5003:5284" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5305:5604" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="5707:6326" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5857:5950" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6016:6109" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6175:6285" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6336:6633" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="6734:7348" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6885:6978" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7042:7135" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7199:7307" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7358:7612" ph="///    Controller for change User password ... " />
+            <marker date="1519634872204" expanded="true" signature="7725:8792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8350:8554" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8572:8679" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8802:8894" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="9001:9357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="9367:9508" ph="///  Authorization with External service (Facebook) ... " />
+            <marker date="1519634872204" expanded="true" signature="9647:11925" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10037:10788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10111:10357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10948:11082" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11609:11913" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11935:12027" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="12134:12788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="12798:12891" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="13139:15029" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="13616:13792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14033:14725" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14742:14988" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15039:15166" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="15324:16563" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15574:15726" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15743:15801" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15878:16525" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15964:16475" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16096:16421" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16609:16730" ph="///  ... " />
+            <marker date="1519634872204" expanded="true" signature="16853:17341" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16996:17112" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17158:17300" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17388:17667" ph="/// Registers user in database ... " />
+            <marker date="1519634872204" expanded="true" signature="17793:19006" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17845:17915" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17983:18965" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18061:18260" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18399:18843" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19017:19069" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="19276:19875" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19350:19519" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19648:19728" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19885:19982" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20185:20869" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="20879:20931" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20987:21213" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21052:21165" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21223:24156" ph="Helpers" />
+            <marker date="1519634872204" expanded="true" signature="21415:21891" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21528:21855" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21932:23311" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22142:22514" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22597:23301" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23076:23286" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23367:24136" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23539:24126" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Repositories/CityRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="67" column="80" lean-forward="true" selection-start-line="67" selection-start-column="80" selection-end-line="67" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="277" column="8" lean-forward="false" selection-start-line="277" selection-start-column="8" selection-end-line="277" selection-end-column="8" />
+          <folding>
+            <marker date="1519634872204" expanded="false" signature="6:691" ph="..." />
+            <marker date="1519634872204" expanded="true" signature="735:839" ph="///    Controller for register, sign in or change User private info ... " />
+            <marker date="1519634872204" expanded="true" signature="906:24162" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="921:989" ph="///    Validation model ... " />
+            <marker date="1519634872204" expanded="true" signature="1138:1208" ph="///    Aplication manager ... " />
+            <marker date="1519634872204" expanded="true" signature="1270:1353" ph="///&#9;&#9;Validator for first and last name ... " />
+            <marker date="1519634872204" expanded="true" signature="1456:1575" ph="///&#9;&#9;Instance of UserRepository, using methods to do actions with database ... " />
+            <marker date="1519634872204" expanded="true" signature="1776:1839" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="1874:1894" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="1904:2101" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="2241:2361" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2371:2423" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2473:2657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2667:2719" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2811:2981" ph="///    Controller for get UserInfo ... " />
+            <marker date="1519634872204" expanded="true" signature="3118:3529" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3299:3518" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3539:3701" ph="///    Controller for logOut ... " />
+            <marker date="1519634872204" expanded="true" signature="3762:3902" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3912:4035" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="4160:5295" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4513:4657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4774:4944" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5003:5284" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5305:5604" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="5707:6326" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5857:5950" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6016:6109" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6175:6285" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6336:6633" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="6734:7348" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6885:6978" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7042:7135" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7199:7307" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7358:7612" ph="///    Controller for change User password ... " />
+            <marker date="1519634872204" expanded="true" signature="7725:8792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8350:8554" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8572:8679" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8802:8894" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="9001:9357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="9367:9508" ph="///  Authorization with External service (Facebook) ... " />
+            <marker date="1519634872204" expanded="true" signature="9647:11925" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10037:10788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10111:10357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10948:11082" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11609:11913" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11935:12027" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="12134:12788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="12798:12891" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="13139:15029" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="13616:13792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14033:14725" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14742:14988" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15039:15166" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="15324:16563" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15574:15726" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15743:15801" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15878:16525" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15964:16475" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16096:16421" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16609:16730" ph="///  ... " />
+            <marker date="1519634872204" expanded="true" signature="16853:17341" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16996:17112" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17158:17300" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17388:17667" ph="/// Registers user in database ... " />
+            <marker date="1519634872204" expanded="true" signature="17793:19006" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17845:17915" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17983:18965" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18061:18260" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18399:18843" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19017:19069" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="19276:19875" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19350:19519" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19648:19728" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19885:19982" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20185:20869" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="20879:20931" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20987:21213" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21052:21165" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21223:24156" ph="Helpers" />
+            <marker date="1519634872204" expanded="true" signature="21415:21891" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21528:21855" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21932:23311" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22142:22514" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22597:23301" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23076:23286" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23367:24136" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23539:24126" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Constants/Constants.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="59" column="70" lean-forward="false" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Web.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="163" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/ProviderInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Services/ExternalLoginVerificator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/ExceptionHandler.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="65" lean-forward="false" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/Logger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="23" column="69" lean-forward="false" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519634872204" expanded="false" signature="6:691" ph="..." />
+            <marker date="1519634872204" expanded="true" signature="735:839" ph="///    Controller for register, sign in or change User private info ... " />
+            <marker date="1519634872204" expanded="true" signature="906:24162" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="921:989" ph="///    Validation model ... " />
+            <marker date="1519634872204" expanded="true" signature="1138:1208" ph="///    Aplication manager ... " />
+            <marker date="1519634872204" expanded="true" signature="1270:1353" ph="///&#9;&#9;Validator for first and last name ... " />
+            <marker date="1519634872204" expanded="true" signature="1456:1575" ph="///&#9;&#9;Instance of UserRepository, using methods to do actions with database ... " />
+            <marker date="1519634872204" expanded="true" signature="1776:1839" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="1874:1894" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="1904:2101" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="2241:2361" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2371:2423" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2473:2657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2667:2719" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2811:2981" ph="///    Controller for get UserInfo ... " />
+            <marker date="1519634872204" expanded="true" signature="3118:3529" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3299:3518" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3539:3701" ph="///    Controller for logOut ... " />
+            <marker date="1519634872204" expanded="true" signature="3762:3902" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3912:4035" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="4160:5295" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4513:4657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4774:4944" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5003:5284" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5305:5604" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="5707:6326" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5857:5950" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6016:6109" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6175:6285" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6336:6633" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="6734:7348" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6885:6978" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7042:7135" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7199:7307" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7358:7612" ph="///    Controller for change User password ... " />
+            <marker date="1519634872204" expanded="true" signature="7725:8792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8350:8554" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8572:8679" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8802:8894" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="9001:9357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="9367:9508" ph="///  Authorization with External service (Facebook) ... " />
+            <marker date="1519634872204" expanded="true" signature="9647:11925" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10037:10788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10111:10357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10948:11082" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11609:11913" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11935:12027" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="12134:12788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="12798:12891" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="13139:15029" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="13616:13792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14033:14725" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14742:14988" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15039:15166" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="15324:16563" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15574:15726" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15743:15801" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15878:16525" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15964:16475" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16096:16421" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16609:16730" ph="///  ... " />
+            <marker date="1519634872204" expanded="true" signature="16853:17341" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16996:17112" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17158:17300" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17388:17667" ph="/// Registers user in database ... " />
+            <marker date="1519634872204" expanded="true" signature="17793:19006" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17845:17915" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17983:18965" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18061:18260" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18399:18843" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19017:19069" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="19276:19875" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19350:19519" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19648:19728" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19885:19982" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20185:20869" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="20879:20931" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20987:21213" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21052:21165" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21223:24156" ph="Helpers" />
+            <marker date="1519634872204" expanded="true" signature="21415:21891" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21528:21855" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21932:23311" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22142:22514" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22597:23301" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23076:23286" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23367:24136" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23539:24126" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Constants/Constants.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="59" column="70" lean-forward="false" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Web.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="163" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/ProviderInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Services/ExternalLoginVerificator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/Logger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="69" lean-forward="true" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/ExceptionHandler.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519634872204" expanded="false" signature="6:691" ph="..." />
+            <marker date="1519634872204" expanded="true" signature="735:839" ph="///    Controller for register, sign in or change User private info ... " />
+            <marker date="1519634872204" expanded="true" signature="906:24162" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="921:989" ph="///    Validation model ... " />
+            <marker date="1519634872204" expanded="true" signature="1138:1208" ph="///    Aplication manager ... " />
+            <marker date="1519634872204" expanded="true" signature="1270:1353" ph="///&#9;&#9;Validator for first and last name ... " />
+            <marker date="1519634872204" expanded="true" signature="1456:1575" ph="///&#9;&#9;Instance of UserRepository, using methods to do actions with database ... " />
+            <marker date="1519634872204" expanded="true" signature="1776:1839" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="1874:1894" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="1904:2101" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="2241:2361" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2371:2423" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2473:2657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2667:2719" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2811:2981" ph="///    Controller for get UserInfo ... " />
+            <marker date="1519634872204" expanded="true" signature="3118:3529" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3299:3518" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3539:3701" ph="///    Controller for logOut ... " />
+            <marker date="1519634872204" expanded="true" signature="3762:3902" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3912:4035" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="4160:5295" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4513:4657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4774:4944" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5003:5284" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5305:5604" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="5707:6326" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5857:5950" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6016:6109" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6175:6285" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6336:6633" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="6734:7348" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6885:6978" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7042:7135" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7199:7307" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7358:7612" ph="///    Controller for change User password ... " />
+            <marker date="1519634872204" expanded="true" signature="7725:8792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8350:8554" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8572:8679" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8802:8894" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="9001:9357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="9367:9508" ph="///  Authorization with External service (Facebook) ... " />
+            <marker date="1519634872204" expanded="true" signature="9647:11925" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10037:10788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10111:10357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10948:11082" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11609:11913" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11935:12027" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="12134:12788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="12798:12891" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="13139:15029" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="13616:13792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14033:14725" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14742:14988" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15039:15166" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="15324:16563" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15574:15726" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15743:15801" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15878:16525" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15964:16475" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16096:16421" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16609:16730" ph="///  ... " />
+            <marker date="1519634872204" expanded="true" signature="16853:17341" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16996:17112" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17158:17300" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17388:17667" ph="/// Registers user in database ... " />
+            <marker date="1519634872204" expanded="true" signature="17793:19006" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17845:17915" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17983:18965" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18061:18260" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18399:18843" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19017:19069" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="19276:19875" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19350:19519" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19648:19728" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19885:19982" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20185:20869" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="20879:20931" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20987:21213" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21052:21165" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21223:24156" ph="Helpers" />
+            <marker date="1519634872204" expanded="true" signature="21415:21891" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21528:21855" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21932:23311" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22142:22514" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22597:23301" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23076:23286" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23367:24136" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23539:24126" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/ProviderInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Services/ExternalLoginVerificator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/Logger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="23" column="69" lean-forward="true" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Repositories/CityRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="67" column="80" lean-forward="false" selection-start-line="67" selection-start-column="80" selection-end-line="67" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/AccountController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="290" column="17" lean-forward="false" selection-start-line="290" selection-start-column="17" selection-end-line="290" selection-end-column="17" />
+          <folding>
+            <marker date="1519634872204" expanded="false" signature="6:691" ph="..." />
+            <marker date="1519634872204" expanded="true" signature="735:839" ph="///    Controller for register, sign in or change User private info ... " />
+            <marker date="1519634872204" expanded="true" signature="906:24162" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="921:989" ph="///    Validation model ... " />
+            <marker date="1519634872204" expanded="true" signature="1138:1208" ph="///    Aplication manager ... " />
+            <marker date="1519634872204" expanded="true" signature="1270:1353" ph="///&#9;&#9;Validator for first and last name ... " />
+            <marker date="1519634872204" expanded="true" signature="1456:1575" ph="///&#9;&#9;Instance of UserRepository, using methods to do actions with database ... " />
+            <marker date="1519634872204" expanded="true" signature="1776:1839" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="1874:1894" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="1904:2101" ph="///    Constructor ... " />
+            <marker date="1519634872204" expanded="true" signature="2241:2361" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2371:2423" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2473:2657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="2667:2719" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="2811:2981" ph="///    Controller for get UserInfo ... " />
+            <marker date="1519634872204" expanded="true" signature="3118:3529" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3299:3518" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3539:3701" ph="///    Controller for logOut ... " />
+            <marker date="1519634872204" expanded="true" signature="3762:3902" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="3912:4035" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="4160:5295" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4513:4657" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="4774:4944" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5003:5284" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5305:5604" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="5707:6326" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="5857:5950" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6016:6109" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6175:6285" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6336:6633" ph="///&#9;&#9;Method for changing first name of a user ... " />
+            <marker date="1519634872204" expanded="true" signature="6734:7348" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="6885:6978" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7042:7135" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7199:7307" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="7358:7612" ph="///    Controller for change User password ... " />
+            <marker date="1519634872204" expanded="true" signature="7725:8792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8350:8554" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8572:8679" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="8802:8894" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="9001:9357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="9367:9508" ph="///  Authorization with External service (Facebook) ... " />
+            <marker date="1519634872204" expanded="true" signature="9647:11925" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10037:10788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10111:10357" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="10948:11082" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11609:11913" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="11935:12027" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="12134:12788" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="12798:12891" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="13139:15029" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="13616:13792" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14033:14725" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="14742:14988" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15039:15166" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="15324:16563" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15574:15726" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15743:15801" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15878:16525" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="15964:16475" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16096:16421" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16609:16730" ph="///  ... " />
+            <marker date="1519634872204" expanded="true" signature="16853:17341" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="16996:17112" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17158:17300" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17388:17667" ph="/// Registers user in database ... " />
+            <marker date="1519634872204" expanded="true" signature="17793:19006" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17845:17915" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="17983:18965" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18061:18260" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="18399:18843" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19017:19069" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="19276:19875" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19350:19519" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19648:19728" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="19885:19982" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20185:20869" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="20879:20931" ph="///     ... " />
+            <marker date="1519634872204" expanded="true" signature="20987:21213" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21052:21165" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21223:24156" ph="Helpers" />
+            <marker date="1519634872204" expanded="true" signature="21415:21891" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21528:21855" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="21932:23311" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22142:22514" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="22597:23301" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23076:23286" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23367:24136" ph="{...}" />
+            <marker date="1519634872204" expanded="true" signature="23539:24126" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Constants/Constants.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="59" column="70" lean-forward="false" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Web.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="163" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/ProviderInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Services/ExternalLoginVerificator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Infrastructure/ExceptionHandler.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="65" lean-forward="false" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Services/BlaBlaCar/BlaBlaCarResultParser.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Services/BlaBlaCar/BlaBlaCarService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/ServicesController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+          <folding>
+            <marker date="1519634872213" expanded="false" signature="6:122" ph="..." />
+            <marker date="1519634872213" expanded="true" signature="166:247" ph="///     Send requests on different services  ... " />
+            <marker date="1519634872213" expanded="true" signature="298:1932" ph="{...}" />
+            <marker date="1519634872213" expanded="true" signature="313:380" ph="///  BlaBlaCar Service ... " />
+            <marker date="1519634872213" expanded="true" signature="468:826" ph="/// get info about trips from one city to other city in some date on BlaBlaCar ... " />
+            <marker date="1519634872213" expanded="true" signature="956:1247" ph="{...}" />
+            <marker date="1519634872213" expanded="true" signature="1257:1537" ph="/// get info about trips from one city to other city on BlaBlaCar ... " />
+            <marker date="1519634872213" expanded="true" signature="1646:1926" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/BadResponseModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519634872228" expanded="false" signature="6:84" ph="..." />
+            <marker date="1519634872228" expanded="true" signature="133:209" ph="/// &lt;summary&gt; ... " />
+            <marker date="1519634872228" expanded="true" signature="243:297" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Price.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519634872237" expanded="true" signature="62:132" ph="/// &lt;summary&gt; ... " />
+            <marker date="1519634872237" expanded="true" signature="168:613" ph="{...}" />
+            <marker date="1519634872237" expanded="true" signature="300:607" ph="{...}" />
+            <marker date="1519634872237" expanded="true" signature="339:393" ph="{...}" />
+            <marker date="1519634872237" expanded="true" signature="435:530" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCarResponse/OKResponse.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519634872244" expanded="true" signature="55:133" ph="///     info model from success request  ... " />
+            <marker date="1519634872244" expanded="true" signature="185:472" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCarResponse/BlaBlaCarResponseModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding>
+            <marker date="1519634872242" expanded="true" signature="55:126" ph="/// &lt;summary&gt; ... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCarResponse/BadResponse.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519634872240" expanded="true" signature="55:129" ph="///     model of error from request  ... " />
+            <marker date="1519634872240" expanded="true" signature="182:236" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Trip.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="64" lean-forward="false" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+          <folding>
+            <marker date="1519634872239" expanded="true" signature="62:131" ph="/// &lt;summary&gt; ... " />
+            <marker date="1519634872239" expanded="true" signature="166:559" ph="{...}" />
+            <marker date="1519634872239" expanded="true" signature="255:553" ph="{...}" />
+            <marker date="1519634872239" expanded="true" signature="294:348" ph="{...}" />
+            <marker date="1519634872239" expanded="true" signature="387:477" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Pager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519634872236" expanded="true" signature="47:117" ph="/// &lt;summary&gt; ... " />
+            <marker date="1519634872236" expanded="true" signature="140:191" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/OKResponseModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="45" lean-forward="false" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+          <folding>
+            <marker date="1519634872233" expanded="true" signature="82:168" ph="/// &lt;summary&gt; ... " />
+            <marker date="1519634872233" expanded="true" signature="201:483" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Models/BlaBlaCar/Links.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519634872232" expanded="true" signature="40:197" ph="{...}" />
+            <marker date="1519634872232" expanded="true" signature="47:117" ph="/// &lt;summary&gt; ... " />
+            <marker date="1519634872232" expanded="true" signature="140:195" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EasyTravelWeb/Controllers/SearchController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <marker date="1519635832278" expanded="false" signature="6:165" ph="..." />
+            <marker date="1519635832278" expanded="true" signature="202:4186" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="209:275" ph="///     Controller for search ... " />
+            <marker date="1519635832278" expanded="true" signature="325:4184" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="612:683" ph="///    Default constructor ... " />
+            <marker date="1519635832278" expanded="true" signature="717:772" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="782:878" ph="///    Constructor with parameters for unit testing ... " />
+            <marker date="1519635832278" expanded="true" signature="974:1132" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="1142:1251" ph="/// Initialization of cities and places fields, if they are null ... " />
+            <marker date="1519635832278" expanded="true" signature="1289:1731" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="1331:1507" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="1540:1721" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="1741:2007" ph="/// Adds cities to suggestions ... " />
+            <marker date="1519635832278" expanded="true" signature="2110:2600" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="2200:2590" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="2275:2576" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="2483:2558" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="2610:2876" ph="/// Adds places to suggestions ... " />
+            <marker date="1519635832278" expanded="true" signature="2979:3470" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="3069:3460" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="3144:3446" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="3353:3428" ph="{...}" />
+            <marker date="1519635832278" expanded="true" signature="3480:3763" ph="/// Method for getting suggestion according to searchWord ... " />
+            <marker date="1519635832278" expanded="true" signature="3848:4178" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

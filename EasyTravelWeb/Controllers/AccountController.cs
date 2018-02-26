@@ -12,6 +12,8 @@ using EasyTravelWeb.Infrastructure.Validators;
 using EasyTravelWeb.Models;
 using EasyTravelWeb.Providers;
 using EasyTravelWeb.Results;
+using EasyTravelWeb.Repositories;
+using EasyTravelWeb.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -38,6 +40,17 @@ namespace EasyTravelWeb.Controllers
         ///    Aplication manager
         /// </summary>
         private ApplicationUserManager userManager;
+
+        /// <summary>
+        ///		Validator for first and last name
+        /// </summary>
+        private readonly IValidator<string> nameValidator =
+            new NameValidator();
+
+        /// <summary>
+        ///		Instance of UserRepository, using methods to do actions with database
+        /// </summary>
+        private readonly UserRepository userRepository = new UserRepository();
 
         private OAuthGrantResourceOwnerCredentialsContext _context;
 
@@ -144,6 +157,64 @@ namespace EasyTravelWeb.Controllers
         }
 
         /// <summary>
+        ///		Method for changing first name of a user
+        /// </summary>
+        /// <param name="id">Id of current user</param>
+        /// <param name="newFirstName">First name which will be updated in database</param>
+        /// <returns>result of chaning (Bad or Ok)</returns>
+        [HttpPost]
+        public async Task<IHttpActionResult> ChangeFirstName(ChangeFirstName model)
+        {
+            var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId<int>());
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest("The name is not Valid");
+            }
+
+            if (!this.nameValidator.IsValid(model.newFirstName))
+            {
+                return this.BadRequest("The name is not Valid");
+            }
+
+
+            if (this.nameValidator.IsValid(model.newFirstName))
+            {
+                this.userRepository.ChangeFirstName(user.Id, model.newFirstName);
+            }
+
+            return this.Ok();
+        }
+
+        /// <summary>
+        ///		Method for changing first name of a user
+        /// </summary>
+        /// <param name="id">Id of current user</param>
+        /// <param name="newLastName">Last name which will be updated in database</param>
+        /// <returns>result of chaning (Bad or Ok)</returns>
+        [HttpPost]
+        public async Task<IHttpActionResult> ChangeLastName(ChangeLastName model)
+        {
+            var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId<int>());
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest("The name is not Valid");
+            }
+
+            if(!this.nameValidator.IsValid(model.newLastName))
+            {
+                return this.BadRequest("The name is not Valid");
+            }
+
+            if (this.nameValidator.IsValid(model.newLastName))
+            {
+                this.userRepository.ChangeLastName(user.Id, model.newLastName);
+            }
+
+            return this.Ok();
+        }
+
+        /// <summary>
         ///    Controller for change User password
         /// </summary>
         // POST api/Account/ChangePassword
@@ -153,10 +224,27 @@ namespace EasyTravelWeb.Controllers
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
             if (!this.ModelState.IsValid) return this.BadRequest(this.ModelState);
+            var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId<int>());
 
-            IdentityResult result = await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId<int>(),
+            PasswordHasher passwordHasher = new PasswordHasher();
+            var verificationResult = passwordHasher.VerifyHashedPassword(user.PasswordHash, model.OldPassword);
+            
+            if (verificationResult != PasswordVerificationResult.Success)
+                return this.BadRequest("Old password doesnt match");
+
+            IdentityResult result;
+
+            if (!model.OldPassword.Equals(model.NewPassword))
+            {
+                result = await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId<int>(),
                 model.OldPassword,
                 model.NewPassword);
+            }
+
+            else
+            {
+                return this.BadRequest("Old Password match new Password pls");
+            }
 
             if (!result.Succeeded) return this.GetErrorResult(result);
 
@@ -186,10 +274,15 @@ namespace EasyTravelWeb.Controllers
         // POST api/Account/AddExternalLogin
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IHttpActionResult> AddExternalLogin([FromBody] FacebookUserViewModel fbUser)
+        public async Task<IHttpActionResult> AddExternalLogin([FromBody] ProviderInfo logInfo)
         {
            
             this.Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+
+            var verificator = new ExternalLoginVerificator();
+
+            var fbUser = await verificator.VerifyFacebookAccessToken(logInfo.AccessToken);
+            
             ApplicationUser user = await UserManager.FindByEmailAsync(fbUser.Email);
 
             if (user == null)
@@ -208,8 +301,17 @@ namespace EasyTravelWeb.Controllers
 
                 if (!result.Succeeded)
                     return Content(HttpStatusCode.BadRequest, "Something went wrong, please try later");
+                
+                await UserManager.AddLoginAsync(user.Id, new UserLoginInfo(logInfo.Provider, fbUser.ID));
             }
 
+            ApplicationUser existingUser = await UserManager.FindAsync(new UserLoginInfo(logInfo.Provider, fbUser.ID));
+
+            if (existingUser == null)
+            {
+                await UserManager.AddLoginAsync(user.Id, new UserLoginInfo(logInfo.Provider, fbUser.ID));
+            }
+            
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(this.UserManager,
                 OAuthDefaults.AuthenticationType);
 

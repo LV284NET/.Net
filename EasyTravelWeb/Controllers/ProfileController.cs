@@ -1,9 +1,7 @@
 ﻿using EasyTravelWeb.Repositories;
 using System.Web.Http;
 using System.Collections.Generic;
-using EasyTravelWeb.Infrastructure;
 using EasyTravelWeb.Models;
-using System;
 using System.Net;
 using EasyTravelWeb.Infrastructure.Validators;
 
@@ -26,17 +24,6 @@ namespace EasyTravelWeb.Controllers
         ///		Instance of RatingRepository, using methods to do actions with database
         /// </summary>
         private readonly RatingRepository ratingRepository = new RatingRepository();
-
-        /// <summary>
-        ///		Instance for stroring exceptions in file
-        /// </summary>
-        private readonly Logger logger = Logger.GetInstance();
-
-        /// <summary>
-        ///		Validator for first and last name
-        /// </summary>
-        private readonly IValidator<string> nameValidator =
-            new NameValidator();
 
         /// <summary>
         ///		Instance of PlaceRepository, using method to get favourite places for user from database
@@ -81,88 +68,13 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetUserInfo(int id)
         {
-            User user;
-            try
+            User user = this.userRepository.GetUser(id);
+
+            if (user == null)
             {
-                user = this.userRepository.GetUser(id);
-
-                if (user == null)
-                {
-                    return this.NotFound();
-                }
-
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-
-                return this.NotFound();
-            }
-            return this.Ok(user);
-        }
-
-        /// <summary>
-        ///		Method for changing first name of a user
-        /// </summary>
-        /// <param name="id">Id of current user</param>
-        /// <param name="firstName">First name which will be updated in database</param>
-        /// <returns>result of chaning (Bad or Ok)</returns>
-        [Authorize]
-        [HttpPost]
-        public IHttpActionResult ChangeFirstName(int id, string firstName)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.BadRequest();
-            }
-
-            if (this.nameValidator.IsValid(firstName))
-            {
-                try
-                {
-                    this.userRepository.ChangeFirstName(id, firstName);
-                }
-                catch (Exception ex)
-                {
-                    this.logger.AsyncLogException(ex);
-
-                    return this.BadRequest();
-                }
-            }
-
-            return this.Ok();
-        }
-
-        /// <summary>
-        ///		Method for changing first name of a user
-        /// </summary>
-        /// <param name="id">Id of current user</param>
-        /// <param name="lastName">Last name which will be updated in database</param>
-        /// <returns>result of chaning (Bad or Ok)</returns>
-        [Authorize]
-        [HttpPost]
-        public IHttpActionResult ChangeLastName(int id, string lastName)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.BadRequest();
-            }
-
-            if (this.nameValidator.IsValid(lastName))
-            {
-                try
-                {
-                    this.userRepository.ChangeLastName(id, lastName);
-                }
-                catch (Exception ex)
-                {
-                    this.logger.AsyncLogException(ex);
-
-                    return this.BadRequest();
-                }
-            }
-
-            return this.Ok();
+            return Ok(user);
         }
 
         /// <summary>
@@ -174,23 +86,13 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetFavoritePlaces(int id)
         {
-            try
+            List<Place> cityPlaces = this.placeRepository.GetFavoritePlaces(id);
+
+            if (cityPlaces == null)
             {
-                List<Place> cityPlaces = this.placeRepository.GetFavoritePlaces(id);
-
-                if (cityPlaces != null)
-                {
-                    return this.Ok(cityPlaces);
-                }
-
-                return this.NotFound();
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-
-                return this.NotFound();
-            }
+            return Ok(cityPlaces);
         }
 
         /// <summary>
@@ -202,20 +104,12 @@ namespace EasyTravelWeb.Controllers
         [HttpPost]
         public IHttpActionResult SetUserRatingForPlace([FromBody] UserPlaceRating userRating)
         {
-            try
+            if (this.ratingRepository.SetUserRatingForPlace(userRating))
             {
-                if (this.ratingRepository.SetUserRatingForPlace(userRating))
-                {
-                    return this.Ok();
-                }
+                return this.Ok();
+            }
 
-                return this.Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
-            }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
+            return this.Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
         }
 
         /// <summary>
@@ -227,20 +121,12 @@ namespace EasyTravelWeb.Controllers
         [HttpDelete]
         public IHttpActionResult DeleteUserRatingForPlace([FromBody] UserPlaceRating userRating)
         {
-            try
+            if (this.ratingRepository.DeleteUserRatingForPlace(userRating.UserId, userRating.PlaceId))
             {
-                if (this.ratingRepository.DeleteUserRatingForPlace(userRating.UserId, userRating.PlaceId))
-                {
-                    return Ok();
-                }
+                return Ok();
+            }
 
-                return this.Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
-            }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
+            return this.Content(HttpStatusCode.BadRequest, "Something was wrong. Try again");
         }
 
         /// <summary>
@@ -253,15 +139,7 @@ namespace EasyTravelWeb.Controllers
         [HttpGet]
         public IHttpActionResult GetUserRatingOfPlace(int userId, long placeId)
         {
-            try
-            {
-                return this.Ok(this.ratingRepository.GetUserRatingOfPlace(userId, placeId));                
-            }
-            catch (Exception ex)
-            {
-                this.logger.AsyncLogException(ex);
-                return this.InternalServerError();
-            }
+            return this.Ok(this.ratingRepository.GetUserRatingOfPlace(userId, placeId));                
         }
 
         #endregion
